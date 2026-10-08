@@ -32,24 +32,19 @@ KL 覆盖**所有 next-token 位置和整个词表**。`chunk=32` 是词表头�
 
 三值编码的信息量下界是 `log2(3) ≈ 1.585 bit`。本实现 5 个三值/字节，编码约 1.6 bit/权重，另有每组 BF16 尺度和保留的高精度权重，**整模型不是恰好 1.58bit**。
 
-## 硬件：不限定 B300，但 8×5090 不能直接跑这一版全权重训练
+## 硬件：2×B300
 
 Qwen3.5-35B-A3B 有约 322 亿专家权重。本代码每个专家权重保存 FP32 主权重、FP32 梯度、两个 FP32 Adam 动量，共 16 字节：**仅专家训练状态约 480GiB**，还要加保留权重、激活和临时网格。
 
-| 配置 | 本实现状态 |
-|---|---|
-| 2×B300，约 288GB/卡 | 原实验已完成全 40 层、80 个专家权重张量的两步训练与导出重放；教学入口尚未重新完成整模型运行 |
-| 8×RTX 5090，32GB/卡 | 总显存约 256GiB，无法容纳当前完整 FP32 训练状态；启动检查会拒绝，避免盲目 OOM |
-| 8×5090 + 大内存 CPU | 需要增加 CPU optimizer/gradient offload 和分片优化器；**本代码没有实现或验证** |
-| 单张 5090 | 原实验完整 122B MoE 量化推理可运行；不等于能在单卡上训练全部 122B 权重 |
+本仓库的运行方案是 **2×B300，约 288GB/卡**。原实验已完成全 40 层、80 个专家权重张量的两步训练与导出重放；教学入口尚未重新完成整模型运行。两步控制实验每卡峰值约 248GiB，长程训练还需验证。
 
 显存不会自动成为一块连续的大内存。本实现把完整层放到指定卡上，需每卡同时容纳该卡对应的训练状态；它没有 DDP/FSDP/ZeRO，也没有 CPU 缓存或权重卸载。
 
-NVIDIA 规格：[RTX 5090 32GB](https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/)、[HGX B300 288GB/卡](https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory/latest/components.html)。CPU 内存不是上述 480GiB GPU 状态的替代品。检查点逐张量拷贝到 CPU，35B 单个最大张量及两个动量约需 6GiB 主机临时空间；此外要预留 Python、数据和文件缓存空间。
+NVIDIA 规格：[HGX B300 288GB/卡](https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory/latest/components.html)。检查点逐张量拷贝到 CPU，35B 单个最大张量及两个动量约需 6GiB 主机临时空间；此外要预留 Python、数据和文件缓存空间。
 
 完整优化器检查点约 **360GiB/份**。默认每 512 步保存一份，4096 步约 2.8TiB 检查点空间，另加原模型、约 66GiB 教师目标和输出。代码保留所有检查点。磁盘较小可增大 `--checkpoint-every`，但中断后丢失的工作会更多。
 
-## 在远程 Linux CUDA 机器上运行
+## 在 Linux 的 2×B300 上运行
 
 已用的实验环境：Python 3、Torch 2.11.0 + CUDA 13.0、Transformers 5.12.1。`requirements.txt` 固定了 Torch/Transformers 版本；CUDA wheel 请按机器环境选择，已有匹配环境可直接复用。代码不包含 SSH、机器地址、令牌、模型或数据。
 
