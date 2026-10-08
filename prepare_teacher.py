@@ -1,7 +1,6 @@
 """Precompute original BF16 normalized states; no teacher weights during QAT."""
 import argparse,hashlib,json
 from pathlib import Path
-import numpy as np
 import torch
 from model import TextModel
 
@@ -23,12 +22,12 @@ def main():
     with torch.inference_mode(),torch.autocast('cuda',dtype=torch.bfloat16):
         for split in ('train','val'):
             path=out/f'{split}.bin'; shape=(len(tokens[split]),metadata['seq_len'],metadata['hidden_size'])
-            array=np.memmap(path,dtype=np.uint16,mode='w+',shape=shape)
-            for i,ids in enumerate(tokens[split]):
-                states=model(ids[:-1][None]).detach().cpu().contiguous()
-                assert states.dtype==torch.bfloat16 and torch.isfinite(states).all()
-                array[i]=states.view(torch.uint16).numpy()[0]; print(f'{split} {i+1}/{len(tokens[split])}',flush=True)
-            array.flush(); del array
+            with path.open('wb') as writer:
+                for i,ids in enumerate(tokens[split]):
+                    states=model(ids[:-1][None]).detach().cpu().contiguous()
+                    assert states.dtype==torch.bfloat16 and torch.isfinite(states).all()
+                    writer.write(states.view(torch.uint16).numpy().tobytes())
+                    print(f'{split} {i+1}/{len(tokens[split])}',flush=True)
             metadata['splits'][split]={'shape':shape,'sha256':sha(path)}
     (out/'metadata.json').write_text(json.dumps(metadata,indent=2))
 if __name__=='__main__': main()
