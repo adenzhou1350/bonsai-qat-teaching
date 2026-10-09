@@ -51,9 +51,51 @@
     "training_process_exit_code": 0
   },
   "quality_accepted": false,
-  "independent_numeric_checks_complete": false,
+  "independent_numeric_checks_complete": true,
   "single_5090_speed_verified_for_this_artifact": false,
   "portable_training_recipe_included": false,
   "weights_included": false,
-  "limits": "Training and export evidence only. Separate independent validation, cached-runtime checks, capability evaluation and new-artifact single5090 speed remain pending. This artifact is distinct from the old artifact accepted by infer.py."
+  "limits": "Training, export and independent numerical checks completed. Chinese/format public development result46/48 fails the fixed48/48 target; other capability panels and this new artifact five-context speed remain pending. Distinct from the old artifact accepted by infer.py. Numerical checks do not establish capability acceptance.",
+  "independent_numeric_checks": {
+    "B300_reloaded_validation128": {
+      "rows": 128,
+      "positions": 524160,
+      "every_row_exactly_matches_training": true,
+      "summary_sha256": "63ac1998fe3b8cfd861468405ab15eb83d3ee55696f02daad649ea9e7c9e3bd3",
+      "exit_code": 0
+    },
+    "B300_cached_runtime": {
+      "layer_checks": 768,
+      "whole_model_checks": 16,
+      "max_layer_relative_l2": 0.0,
+      "max_whole_relative_l2": 1.6663378119119443e-05,
+      "cached_argmax_equal_count": 16,
+      "NLL_difference": 0.00039674119523169793,
+      "summary_sha256": "8c3fa9e4c35812dae7a31b87614ed2cb06fdf361f786bf4274e5ba15b385ba79",
+      "exit_code": 0
+    },
+    "single_RTX_5090_cached_runtime": {
+      "layer_checks": 768,
+      "whole_model_checks": 16,
+      "max_layer_relative_l2": 0.0,
+      "max_whole_relative_l2": 0.0,
+      "cached_argmax_equal_count": 16,
+      "NLL_difference": 0.000358626042952892,
+      "peak_cuda_allocated_bytes": 30498338816,
+      "summary_sha256": "d85a59cd6a6f90c49093b8a69c7303316abb095bb68c0cff5db301f3e98c734d",
+      "exit_code": 0
+    }
+  },
+  "public_development_evaluation": {
+    "observed_at_utc": "2026-10-09T11:08:23Z",
+    "cn_format": {
+      "completed": 48,
+      "passes": 46,
+      "fixed_acceptance_threshold": 48,
+      "accepted": false,
+      "summary_sha256": "407fb950a51068733f89bb51228b213dd2c37f92db42afee3187889eeb5c1630"
+    },
+    "other_panels": "CMMLU, GSM8K and HumanEval still running; partial scores omitted",
+    "quality_accepted": false
+  }
 }
