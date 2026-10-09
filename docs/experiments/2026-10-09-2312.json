@@ -1,0 +1,90 @@
+{
+  "format": "teaching-deployment-milestone-v1",
+  "observed_at_utc": "2026-10-09T15:12:06.196341+00:00",
+  "experiment": "R122-native4095-single-worker-request-graph-reuse",
+  "completed": true,
+  "actual_exit_code": 0,
+  "owned_process_group_empty": true,
+  "source_policy_sha256": "af09b02670baf54d27e76ab36bc3ab9f6097aaa14709bb61a20f590f687b7e61",
+  "source_count": 29,
+  "exact_published_sources": 26,
+  "new_module_sha256": "89c8c85ed454ad6c090536a237be03df09f6c0879ba911b5e71377bfedc05132",
+  "probe_sha256": "e507cc1b5f8dc9a59215e323df5a667e15af169e4d28beb4a47580045f36cf1a",
+  "summary_sha256": "b083407f44fd9da161101404242ae4d32b244452478a04484e1d89e36608942c",
+  "terminal_sha256": "e2b2df202bcee33dfc3fee1cad8a680d617f1a62f5f1bfbc7abb0b91bcb55794",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "unique_CUDA_text_storage_bytes": 30171940608,
+  "memory_after_load": {
+    "allocated_bytes": 30171964416,
+    "reserved_bytes": 30184308736,
+    "peak_allocated_bytes": 30171964928,
+    "peak_reserved_bytes": 30184308736,
+    "device_total_bytes": 33671348224,
+    "device_used_bytes_at_observation": 30818893824
+  },
+  "batch_size": 1,
+  "max_cache_len": 1536,
+  "prompt_ids": [
+    "cn",
+    "math",
+    "code"
+  ],
+  "input_token_counts": {
+    "cn": 27,
+    "math": 40,
+    "code": 39
+  },
+  "repeats_per_prompt_and_mode": 3,
+  "compared_requests": 27,
+  "total_emitted_tokens_compared": 2592,
+  "all_output_token_ids_equal_current_entry": true,
+  "eos_stopping_enabled": true,
+  "all_requests_hit_generation_cap96": true,
+  "complete_answers_verified": false,
+  "aggregates": {
+    "current_double_prepare": {
+      "requests": 9,
+      "generated_tokens": 864,
+      "summed_request_seconds": 84.64157742727548,
+      "aggregate_end_to_end_tokens_per_second": 10.207749267697116,
+      "median_first_token_seconds": 6.05784700717777,
+      "steady_requests": 9,
+      "steady_aggregate_end_to_end_tokens_per_second": 10.207749267697116,
+      "steady_median_first_token_seconds": 6.05784700717777,
+      "maximum_peak_allocated_bytes": 30693765632,
+      "maximum_observed_device_used_bytes": 31720669184
+    },
+    "fresh_single_prepare": {
+      "requests": 9,
+      "generated_tokens": 864,
+      "summed_request_seconds": 56.74175817053765,
+      "aggregate_end_to_end_tokens_per_second": 15.226881010687816,
+      "median_first_token_seconds": 2.909798693843186,
+      "steady_requests": 9,
+      "steady_aggregate_end_to_end_tokens_per_second": 15.226881010687816,
+      "steady_median_first_token_seconds": 2.909798693843186,
+      "maximum_peak_allocated_bytes": 30770442752,
+      "maximum_observed_device_used_bytes": 31909412864
+    },
+    "reuse_graph": {
+      "requests": 9,
+      "generated_tokens": 864,
+      "summed_request_seconds": 45.49442069698125,
+      "aggregate_end_to_end_tokens_per_second": 18.991339745915923,
+      "median_first_token_seconds": 1.5244442038238049,
+      "steady_requests": 8,
+      "steady_aggregate_end_to_end_tokens_per_second": 19.57484056186626,
+      "steady_median_first_token_seconds": 1.519921242725104,
+      "maximum_peak_allocated_bytes": 30778962432,
+      "maximum_observed_device_used_bytes": 31940870144
+    }
+  },
+  "timing_excludes_initial_model_load": true,
+  "comparison_order": "warmup then three modes in fixed order, each with three passes over the same three prompts",
+  "requests_executed_serially": true,
+  "concurrent_service_throughput_verified": false,
+  "user_accepts_current_artifact_for_deployment": true,
+  "quality_noninferiority_accepted": false,
+  "reserved_inputs_opened": false,
+  "limits": "Same artifact, three authored short prompts, three repeats per mode, fixed cap96 with EOS stopping enabled but never reached. Measures request prefill/capture plus decoding, excludes initial model loading. Graph reuse holds one graph and fixed cache addresses; all2592 output token IDs match current entry. Not capability evaluation, full-answer quality or concurrent service throughput."
+}

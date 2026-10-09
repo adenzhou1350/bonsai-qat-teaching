@@ -93,6 +93,8 @@ HumanEval 本轮 1 个不支持样本仍计入 164 分母，另一个历史原�
 
 两个不支持的 HumanEval 样本保留在 164 分母内。质量门槛未通过，保留测试保持关闭。模型权重、完整数据修订/采样清单及独立评分流水线尚未随仓库发布，因此目前不能仅凭 clone 重建 122B 产物或复制全部质量数字。
 
+项目使用者现已接受 122B 当前量化效果，后续优先优化部署性能，历史质量成绩继续保留。新增[常驻请求入口](experimental122/README.md#常驻模型与跨请求-graph-复用)已通过独立新进程验证；短请求对照的首 token 中位数约 **6.06 → 1.52 秒**，包含准备的串行请求吞吐约 **10.21 → 18.99 tokens/s**，输出 token 全部相同。见[显存、计时范围与限制](docs/experiments/INFERENCE.md#122b部署优化与显存口径)。
+
 查看原始证据：[35B 记录](docs/experiments/35B.md) · [8192 步完成节点](docs/experiments/2026-10-09-2110.json) · [独立重载](docs/experiments/2026-10-09-2129.json) · [B300 缓存检查](docs/experiments/2026-10-09-2132.json) · [35B 5090 缓存与 Graph](docs/experiments/2026-10-09-2156.json) · [122B 训练与质量](experimental122/native4095-training-result.json) · [122B 5090 实测](experimental122/native4095-verified-run.json)
 
 [初始状态快照](docs/experiments/2026-10-09.json)与[后续完成节点](docs/experiments/README.md)保留每个时点的真实状态，旧快照不改写成后来的结果；机器地址、PID 和凭证不写入公开记录。

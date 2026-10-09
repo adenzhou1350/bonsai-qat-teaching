@@ -101,3 +101,21 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/infer.py \
 | 16384 | 19.01 | 32,494,375,424 |
 
 五档均完成固定 64-token Graph/静态 token ID 一致检查。去重后 CUDA 文本权重及缓冲存储为 30,171,940,608 字节，无 CPU 权重卸载。速度只计解码，排除预填充与 Graph 录制，每档一个计时样本；中文控制只生成最多 32 token，用于确认入口执行。以上没有验证并发服务或长上下文能力，质量失败仍保留。
+
+## 常驻模型与跨请求 Graph 复用
+
+新增 [run_requests.py](run_requests.py) 一次加载 native4095，串行读取 JSONL 请求，复用同一个 CUDA Graph。原 `infer.py` 与 25 个原始 runtime 模块保持原样；新增模块身份在 [request-reuse-provenance.json](request-reuse-provenance.json)。它不更改量化权重、路由或算子精度。
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests.py \
+  --model models/qwen35-122b-native4095-packed \
+  --requests experimental122/examples/deployment-requests.jsonl \
+  --max-new-tokens 96 --max-cache-len 1536 \
+  --output outputs/122b-resident-requests.json
+```
+
+每行格式为 `{"prompt":"你的问题"}`。请求按 EOS 或输出上限停止；每次重置缓存并预填充，首次录制 Graph，后续复用固定地址。输出记录首 token 延迟、完整请求耗时、显存及 token ID。选择新的输出文件；已存在的结果会被拒绝覆盖。
+
+在三条短提示词、每种模式重复三次的相同权重对照中，首 token 中位数约 **6.06 → 1.52 秒**，包含准备时间的串行请求吞吐约 **10.21 → 18.99 tokens/s**；全部 2592 个输出 token ID 相同。独立新进程再次执行以上新入口，三条请求的 288 个输出 token 与旧路径相同，正常退出。详见[计时范围与完整记录](../docs/experiments/INFERENCE.md#122b部署优化与显存口径)。
+
+这些请求都达到 96-token 上限，没有测到 EOS；不是完整回答质量成绩。模型加载不计入请求吞吐，纯解码仍约 28 tokens/s。固定缓存容量 1536 的短请求已验证，更大容量尚未在复用路径验证。该入口是单 worker 串行执行，不是多请求 batch 或并发 HTTP 服务。

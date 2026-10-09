@@ -1,0 +1,25 @@
+{
+  "format": "verified122-resident-request-CLI-provenance-v1",
+  "file_sha256": {
+    "experimental122/run_requests.py": "7c673414f839832f71bdd2c45b439e1dae9a6cd174b2fac44f1d7347fd3b37e0",
+    "experimental122/runtime/reusable122_graph_decoder_v1.py": "89c8c85ed454ad6c090536a237be03df09f6c0879ba911b5e71377bfedc05132",
+    "experimental122/examples/deployment-requests.jsonl": "7e1fbe4c2e5488a6a28a94ecc9e20e3603ae538d8e2395915c9828b23376e0fd"
+  },
+  "existing26_python_files_unchanged": true,
+  "original_runtime_provenance": "runtime-provenance.json",
+  "source_policy_sha256": "9363342bb0d40f9b4aaf739d017cadee543a198907ac8d2c65ce949bd25a3e89",
+  "actual_control_summary_sha256": "d59bbd9913e91525139606b7e75302792484c3571faf11cf602fe41324006ded",
+  "actual_terminal_sha256": "6f0a6ba291142e5411743529bad7ddbad96e0077b95578787a0b033949ceaff7",
+  "actual_CLI_exit_code": 0,
+  "all288_emitted_tokens_equal_current_entry": true,
+  "graph_capture_count": 1,
+  "graph_reuse_count": 2,
+  "verified_capacity": 1536,
+  "verified_request_input_tokens": [
+    27,
+    40,
+    39
+  ],
+  "verified_generation_cap": 96,
+  "limitations": "Resident single worker only. Model weights excluded. Baseline quality scores unchanged. Larger cache capacities, complete answers, concurrent serving and batching not verified by this CLI control."
+}

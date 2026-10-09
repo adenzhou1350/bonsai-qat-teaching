@@ -2,7 +2,7 @@
   "format": "teaching-code-reproducibility-manifest-v1",
   "recorded_date": "2026-10-09",
   "verified_code_base_commit": "2480c22af4662ea663fa31264ed45e7a2db85a94",
-  "scope": "Executable code unchanged from verified_code_base_commit. Documentation reorganized separately; identities hash UTF-8 text bytes after CRLF-to-LF canonicalization, allowing native Windows/Linux checkouts.",
+  "scope": "Listed legacy executable files remain unchanged from verified_code_base_commit. Added resident-request CLI and graph reuse module have separate identities and GPU evidence in experimental122/request-reuse-provenance.json. Hashes use UTF-8 text bytes after CRLF-to-LF canonicalization.",
   "file_sha256": {
     "checkpoint.py": "8a1ac396c3b7f989d2804847519f33d1e635c70c1dfcbe735646af02b03af090",
     "experimental122/infer.py": "aa1864b08adbf5375e776ed2940c004f66daf993897a3d20bfde5514e6621a71",
