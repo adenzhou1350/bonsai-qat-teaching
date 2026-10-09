@@ -68,7 +68,7 @@ CUDA_VISIBLE_DEVICES='' python test_equations.py
 | 实验 | 已有证据 | 尚不能得出的结论 |
 |---|---|---|
 | **T35：35B 全专家 QAT** | 全 40 层两步控制、80 个专家梯度、完整检查点和导出核验通过 | 长程质量尚未完成；不能用补偿路线的成绩替代 |
-| **R35-8192：35B rank-16 补偿** | 8192 步更新、40 层导出、独立 128 条 VAL 重载与 B300 缓存检查完成 | 5090 跨设备检查与完整开发评测仍待完成 |
+| **R35-8192：35B rank-16 补偿** | 8192 步更新、40 层导出、独立 128 条 VAL 重载、B300/5090 缓存及五档 Graph 检查完成 | 完整开发评测仍待完成，尚未认定能力恢复 |
 | **R122-native4095：122B rank-8 补偿** | 4096 步训练、独立数值检查、5090 五档推理对照完成 | 四组公开开发评测均低于对应 BF16 原模型，质量未通过 |
 
 122B 新版在 128/512/4K/8K/16K 上下文的已记录解码速度约 **19–29 tokens/s**，文本权重与缓冲全部驻留单张 RTX 5090，无 CPU 权重卸载。口径是每档一个样本、固定 64-token 解码，排除预填充与 Graph 录制；不代表端到端吞吐、并发服务或长上下文能力。
@@ -82,7 +82,7 @@ CUDA_VISIBLE_DEVICES='' python test_equations.py
 
 两个不支持的 HumanEval 样本保留在 164 分母内。质量门槛未通过，保留测试保持关闭。模型权重、完整数据修订/采样清单及独立评分流水线尚未随仓库发布，因此目前不能仅凭 clone 重建 122B 产物或复制全部质量数字。
 
-查看原始证据：[35B 记录](docs/experiments/35B.md) · [8192 步完成节点](docs/experiments/2026-10-09-2110.json) · [独立重载](docs/experiments/2026-10-09-2129.json) · [B300 缓存检查](docs/experiments/2026-10-09-2132.json) · [122B 训练与质量](experimental122/native4095-training-result.json) · [5090 实测](experimental122/native4095-verified-run.json)
+查看原始证据：[35B 记录](docs/experiments/35B.md) · [8192 步完成节点](docs/experiments/2026-10-09-2110.json) · [独立重载](docs/experiments/2026-10-09-2129.json) · [B300 缓存检查](docs/experiments/2026-10-09-2132.json) · [35B 5090 缓存与 Graph](docs/experiments/2026-10-09-2156.json) · [122B 训练与质量](experimental122/native4095-training-result.json) · [122B 5090 实测](experimental122/native4095-verified-run.json)
 
 [初始状态快照](docs/experiments/2026-10-09.json)与[后续完成节点](docs/experiments/README.md)保留每个时点的真实状态，旧快照不改写成后来的结果；机器地址、PID 和凭证不写入公开记录。
 
