@@ -104,3 +104,5 @@
 - [48 层 vLLM 专家与路由 GPU 组件验证](../../experimental122/vllm-expert-component-evidence.json)：96 bank、288/288 组输出逐位一致；完整引擎另行验证。
 
 - [完整 vLLM eager/图模式与实际教学 CLI 验证](../../experimental122/vllm-engine-evidence.json)：短请求完整输出一致，图回放确实执行，无 CPU offload；更广质量、长输入、并发和部署吞吐另行验证。
+
+- [原生与完整 vLLM 图模式四轮对照及全程显存](2026-10-10-0557-native-vllm.json)：7,520 输出 ID 一致，合计吞吐 15.82→18.19 tokens/s（+14.96%）；全程采样 used 29.18/29.76 GiB，驱动另计。

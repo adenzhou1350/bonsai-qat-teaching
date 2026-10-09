@@ -147,4 +147,6 @@ vLLM 适配新增可复刻的 dense/embedding GPU 检查：**691/691 组输出�
 
 48 层 vLLM 专家与路由组件也已全部完成 GPU 对照：**288/288 组输出逐位一致**，[专家证据](experimental122/vllm-expert-component-evidence.json)。随后完整引擎短请求也已完成验证，见下。
 
-完整 vLLM 0.24.0 压缩模型加载、注意力/GDN 缓存和文本生成已在单卡 5090 跑通；教学 CLI 的 eager 与 decode 图模式共 **470 个输出 ID 与原生入口一致**。模型权重与 buffer 常驻 **28.22 GiB**，无 CPU offload；运行空间另计。图回放已确认，稳定吞吐提升尚待相同配置多轮对照。[直接运行命令与范围](experimental122/README.md#vllm-完整引擎短请求与图回放验证完成)。
+完整 vLLM 0.24.0 压缩模型加载、注意力/GDN 缓存和文本生成已在单卡 5090 跑通；教学 CLI 的 eager 与 decode 图模式共 **470 个输出 ID 与原生入口一致**。模型权重与 buffer 常驻 **28.22 GiB**，无 CPU offload；运行空间另计。图回放已确认，原生与 vLLM 的四轮短请求对照已完成，结果见下。[直接运行命令与范围](experimental122/README.md#vllm-完整引擎短请求与图回放验证完成)。
+
+原生与完整 vLLM 图模式的四轮对照完成：固定32请求的含预填充合计吞吐 **15.82 → 18.19 tokens/s（+14.96%）**，7,520 输出 ID 一致。全程 NVML used 已采样峰值分别 **29.18/29.76 GiB**，驱动另约 0.48 GiB；两者缓存布局不同，完整边界和采样间隔见[四轮记录](docs/experiments/2026-10-10-0557-native-vllm.json)。

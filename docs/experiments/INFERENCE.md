@@ -382,4 +382,22 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests.py \
 
 默认 max-model-len1536、cap64、max-num-seqs1、KV/mamba 预算512MiB。该入口目前限制输入不超过128 token；更长输入、分块边界、并发/连续批处理、HTTP 和视觉另行验证。图模式只捕获 decode batch1，预填充保留 eager；计数选项用于确认实际回放，带计数的请求时间只作诊断。首次推理还可能触发 JIT，完整吞吐需使用相同设置另做多轮对照。
 
-vLLM 的模型唯一 CUDA storage 为 **30,306,158,272 字节（28.2248 GiB）**，原生为28.0998 GiB；这是权重与 buffer，不含全部缓存、临时空间或驱动保留。结果 JSON 的 allocator 峰值和请求末设备观察也不能当成全生命周期 NVML 采样峰值。现有原生 `compare_requests.py` 还要求相同的模型 storage，因此跨原生/vLLM时应核对 manifest、输入 token 数、完整输出 IDs 和 EOS，并单列 buffer/缓存配置差异。完整引擎四类短请求已验证，尚未建立相对原生部署入口的稳定吞吐提升；默认原生入口保持不变。
+vLLM 的模型唯一 CUDA storage 为 **30,306,158,272 字节（28.2248 GiB）**，原生为28.0998 GiB；这是权重与 buffer，不含全部缓存、临时空间或驱动保留。结果 JSON 的 allocator 峰值和请求末设备观察也不能当成全生命周期 NVML 采样峰值。现有原生 `compare_requests.py` 还要求相同的模型 storage，因此跨原生/vLLM时应核对 manifest、输入 token 数、完整输出 IDs 和 EOS，并单列 buffer/缓存配置差异。完整引擎四类短请求与下述四轮吞吐对照均已完成；默认原生入口保持不变。
+
+## 原生与完整 vLLM 图模式：四轮吞吐及全程显存对照完成
+
+同一新版权重、32 个换序请求、greedy cap64，按原生 / vLLM / vLLM / 原生各开一个全新进程。四轮全部正常退出，**7,520 个完整输出 ID、输入长度及 EOS 均一致**；真实输出与四条 NVML 原始采样流下载后，已在独立本地进程重新核对并重算。
+
+| 口径 | 原生串行 CUDA Graph | 完整 vLLM decode 图模式 |
+|---|---:|---:|
+| 含预填充的合计输出吞吐 | 15.8197 tokens/s | 18.1859 tokens/s |
+| 全生命周期最大已采样 NVML used | 29.1808 GiB | 29.7609 GiB |
+| 模型权重与 buffer | 28.0998 GiB | 28.2248 GiB |
+
+本组吞吐观测变化 **+14.957%**；A/B、D/C 配对分别 +15.363%、+14.552%。驱动另保留约 **0.4839 GiB**。NVML v2 used 不含这部分驱动保留；采样从加载前延续到推理进程退出之后，目标间隔20ms，共独立重算 42,660 个样本，实际间隔/最小剩余显存/原始流 SHA 都在[完整记录](2026-10-10-0557-native-vllm.json)。采样可能漏掉更快瞬态，不把观察值当连续真实峰值。
+
+![四轮全程显存与请求吞吐](2026-10-10-0557-native-vllm.svg)
+
+两者均串行单请求，原生固定 cache1536，vLLM max-model-len1536、显式512MiB KV/mamba 缓存、batch1 decode 图，预填充 eager。引擎的模型派生 buffer 和缓存布局不同，这不是相同内存预算的内核消融；同机另卡仍有训练。这是四类作者自编问题重复换序、固定次序 ABBA，尚非随机化、长输入、HTTP、连续批处理或普遍性能证明；默认原生入口保持不变。
+
+复刻使用公开 `shared-head-requests32.jsonl`，分别运行 `run_requests.py --max-cache-len 1536 --max-new-tokens 64` 与 `run_vllm_requests.py --decode-graph --kv-cache-mib 512 --max-model-len 1536 --max-new-tokens 64`，按 A/B/B/A 各开新进程和新输出路径。测速候选关闭 `--audit-graph-replays`；实际回放在同源码的独立数值控制里已验证。模型加载/分词/JSON 写入不计入请求时间，预填充和请求内图操作计入。不同实验的加速百分比不相加。
