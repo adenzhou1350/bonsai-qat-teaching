@@ -392,3 +392,26 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/validate_vllm_dense_embedding.py \
 该入口验证独立组件，尚未构成完整 vLLM 模型加载器、注意力/缓存、引擎生成或吞吐验证。专家运行时一起提供是为了复刻依赖；48 层专家的独立 GPU 对照随后也已全部完成，结果见下。验证过程中持有 BF16 参考权重，其 allocator 峰值不能用于估计部署显存。完整引擎验证通过前，部署继续使用已有原生推理/B4 入口。
 
 48 层专家的实际 GPU 组件对照现已完成：全部 96 个 bank、每 bank 256 个专家的权重解包逐位一致；48 个实际 `RoutedExperts` 的 192 组独立参考输出，加 96 组实际路由输出，共 **288/288 组逐位一致、相对 L2 为 0**，进程正常退出，文件与终态已独立复查。[专家与路由证据](vllm-expert-component-evidence.json)。该检查尚未执行完整 `MoERunner` 的共享专家相加或完整引擎生成；实际完整引擎集成另行验证。
+
+## vLLM 完整引擎：短请求与图回放验证完成
+
+完整的[压缩模型加载器](runtime/bonsai_native122_vllm_model_loader_v1593.py)与[参数化运行入口](run_vllm_requests.py)现已提供。实际完整 vLLM 0.24.0 引擎已在单张 RTX 5090 上运行，覆盖压缩 embedding、全部 48 层专家、373 个 dense bank、共享专家、原生 vLLM 注意力与 GDN 状态缓存、压缩输出头。加载后 361 个保留张量的值及 dtype 与 manifest 完全一致，模型权重与 buffer 均在 GPU，无 CPU offload，无持久 BF16 专家/embedding/输出头展开。
+
+四个作者自编短问题的输入分别为 27/40/39/103 token，greedy cap64，EOS 保持一致：初次 eager 完成 235 个输出 ID、图模式两轮完成 470 个 ID，全部与预先保存的原生入口输出相同。图模式实际创建一张 batch1 decode 图，并观察到 464 次图回放。之后直接使用本仓库的同一参数化入口，分别在新进程重跑 eager 和 graph，**合计 470 个输出 ID 再次全一致**，两进程正常退出。源码 56 文件的 SHA 与实际 GPU bundle 一致。[可复刻入口的完整证据](vllm-engine-evidence.json)，[初次 eager 证据](vllm-eager-engine-evidence.json)，[初次图回放证据](vllm-decode-graph-evidence.json)，[源码身份](vllm-engine-provenance.json)。
+
+```bash
+# 取既有公开 fixture 的前四条，复刻同一短请求集合。
+python -c "from pathlib import Path; p=Path('experimental122/examples/shared-head-requests32.jsonl'); Path('requests4.jsonl').write_text(''.join(p.read_text(encoding='utf-8').splitlines(keepends=True)[:4]), encoding='utf-8')"
+
+# output 为新目录；两个入口使用相同的 512MiB KV/mamba 缓存预算。
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests.py \
+  --model models/qwen35-122b-experimental-packed --requests requests4.jsonl \
+  --output outputs/vllm-eager
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests.py \
+  --model models/qwen35-122b-experimental-packed --requests requests4.jsonl \
+  --output outputs/vllm-graph --decode-graph --audit-graph-replays
+```
+
+默认 max-model-len1536、cap64、max-num-seqs1、KV/mamba 预算512MiB。该入口目前限制输入不超过128 token；更长输入、分块边界、并发/连续批处理、HTTP 和视觉另行验证。图模式只捕获 decode batch1，预填充保留 eager；计数选项用于确认实际回放，带计数的请求时间只作诊断。首次推理还可能触发 JIT，完整吞吐需使用相同设置另做多轮对照。
+
+vLLM 的模型唯一 CUDA storage 为 **30,306,158,272 字节（28.2248 GiB）**，原生为28.0998 GiB；这是权重与 buffer，不含全部缓存、临时空间或驱动保留。结果 JSON 的 allocator 峰值和请求末设备观察也不能当成全生命周期 NVML 采样峰值。现有原生 `compare_requests.py` 还要求相同的模型 storage，因此跨原生/vLLM时应核对 manifest、输入 token 数、完整输出 IDs 和 EOS，并单列 buffer/缓存配置差异。完整引擎四类短请求已验证，尚未建立相对原生部署入口的稳定吞吐提升；默认原生入口保持不变。

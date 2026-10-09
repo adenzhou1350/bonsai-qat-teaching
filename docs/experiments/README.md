@@ -102,3 +102,5 @@
 - [vLLM dense/embedding 实际 GPU 组件验证](../../experimental122/vllm-dense-component-evidence.json)：229 模块、373 dense bank、691/691 组输出逐位一致；独立组件完成，完整引擎仍待验证。
 
 - [48 层 vLLM 专家与路由 GPU 组件验证](../../experimental122/vllm-expert-component-evidence.json)：96 bank、288/288 组输出逐位一致；完整引擎另行验证。
+
+- [完整 vLLM eager/图模式与实际教学 CLI 验证](../../experimental122/vllm-engine-evidence.json)：短请求完整输出一致，图回放确实执行，无 CPU offload；更广质量、长输入、并发和部署吞吐另行验证。
