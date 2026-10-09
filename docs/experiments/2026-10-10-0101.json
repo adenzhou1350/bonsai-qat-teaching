@@ -1832,5 +1832,7 @@
   "owned_process_group_empty": true,
   "decoded_elements_compared": 5284823040,
   "adopted_as_default": false,
-  "actual_model_ABBA_validation": "running in separate source35 experiment; no full-model speedup claim yet"
+  "actual_model_ABBA_validation": "completed; see2026-10-10-0123.json; no observed end-to-end acceleration",
+  "actual_model_ABBA_status_at_original_recording": "running in separate source35 experiment; no full-model speedup claim yet",
+  "actual_model_ABBA_completed_evidence": "2026-10-10-0123.json"
 }

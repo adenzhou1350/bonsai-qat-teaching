@@ -1,0 +1,15 @@
+{
+  "format": "optional-native122-exact-launch-geometry-experiment-v1",
+  "file_sha256": {
+    "experimental122/run_requests_tuned_geometry.py": "5a977c65c283a2883b99d1d01b2494560ef45ea9150875ade0ba4bdda191badf",
+    "experimental122/runtime/tune122_decode_geometry_v1.py": "ba9b46b30a3854d04d24d25e8d85c4a7e902f14435ec98632d0b265fa2fb4195"
+  },
+  "same_bytes_as_actual_GPU_execution": true,
+  "completed_evidence": "../docs/experiments/2026-10-10-0123.json",
+  "full_request_source35_policy_sha256": "dd5ab45aa488c996034d05f06dd266d06203dd04c239b3e510e07b86a04dfb85",
+  "independent_numerics_source34_policy_sha256": "2397fc1fd797e6a0827569e015fd69e82b834a71b11ac76fc6c7bf4783aaab54",
+  "original_default_CLI_sha256": "e106bad7b274cd5980d9471ec39c3f5523271a376593caf5507ecac985e045ab",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "default_replaced": false,
+  "end_to_end_acceleration_demonstrated": false
+}
