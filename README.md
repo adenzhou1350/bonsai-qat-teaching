@@ -129,4 +129,4 @@ A code-first learning repository for ternary quantization, straight-through grad
 
 This is a Bonsai-style research implementation, not a complete Bonsai reproduction. Weights are not included, the end-to-end 122B training recipe is incomplete, and the current 122B candidate falls below its matched BF16 baseline on all four reported development panels. See the [method](docs/METHOD.md), [reproduction guide](docs/REPRODUCING.md), and [dated evidence](docs/experiments/README.md).
 
-122B 显存实测：文本张量常驻约 **28.10GiB**；默认短缓存的请求末整卡观察最大约 **29.75GiB**。固定 16K 容量、最长 14755-token 输入的混合请求已验证输出一致，但整卡观察最高约 **31.33GiB**，余量很小。见[显存与长短请求对照](docs/experiments/2026-10-09-2354.json)；更省显存的候选正在验证。
+122B 显存实测：文本张量常驻约 **28.10GiB**；默认短缓存的请求末整卡观察最大约 **29.75GiB**。固定 16K 容量、最长 14755-token 输入的混合请求已验证输出一致，但整卡观察最高约 **31.33GiB**，余量很小。见[显存与长短请求对照](docs/experiments/2026-10-09-2354.json)。新版缓存优化已完成并发布：短请求整卡观察约 **29.18GiB**，固定 16K 清理后约 **29.83GiB**，连续长请求的自适应版约 **30.03GiB**；预填充瞬时仍接近卡容量。三个独立进程、1245 个输出 token 全部与原量化路径一致，见[完成证据](docs/experiments/2026-10-10-0014.json)。
