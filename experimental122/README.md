@@ -362,3 +362,17 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_lut.py \
 两组实际采样间隔中位数约 20.08ms，最大间隔分别 305.1/205.7ms，因此报告最大观察值，不称连续真峰值。NVML v2 的 used 不含另列 reserved；每个样本都重新检查 used + reserved + free = total。两个原始采样流已下载、SHA 和全部样本重新核对；完整字节值及采样身份见[完成记录](../docs/experiments/2026-10-10-0443-memory.json)。
 
 CUDA 文本权重/持久缓冲仍为 **28.10GiB**，无 CPU 权重卸载。这里确认的是九条短请求，不能推导 B4 长输入或并发上限；此前 14,755-token 输入的原串行 used 最高观察约 31.11GiB，是另一实验。此次显存对照不是 ABBA 速度测试，吞吐结论仍引用此前 04:27 四进程记录。
+
+## 在已有优化 B4 上叠加查表：完整对照完成
+
+同一权重、32 请求和 B4 分组，两个入口只相差精确查表解包。四个全新进程按 B4 / B4+LUT / B4+LUT / B4 执行，正常退出，7,520 个保存输出 ID 与原串行参考一致；下载真实输出后，用公开比较工具再次核对 A/B、D/C。
+
+| 口径 | 已有共享头 + 低秩 BMM 的 B4 | 同一 B4 再加 LUT |
+|---|---:|---:|
+| 含预填充合计吞吐 | 17.4352 tokens/s | 17.4724 tokens/s |
+| 有效 decode 合计吞吐 | 34.9352 tokens/s | 35.0878 tokens/s |
+| 组首 token 中位数 | 6.5594 s | 6.5964 s |
+
+本次含预填充的合计吞吐观测变化为 **+0.214%**，两个配对分别 -0.404%、+0.839%。没有证明稳定额外收益，默认入口保持不变；不把此前单请求 LUT 的 1.55% 与 B4 组合收益相加。allocated 峰值增加 512 字节，reserved 和请求末设备观察另列于[完整记录](../docs/experiments/2026-10-10-0509-B4-lut.json)。同机其他卡同时运行 NR35 训练和 vLLM 专家诊断，这不是独占整机或服务压测。
+
+复刻时先运行 `run_requests_microbatch_lora_bmm.py --batch-size 4`，候选只换为 `run_requests_microbatch_lora_bmm_lut.py`，其余参数相同；使用现有 32 请求 fixture、cap64，默认 cache1536，按 A/B/B/A 各开新进程与新输出文件。该候选沿用相同请求循环，只在装配后安装 LUT；代码 SHA 与实际候选一致。输出全部相同后再解释计时，四种作者自编问题重复换序不等于 32 种独立任务。

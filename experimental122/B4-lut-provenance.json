@@ -1,0 +1,13 @@
+{
+  "file_sha256": {
+    "experimental122/run_requests_microbatch_lora_bmm_lut.py": "8e84bbf0377955684870a4e64edd3a69e60571b0ec39f7971eb18ff2183c8544"
+  },
+  "performance_evidence": "../docs/experiments/2026-10-10-0509-B4-lut.json",
+  "actual_four_GPU_CLI_processes_completed": true,
+  "candidate_CPU_empty_help_exit_code": 0,
+  "all7520_saved_IDs_equal_original": true,
+  "observed_incremental_B4_end_to_end_gain_percent": 0.21372043563721022,
+  "stable_additional_gain_proved": false,
+  "default_replaced": false,
+  "shared_lookup_extra_bytes": 512
+}

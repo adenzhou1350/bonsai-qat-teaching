@@ -140,3 +140,5 @@ This is a Bonsai-style research implementation, not a complete Bonsai reproducti
 单张 5090 的显存口径：权重与持久缓冲区 CUDA 存储 **28.10GiB**，没有 CPU 权重卸载；当前 B4 的 PyTorch allocated 峰值 **29.36GiB**；最新短请求全程采样最大观察 used **30.16GiB**，见[独立显存采样](docs/experiments/2026-10-10-0443-memory.json)。另一个原版长输入实验（14,755 个输入 token）整卡 NVML used 采样峰值 **31.11GiB**，还有约 **0.48GiB** 驱动 reserved，32GiB 卡余量已很小。长输入结果不能当作当前 B4 的上下文支持证明。见[长输入显存证据](docs/experiments/2026-10-10-0105.json)与[B4 原始测量](docs/experiments/2026-10-10-0401.json)。
 
 精确三值查找表的串行四进程对照也已完成：固定 32 请求的含预填充吞吐 **15.68 → 15.92 tokens/s（+1.55%）**，7,520 个输出 ID 相同，额外表 512 字节。该收益单独测量，没有与 B4 的组合收益相加；默认入口保持原样。[可复刻命令与数值边界](experimental122/README.md#精确查找表解包数值与单请求吞吐对照完成)，[完整测速记录](docs/experiments/2026-10-10-0443-lut.json)。
+
+B4 上叠加查表的独立对照也已完成：同一固定请求集合计吞吐 **17.44 → 17.47 tokens/s（+0.21%）**，输出 ID 全一致；未证明稳定额外收益，默认入口保持不变。不同实验的加速百分比不能直接相加。[对照记录与复刻条件](docs/experiments/2026-10-10-0509-B4-lut.json)。

@@ -18,5 +18,8 @@
   "performance_evidence": "../docs/experiments/2026-10-10-0443-lut.json",
   "all7520_saved_CLI_token_IDs_equal_original": true,
   "observed_serial_end_to_end_gain_percent": 1.5459732613193111,
-  "combined_B4_LUT_gain_measured": false
+  "combined_B4_LUT_gain_measured": true,
+  "combined_B4_performance_evidence": "../docs/experiments/2026-10-10-0509-B4-lut.json",
+  "observed_incremental_B4_gain_percent": 0.21372043563721022,
+  "stable_additional_B4_gain_proved": false
 }
