@@ -1,0 +1,333 @@
+{
+  "observed_at_UTC": "2026-10-09T18:33:09Z",
+  "status": "completed_independent_numerics_exit0",
+  "summary": {
+    "passed": true,
+    "stage": "completed",
+    "reference_controls": [
+      {
+        "request_index": 0,
+        "input_tokens": 27,
+        "original_first_token_equal_completed_oracle": true,
+        "cache_layers": 48,
+        "head_shape": [
+          1,
+          1,
+          248320
+        ]
+      },
+      {
+        "request_index": 1,
+        "input_tokens": 40,
+        "original_first_token_equal_completed_oracle": true,
+        "cache_layers": 48,
+        "head_shape": [
+          1,
+          1,
+          248320
+        ]
+      },
+      {
+        "request_index": 2,
+        "input_tokens": 39,
+        "original_first_token_equal_completed_oracle": true,
+        "cache_layers": 48,
+        "head_shape": [
+          1,
+          1,
+          248320
+        ]
+      },
+      {
+        "request_index": 3,
+        "input_tokens": 103,
+        "original_first_token_equal_completed_oracle": true,
+        "cache_layers": 48,
+        "head_shape": [
+          1,
+          1,
+          248320
+        ]
+      }
+    ],
+    "reused_group_checks": [
+      {
+        "repeat": 0,
+        "indices": [
+          3,
+          2,
+          1,
+          0
+        ],
+        "one_shared_head_call": true,
+        "all4_head_inputs_and_full_logits_bitwise_equal_original": true,
+        "head_logit_elements_compared": 993280,
+        "all192_row_layer_full_KV_and_GDN_states_bitwise_equal_original": true,
+        "cache_addresses_unchanged": true,
+        "all36_prefix_token_ids_equal_original": true,
+        "generated_prefix_token_ids": [
+          [
+            104980,
+            99943,
+            104020,
+            105108,
+            111378,
+            98472,
+            4960,
+            96382,
+            96178
+          ],
+          [
+            71093,
+            12305,
+            198,
+            727,
+            4752,
+            39914,
+            1951,
+            20449,
+            1590
+          ],
+          [
+            115942,
+            111362,
+            110063,
+            95759,
+            2972,
+            21,
+            21,
+            220,
+            96287
+          ],
+          [
+            332,
+            103725,
+            105258,
+            332,
+            103722,
+            96123,
+            124089,
+            103725,
+            95789
+          ]
+        ],
+        "after_decode_device_used_bytes": 32016367616,
+        "allocated_bytes": 30659313664
+      },
+      {
+        "repeat": 1,
+        "indices": [
+          1,
+          2,
+          3,
+          0
+        ],
+        "one_shared_head_call": true,
+        "all4_head_inputs_and_full_logits_bitwise_equal_original": true,
+        "head_logit_elements_compared": 993280,
+        "all192_row_layer_full_KV_and_GDN_states_bitwise_equal_original": true,
+        "cache_addresses_unchanged": true,
+        "all36_prefix_token_ids_equal_original": true,
+        "generated_prefix_token_ids": [
+          [
+            115942,
+            111362,
+            110063,
+            95759,
+            2972,
+            21,
+            21,
+            220,
+            96287
+          ],
+          [
+            71093,
+            12305,
+            198,
+            727,
+            4752,
+            39914,
+            1951,
+            20449,
+            1590
+          ],
+          [
+            104980,
+            99943,
+            104020,
+            105108,
+            111378,
+            98472,
+            4960,
+            96382,
+            96178
+          ],
+          [
+            332,
+            103725,
+            105258,
+            332,
+            103722,
+            96123,
+            124089,
+            103725,
+            95789
+          ]
+        ],
+        "after_decode_device_used_bytes": 32016367616,
+        "allocated_bytes": 30659313664
+      },
+      {
+        "repeat": 2,
+        "indices": [
+          2,
+          3,
+          0,
+          1
+        ],
+        "one_shared_head_call": true,
+        "all4_head_inputs_and_full_logits_bitwise_equal_original": true,
+        "head_logit_elements_compared": 993280,
+        "all192_row_layer_full_KV_and_GDN_states_bitwise_equal_original": true,
+        "cache_addresses_unchanged": true,
+        "all36_prefix_token_ids_equal_original": true,
+        "generated_prefix_token_ids": [
+          [
+            71093,
+            12305,
+            198,
+            727,
+            4752,
+            39914,
+            1951,
+            20449,
+            1590
+          ],
+          [
+            104980,
+            99943,
+            104020,
+            105108,
+            111378,
+            98472,
+            4960,
+            96382,
+            96178
+          ],
+          [
+            332,
+            103725,
+            105258,
+            332,
+            103722,
+            96123,
+            124089,
+            103725,
+            95789
+          ],
+          [
+            115942,
+            111362,
+            110063,
+            95759,
+            2972,
+            21,
+            21,
+            220,
+            96287
+          ]
+        ],
+        "after_decode_device_used_bytes": 32016367616,
+        "allocated_bytes": 30659313664
+      },
+      {
+        "repeat": 3,
+        "indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "one_shared_head_call": true,
+        "all4_head_inputs_and_full_logits_bitwise_equal_original": true,
+        "head_logit_elements_compared": 993280,
+        "all192_row_layer_full_KV_and_GDN_states_bitwise_equal_original": true,
+        "cache_addresses_unchanged": true,
+        "all36_prefix_token_ids_equal_original": true,
+        "generated_prefix_token_ids": [
+          [
+            332,
+            103725,
+            105258,
+            332,
+            103722,
+            96123,
+            124089,
+            103725,
+            95789
+          ],
+          [
+            115942,
+            111362,
+            110063,
+            95759,
+            2972,
+            21,
+            21,
+            220,
+            96287
+          ],
+          [
+            71093,
+            12305,
+            198,
+            727,
+            4752,
+            39914,
+            1951,
+            20449,
+            1590
+          ],
+          [
+            104980,
+            99943,
+            104020,
+            105108,
+            111378,
+            98472,
+            4960,
+            96382,
+            96178
+          ]
+        ],
+        "after_decode_device_used_bytes": 32016367616,
+        "allocated_bytes": 30659313664
+      }
+    ],
+    "reserved_inputs_opened": false,
+    "weights_changed": false,
+    "CPU_weight_offload": false,
+    "quality_accepted": false,
+    "seconds": 159.4269711812958,
+    "source_policy_sha256": "7b5838fe8888900d347a436846f26e67faaca3cc46a4a10b68e120cb89873de7",
+    "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+    "unique_CUDA_text_storage_bytes": 30171940608,
+    "all16_head_rows_and_full_caches_equal_original": true,
+    "all144_graph_prefix_ids_equal_original": true,
+    "total_head_logit_elements_compared": 3973120,
+    "limits": "Four authored original B1 prefills, four reused B4 preparations with reordered lengths; all16 final normalized head inputs/full248320 logits and all768 row-layer full KV/GDN cache states exact,144 first9 Graph token IDs exact. Global cumulative-length bookkeeping checked against maxlength, each actual KV row is compared independently. CPU reference caches/hooks are diagnostic only, excluded from performance ABBA. This checks the shared-head preparation math, not capabilities/long context or a long-lived service."
+  },
+  "summary_sha256": "7a82caf29a5088c207d2b817486930c19135243ac8979b896f61ddd9b21609d5",
+  "lease_sha256": "b3147a2ea8002397182d1573a1398a11697a204f1acfa3bc0e944b2bc0bf0fb2",
+  "candidate_file_sha256": {
+    "experimental122/runtime/reusable122_shared_head_batch_decoder_v5_no_copy_checks.py": "0913e9bfe5267a3aeb442386bf536a89f8d3bfc496adb22be702297864fc7c37",
+    "experimental122/run_requests_microbatch_no_copy_checks.py": "577dd8c1bb2f605e9057f5718dc7348329e7ab52f6f0d8defecb4068c0ce935d"
+  },
+  "AST_exact_original_except_four_post_copy_equal_asserts": true,
+  "all144_saved_IDs_independently_recompared": true,
+  "full_arrays_verified_by_live_guards_not_serialized": true,
+  "same_candidate_bytes_as_queued_performance_control": true,
+  "performance_result_complete": false,
+  "entry_published": false,
+  "limits": "Removes four per-copy torch.equal assertions only; mathematical and copy statements unchanged. Independent diagnostic still compares all full caches and full head outputs. No speed improvement claim; same-fixture full-EOS ABBA is a separate pending run."
+}
