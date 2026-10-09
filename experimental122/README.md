@@ -518,8 +518,8 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_window.py \
 从仓库根目录运行：
 
 ```bash
-python experimental122/run_vllm_requests_b4_window.py --model PACKED_MODEL --requests experimental122/examples/shared-head-requests32.jsonl --output combined-eager
-python experimental122/run_vllm_requests_b4_window.py --model PACKED_MODEL --requests experimental122/examples/shared-head-requests32.jsonl --output combined-graph --decode-graph --audit-graph-replays
+python experimental122/run_vllm_requests_b4_window.py --model PACKED_MODEL --requests experimental122/examples/shared-head-requests32.jsonl --output combined-eager --kv-cache-mib 1024
+python experimental122/run_vllm_requests_b4_window.py --model PACKED_MODEL --requests experimental122/examples/shared-head-requests32.jsonl --output combined-graph --kv-cache-mib 1024 --decode-graph --audit-graph-replays
 python experimental122/compare_engine_outputs.py --baseline combined-eager/result.json --candidate combined-graph/result.json
 ```
 
@@ -545,3 +545,23 @@ python experimental122/compare_engine_outputs.py --baseline combined-eager/resul
 复刻分别运行 `run_vllm_requests_b4.py` 和 `run_vllm_requests_b4_window.py`，共同参数 `--decode-graph --kv-cache-mib 1024 --max-model-len 1536 --max-new-tokens 64`，使用公开 `examples/shared-head-requests32.jsonl`，按A/B/B/A各开全新进程与输出目录。测速关闭回放计数。用 `compare_engine_outputs.py` 先核对完整ID；模型buffer大小允许不同，不能直接使用要求相同storage的原生吞吐比较器。
 
 分词、模型加载和 JSON 写入不计入请求时间，预填充与 CPU 输出收集计入。不同实验的加速百分比不相加。
+
+## B4组合入口缓存1GiB与896MiB：四轮对照完成
+
+同一组合入口、同一量化产物、32个换序短请求，四个全新进程按1GiB / 896MiB / 896MiB / 1GiB运行。**7,520个完整输出ID、输入长度和EOS与原始对照一致**，361个保留张量哈希与实际混合预填充布局一致。下载并独立重算了全部34,811个原始NVML样本。
+
+| 口径 | 1GiB缓存 | 896MiB缓存 |
+|---|---:|---:|
+| 含预填充合计吞吐 | 21.6207 tokens/s | 21.4114 tokens/s |
+| 全程最大已采样NVML used | 30.7336 GiB | 30.6359 GiB |
+| 最低已采样free | 640.3 MiB | 740.3 MiB |
+
+驱动另外保留约0.4839GiB。吞吐观测变化-0.968%，两组配对+0.666% / -2.546%；这些是固定ABBA短请求的观察，尚未证明长期服务收益。已将组合入口默认及最低缓存预算改为896MiB；权重与计算代码保持相同。
+
+两个配置都是最多4活动请求、max-model-len1536、最多128输入token、cap64，batch1/2/4启动录图均在计时前。896MiB无图和图模式另有32+32请求的独立数值验证，3,760个输出ID一致，499次实际图回放。引擎报告896MiB缓存为6,912token、按1536长度计算最大并发4.50；实际队列仍限定4，不据此声称测过长输入。
+
+![四轮显存和吞吐](../docs/experiments/2026-10-10-0740-cache896-deployment.svg)
+
+复刻用同一个`run_vllm_requests_b4_window.py`与公开`examples/shared-head-requests32.jsonl`，共同参数`--decode-graph --max-model-len 1536 --max-new-tokens 64`，分别显式传`--kv-cache-mib 1024`和`--kv-cache-mib 896`，按A/B/B/A各开全新进程及输出目录。测速关闭图回放计数，先用`compare_engine_outputs.py`核对完整输出。缓存减小会降低可容纳的最大请求数；这组只验证现有4活动短请求范围。
+
+请求时间包含预填充、队列补入和CPU输出收集；分词、加载及JSON写入不计入。目标20ms采样从启动前覆盖至退出后，可能遗漏更快瞬态。无HTTP、长输入、持续服务或新质量结论；不同实验的收益不相加。完整SHA、实际采样间隔及口径见[完成记录](../docs/experiments/2026-10-10-0740-cache896-deployment.json)。

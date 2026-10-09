@@ -1,0 +1,297 @@
+{
+  "summary": {
+    "passed": true,
+    "stage": "completed",
+    "runs": [
+      {
+        "mode": "vllmA",
+        "actual_CLI_exit_code": 0,
+        "result_sha256": "0f6f89563c13bf2b975d199aeaad928e531aa4cdcdba9ab8353d4d4337c9f416",
+        "all1880_IDs_equal_original": true,
+        "emitted_tokens": 1880,
+        "request_seconds": 86.84155510831624,
+        "aggregate_end_to_end_output_tokens_per_second": 21.648621995024186,
+        "source_entry_sha256": "3292ae826869e98db28b0e931315ce2b33fb51b6369a1a3070cdb1247ca92d97",
+        "NVML_v2_profile": {
+          "samples": 8727,
+          "sample_file_sha256": "c7d2ad9df9ce899a3f921e7747256c786dcf30949214c17df740ab9659e2aff9",
+          "observed_duration_seconds": 179.48591252230108,
+          "maximum_observed_used_bytes": 32999931904,
+          "maximum_observed_used_sample": {
+            "elapsed_seconds": 111.73901262041181,
+            "used_bytes": 32999931904,
+            "driver_reserved_bytes": 519569408,
+            "free_bytes": 671416320,
+            "physical_total_bytes": 34190917632
+          },
+          "minimum_observed_free_bytes": 671416320,
+          "driver_reserved_bytes_min": 519569408,
+          "driver_reserved_bytes_max": 519569408,
+          "sample_gap_median_seconds": 0.02008142787963152,
+          "sample_gap_p99_seconds": 0.023797091096639633,
+          "sample_gap_maximum_seconds": 0.1999873137101531,
+          "physical_total_bytes": 34190917632
+        },
+        "process_spawn_elapsed_seconds": 0.01823328621685505,
+        "process_termination_observed_elapsed_seconds": 179.43348593823612,
+        "peak_allocated_bytes": 31387371008,
+        "peak_reserved_bytes": 32201768960,
+        "request_end_used_max_bytes": 32999931904,
+        "unique_CUDA_model_storage_bytes": 30172726976
+      },
+      {
+        "mode": "windowB",
+        "actual_CLI_exit_code": 0,
+        "result_sha256": "ea08e5363f5ddadcf75c069f4eef0665b239a7b79a269456c5cf7a4c35fc0be1",
+        "all1880_IDs_equal_original": true,
+        "emitted_tokens": 1880,
+        "request_seconds": 86.26718229521066,
+        "aggregate_end_to_end_output_tokens_per_second": 21.792760004222057,
+        "source_entry_sha256": "3292ae826869e98db28b0e931315ce2b33fb51b6369a1a3070cdb1247ca92d97",
+        "NVML_v2_profile": {
+          "samples": 8609,
+          "sample_file_sha256": "87aa8c9052956bfc48615cea39b5e7361ea9ff96ca446a41e4ba03ec3821126e",
+          "observed_duration_seconds": 178.24635372683406,
+          "maximum_observed_used_bytes": 32895074304,
+          "maximum_observed_used_sample": {
+            "elapsed_seconds": 111.12280538585037,
+            "used_bytes": 32895074304,
+            "driver_reserved_bytes": 519569408,
+            "free_bytes": 776273920,
+            "physical_total_bytes": 34190917632
+          },
+          "minimum_observed_free_bytes": 776273920,
+          "driver_reserved_bytes_min": 519569408,
+          "driver_reserved_bytes_max": 519569408,
+          "sample_gap_median_seconds": 0.020079131238162518,
+          "sample_gap_p99_seconds": 0.023860348388552666,
+          "sample_gap_maximum_seconds": 0.29971383325755596,
+          "physical_total_bytes": 34190917632
+        },
+        "process_spawn_elapsed_seconds": 0.01873941160738468,
+        "process_termination_observed_elapsed_seconds": 178.1813953416422,
+        "peak_allocated_bytes": 31284348416,
+        "peak_reserved_bytes": 32096911360,
+        "request_end_used_max_bytes": 32895074304,
+        "unique_CUDA_model_storage_bytes": 30172726976
+      },
+      {
+        "mode": "windowC",
+        "actual_CLI_exit_code": 0,
+        "result_sha256": "61d5918535cfb2d8bc3c6c5c71c5c0d07836a9d9a2ef149e99b956236a0c2752",
+        "all1880_IDs_equal_original": true,
+        "emitted_tokens": 1880,
+        "request_seconds": 89.34055409952998,
+        "aggregate_end_to_end_output_tokens_per_second": 21.043075218736423,
+        "source_entry_sha256": "3292ae826869e98db28b0e931315ce2b33fb51b6369a1a3070cdb1247ca92d97",
+        "NVML_v2_profile": {
+          "samples": 8753,
+          "sample_file_sha256": "9e9f9f4f774a57dc8141fd9878b259a86df54007d63f302bed7e6f4d7e6ea7ea",
+          "observed_duration_seconds": 182.33814730960876,
+          "maximum_observed_used_bytes": 32895074304,
+          "maximum_observed_used_sample": {
+            "elapsed_seconds": 112.62393846921623,
+            "used_bytes": 32895074304,
+            "driver_reserved_bytes": 519569408,
+            "free_bytes": 776273920,
+            "physical_total_bytes": 34190917632
+          },
+          "minimum_observed_free_bytes": 776273920,
+          "driver_reserved_bytes_min": 519569408,
+          "driver_reserved_bytes_max": 519569408,
+          "sample_gap_median_seconds": 0.020080172456800938,
+          "sample_gap_p99_seconds": 0.024878574535250664,
+          "sample_gap_maximum_seconds": 0.2895611086860299,
+          "physical_total_bytes": 34190917632
+        },
+        "process_spawn_elapsed_seconds": 0.018806587904691696,
+        "process_termination_observed_elapsed_seconds": 182.28764562867582,
+        "peak_allocated_bytes": 31284348416,
+        "peak_reserved_bytes": 32096911360,
+        "request_end_used_max_bytes": 32895074304,
+        "unique_CUDA_model_storage_bytes": 30172726976
+      },
+      {
+        "mode": "vllmD",
+        "actual_CLI_exit_code": 0,
+        "result_sha256": "fb15e6ca7a3e70267783a267a4278aa6104dd70a396282ee4e58147f2e3f5145",
+        "all1880_IDs_equal_original": true,
+        "emitted_tokens": 1880,
+        "request_seconds": 87.06555037666112,
+        "aggregate_end_to_end_output_tokens_per_second": 21.592926155830686,
+        "source_entry_sha256": "3292ae826869e98db28b0e931315ce2b33fb51b6369a1a3070cdb1247ca92d97",
+        "NVML_v2_profile": {
+          "samples": 8722,
+          "sample_file_sha256": "3f63c0455fbf8d3c86389b1d3212c9e716d913362895ee845933c989b0d6e263",
+          "observed_duration_seconds": 179.21013324335217,
+          "maximum_observed_used_bytes": 32999931904,
+          "maximum_observed_used_sample": {
+            "elapsed_seconds": 111.48100726958364,
+            "used_bytes": 32999931904,
+            "driver_reserved_bytes": 519569408,
+            "free_bytes": 671416320,
+            "physical_total_bytes": 34190917632
+          },
+          "minimum_observed_free_bytes": 671416320,
+          "driver_reserved_bytes_min": 519569408,
+          "driver_reserved_bytes_max": 519569408,
+          "sample_gap_median_seconds": 0.0200797189027071,
+          "sample_gap_p99_seconds": 0.023484006524086,
+          "sample_gap_maximum_seconds": 0.305821449495852,
+          "physical_total_bytes": 34190917632
+        },
+        "process_spawn_elapsed_seconds": 0.018853713758289814,
+        "process_termination_observed_elapsed_seconds": 179.13365691062063,
+        "peak_allocated_bytes": 31387371008,
+        "peak_reserved_bytes": 32201768960,
+        "request_end_used_max_bytes": 32999931904,
+        "unique_CUDA_model_storage_bytes": 30172726976
+      }
+    ],
+    "NVML_memory_version": 2,
+    "target_sample_interval_seconds": 0.02,
+    "used_excludes_driver_reserved": true,
+    "fixture_sha256": "63d6f32d6295cc715e80712509dca0a1ec3c37688f8c151e61e2448024033cb3",
+    "fixture_order": [
+      0,
+      1,
+      2,
+      3,
+      3,
+      2,
+      1,
+      0,
+      1,
+      2,
+      3,
+      0,
+      2,
+      3,
+      0,
+      1,
+      0,
+      1,
+      2,
+      3,
+      3,
+      2,
+      1,
+      0,
+      1,
+      2,
+      3,
+      0,
+      2,
+      3,
+      0,
+      1
+    ],
+    "fixture_request_count": 32,
+    "cap": 64,
+    "reserved_inputs_opened": false,
+    "CPU_weight_offload": false,
+    "weights_changed": false,
+    "default_entry_replaced": false,
+    "both_max_model_len": 1536,
+    "both_max_num_seqs": 4,
+    "reference_KV_mamba_budget_bytes": 1073741824,
+    "candidate_KV_mamba_budget_bytes": 939524096,
+    "vllm_max_model_len": 1536,
+    "vllm_KV_mamba_budget_bytes": 1073741824,
+    "limits": "Fresh ABBA: identical B4 bounded-window entry, explicit cache1024 vs896MiB, maxseq4/maxlen1536, startup graph1/2/4 before timing, repeated32 short requests/cap64/8EOSrows. Require unchanged outputs and actual scheduling layouts/capacity>=4. Different cache budgets; same packed/retained weights. Root queued-generate timing includes prefill/output collection, excludes load/tokenization/JSON. NVML target20ms can miss faster peaks; shared host, fixed order, no HTTP/long input/sustained-service proof.",
+    "actual_cache_capacities": [
+      {
+        "mode": "vllmA",
+        "budget_MiB": 1024,
+        "GPU_KV_cache_tokens": 7680,
+        "maximum_concurrency": 5.0,
+        "same_mixed_prefill_layouts_and_counts": true
+      },
+      {
+        "mode": "windowB",
+        "budget_MiB": 896,
+        "GPU_KV_cache_tokens": 6912,
+        "maximum_concurrency": 4.5,
+        "same_mixed_prefill_layouts_and_counts": true
+      },
+      {
+        "mode": "windowC",
+        "budget_MiB": 896,
+        "GPU_KV_cache_tokens": 6912,
+        "maximum_concurrency": 4.5,
+        "same_mixed_prefill_layouts_and_counts": true
+      },
+      {
+        "mode": "vllmD",
+        "budget_MiB": 1024,
+        "GPU_KV_cache_tokens": 7680,
+        "maximum_concurrency": 5.0,
+        "same_mixed_prefill_layouts_and_counts": true
+      }
+    ],
+    "all7520_IDs_equal_original": true,
+    "source_policy_sha256": "915d87e956a2e79feb94fe71768ae8c69efd116d806eac3b7e716bb8434bf4f1",
+    "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1"
+  },
+  "summary_sha256": "99f739071562c223675f867dbb02b4991ee03cceed69e462ceee69690389dcd8",
+  "lease_sha256": "3a6d617f0d73b63206c76f00e205df7d5a6700a1ad1327a0c9b712edd5c52778",
+  "source67_unchanged": true,
+  "all7520_saved_IDs_independently_recompared": true,
+  "all_four_raw_NVMLv2_streams_independently_recounted": true,
+  "each_sampler_covers_before_spawn_and_after_child_termination": true,
+  "pooled_end_to_end_measurements": {
+    "reference": {
+      "tokens": 3760,
+      "seconds": 173.90710548497736,
+      "aggregate_end_to_end_output_tokens_per_second": 21.620738206839977
+    },
+    "window": {
+      "tokens": 3760,
+      "seconds": 175.60773639474064,
+      "aggregate_end_to_end_output_tokens_per_second": 21.411357364962935
+    }
+  },
+  "observed_window_gain_percent": -0.9684259615650004,
+  "paired_gain_percent": [
+    0.6658068547318985,
+    -2.546440131023131
+  ],
+  "actual_exit_code": 0,
+  "owned_process_group_empty": true,
+  "continuous_true_peak_proved": false,
+  "same_B4_window_entry_different_cache_budget": true,
+  "status": "completed_cache_budget_ABBA_independently_recomputed",
+  "observed_at_UTC": "2026-10-09T23:40:15.285015+00:00",
+  "pooled_by_cache_budget": {
+    "cache1024": {
+      "tokens": 3760,
+      "seconds": 173.90710548497736,
+      "aggregate_end_to_end_output_tokens_per_second": 21.620738206839977
+    },
+    "cache896": {
+      "tokens": 3760,
+      "seconds": 175.60773639474064,
+      "aggregate_end_to_end_output_tokens_per_second": 21.411357364962935
+    }
+  },
+  "maximum_sampled_used_bytes_by_budget": {
+    "cache1024": 32999931904,
+    "cache896": 32895074304
+  },
+  "minimum_sampled_free_bytes_by_budget": {
+    "cache1024": 671416320,
+    "cache896": 776273920
+  },
+  "additional_driver_reserved_bytes": 519569408,
+  "total_downloaded_raw_NVML_samples_recounted": 34811,
+  "all7520_output_IDs_locally_recompared": true,
+  "all361_retained_maps_locally_recompared": true,
+  "same_actual_mixed_prefill_layouts_and_counts": true,
+  "figure": "2026-10-10-0740-cache896-deployment.svg",
+  "figure_sha256": "0b6717192f020ea3929d5889d3073bea2d89766548530732ebc4d583e890c7c7",
+  "promoted_default_cache_MiB": 896,
+  "entry_source_SHA256_tested": "3292ae826869e98db28b0e931315ce2b33fb51b6369a1a3070cdb1247ca92d97",
+  "previous_public_commit": "a72f36fb3103bad2fe49aaba02827ad2375dc33c",
+  "previous_public_entry_SHA256": "6ce9848e2d97632587061394302e39ecb1d1fb329d7239fffa8d1e9615f08de6",
+  "HTTP_long_input_sustained_service_proved": false
+}

@@ -97,5 +97,17 @@
   "reserved_inputs_opened": false,
   "limits": "Same four authored prompts repeated/reordered32rows, eager32+graph32. This independently validates the composition, not a broad quality or service benchmark. Instrumented controls do not establish throughput or sampled memory savings of the combined entry.",
   "completed_ABBA_record": "../docs/experiments/2026-10-10-0718-b4-window-deployment.json",
-  "completed_ABBA_summary_sha256": "f8eddeb7d2885e946caf98555c833c342e14c9bace7704061e70c95794405cfb"
+  "completed_ABBA_summary_sha256": "f8eddeb7d2885e946caf98555c833c342e14c9bace7704061e70c95794405cfb",
+  "cache896_followup": {
+    "entry_sha256": "3292ae826869e98db28b0e931315ce2b33fb51b6369a1a3070cdb1247ca92d97",
+    "default_promoted": true,
+    "numerical_control_summary_sha256": "d3e9eaec787b268102e0fbde149a7b161701b9c599b9011ae1803ac74d2b33a7",
+    "all3760_numerical_control_IDs_equal": true,
+    "actual_numerical_graph_replays": 499,
+    "formal_ABBA_completed": true,
+    "all7520_formal_IDs_equal_original": true,
+    "formal_summary_sha256": "99f739071562c223675f867dbb02b4991ee03cceed69e462ceee69690389dcd8",
+    "record": "../docs/experiments/2026-10-10-0740-cache896-deployment.json",
+    "previous_entry_proof_remains_historical_at_commit": "a72f36fb3103bad2fe49aaba02827ad2375dc33c"
+  }
 }

@@ -60,9 +60,9 @@
     "experimental122/runtime/tune122_decode_geometry_v1.py": "ba9b46b30a3854d04d24d25e8d85c4a7e902f14435ec98632d0b265fa2fb4195",
     "experimental122/runtime/variable_prefill122_batch_decoder_v2_shared_stream.py": "b083a01d632b94b53b342eeba8ec709cc77e984446c7d636dabf8be0d318f6d1",
     "experimental122/validate_vllm_dense_embedding.py": "3793a861367dc08143cad309f0afdb91ccea8add3ff9cfe395daf2602b5767de",
-    "experimental122/run_vllm_requests_b4_window.py": "6ce9848e2d97632587061394302e39ecb1d1fb329d7239fffa8d1e9615f08de6",
+    "experimental122/run_vllm_requests_b4_window.py": "3292ae826869e98db28b0e931315ce2b33fb51b6369a1a3070cdb1247ca92d97",
     "experimental122/runtime/bonsai_native122_vllm_b4_window_v1689.py": "c60030ea4eb4f3630a928b0b12484297175afcfba1148857646268cd30436740"
   },
-  "status": "prospective_combined_B4_and_text_window_control",
-  "limits": "The independent B4 and serial-window controls do not prove their composition. Requires fresh whole-engine eager32 and graph32 output-ID/retained-weight/cache-prefix validation. No speedup claimed."
+  "status": "current_combined_entry_cache896_independently_validated",
+  "limits": "Current entry defaults/minimum896MiB; explicit1024 remains valid. Complete eager32+graph32 and cache1024/896 formalABBA passed at the linked evidence. Only short<=128 input, cap64, maxseq4/maxlen1536; no sustained-service or long-input guarantee."
 }

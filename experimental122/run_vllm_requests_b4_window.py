@@ -16,9 +16,9 @@ def main():
     parser.add_argument('--audit-graph-replays', action='store_true', help='Diagnostic instrumentation.')
     parser.add_argument('--max-new-tokens', type=int, default=64)
     parser.add_argument('--max-model-len', type=int, choices=(1536,), default=1536)
-    parser.add_argument('--kv-cache-mib', type=int, default=1024)
+    parser.add_argument('--kv-cache-mib', type=int, default=896)
     args = parser.parse_args()
-    assert 1 <= args.max_new_tokens <= 64 and args.kv_cache_mib >= 1024
+    assert 1 <= args.max_new_tokens <= 64 and args.kv_cache_mib >= 896
     assert not args.audit_graph_replays or args.decode_graph
 
     import gc
