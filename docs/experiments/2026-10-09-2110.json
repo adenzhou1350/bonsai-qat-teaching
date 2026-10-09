@@ -1,0 +1,86 @@
+{
+  "format": "teaching-experiment-milestone-v1",
+  "observed_at_utc": "2026-10-09T13:10:22Z",
+  "experiment": "R35-8192",
+  "model": "Qwen3.5-35B-A3B",
+  "method": "Frozen INT2 experts plus160 FP32 rank16 factors; second TRAIN pass from full4096 Adam state",
+  "actual_total_optimizer_updates": 8192,
+  "actual_additional_updates": 4096,
+  "exported_layers": 40,
+  "training_exit_code": 0,
+  "training_processes_exited": true,
+  "training_summary_sha256": "f37329dccb88ccc88b03d2628031b399ad3892f36005df2dca27da6d96bc6de9",
+  "artifact_manifest_sha256": "2a8aba243717e5b0230cc388d65e0f2f9c446bf30dde69581fbfa731f85e0f99",
+  "serialized_BF16_factor_VAL128_replay_exact": true,
+  "validation_before_after": [
+    {
+      "split": "before",
+      "rows": 128,
+      "teacher_kl": 0.07070116737304488,
+      "mean_relative_mse": 0.09503588385996409,
+      "nll": 1.0533830350310476,
+      "objective": 0.08020475575904129,
+      "cohorts": {
+        "reasoning": {
+          "rows": 64,
+          "nll": 0.5501052694856418,
+          "teacher_kl": 0.026517843842157163,
+          "mean_relative_mse": 0.06745024997508153
+        },
+        "chat_cn": {
+          "rows": 32,
+          "nll": 1.585919023365084,
+          "teacher_kl": 0.0952866543084383,
+          "mean_relative_mse": 0.11397063918411732
+        },
+        "chat_en": {
+          "rows": 32,
+          "nll": 1.527402577787823,
+          "teacher_kl": 0.1344823274994269,
+          "mean_relative_mse": 0.13127239630557597
+        }
+      }
+    },
+    {
+      "split": "after",
+      "rows": 128,
+      "teacher_kl": 0.06700132140758797,
+      "mean_relative_mse": 0.09300684748450294,
+      "nll": 1.0534886985302085,
+      "objective": 0.07630200615603826,
+      "cohorts": {
+        "reasoning": {
+          "rows": 64,
+          "nll": 0.5500853102400242,
+          "teacher_kl": 0.025971713235776406,
+          "mean_relative_mse": 0.06671603594440967
+        },
+        "chat_cn": {
+          "rows": 32,
+          "nll": 1.583423358907601,
+          "teacher_kl": 0.09055971854832023,
+          "mean_relative_mse": 0.11095761484466493
+        },
+        "chat_en": {
+          "rows": 32,
+          "nll": 1.5303608147331844,
+          "teacher_kl": 0.12550214061047882,
+          "mean_relative_mse": 0.1276377032045275
+        }
+      }
+    }
+  ],
+  "rows_improved_out_of128": {
+    "teacher_kl": 121,
+    "normalized_state_relative_mse": 125,
+    "nll": 73
+  },
+  "independent_B300_VAL128_replay": "Actual fresh process started; result pending",
+  "public_development_evaluation_complete": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "complete_training_recipe_for_this_branch_included": false,
+  "first_two_events_exact_to_separate_control": false,
+  "first_two_trajectory_difference_cause_resolved": false,
+  "limits": "Completed updates/export/internal serialized replay. Full independent numeric checks, four public panels and all five Graph checks still pending. Objective improves but NLL slightly increases; no capability claim."
+}
