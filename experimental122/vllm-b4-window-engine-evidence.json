@@ -90,10 +90,12 @@
       }
     }
   ],
-  "throughput_ABBA_comparison_completed": false,
-  "full_process_NVML_peak_comparison_completed": false,
+  "throughput_ABBA_comparison_completed": true,
+  "full_process_NVML_peak_comparison_completed": true,
   "CPU_weight_offload": false,
   "HTTP_or_vision_or_long_input_or_sustained_service_claimed": false,
   "reserved_inputs_opened": false,
-  "limits": "Same four authored prompts repeated/reordered32rows, eager32+graph32. This independently validates the composition, not a broad quality or service benchmark. Instrumented controls do not establish throughput or sampled memory savings of the combined entry."
+  "limits": "Same four authored prompts repeated/reordered32rows, eager32+graph32. This independently validates the composition, not a broad quality or service benchmark. Instrumented controls do not establish throughput or sampled memory savings of the combined entry.",
+  "completed_ABBA_record": "../docs/experiments/2026-10-10-0718-b4-window-deployment.json",
+  "completed_ABBA_summary_sha256": "f8eddeb7d2885e946caf98555c833c342e14c9bace7704061e70c95794405cfb"
 }

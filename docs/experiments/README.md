@@ -115,3 +115,5 @@
 - [vLLM 短上下文缓存完成](2026-10-10-0658-window-deployment.json)：32请求四轮、7,520输出ID相同；吞吐 18.20→18.13 tokens/s，已采样 used 29.76/29.60GiB，驱动另计。
 
 - [B4与短上下文缓存组合的独立数值检查](../../experimental122/vllm-b4-window-engine-evidence.json)：eager32+graph32共3,760输出ID一致；不据此发布组合版的吞吐或全程显存结论。
+
+- [B4 原入口与短上下文缓存组合完成](2026-10-10-0718-b4-window-deployment.json)：32请求四轮、7,520输出ID相同；吞吐 21.49→21.75 tokens/s，已采样 used 30.87/30.73GiB，驱动另计。

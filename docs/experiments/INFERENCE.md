@@ -440,7 +440,7 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_window.py \
 | 含预填充合计吞吐 | 17.4610 tokens/s | 21.7489 tokens/s |
 | 全程最大已采样 NVML used | 30.1613 GiB | 30.8683 GiB |
 
-吞吐观测变化 **+24.557%**，两组配对 +25.218% / +23.897%。驱动另保留约 0.4839 GiB；本组最小观察 free 502.3 MiB。采样从加载前覆盖至退出之后，目标间隔20ms，可能遗漏更快瞬态；原始流 SHA、实际采样间隔及完整口径见[完成记录](2026-10-10-0644-b4-deployment.json)。
+吞吐观测变化 **+24.557%**，两组配对 +25.218% / +23.897%。驱动另保留约 0.4839 GiB；原B4入口最小观察 free 502.3 MiB，组合入口为640.3 MiB。采样从加载前覆盖至退出之后，目标间隔20ms，可能遗漏更快瞬态；原始流 SHA、实际采样间隔及完整口径见[完成记录](2026-10-10-0644-b4-deployment.json)。
 
 ![四轮显存和请求吞吐](2026-10-10-0644-b4-deployment.svg)
 
@@ -466,5 +466,26 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_window.py \
 两者均串行、max-model-len1536、512MiB KV/mamba 缓存，启动录图均不计入请求时间。窗口入口只把旋转位置缓存从128MiB缩至0.75MiB，静态省 **127.25MiB**；完整 GPU 前缀哈希独立核验，部署不分配完整参考缓存。本组运行 used 最大观察值实际相差 **160MiB**，与静态缓存的127.25MiB是不同口径；不将全部差值归因于这一个张量，也不把它解释为吞吐优化。两轮速度有自然波动；四类短题与同机另卡训练的限制仍在。
 
 复刻分别运行 `run_vllm_requests.py` 与 `run_vllm_requests_window.py`，共同参数 `--decode-graph --max-model-len 1536 --kv-cache-mib 512 --max-new-tokens 64`，同一公开32请求，A/B/B/A全新进程与输出目录。
+
+分词、模型加载和 JSON 写入不计入请求时间，预填充与 CPU 输出收集计入。不同实验的加速百分比不相加。
+
+## B4 原入口与短上下文缓存组合：四轮对照完成
+
+同一产物、32 个换序短请求，四轮全新进程 A/B/B/A；**7,520 个完整输出 ID、输入长度及 EOS 与原始对照一致**。下载真实输出和全部 35,015 个 NVML 样本后，已在独立本地进程重算。
+
+| 口径 | reference | window |
+|---|---:|---:|
+| 含预填充合计吞吐 | 21.4893 tokens/s | 21.7505 tokens/s |
+| 全程最大已采样 NVML used | 30.8683 GiB | 30.7336 GiB |
+
+吞吐观测变化 **+1.215%**，两组配对 +2.294% / +0.143%。驱动另保留约 0.4839 GiB；原B4入口最小观察 free 502.3 MiB，组合入口为640.3 MiB。采样从加载前覆盖至退出之后，目标间隔20ms，可能遗漏更快瞬态；原始流 SHA、实际采样间隔及完整口径见[完成记录](2026-10-10-0718-b4-window-deployment.json)。
+
+![四轮显存和请求吞吐](2026-10-10-0718-b4-window-deployment.svg)
+
+两个入口均采用同样的最多4活动请求队列、1GiB KV/mamba预算、max-model-len1536，batch1/2/4启动录图均在计时前。组合入口只把旋转位置缓存缩为1536文本窗口；完整GPU前缀哈希、361个保留张量和原始输出分别核验，部署不分配完整GPU参考缓存。静态少127.25MiB；表中NVML运行观察差值是另一口径，不能把全部差异归因于单一张量。
+
+这里的tokens/s是四请求合计有效吞吐，不是单个用户的生成速度。同机另卡有NR35训练；只有四类作者自编短题重复换序、固定ABBA，尚未做随机化长期服务压测。前面的串行显存与B4调度实验不叠加为本组收益，本组数字由自己的四轮真实结果计算。
+
+复刻分别运行 `run_vllm_requests_b4.py` 和 `run_vllm_requests_b4_window.py`，共同参数 `--decode-graph --kv-cache-mib 1024 --max-model-len 1536 --max-new-tokens 64`，使用公开 `examples/shared-head-requests32.jsonl`，按A/B/B/A各开全新进程与输出目录。测速关闭回放计数。用 `compare_engine_outputs.py` 先核对完整ID；模型buffer大小允许不同，不能直接使用要求相同storage的原生吞吐比较器。
 
 分词、模型加载和 JSON 写入不计入请求时间，预填充与 CPU 输出收集计入。不同实验的加速百分比不相加。
