@@ -287,7 +287,7 @@
     }
   },
   "figure": "2026-10-10-0557-native-vllm.svg",
-  "figure_sha256": "073c43f86bc7f36bedbcd5dc7f68d5cb539c99aaeb765db5b190df895779e66d",
+  "figure_sha256": "2f90ec862fc8b6dcec3ea231f00a85e629b80b273fec40bd9a2a4479f1c20791",
   "both_pairs_positive": true,
   "default_entry_replaced": false,
   "stock_vllm_B4_or_HTTP_validated_by_this_experiment": false
