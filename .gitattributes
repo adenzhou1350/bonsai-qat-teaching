@@ -3,3 +3,4 @@ courses/122b/seed_cpu/*.py text eol=lf
 courses/122b/seed_cpu/*.txt text eol=lf
 # Preserve the pinned upstream GPTQ bytes, including its trailing spaces.
 courses/122b/seed_cpu/portable122_gptq4_v1.py whitespace=-blank-at-eol
+experimental122/examples/*.jsonl text eol=lf

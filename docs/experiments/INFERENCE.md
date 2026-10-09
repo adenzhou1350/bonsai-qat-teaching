@@ -296,8 +296,22 @@ Profiler 会改变开销；累计 kernel 时长不是端到端耗时，不能用
 ```bash
 CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_lut.py \
   --model /path/to/native4095/packed \
-  --requests requests.jsonl --max-new-tokens 64 --max-cache-len 1536 \
+  --requests experimental122/examples/shared-head-requests32.jsonl --max-new-tokens 64 --max-cache-len 1536 \
   --output serial-lut-result.json
 ```
 
 与 `run_requests.py` 用相同请求和设置作 A/B/B/A，并用 `compare_requests.py` 核对 A/B、D/C。完整 CLI 吞吐对照正在运行，默认入口保持不变；当前不声明端到端收益或长上下文能力。512 字节表由解包方法闭包持有，未计入模型命名参数/缓冲区的 28.10GiB 存储统计，需另计。
+
+## 原串行与优化 B4：整套部署对照完成
+
+四个新进程按原串行 / 优化 B4 / 优化 B4 / 原串行执行，全部正常退出；7,520 个保存输出 ID 与原参考一致，本地下载原始输出再用公开比较工具核对 A/B、D/C 通过。
+
+| 同一 32 请求序列 | 原串行入口 | 共享头 + 低秩 BMM 的 B4 |
+|---|---:|---:|
+| 含预填充的合计吞吐 | 15.6567 tokens/s | 17.2786 tokens/s |
+| PyTorch allocated 峰值 | 28.435 GiB | 29.361 GiB |
+| 请求末设备观察最大 | 29.181 GiB | 30.157 GiB |
+
+此固定请求集的含预填充合计吞吐观测变化为 **+10.359%**，两个配对分别 +10.712%、+10.006%。这是 B4、共享头、低秩 BMM 的组合收益；不是某一个内核的独立收益，也不是单人生成速度。B4 的准备要等待四条独立预填充：组首 token 中位数 6.675s，原串行逐请求首 token 为 1.529s，起点口径不同且不含队列等待，不据此计算服务延迟比例。吞吐提高伴随约 0.926GiB 的 allocated 峰值增加。
+
+复刻使用[实际 32 请求 fixture](../../experimental122/examples/shared-head-requests32.jsonl)、相同 native4095 产物、cache1536/cap64：原串行运行 `run_requests.py`，候选运行 `run_requests_microbatch_lora_bmm.py --batch-size 4`，按 A/B/B/A 各用新输出文件，再用 `compare_requests.py` 比 A/B、D/C。四种作者自编问题重复换序，不是 32 种独立任务。完整计时、SHA 和限制见[完成记录](2026-10-10-0427.json)。尚未实现 HTTP、refill、连续批处理或 vLLM 引擎；默认入口保持不变。
