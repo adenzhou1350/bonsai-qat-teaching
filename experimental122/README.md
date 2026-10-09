@@ -376,3 +376,17 @@ CUDA 文本权重/持久缓冲仍为 **28.10GiB**，无 CPU 权重卸载。这�
 本次含预填充的合计吞吐观测变化为 **+0.214%**，两个配对分别 -0.404%、+0.839%。没有证明稳定额外收益，默认入口保持不变；不把此前单请求 LUT 的 1.55% 与 B4 组合收益相加。allocated 峰值增加 512 字节，reserved 和请求末设备观察另列于[完整记录](../docs/experiments/2026-10-10-0509-B4-lut.json)。同机其他卡同时运行 NR35 训练和 vLLM 专家诊断，这不是独占整机或服务压测。
 
 复刻时先运行 `run_requests_microbatch_lora_bmm.py --batch-size 4`，候选只换为 `run_requests_microbatch_lora_bmm_lut.py`，其余参数相同；使用现有 32 请求 fixture、cap64，默认 cache1536，按 A/B/B/A 各开新进程与新输出文件。该候选沿用相同请求循环，只在装配后安装 LUT；代码 SHA 与实际候选一致。输出全部相同后再解释计时，四种作者自编问题重复换序不等于 32 种独立任务。
+
+## vLLM dense/embedding 适配：组件验证完成
+
+新增[可复刻的 GPU 验证入口](validate_vllm_dense_embedding.py)及[源码身份](vllm-components-provenance.json)。同一入口已在 RTX 5090、vLLM 0.24.0 上完整运行并正常退出：373 个 dense bank 的全部元素及 embedding 全部 248,320 行基础权重，与独立 CPU 解包逐位一致；229 个实际 vLLM 投影模块各测 1/4/64 token，加 4 组实际 embedding 调用，共 **691/691 组输出逐位一致、相对 L2 为 0**。实际 GPU 对照后，又独立核对了文件 SHA、终态与进程退出。[完整证据](vllm-dense-component-evidence.json)。
+
+```bash
+# 使用上文 native4095 已打包模型和相同依赖；额外要求准确的 vLLM 0.24.0 源码。
+# output 必须是新目录。该命令校验当前教学代码的 54 个文件 SHA。
+CUDA_VISIBLE_DEVICES=0 python experimental122/validate_vllm_dense_embedding.py \
+  --model models/qwen35-122b-experimental-packed \
+  --output outputs/vllm-dense-component-check
+```
+
+该入口验证独立组件，尚未构成完整 vLLM 模型加载器、注意力/缓存、引擎生成或吞吐验证。专家运行时一起提供是为了复刻依赖；48 层专家的独立 GPU 对照在本条发布时仍在执行，单独记录结果。验证过程中持有 BF16 参考权重，其 allocator 峰值不能用于估计部署显存。完整引擎验证通过前，部署继续使用已有原生推理/B4 入口。
