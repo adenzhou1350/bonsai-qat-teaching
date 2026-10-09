@@ -1,0 +1,59 @@
+{
+  "verified_at_utc": "2026-10-09T10:27:16Z",
+  "model": "Qwen3.5-122B-A10B",
+  "hardware": "single NVIDIA B300",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "training_summary_sha256": "8f28df3078a6501a7dd3405d5fda5370428b09372f46bf4c2d2dd6a4a18d563d",
+  "training": {
+    "actual_optimizer_updates": 4096,
+    "actual_supervised_positions": 16773120,
+    "layers": 48,
+    "trainable_FP32_rank8_factor_tensors": 192,
+    "base_ternary_experts_and_calibrated_dense4_frozen": true,
+    "full_expert_weight_QAT": false,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "gradient_norm_clip": 1.0,
+    "loss": "full-vocabulary teacher KL + 0.1 * normalized hidden-state MSE"
+  },
+  "data": {
+    "source": "OpenThoughts",
+    "train_blocks": 4096,
+    "validation_blocks": 128,
+    "tokens_per_block": 4096,
+    "supervised_positions_per_block": 4095,
+    "tokens_sha256": "651bd9e156588f7118267b21aadbc14b22a7931037be71211b7c71b3c76d65a5",
+    "native_BF16_teacher_matched_to_student_input_positions": true,
+    "teacher_head": "original BF16",
+    "student_head": "calibrated affine4"
+  },
+  "validation": {
+    "rows": 128,
+    "before": {
+      "teacher_kl": 0.14263457598281093,
+      "normalized_state_mse": 0.24398914515040815,
+      "nll": 0.6320797222626435,
+      "objective": 0.16703349049785174
+    },
+    "after": {
+      "teacher_kl": 0.034605835178808775,
+      "normalized_state_mse": 0.11011504469206557,
+      "nll": 0.5313579123614551,
+      "objective": 0.04561733964801533
+    },
+    "rows_improved_in_each_metric": 128,
+    "CPU_arithmetic_checked_for_every_row": true
+  },
+  "export": {
+    "layers": 48,
+    "reloaded_BF16_factors_validation128_exactly_matches_pre_export": true,
+    "frozen_components_unchanged": true,
+    "training_process_exit_code": 0
+  },
+  "quality_accepted": false,
+  "independent_numeric_checks_complete": false,
+  "single_5090_speed_verified_for_this_artifact": false,
+  "portable_training_recipe_included": false,
+  "weights_included": false,
+  "limits": "Training and export evidence only. Separate independent validation, cached-runtime checks, capability evaluation and new-artifact single5090 speed remain pending. This artifact is distinct from the old artifact accepted by infer.py."
+}
