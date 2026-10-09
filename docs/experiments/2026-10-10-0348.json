@@ -1,0 +1,657 @@
+{
+  "summary": {
+    "passed": true,
+    "stage": "completed",
+    "source_policy_sha256": "7b0e7b84d6b916add2a8246a3a50b2ef461c4c7b4c6deb1bf62b31a7675f78a8",
+    "relative_L2_threshold_declared_before_execution": 0.005,
+    "steps": 16,
+    "runs": [
+      {
+        "step": 1,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 2,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 3,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 4,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 5,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 6,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 7,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 8,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 9,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 10,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 11,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 12,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 13,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 14,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 15,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      },
+      {
+        "step": 16,
+        "maximum_relative_L2": {
+          "layer": 0.0,
+          "cache": 0.0,
+          "logits": 0.0,
+          "route": 0.0
+        },
+        "bitwise_equal_counts": {
+          "layer": {
+            "equal": 48,
+            "total": 48
+          },
+          "cache": {
+            "equal": 108,
+            "total": 108
+          },
+          "logits": {
+            "equal": 1,
+            "total": 1
+          },
+          "route": {
+            "equal": 144,
+            "total": 144
+          }
+        },
+        "full_layer_outputs_compared": 48,
+        "full_cache_layers_compared": 48,
+        "full_logits_elements_compared": 993280,
+        "routes_compared": 48,
+        "all_generated_prefix_IDs_equal_original": true
+      }
+    ],
+    "weights_changed": false,
+    "CPU_weight_offload": false,
+    "diagnostic_cache_snapshots_copied_to_CPU": true,
+    "default_replaced": false,
+    "reserved_inputs_opened": false,
+    "generated_prefix_IDs": [
+      [
+        332,
+        103725,
+        105258,
+        332,
+        103722,
+        96123,
+        124089,
+        103725,
+        95789,
+        101779,
+        96402,
+        122037,
+        9616,
+        96031,
+        220,
+        18,
+        17
+      ],
+      [
+        115942,
+        111362,
+        110063,
+        95759,
+        2972,
+        21,
+        21,
+        220,
+        96287,
+        221794,
+        271,
+        97792,
+        97424,
+        98293,
+        4960,
+        271,
+        16
+      ],
+      [
+        71093,
+        12305,
+        198,
+        727,
+        4752,
+        39914,
+        1951,
+        20449,
+        1590,
+        198,
+        262,
+        4071,
+        198,
+        262,
+        220,
+        108843,
+        113282
+      ],
+      [
+        104980,
+        99943,
+        104020,
+        105108,
+        111378,
+        98472,
+        4960,
+        96382,
+        96178,
+        96327,
+        124720,
+        9616,
+        56627,
+        2193,
+        7313,
+        98677,
+        332
+      ]
+    ],
+    "all68_saved_prefix_IDs_equal_original": true,
+    "full48_layer_outputs_caches_routes_logits_checked_each_of16steps": true,
+    "bitwise_equivalence_required": false,
+    "limits": "Native B4 original versus low-rank-only BMM on same four authored prefixes27/40/39/103 and16greedy graph steps. Initial full cache exact; each step full48 outputs/caches/routes and993280logits finite and relativeL2<=.005; all integer routing choices exact,68prefixIDs exact. Live arrays compared against independent native reference copied to CPU; reference arrays not exported. Diagnostic hooks clone outputs and alter graph memory/timing, no throughput inference or full capability/long-context/service admission. Only small-batch selected-route projection replaced; original B1 prefills and all source weights preserved."
+  },
+  "summary_sha256": "f8f18e7f0c69055d5f75c3b5123aef739992752a2cc7bf695347161219b3cd07",
+  "lease_sha256": "cd170eca3119f63785d2ef3fa4369a86dd16426a75e26997c8b7ae15286c1e53",
+  "source49_unchanged": true,
+  "all68_saved_prefix_IDs_independently_recompared": true,
+  "full_array_comparisons_were_live_GPU_CPU_reference_guards_not_serialized_array_rereads": true,
+  "actual_exit_code": 0,
+  "owned_process_group_empty": true,
+  "performance_ABBA_complete": false,
+  "all16_tested_step_layer_cache_route_logit_states_bitwise_equal_live": true,
+  "universal_model_equivalence_claimed": false,
+  "observed_at_UTC": "2026-10-09T19:48:21.940693+00:00",
+  "status": "completed_full48_numeric_validation_for_low_rank_only_BMM",
+  "source_identity_and_CPU_help": {
+    "source50_unchanged": true,
+    "file_sha256": {
+      "experimental122/runtime/native_lora_bmm_v1.py": "230adc4c0ffbfd815e1afbf93117450c4ec54028acab02d5127346e08f2ed5f0",
+      "experimental122/run_requests_microbatch_lora_bmm.py": "76f1d9b64a6f224bda5df78bbd3d4b96a064658c4669298699396d5f32484727"
+    },
+    "helper_same_bytes_as_completed_full48_numerics": true,
+    "CLI_help_isolated_CUDA_empty_exit_code": 0,
+    "CLI_has_GPU_runtime_test_complete": false,
+    "default_replaced": false
+  },
+  "performance_ABBA": {
+    "source50_policy_sha256": "1f5ea3fcf6587c275cc31ebca2a72b0544c6861d6ee9f5337444c679c7ae27e0",
+    "started_after_completed_full_numeric_control": true,
+    "completed": false,
+    "end_to_end_gain_claimed": false
+  },
+  "earlier_queue_script_error": {
+    "before_GPU_lease": true,
+    "progress_or_inference_created": false,
+    "reason": "Reused dependency checker expected the previous ABBA output-ID field instead of the new 68-prefix numeric field. Preserved failed directory; new immutable launcher checks completed numeric result and exact helper identity."
+  },
+  "memory_evidence_reference": "2026-10-10-0105.json",
+  "memory_scope": {
+    "CUDA_text_weights_and_buffers_GiB": 28.099809408187866,
+    "original_mixed_long_request_NVML_used_max_GiB": 31.10662841796875,
+    "before_capture_trim_candidate_NVML_used_max_GiB": 30.75506591796875,
+    "NVML_used_excludes_driver_reserved_GiB": 0.48388671875,
+    "longest_authored_input_tokens": 14755,
+    "NVML_interval_target_seconds": 0.1,
+    "true_continuous_peak_claimed": false,
+    "before_capture_trim_adopted_default": false
+  },
+  "default_replaced": false,
+  "new_capability_or_service_admission_claimed": false
+}

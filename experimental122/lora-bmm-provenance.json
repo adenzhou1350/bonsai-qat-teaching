@@ -1,0 +1,14 @@
+{
+  "file_sha256": {
+    "experimental122/runtime/native_lora_bmm_v1.py": "230adc4c0ffbfd815e1afbf93117450c4ec54028acab02d5127346e08f2ed5f0",
+    "experimental122/run_requests_microbatch_lora_bmm.py": "76f1d9b64a6f224bda5df78bbd3d4b96a064658c4669298699396d5f32484727"
+  },
+  "numerics_evidence": "../docs/experiments/2026-10-10-0348.json",
+  "same_helper_bytes_as_actual_completed_full48_numerics": true,
+  "CLI_help_isolated_CUDA_empty_exit_code": 0,
+  "full_GPU_CLI_performance_control_complete": false,
+  "performance_ABBA_source_policy_sha256": "1f5ea3fcf6587c275cc31ebca2a72b0544c6861d6ee9f5337444c679c7ae27e0",
+  "performance_checked_batch_size": 4,
+  "B2_branch_revalidated_in_this_control": false,
+  "default_replaced": false
+}

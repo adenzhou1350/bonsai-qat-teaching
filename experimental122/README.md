@@ -275,3 +275,22 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_microbatch_layerwise_
 ~~~
 
 每个候选单独与 run_requests_microbatch_shared_head.py 做 A/B/B/A，使用四个新输出文件；用 compare_requests.py 对照 A/B 与 D/C，再合并相同分支的总输出与总请求耗时。不要拿两个候选之间的差当成层内复用的隔离收益。完整本轮性能验证仅 B4；候选的 B2 分支未在本轮重新验证。限制仍为 cache1536、greedy、cap≤64，没有 HTTP、refill、连续批处理或 vLLM 集成。
+
+## 低秩修正批量化候选
+
+`run_requests_microbatch_lora_bmm.py` 保留共享头 B4v4 入口的主投影与预填充，只把专家 rank-8 修正的两组逐路 GEMM 改成 BMM。相同 helper 在四个作者自编前缀上完成 16 步整模型检查：所有层输出、缓存、路由和 logits 逐元素一致，68 个前缀 ID 独立重比对。见[数值证据](../docs/experiments/2026-10-10-0348.json)与[源码 SHA](lora-bmm-provenance.json)。当前完整 GPU CLI 吞吐对照进行中，数值验证不等于速度或服务验证；B2 分支未在本轮重新验证。
+
+需要已经打包好的 `native4095` 产物与本目录的固定运行环境。创建新的输出文件，从仓库根目录运行：
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_microbatch_shared_head.py \
+  --model models/native4095-packed --requests requests.jsonl \
+  --output outputs/baseline.json --batch-size 4 --max-new-tokens 64
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_microbatch_lora_bmm.py \
+  --model models/native4095-packed --requests requests.jsonl \
+  --output outputs/lora-bmm.json --batch-size 4 --max-new-tokens 64
+python experimental122/compare_requests.py \
+  --baseline outputs/baseline.json --candidate outputs/lora-bmm.json
+```
+
+输入 JSONL 每行是 `{"prompt":"你的问题"}`。先确认完整输出 ID 与 EOS 相同，再比较包括预填充的吞吐；正式速度判断需要交替顺序重复运行。它仍是固定 B4 分组、cache1536、greedy/cap64 的单 worker 实验，没有 HTTP、请求补位或 vLLM 接口。
