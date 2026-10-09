@@ -1,0 +1,26 @@
+{
+  "format": "teaching-experiment-milestone-v1",
+  "observed_at_utc": "2026-10-09T13:32:34Z",
+  "experiment": "R35-8192",
+  "artifact_manifest_sha256": "2a8aba243717e5b0230cc388d65e0f2f9c446bf30dde69581fbfa731f85e0f99",
+  "prior_independent_replay_milestone": "2026-10-09-2129.json",
+  "B300_cached_numerical_gate": {
+    "passed": true,
+    "layer_checks": 640,
+    "whole_model_checks": 16,
+    "actual_exit_code": 0,
+    "owned_process_group_empty": true,
+    "summary_sha256": "560c59f1a75c18a27372202a4122fb06b62a330cbab2885ba7d9689025a42784",
+    "relative_l2_tolerance": 0.005,
+    "whole_packed_vs_cuda_hard_nll_difference": 0.0005439386586658657,
+    "unmodified_original_hard_oracle": true,
+    "whole_nll_completed_blocks": 16
+  },
+  "training_complete": true,
+  "selected5090_numerical_checks_complete": false,
+  "public_development_evaluation_complete": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "complete_training_recipe_for_this_branch_included": false,
+  "limits": "All B300 cached numerical checks complete with unchanged oracle and thresholds. This does not establish 5090 numerical or capability acceptance; these remain separate jobs."
+}

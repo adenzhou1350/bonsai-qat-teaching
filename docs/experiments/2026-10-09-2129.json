@@ -1,0 +1,43 @@
+{
+  "format": "teaching-experiment-milestone-v1",
+  "observed_at_utc": "2026-10-09T13:29:46Z",
+  "experiment": "R35-8192",
+  "model": "Qwen3.5-35B-A3B",
+  "artifact_manifest_sha256": "2a8aba243717e5b0230cc388d65e0f2f9c446bf30dde69581fbfa731f85e0f99",
+  "prior_training_export_milestone": "2026-10-09-2110.json",
+  "independent_B300_VAL128_replay": {
+    "passed": true,
+    "rows": 128,
+    "positions": 524160,
+    "all_rows_and_cohort_scalars_exact_training_after": true,
+    "original_retained_and_packed_bases_unchanged": true,
+    "actual_exit_code": 0,
+    "owned_process_group_empty": true,
+    "summary_sha256": "202e595d01f610368ce04af839bd7b5da6d3d8c6e0a20d77978fdbdf8cdfe65c",
+    "terminal_sha256": "33d869b37352641016f9743ac3015ed012e3675d65959702402e3d4c9a68f72a"
+  },
+  "source_equation_audit": {
+    "actual_source_hashes_verified_against_remote_immutable_policies": true,
+    "function_AST_exact": {
+      "forward": true,
+      "loss_and_nll": true,
+      "gpu": true
+    },
+    "entire_train_update_before_checkpoint_AST_exact": true,
+    "validation_rows_differ": {
+      "control": 1,
+      "full": 128
+    },
+    "full_adds_checkpoint_after_first_update": true,
+    "first_two_gradient_trajectory_difference_cause_proven": false,
+    "RNG_or_backend_nondeterminism_causally_tested": false
+  },
+  "B300_cached640_plus16": "Running; not accepted as complete",
+  "selected5090_cached_Graph_and_public_evaluations": "Queued behind B300 numerical completion",
+  "public_development_evaluation_complete": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "complete_training_recipe_for_this_branch_included": false,
+  "evidence_availability": "Sanitized summary and original result hashes only; full raw output and packed weights are not distributed in this repository.",
+  "limits": "Independent reload is complete. Cached decoding, all four public panels and all five Graph contexts remain pending. Equation identity does not resolve the separate first-two-update trajectory discrepancy."
+}

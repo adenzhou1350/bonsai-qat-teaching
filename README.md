@@ -17,6 +17,8 @@
 
 ## 课程顺序
 
+[动手课程](docs/LABS.md) 把下面各步串成练习，并列出预期输出、验收问题和资源限制。
+
 1. 读 [METHOD.md](docs/METHOD.md)：哪些参数训练、哪些冻结，1.6bit 编码怎样算。
 2. 跑 `CUDA_VISIBLE_DEVICES='' python test_equations.py`，观察量化、梯度及恢复。
 3. 按 [REPRODUCING.md](docs/REPRODUCING.md) 准备数据、教师目标，先两步再完整训练。
@@ -44,7 +46,7 @@
 - [35B 训练实验](docs/experiments/35B.md)：全专家 QAT、rank-16 补偿及第二轮训练。
 - [122B 训练与质量](docs/experiments/122B.md)：已完成产物、质量失败、可移植全流程进度。
 - [推理适配与优化](docs/experiments/INFERENCE.md)：舍入/后端差异、vLLM 桥接、Graph 和测速口径。
-- [2026-10-09 状态快照](docs/experiments/2026-10-09.json)：已完成与运行中状态，去除机器地址、PID 和凭证。
+- [初始状态快照](docs/experiments/2026-10-09.json)与[后续完成节点](docs/experiments/README.md)：保留每个时点的真实状态，去除机器地址、PID 和凭证。
 - [原 README 实验日志](docs/archive/2026-10-09-original-readme.md)：保留历史失败和修复，不再向首页追加流水账。
 
 数值一致、训练完成、能力达标、服务性能是四种独立结论。新实验先记录真实状态，通过完整链路验证后再加入可运行课程；未验证脚本不会被描述成“一键复刻”。本次整理所对应的已验证代码身份见 [复刻清单](docs/reproducibility-manifest.json)。
