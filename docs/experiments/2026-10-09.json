@@ -1,0 +1,249 @@
+{
+  "format": "teaching-experiment-snapshot-v1",
+  "date": "2026-10-09",
+  "timezone": "Asia/Shanghai",
+  "scope": "Sanitized evidence summary. Running-job observations are timestamps, not final outcomes. No weights, raw data, machine addresses, process IDs or credentials.",
+  "T35": {
+    "observed_at_utc": "2026-10-09T12:52:12Z",
+    "model": "Qwen3.5-35B-A3B",
+    "method": "full expert FP32-master ternary QAT",
+    "hardware": "2x B300",
+    "trainable_expert_tensors": 80,
+    "trainable_elements": 32212254720,
+    "actual_updates": 1479,
+    "planned_updates": 4096,
+    "actual_process_live": true,
+    "checkpoint_publications": [
+      {
+        "step": 512,
+        "file_count": 82,
+        "bytes": 386547257631,
+        "manifest_sha256": "d16c09a9aea0a2e02651e79502d8464a17b0b76ee6b04addfe86edb754e2ac9c"
+      },
+      {
+        "step": 1024,
+        "file_count": 82,
+        "bytes": 386547257632,
+        "manifest_sha256": "ec5680039b1f85c87155c6da5da37c55be149973f020d125760abf258c409aae"
+      }
+    ],
+    "two_update_whole_model_control_completed": true,
+    "long_run_export_reload_complete": false,
+    "quality_accepted": false,
+    "evidence": {
+      "receipt_sha256": "3b16729a1781c28a9d017d9bbde4912fd821770ab2ef02a8e35c0b1232482b1b",
+      "receipt_name": "remote_full80_checkpoint_publications_v1097-20261009T125212Z.json"
+    }
+  },
+  "R35_4096": {
+    "method": "frozen INT2 experts plus160 FP32 rank16 factors",
+    "updates": 4096,
+    "independent_validation128_complete": true,
+    "panels": {
+      "cn": [
+        48,
+        30,
+        48
+      ],
+      "cmmlu": [
+        160,
+        161,
+        201
+      ],
+      "gsm8k": [
+        189,
+        192,
+        200
+      ],
+      "human": [
+        140,
+        129,
+        164
+      ]
+    },
+    "panel_values": "candidate, matched native, denominator",
+    "additional_legacy_human_passes": 133,
+    "human_unsupported_kept_in_denominator": 3,
+    "quality_accepted": false,
+    "reserved_inputs_opened": false
+  },
+  "R35_8192": {
+    "observed_at_utc": "2026-10-09T12:58:48Z",
+    "parent_updates": 4096,
+    "additional_updates": 4096,
+    "actual_total_updates": 8192,
+    "learning_rate": 3e-05,
+    "order_seed": 9121,
+    "training_after_validation_rows": 128,
+    "actual_stage": "whole_gpu_export",
+    "training_exit_and_export_replay_complete": false,
+    "independent_checks_complete": false,
+    "public_evaluation_complete": false,
+    "quality_accepted": false,
+    "first_two_events_exact_to_separate_control": false,
+    "first_two_event_difference_cause_resolved": false,
+    "reserved_inputs_opened": false,
+    "evidence": {
+      "receipt_sha256": "ebaa2ad183fb5de8584839701c54cd61a4faf3b527f3f9116c8beb6b6b4fe870",
+      "receipt_name": "remote_teaching_second35_stage_20261009-20261009T125848Z.json"
+    }
+  },
+  "R122_native4095": {
+    "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+    "updates": 4096,
+    "positions": 16773120,
+    "training_method": "frozen ternary/affine4 base plus192 FP32 rank8 factors",
+    "data_sha256": "651bd9e156588f7118267b21aadbc14b22a7931037be71211b7c71b3c76d65a5",
+    "validation128_before_objective": 0.16703349049785174,
+    "validation128_after_objective": 0.04561733964801533,
+    "independent_numeric_checks_complete": true,
+    "single5090_inference_complete": true,
+    "public_panels": [
+      {
+        "mode": "cn",
+        "completed": 48,
+        "native_original_passes": 48,
+        "new_candidate_passes": 46,
+        "both_passed": 46,
+        "source_passes_lost": 2,
+        "new_passes": 0,
+        "both_failed": 0,
+        "unsupported_kept_in_denominator": 0,
+        "aggregate_noninferior": false,
+        "candidate_summary_sha256": "407fb950a51068733f89bb51228b213dd2c37f92db42afee3187889eeb5c1630"
+      },
+      {
+        "mode": "cmmlu",
+        "completed": 201,
+        "native_original_passes": 163,
+        "new_candidate_passes": 161,
+        "both_passed": 151,
+        "source_passes_lost": 12,
+        "new_passes": 10,
+        "both_failed": 28,
+        "unsupported_kept_in_denominator": 0,
+        "aggregate_noninferior": false,
+        "candidate_summary_sha256": "bde1400d14d70be582f6a0643b9a078395bd0bbd26b2a8223c2929803361f8ef"
+      },
+      {
+        "mode": "gsm8k",
+        "completed": 200,
+        "native_original_passes": 190,
+        "new_candidate_passes": 189,
+        "both_passed": 187,
+        "source_passes_lost": 3,
+        "new_passes": 2,
+        "both_failed": 8,
+        "unsupported_kept_in_denominator": 0,
+        "aggregate_noninferior": false,
+        "candidate_summary_sha256": "7c22d11ba1e969492d17dd2d73ef7f355e6b1e4965ff3ae8b1ee52f2a2afc9da"
+      },
+      {
+        "mode": "human",
+        "completed": 164,
+        "native_original_passes": 135,
+        "new_candidate_passes": 134,
+        "both_passed": 127,
+        "source_passes_lost": 8,
+        "new_passes": 7,
+        "both_failed": 22,
+        "unsupported_kept_in_denominator": 2,
+        "aggregate_noninferior": false,
+        "candidate_summary_sha256": "70fe26e86f5707390499741879ca9e4c0ade424a0a7d4df490f8b41654368b26"
+      }
+    ],
+    "public_summary_sha256": "4162f428bd10113eba6715883f4eb5315ccf31e7d30e8868a2f9ef884801a21e",
+    "decode_benchmarks": [
+      {
+        "context_tokens": 128,
+        "fixed_new_tokens": 64,
+        "decode_tokens_per_second": 28.74536529941292,
+        "prepare_seconds_includes_prefill_and_capture": 3.1906163850799203,
+        "graph_static_token_ids_equal": true,
+        "peak_allocated_bytes": 30486048256
+      },
+      {
+        "context_tokens": 512,
+        "fixed_new_tokens": 64,
+        "decode_tokens_per_second": 28.646634847260874,
+        "prepare_seconds_includes_prefill_and_capture": 3.8820427944883704,
+        "graph_static_token_ids_equal": true,
+        "peak_allocated_bytes": 30530485248
+      },
+      {
+        "context_tokens": 4096,
+        "fixed_new_tokens": 64,
+        "decode_tokens_per_second": 25.844759085512266,
+        "prepare_seconds_includes_prefill_and_capture": 8.905134923756123,
+        "graph_static_token_ids_equal": true,
+        "peak_allocated_bytes": 31042519552
+      },
+      {
+        "context_tokens": 8192,
+        "fixed_new_tokens": 64,
+        "decode_tokens_per_second": 22.966910508276865,
+        "prepare_seconds_includes_prefill_and_capture": 16.29703550413251,
+        "graph_static_token_ids_equal": true,
+        "peak_allocated_bytes": 31369777664
+      },
+      {
+        "context_tokens": 16384,
+        "fixed_new_tokens": 64,
+        "decode_tokens_per_second": 19.005879423959666,
+        "prepare_seconds_includes_prefill_and_capture": 33.10640856530517,
+        "graph_static_token_ids_equal": true,
+        "peak_allocated_bytes": 32494375424
+      }
+    ],
+    "unique_CUDA_text_storage_bytes": 30171940608,
+    "timing_scope": "Fixed64 decode only, one sample/context, excludes prefill/capture; no CPU weight offload; quality rejected.",
+    "quality_accepted": false,
+    "reserved_inputs_opened": false,
+    "complete_raw_model_training_recipe_included": false,
+    "training_record": "../../experimental122/native4095-training-result.json",
+    "inference_record": "../../experimental122/native4095-verified-run.json"
+  },
+  "P122": {
+    "expert96_control_complete": true,
+    "embedding_full_control_complete": true,
+    "retained361_control_complete": true,
+    "dense_first_layer_control_complete": true,
+    "dense_full48_complete": false,
+    "dense_observed_at_utc": "2026-10-09T12:52:51Z",
+    "dense_actual_layer_zero_based": 5,
+    "dense_actual_stage": "original_source_dense_capture",
+    "dense_full_process_live": true,
+    "new_complete_seed_assembly_complete": false,
+    "portable_teacher_three_rows_exact": true,
+    "portable_teacher_all4224_complete": false,
+    "portable_recovery_CPU_negative_controls_complete": true,
+    "portable_recovery_positive_GPU_run_complete": false,
+    "new_inference_CPU_controls_complete": true,
+    "new_inference_CPU_summary_sha256": "32b8d8e00a4a7b353a1da20b8391428db94a6350def2e37a57099ee22e345d23",
+    "new_inference_CPU_scope": "Existing native4095 full files, help, six bad artifact identities and missing intended manifest SHA. No new portable trained artifact or GPU execution.",
+    "new_portable_full_artifact_GPU_inference_complete": false,
+    "complete_recipe_published": false,
+    "quality_accepted": false,
+    "dense_evidence": {
+      "receipt_sha256": "48824fb7ae2737f7593e8ceac9fe98d99792499f68f91b1c6c9191b9d5bfeaf2",
+      "receipt_name": "remote_portable122_full_dense_status_v1199-20261009T125251Z.json"
+    },
+    "new_inference_CPU_evidence": {
+      "receipt_sha256": "4aefca7be679d236aa04e3b5627ee3055b8a1c7c294cd084c3375070c34863ee",
+      "receipt_name": "remote_teaching_docs_refresh_20261009-20261009T125250Z.json"
+    }
+  },
+  "V35": {
+    "weights": "T35 two-update control only",
+    "vllm_version": "0.24.0",
+    "paged_GDN_KV_numeric_and_generation_controls_passed": true,
+    "GDN_and_MLP_Graph_single_request_controls_passed": true,
+    "full_training_weights_verified": false,
+    "concurrency_or_service_verified": false,
+    "adapter_published": false
+  },
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "weights_included": false,
+  "complete_data_or_evaluation_recipe_included": false
+}
