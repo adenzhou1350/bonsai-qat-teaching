@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "source_policy_sha256": "dea4a805dc493a91850aa7e524615362b3e2b4c247d8eab6d252abf802e30bf2",
+  "unique_CUDA_text_storage_bytes": 30171940608,
+  "benchmarks": [
+    {
+      "context_tokens": 128,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 28.74536529941292,
+      "prepare_seconds_includes_prefill_and_capture": 3.1906163850799203,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 30486048256
+    },
+    {
+      "context_tokens": 512,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 28.646634847260874,
+      "prepare_seconds_includes_prefill_and_capture": 3.8820427944883704,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 30530485248
+    },
+    {
+      "context_tokens": 4096,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 25.844759085512266,
+      "prepare_seconds_includes_prefill_and_capture": 8.905134923756123,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 31042519552
+    },
+    {
+      "context_tokens": 8192,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 22.966910508276865,
+      "prepare_seconds_includes_prefill_and_capture": 16.29703550413251,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 31369777664
+    },
+    {
+      "context_tokens": 16384,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 19.005879423959666,
+      "prepare_seconds_includes_prefill_and_capture": 33.10640856530517,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 32494375424
+    }
+  ],
+  "generation_tokens": 32,
+  "generation_text": "**模型量化**（Model Quantization）是指将深度学习模型中的参数（如权重和激活值）从高精度浮点数（通常是 32 ",
+  "quality_accepted": false,
+  "date": "2026-10-09",
+  "model": "Qwen3.5-122B-A10B",
+  "artifact_version": "native4095",
+  "hardware": "single NVIDIA RTX 5090",
+  "portable_entry_sha256": "aa1864b08adbf5375e776ed2940c004f66daf993897a3d20bfde5514e6621a71",
+  "portable_inference_python_files_verified": 26,
+  "control_launcher_separate": true,
+  "actual_benchmark_and_generation_exit_codes": [
+    0,
+    0
+  ],
+  "process_group_empty": true,
+  "complete_five_context_graph_static_token_equality": true,
+  "all_text_tensors_CUDA_no_CPU_weight_offload": true,
+  "summary_sha256": "60629aaee4e583c9169724d40e928c95e02589584128087151c607830f60199b",
+  "weights_included": false,
+  "portable_training_recipe_included": false,
+  "limits": "Single-request text-only engineering control of the completed native4095 artifact. Fixed64 decode timing excludes prefill and graph capture and continues past EOS. One timing sample per context; not service throughput or quality acceptance. Chinese example is capped at32 tokens and not a complete-answer quality test."
+}

@@ -74,5 +74,5 @@
       "acceptance_floor": 163
     }
   },
-  "limits": "Experimental old artifact, single request text only, fixed64 decode timing excludes prefill/capture and continues past EOS. No model weights or 122B training recipe distributed. New training is separate and unfinished."
+  "limits": "Experimental old artifact, single request text only, fixed64 decode timing excludes prefill/capture and continues past EOS. No model weights or complete122B training recipe distributed. New native4095 artifact has separate training and inference records; both artifacts remain quality-rejected."
 }

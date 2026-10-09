@@ -4,6 +4,10 @@ from pathlib import Path
 
 sys.path.insert(0,str(Path(__file__).resolve().parent/'runtime'))
 EXPECTED_MANIFEST='5c9683297d71c1dbdd1c32a8a749aa1911c857fb9ef1a788dfe794230abd08a9'
+ARTIFACTS={
+    'old':(EXPECTED_MANIFEST,'research-direct-ternary122-dense4-original-teacher-rank8-recovery-v1'),
+    'native4095':('dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1','research-direct-ternary122-dense4-native4095-teacher-rank8-recovery-v2'),
+}
 
 def sha(path):
     digest=hashlib.sha256()
@@ -11,28 +15,30 @@ def sha(path):
         while block:=stream.read(8*1024*1024):digest.update(block)
     return digest.hexdigest()
 
-def manifest(directory):
+def manifest(directory,artifact_version='old'):
     directory=Path(directory).resolve();path=directory/'summary.json'
-    if sha(path)!=EXPECTED_MANIFEST:raise ValueError('This entry is pinned to the measured old 4096-step experimental artifact.')
+    expected,format_tag=ARTIFACTS[artifact_version]
+    if sha(path)!=expected:raise ValueError(f'This entry requires the pinned {artifact_version} 4096-step experimental artifact.')
     report=json.loads(path.read_text())
-    assert report['format']=='research-direct-ternary122-dense4-original-teacher-rank8-recovery-v1' and report['passed'] and report['full_model_exported'] and report['layers']==list(range(48)) and report['actual_optimizer_updates']==4096
+    assert report['format']==format_tag and report['passed'] and report['full_model_exported'] and report['layers']==list(range(48)) and report['actual_optimizer_updates']==4096
+    if artifact_version=='native4095':assert report['teacher_input_positions']==4095 and report['serialized_replay_bitwise_equal'] and report['frozen_components_unchanged']
     assert sha(directory/'retained.pt')==report['retained_sha256']
     for row in [*report['matrices'],report['embedding']]:
         path=(directory/row['file']).resolve();assert path.is_relative_to(directory) and sha(path)==row['sha256']
     return directory,report
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--model',required=True,type=Path);p.add_argument('--prompt',default='用中文解释什么是模型量化。');p.add_argument('--max-new-tokens',type=int,default=128);p.add_argument('--benchmark',action='store_true');p.add_argument('--contexts',type=int,nargs='+',default=[128,512,4096,8192,16384]);p.add_argument('--output',type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--model',required=True,type=Path);p.add_argument('--artifact-version',choices=ARTIFACTS,default='old');p.add_argument('--prompt',default='用中文解释什么是模型量化。');p.add_argument('--max-new-tokens',type=int,default=128);p.add_argument('--benchmark',action='store_true');p.add_argument('--contexts',type=int,nargs='+',default=[128,512,4096,8192,16384]);p.add_argument('--output',type=Path);a=p.parse_args()
     assert 1<=a.max_new_tokens<=1024 and all(1<=v<=16384 for v in a.contexts)
     os.environ['BONSAI_BATCHED_PREFILL']='1'
     import torch
     from direct122_original_recovery_runtime_v38_expert_stream import assemble_controlled
     from gsq_graph_decoder_v3_cache_snapshot import GraphDecoder
     assert torch.cuda.device_count()==1 and '5090' in torch.cuda.get_device_name(0),'Select one RTX 5090 with CUDA_VISIBLE_DEVICES.'
-    torch.set_num_threads(1);directory,report=manifest(a.model);tok,model,_=assemble_controlled(directory,report)
+    torch.set_num_threads(1);directory,report=manifest(a.model,a.artifact_version);tok,model,_=assemble_controlled(directory,report)
     text_tensors=[v for n,v in [*model.named_parameters(),*model.named_buffers()] if n.startswith(('model.language_model.','lm_head.'))];assert text_tensors and all(v.is_cuda for v in text_tensors)
     stores={v.untyped_storage().data_ptr():v.untyped_storage().nbytes() for v in text_tensors}
-    result={'model':'Qwen3.5-122B-A10B','artifact_manifest_sha256':EXPECTED_MANIFEST,'artifact_optimizer_updates':4096,'engineering_only':True,'quality_accepted':False,'cpu_weight_offload':False,'all_text_tensors_on_CUDA':True,'unique_CUDA_text_storage_bytes':sum(stores.values()),'benchmarks':[],'limits':'Old quality-rejected experimental weights. Single request, text only. Fixed64 benchmark excludes prefill and capture and continues past EOS. Not a standard Transformers/vLLM checkpoint.'}
+    result={'model':'Qwen3.5-122B-A10B','artifact_version':a.artifact_version,'artifact_manifest_sha256':ARTIFACTS[a.artifact_version][0],'artifact_optimizer_updates':4096,'engineering_only':True,'quality_accepted':False,'cpu_weight_offload':False,'all_text_tensors_on_CUDA':True,'unique_CUDA_text_storage_bytes':sum(stores.values()),'benchmarks':[],'limits':'Quality-rejected experimental weights. Single request, text only. Fixed64 benchmark excludes prefill and capture and continues past EOS. Not a standard Transformers/vLLM checkpoint.'}
     with torch.inference_mode():
         if a.benchmark:
             import gc

@@ -52,10 +52,10 @@
   },
   "quality_accepted": false,
   "independent_numeric_checks_complete": true,
-  "single_5090_speed_verified_for_this_artifact": false,
+  "single_5090_speed_verified_for_this_artifact": true,
   "portable_training_recipe_included": false,
   "weights_included": false,
-  "limits": "Training, export and independent numerical checks completed. Chinese/format public development result46/48 fails the fixed48/48 target; other capability panels and this new artifact five-context speed remain pending. Distinct from the old artifact accepted by infer.py. Numerical checks do not establish capability acceptance.",
+  "limits": "Training, export, independent numerical checks and prospective portable single5090 inference completed. Chinese/format46/48 versus native48/48 and CMMLU161/201 versus native163/201 fail fixed targets. GSM8K and HumanEval pending. Numerical agreement and speed do not establish capability acceptance. Complete raw-model portable122 training recipe and weights are not included.",
   "independent_numeric_checks": {
     "B300_reloaded_validation128": {
       "rows": 128,
@@ -87,7 +87,7 @@
     }
   },
   "public_development_evaluation": {
-    "observed_at_utc": "2026-10-09T11:08:23Z",
+    "observed_at_utc": "2026-10-09T11:42:17Z",
     "cn_format": {
       "completed": 48,
       "passes": 46,
@@ -95,7 +95,16 @@
       "accepted": false,
       "summary_sha256": "407fb950a51068733f89bb51228b213dd2c37f92db42afee3187889eeb5c1630"
     },
-    "other_panels": "CMMLU, GSM8K and HumanEval still running; partial scores omitted",
-    "quality_accepted": false
-  }
+    "other_panels": "GSM8K and HumanEval still running; partial scores omitted",
+    "quality_accepted": false,
+    "cmmlu": {
+      "completed": 201,
+      "passes": 161,
+      "native_original_passes": 163,
+      "fixed_acceptance_threshold": 163,
+      "accepted": false,
+      "summary_sha256": "bde1400d14d70be582f6a0643b9a078395bd0bbd26b2a8223c2929803361f8ef"
+    }
+  },
+  "portable_inference_verification": "native4095-verified-run.json"
 }
