@@ -1,17 +1,35 @@
 {
-  "format": "verified122-lazy-long-mask-provenance-v1",
+  "format": "verified122-lazy-long-mask-and-pre-capture-trim-provenance-v2",
   "file_sha256": {
-    "experimental122/run_requests_lazy_mask.py": "bad1afd2faa11e10b42ab62925a58cb8ac8d2b1b3e1b8df318b51d20ac9da3a2",
-    "experimental122/runtime/lazy122_long_causal_mask_v2.py": "7261bcd96220562f2a2ccd581dfa14a5f98d96863fc5c808d7726e595cad295c"
+    "experimental122/run_requests_lazy_mask.py": "6d4821450af44bfd17131772fbea5b42829c97752fd7495f449ef6dc7050fcc6",
+    "experimental122/runtime/lazy122_long_causal_mask_v2.py": "7261bcd96220562f2a2ccd581dfa14a5f98d96863fc5c808d7726e595cad295c",
+    "experimental122/runtime/trim122_before_graph_capture_v1.py": "3cf15bdb9fdaef559b60b40977de53d5c8afb94e3eca95021fe8c88887d9f204"
   },
-  "completed_evidence": "../docs/experiments/2026-10-10-0031.json",
+  "completed_evidence": "../docs/experiments/2026-10-10-0041.json",
+  "source_policy_sha256": "e3bb5bdb44dd822e453b0f488cc27c7adb79a3fb3c6c2f0b37d7eadc7e97a7e3",
+  "actual_summary_sha256": "007446237b35ad66ac36c3dfb5b574fc5128a8cacb3e94eed43aeb4d9101b659",
+  "actual_terminal_sha256": "4dcb0c5f4f513d02784b63988ca11694580e4cdd8b79846446c222f3caa0269b",
   "GPU_executed_entry_path": "experimental122/run_requests.py",
   "published_entry_identical_bytes_after_filename_change": true,
-  "source_policy_sha256": "9644fa59a5f287065a3af655256ecfc2dcb981e917a1dc500d0c2fd079d5f3c1",
-  "actual_summary_sha256": "a756c1e7a9a78649e711f6ec6978e31cc7ef020713d63b6a7cfbca98210494f3",
-  "actual_terminal_sha256": "41f1cc0f3756ae14066a77cadd3857066893814e3938b0fe100f3abfebfd3f8c",
   "default_resident_CLI_unchanged": true,
   "original26_python_files_unchanged": true,
   "all638_tokens_equal_repaired_and_original": true,
+  "historical_mask_only_control": {
+    "format": "verified122-lazy-long-mask-provenance-v1",
+    "file_sha256": {
+      "experimental122/run_requests_lazy_mask.py": "bad1afd2faa11e10b42ab62925a58cb8ac8d2b1b3e1b8df318b51d20ac9da3a2",
+      "experimental122/runtime/lazy122_long_causal_mask_v2.py": "7261bcd96220562f2a2ccd581dfa14a5f98d96863fc5c808d7726e595cad295c"
+    },
+    "completed_evidence": "../docs/experiments/2026-10-10-0031.json",
+    "GPU_executed_entry_path": "experimental122/run_requests.py",
+    "published_entry_identical_bytes_after_filename_change": true,
+    "source_policy_sha256": "9644fa59a5f287065a3af655256ecfc2dcb981e917a1dc500d0c2fd079d5f3c1",
+    "actual_summary_sha256": "a756c1e7a9a78649e711f6ec6978e31cc7ef020713d63b6a7cfbca98210494f3",
+    "actual_terminal_sha256": "41f1cc0f3756ae14066a77cadd3857066893814e3938b0fe100f3abfebfd3f8c",
+    "default_resident_CLI_unchanged": true,
+    "original26_python_files_unchanged": true,
+    "all638_tokens_equal_repaired_and_original": true,
+    "limits": "Same12 synthetic mixed requests and caps as completed repaired CLI control; native SDPA receives identical boolean mask tiles with all keys and causal boundaries. CPU all-mask-element comparison covers three lengths, GPU exact generation compares638 tokens including repeated14755 and7543 inputs. Reference and candidate are separate chronological runs, not randomized paired timing. No full quality, full16K-input comprehension, batching or service claim. Boundary device observations are not continuous peaks."
+  },
   "limits": "Same12 synthetic mixed requests and caps as completed repaired CLI control; native SDPA receives identical boolean mask tiles with all keys and causal boundaries. CPU all-mask-element comparison covers three lengths, GPU exact generation compares638 tokens including repeated14755 and7543 inputs. Reference and candidate are separate chronological runs, not randomized paired timing. No full quality, full16K-input comprehension, batching or service claim. Boundary device observations are not continuous peaks."
 }

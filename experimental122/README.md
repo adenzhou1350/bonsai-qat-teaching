@@ -145,7 +145,7 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests.py \
 
 ## 按块生成长输入因果掩码的独立实验
 
-新增 [run_requests_lazy_mask.py](run_requests_lazy_mask.py)，默认常驻入口保持原样。本实验入口的字节与 GPU 上执行的候选完全相同，仅文件名调整；原数值 runtime 文件保持原样，新增 [掩码模块及身份](lazy-mask-provenance.json)。命令与 `run_requests.py` 参数相同：
+首版掩码实验记录见 [00:31 完成证据](../docs/experiments/2026-10-10-0031.json)。当前 [run_requests_lazy_mask.py](run_requests_lazy_mask.py) 已更新为下文的录制前清理版，源码身份与首版分开保存；默认常驻入口保持原样。命令参数保持相同：
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_lazy_mask.py \
@@ -161,3 +161,17 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_lazy_mask.py \
 原运行库已经使用布尔掩码；优化是在原生逐 head、1024-query SDPA 路径中只生成当前行块的布尔掩码，保留全部 key、因果边界、算子精度和整段输入传播。14755×16384 的完整掩码原占 241745920 字节，切片最大 16777216 字节。不将整模型输入切块，避免改变线性注意力块间状态舍入。当前只支持无 padding 的单条文本、从空 StaticCache 进行长预填充；不支持变长 batch 或服务调度。
 
 整组峰值 allocated：原修正版 **29.992GiB**，此实验 **29.767GiB**，差额 **230.4MiB**。峰值 reserved 为 30.568/30.590GiB，请求末整卡观察最大为 30.025/30.064GiB（原/候选），本次并未证明整卡驻留显存降低，故保留独立入口。两轮分开执行，总请求耗时分别 159.12/157.82 秒，包含预填充与录制、排除模型加载；不作为随机配对加速结论。权重仍占 28.10GiB，请求末占用和预填充峰值分别报告。全部数值、源码身份、首次绑定失败和限制见[完成记录](../docs/experiments/2026-10-10-0031.json)。
+
+## 录制 Graph 前释放空闲预填充块
+
+当前独立实验入口在新 Graph 录制之前、预填充输出释放之后归还空闲分配器块，再执行原有 GPU 缓存快照、预热、录制与状态恢复。只归还未使用块，活跃张量 allocated 在清理前后断言相同；全部权重与缓存继续留在 GPU。上述命令直接运行此版本。发布文件与 GPU 实测候选字节相同，只调整入口文件名。
+
+12 次相同长短请求、638 个输出 token 全部与原量化路径一致，实际退出 0。包含连续两次 14755-token 和两次 7543-token 输入，8 次录制前清理均通过。
+
+| 同一请求序列的独立执行版本 | 峰值 allocated | 峰值 reserved | 请求末整卡观察最大 |
+|---|---:|---:|---:|
+| 原自适应版 | 29.992GiB | 30.568GiB | 30.025GiB |
+| 首版掩码分块 | 29.767GiB | 30.590GiB | 30.064GiB |
+| 掩码分块 + 录制前清理 | 29.767GiB | 30.061GiB | 30.064GiB |
+
+相对首版，峰值 reserved 减少 542.0MiB，allocated 峰值和请求末观察最大保持相同。本次记录的清理前设备观察最大约 30.755GiB；旧版没有同阶段的连续采样，不能据此给出整卡全程峰值的配对改善。四进程 NVML v2 全程采样已完成，原版两轮最大观察 30.987/31.107GiB、候选 30.755/30.755GiB；NVML used 不含另列的驱动 reserved。48 次请求/2552 个 token 全部一致。见[完整采样证据](../docs/experiments/2026-10-10-0105.json)；采样可能遗漏更快瞬态。完整耗时 158.17 秒，排除模型加载；不是吞吐加速结论。见[完成证据](../docs/experiments/2026-10-10-0041.json)及[当前代码身份](lazy-mask-provenance.json)。

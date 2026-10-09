@@ -1,0 +1,22 @@
+{
+  "observed_date": "2026-10-10",
+  "official_repository": "https://github.com/PrismML-Eng/Bonsai-demo",
+  "commit": "330450a1a120bbfb2dd3b0f0bbc4315a7dbc8120",
+  "documents": [
+    {
+      "source_url": "https://raw.githubusercontent.com/PrismML-Eng/Bonsai-demo/330450a1a120bbfb2dd3b0f0bbc4315a7dbc8120/bonsai-27b-whitepaper.pdf",
+      "commit": "330450a1a120bbfb2dd3b0f0bbc4315a7dbc8120",
+      "sha256": "06451897df438a42d0f067a019db4e18969aa37aded7781a219f3b1fba54608b",
+      "pages": 24
+    },
+    {
+      "source_url": "https://raw.githubusercontent.com/PrismML-Eng/Bonsai-demo/330450a1a120bbfb2dd3b0f0bbc4315a7dbc8120/bonsai-2-27b-whitepaper.pdf",
+      "commit": "330450a1a120bbfb2dd3b0f0bbc4315a7dbc8120",
+      "sha256": "aea10331ede3b34c34c21d1a45b80fd0fd6e231b3e8db7bd6346e20fcb8402c4",
+      "pages": 14
+    }
+  ],
+  "PDFs_published_in_this_repository": false,
+  "Bonsai2_pages4_and5_visually_checked": true,
+  "purpose": "Identify representation/runtime differences; not a reproduced training recipe or a new quality result."
+}

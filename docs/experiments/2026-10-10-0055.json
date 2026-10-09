@@ -1,0 +1,393 @@
+{
+  "passed": true,
+  "reserved_inputs_opened": false,
+  "weights_changed": false,
+  "CPU_weight_offload": false,
+  "stage": "completed",
+  "seconds": 157.56905198004097,
+  "source_policy_sha256": "4658d07c1f14ed6f5fdec585ca6b89a9dc1e511ea9baff5feb37d521658c9fb1",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "unique_CUDA_text_storage_bytes": 30171940608,
+  "all315_token_ids_equal_original": true,
+  "total_emitted_tokens_compared": 315,
+  "quality_noninferiority_accepted": false,
+  "limits": "Three short inputs27/40/39,cache1536,original greedy EOS/cap96,288 unprofiled full-output IDs and27 profiled-prefix IDs exact. Each CUDA profile spans eight actual graph replay steps, excludes prefill/capture/load. Profiler changes overhead; summed kernel durations may overlap and are not wall-clock throughput. Identify dominant kernels, then test any optimization separately with original numerical and output checks. No long-context, batch, serving or quality claim.",
+  "actual_exit_code": 0,
+  "owned_process_group_empty": true,
+  "summary_sha256": "e6ff83f66326d691573ecbc31b9699a989e5b48c20ebc4bc16c845821d4dd3e2",
+  "lease_sha256": "3e2677d50ed0603061ea1fe14572e46ab51679851801097d20655cedf72231a4",
+  "trace_events_independently_recounted": true,
+  "unprofiled_controls": [
+    {
+      "prompt_index": 0,
+      "input_tokens": 27,
+      "emitted_tokens_compared": 96,
+      "all_token_ids_equal_original": true,
+      "decode_after_first_seconds": 3.4013835098594427,
+      "decode_after_first_tokens_per_second": 27.929811420743242
+    },
+    {
+      "prompt_index": 1,
+      "input_tokens": 40,
+      "emitted_tokens_compared": 96,
+      "all_token_ids_equal_original": true,
+      "decode_after_first_seconds": 3.9438606165349483,
+      "decode_after_first_tokens_per_second": 24.088072383112365
+    },
+    {
+      "prompt_index": 2,
+      "input_tokens": 39,
+      "emitted_tokens_compared": 96,
+      "all_token_ids_equal_original": true,
+      "decode_after_first_seconds": 3.9489545337855816,
+      "decode_after_first_tokens_per_second": 24.057000197703026
+    }
+  ],
+  "profiles": [
+    {
+      "prompt_index": 0,
+      "input_tokens": 27,
+      "profiled_decode_steps": 8,
+      "emitted_prefix_tokens_compared": 9,
+      "all_profiled_prefix_token_ids_equal_original": true,
+      "CUDA_kernel_event_count": 70224,
+      "summed_GPU_kernel_microseconds": 264341.118,
+      "trace_sha256": "75a2e6f463c45aae904f512f549ef80b7b4dc90c4571d9890b3c306735b24889",
+      "trace_file_bytes": 68648699,
+      "categories": {
+        "weight_unpack_fraction": 0.348642722317608,
+        "BF16_gemv_fraction": 0.3736720747318607,
+        "SDPA_fraction": 0.03878623226523541
+      },
+      "top5_kernels": [
+        {
+          "kernel": "_decode",
+          "calls": 4720,
+          "summed_GPU_kernel_microseconds": 92160.60700000006,
+          "fraction_of_summed_kernel_duration": 0.348642722317608
+        },
+        {
+          "kernel": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 8552,
+          "summed_GPU_kernel_microseconds": 62053.795999998714,
+          "fraction_of_summed_kernel_duration": 0.23474893527536156
+        },
+        {
+          "kernel": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 8072,
+          "summed_GPU_kernel_microseconds": 27346.975000000333,
+          "fraction_of_summed_kernel_duration": 0.10345335302697907
+        },
+        {
+          "kernel": "fmha_cutlassF_bf16_aligned_32x128_gmem_sm80(PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 32, 128, 65536, true, true>::Params)",
+          "calls": 96,
+          "summed_GPU_kernel_microseconds": 10252.796,
+          "fraction_of_summed_kernel_duration": 0.03878623226523541
+        },
+        {
+          "kernel": "std::enable_if<true, void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, true, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 6152,
+          "summed_GPU_kernel_microseconds": 8738.307000000568,
+          "fraction_of_summed_kernel_duration": 0.03305693441154534
+        }
+      ]
+    },
+    {
+      "prompt_index": 1,
+      "input_tokens": 40,
+      "profiled_decode_steps": 8,
+      "emitted_prefix_tokens_compared": 9,
+      "all_profiled_prefix_token_ids_equal_original": true,
+      "CUDA_kernel_event_count": 70224,
+      "summed_GPU_kernel_microseconds": 264399.186,
+      "trace_sha256": "ea4be32d5edf2ead4abb8cdb2e674539eeab362becd8eee5ab0ab73d0d6d6ba2",
+      "trace_file_bytes": 69351306,
+      "categories": {
+        "weight_unpack_fraction": 0.3486853851357936,
+        "BF16_gemv_fraction": 0.3735389147529357,
+        "SDPA_fraction": 0.03873089079782567
+      },
+      "top5_kernels": [
+        {
+          "kernel": "_decode",
+          "calls": 4720,
+          "summed_GPU_kernel_microseconds": 92192.13200000033,
+          "fraction_of_summed_kernel_duration": 0.3486853851357936
+        },
+        {
+          "kernel": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 8552,
+          "summed_GPU_kernel_microseconds": 62031.95999999873,
+          "fraction_of_summed_kernel_duration": 0.23461479189273576
+        },
+        {
+          "kernel": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 8072,
+          "summed_GPU_kernel_microseconds": 27359.100000000264,
+          "fraction_of_summed_kernel_duration": 0.10347649103579414
+        },
+        {
+          "kernel": "fmha_cutlassF_bf16_aligned_32x128_gmem_sm80(PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 32, 128, 65536, true, true>::Params)",
+          "calls": 96,
+          "summed_GPU_kernel_microseconds": 10240.415999999997,
+          "fraction_of_summed_kernel_duration": 0.03873089079782567
+        },
+        {
+          "kernel": "std::enable_if<true, void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, true, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 6152,
+          "summed_GPU_kernel_microseconds": 8735.583000000586,
+          "fraction_of_summed_kernel_duration": 0.03303937176266718
+        }
+      ]
+    },
+    {
+      "prompt_index": 2,
+      "input_tokens": 39,
+      "profiled_decode_steps": 8,
+      "emitted_prefix_tokens_compared": 9,
+      "all_profiled_prefix_token_ids_equal_original": true,
+      "CUDA_kernel_event_count": 70224,
+      "summed_GPU_kernel_microseconds": 264505.177,
+      "trace_sha256": "444b8b396bed0f8765185bdf805cfe62c7815996a7ca659cd32d78c3941d9fd3",
+      "trace_file_bytes": 69351348,
+      "categories": {
+        "weight_unpack_fraction": 0.348455830034663,
+        "BF16_gemv_fraction": 0.3739343370205554,
+        "SDPA_fraction": 0.038756050510119135
+      },
+      "top5_kernels": [
+        {
+          "kernel": "_decode",
+          "calls": 4720,
+          "summed_GPU_kernel_microseconds": 92168.37100000046,
+          "fraction_of_summed_kernel_duration": 0.348455830034663
+        },
+        {
+          "kernel": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 8552,
+          "summed_GPU_kernel_microseconds": 62182.02599999885,
+          "fraction_of_summed_kernel_duration": 0.23508812457004893
+        },
+        {
+          "kernel": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 8072,
+          "summed_GPU_kernel_microseconds": 27357.54800000022,
+          "fraction_of_summed_kernel_duration": 0.10342915896878728
+        },
+        {
+          "kernel": "fmha_cutlassF_bf16_aligned_32x128_gmem_sm80(PyTorchMemEffAttention::AttentionKernel<cutlass::bfloat16_t, cutlass::arch::Sm80, true, 32, 128, 65536, true, true>::Params)",
+          "calls": 96,
+          "summed_GPU_kernel_microseconds": 10251.176000000003,
+          "fraction_of_summed_kernel_duration": 0.038756050510119135
+        },
+        {
+          "kernel": "std::enable_if<true, void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, true, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 6152,
+          "summed_GPU_kernel_microseconds": 8732.473000000597,
+          "fraction_of_summed_kernel_duration": 0.0330143746109007
+        }
+      ]
+    }
+  ],
+  "decode_launch_shapes": [
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          512,
+          12,
+          8
+        ],
+        "registers per thread": 40,
+        "shared memory": 2048
+      },
+      "calls": 384,
+      "us": 27166.416000000016
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          768,
+          4,
+          8
+        ],
+        "registers per thread": 38,
+        "shared memory": 2048
+      },
+      "calls": 384,
+      "us": 13360.13400000001
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          3072,
+          12,
+          1
+        ],
+        "registers per thread": 36,
+        "shared memory": 2048
+      },
+      "calls": 288,
+      "us": 13212.738999999998
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          768,
+          32,
+          1
+        ],
+        "registers per thread": 36,
+        "shared memory": 2048
+      },
+      "calls": 384,
+      "us": 10253.874999999996
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          2048,
+          12,
+          1
+        ],
+        "registers per thread": 36,
+        "shared memory": 2048
+      },
+      "calls": 288,
+      "us": 8777.494999999994
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          4096,
+          12,
+          1
+        ],
+        "registers per thread": 36,
+        "shared memory": 2048
+      },
+      "calls": 96,
+      "us": 8046.169000000002
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          512,
+          12,
+          1
+        ],
+        "registers per thread": 36,
+        "shared memory": 2048
+      },
+      "calls": 968,
+      "us": 5840.62
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          256,
+          12,
+          1
+        ],
+        "registers per thread": 36,
+        "shared memory": 2048
+      },
+      "calls": 768,
+      "us": 2923.681999999995
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          768,
+          4,
+          1
+        ],
+        "registers per thread": 36,
+        "shared memory": 2048
+      },
+      "calls": 384,
+      "us": 1372.2859999999994
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          16,
+          12,
+          1
+        ],
+        "registers per thread": 36,
+        "shared memory": 2048
+      },
+      "calls": 576,
+      "us": 737.3500000000001
+    },
+    {
+      "args": {
+        "block": [
+          128,
+          1,
+          1
+        ],
+        "grid": [
+          128,
+          12,
+          1
+        ],
+        "registers per thread": 36,
+        "shared memory": 2048
+      },
+      "calls": 200,
+      "us": 469.84099999999984
+    }
+  ],
+  "note": "The kernel name _decode is shared by original affine4 and ternary unpackers; aggregated name alone does not attribute the35% to ternary exclusively. Grid dimensions are retained for targeted geometry experiments. Original CUDA traces stay private; their SHA256 and independently recounted totals are recorded."
+}

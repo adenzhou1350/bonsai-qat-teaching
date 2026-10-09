@@ -27,6 +27,8 @@ def main():
  tok,model,_=assemble_controlled(directory,report)
  from lazy122_long_causal_mask_v2 import bind_lazy_long_mask_model,STATS
  bind_lazy_long_mask_model(model)
+ from trim122_before_graph_capture_v1 import bind_trim_before_capture,EVENTS
+ bind_trim_before_capture()
  tensors=[v for n,v in [*model.named_parameters(),*model.named_buffers()] if n.startswith(('model.language_model.','lm_head.'))]
  assert tensors and all(v.is_cuda for v in tensors)
  stores={v.untyped_storage().data_ptr():v.untyped_storage().nbytes() for v in tensors}
@@ -65,6 +67,6 @@ def main():
   assert captures+reuses==len(rows)
   if not a.auto_cache_len:assert captures==1 and reuses==len(rows)-1
   decoder.graph.reset();del decoder;gc.collect();torch.cuda.empty_cache()
- result['lazy_long_mask_stats']=dict(STATS);result['completed']=True;save()
+ result['lazy_long_mask_stats']=dict(STATS);result['before_capture_trim_events']=list(EVENTS);result['completed']=True;save()
 
 if __name__=='__main__':main()
