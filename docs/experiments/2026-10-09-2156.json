@@ -1,0 +1,110 @@
+{
+  "format": "teaching-experiment-milestone-v1",
+  "observed_at_utc": "2026-10-09T13:56:30Z",
+  "experiment": "R35-8192",
+  "artifact_manifest_sha256": "2a8aba243717e5b0230cc388d65e0f2f9c446bf30dde69581fbfa731f85e0f99",
+  "selected5090_cached640_plus16": {
+    "passed": true,
+    "exit_code": 0,
+    "owned_process_group_empty": true,
+    "artifact_manifest_sha256": "2a8aba243717e5b0230cc388d65e0f2f9c446bf30dde69581fbfa731f85e0f99",
+    "layer_checks": 640,
+    "whole_model_checks": 16,
+    "max_layer_errors": {
+      "prefill_relative_l2": 0.0,
+      "cached_decode_relative_l2": 0.0
+    },
+    "max_whole_errors": {
+      "prefill_normalized_state_relative_l2": 0.0,
+      "cached_decode_normalized_state_relative_l2": 0.0,
+      "cached_decode_logits_relative_l2": 0.0
+    },
+    "whole_packed_vs_cuda_hard_nll_difference": 0.0009285455307690427,
+    "relative_l2_tolerance": 0.005,
+    "NLL_difference_tolerance": 0.02,
+    "whole_model_cuda_allocated_after_load": 15810826240,
+    "whole_model_peak_allocated_bytes": 16128680960,
+    "summary_sha256": "16837df65bab8379303bcbbbb07c66a91de2ee8d1945dc549a8e2c9f0cf93e0b",
+    "terminal_sha256": "e76ba2d463d088480ad7a7934f48ad9ff2a199b7fd35b129b869ebf785ee1051"
+  },
+  "selected5090_Graph": {
+    "actual_exit_code": 0,
+    "owned_process_group_empty": true,
+    "summary_sha256": "8d45f92c49a6fc44e10d966df20b447c4058ea2b5426fd828dd37740228dcbea",
+    "terminal_sha256": "ecf52d5b2f73a20fce0786e2066d148bb7f83f079a3d5c000b720ce5fad0c3e2",
+    "all_graph_static_equal": true,
+    "benchmarks": [
+      {
+        "context_tokens": 128,
+        "new_tokens": 64,
+        "prefill_seconds": 0.6977526834234595,
+        "graph_decode_tokens_per_second": 59.3253430184086,
+        "tokens_bitwise_equal": true,
+        "peak_allocated_bytes": 15943207936,
+        "peak_reserved_bytes": 16030629888,
+        "peak_includes_cache_initialization_and_graph_capture": true
+      },
+      {
+        "context_tokens": 512,
+        "new_tokens": 64,
+        "prefill_seconds": 0.8129659462720156,
+        "graph_decode_tokens_per_second": 58.11964539225926,
+        "tokens_bitwise_equal": true,
+        "peak_allocated_bytes": 15988767744,
+        "peak_reserved_bytes": 16091447296,
+        "peak_includes_cache_initialization_and_graph_capture": true
+      },
+      {
+        "context_tokens": 4096,
+        "new_tokens": 64,
+        "prefill_seconds": 1.3484870223328471,
+        "graph_decode_tokens_per_second": 49.8451409393806,
+        "tokens_bitwise_equal": true,
+        "peak_allocated_bytes": 16756948480,
+        "peak_reserved_bytes": 16940793856,
+        "peak_includes_cache_initialization_and_graph_capture": true
+      },
+      {
+        "context_tokens": 8192,
+        "new_tokens": 64,
+        "prefill_seconds": 2.4347873581573367,
+        "graph_decode_tokens_per_second": 42.251964552852684,
+        "tokens_bitwise_equal": true,
+        "peak_allocated_bytes": 17674911232,
+        "peak_reserved_bytes": 17972592640,
+        "peak_includes_cache_initialization_and_graph_capture": true
+      },
+      {
+        "context_tokens": 16384,
+        "new_tokens": 64,
+        "prefill_seconds": 4.21615947317332,
+        "graph_decode_tokens_per_second": 32.71337122578507,
+        "tokens_bitwise_equal": true,
+        "peak_allocated_bytes": 19602980352,
+        "peak_reserved_bytes": 20086521856,
+        "peak_includes_cache_initialization_and_graph_capture": true
+      }
+    ],
+    "text_residency": {
+      "text_scope_only": true,
+      "all_language_parameters_and_buffers_cuda": true,
+      "language_parameter_and_buffer_count": 1335,
+      "unused_vision_meta_parameters": 446571248,
+      "cpu_weight_offload": false,
+      "artifact_manifest_sha256": "2a8aba243717e5b0230cc388d65e0f2f9c446bf30dde69581fbfa731f85e0f99"
+    },
+    "decode_steps": 64,
+    "timing_samples_per_context": 1,
+    "decode_timing_excludes_prefill_and_capture": true,
+    "benchmark_continues_past_EOS": true
+  },
+  "training_complete": true,
+  "independent_replay_complete": true,
+  "B300_and5090_cached_checks_complete": true,
+  "all5_Graph_checks_complete": true,
+  "public_development_evaluation_complete": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "complete_training_or_inference_recipe_for_this_branch_included": false,
+  "limits": "Completed numeric/cache and five-context Graph measurements for this exact35B artifact. Public capability evaluation is still pending; no long-context quality, concurrent service or complete Bonsai reproduction claim."
+}
