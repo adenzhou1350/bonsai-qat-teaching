@@ -278,7 +278,7 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_microbatch_layerwise_
 
 ## 低秩修正批量化候选
 
-`run_requests_microbatch_lora_bmm.py` 保留共享头 B4v4 入口的主投影与预填充，只把专家 rank-8 修正的两组逐路 GEMM 改成 BMM。相同 helper 在四个作者自编前缀上完成 16 步整模型检查：所有层输出、缓存、路由和 logits 逐元素一致，68 个前缀 ID 独立重比对。见[数值证据](../docs/experiments/2026-10-10-0348.json)与[源码 SHA](lora-bmm-provenance.json)。当前完整 GPU CLI 吞吐对照进行中，数值验证不等于速度或服务验证；B2 分支未在本轮重新验证。
+`run_requests_microbatch_lora_bmm.py` 保留共享头 B4v4 入口的主投影与预填充，只把专家 rank-8 修正的两组逐路 GEMM 改成 BMM。相同 helper 在四个作者自编前缀上完成 16 步整模型检查：所有层输出、缓存、路由和 logits 逐元素一致，68 个前缀 ID 独立重比对。见[数值证据](../docs/experiments/2026-10-10-0348.json)与[源码 SHA](lora-bmm-provenance.json)。完整 GPU CLI 的 B4 吞吐对照现已完成，结果见下文；数值或 B4 速度验证不等于服务验证，B2 分支仍单独检查。
 
 需要已经打包好的 `native4095` 产物与本目录的固定运行环境。创建新的输出文件，从仓库根目录运行：
 
@@ -294,3 +294,17 @@ python experimental122/compare_requests.py \
 ```
 
 输入 JSONL 每行是 `{"prompt":"你的问题"}`。先确认完整输出 ID 与 EOS 相同，再比较包括预填充的吞吐；正式速度判断需要交替顺序重复运行。它仍是固定 B4 分组、cache1536、greedy/cap64 的单 worker 实验，没有 HTTP、请求补位或 vLLM 接口。
+
+## 低秩修正 BMM：完整吞吐对照完成
+
+四个新进程 A/B/B/A 均正常退出，全部 **7,520 个保存输出 ID** 与原始参考一致；本地下载原始结果后，公开 `compare_requests.py` 对 A/B、D/C 分别通过，合并时间也重新计算。
+
+| B4 固定请求集 | 原版 B4v4 | 低秩修正 BMM |
+|---|---:|---:|
+| 含预填充的合计吞吐 | 16.5106 tokens/s | 17.4470 tokens/s |
+| 合计有效解码吞吐 | 31.2935 tokens/s | 34.7349 tokens/s |
+| 组首 token 等待中位数 | 6.5468 s | 6.5113 s |
+
+含预填充的合计吞吐观测变化为 **+5.672%**，有效解码为 **+10.997%**。两个对照对分别为 +6.074%、+5.273%。这是这组固定 B4 请求的结果，不能当成单人聊天速度或通用服务收益；首 token 延迟单独报告，不由吞吐反推。默认串行入口保持不变。见[完成记录](../docs/experiments/2026-10-10-0401.json)与[原样候选源码](lora-bmm-provenance.json)。
+
+每个进程 32 条请求由四种作者自编输入按不同顺序组成，包含 EOS 提前结束，最长生成 64 token，cache1536。耗时包括预填充、Graph 录制/复用与 CPU token 收集，排除模型加载、分词和写 JSON。B2 与单请求收尾分支另有完整输出检查排队，尚不将 B4 的结果外推到这些分支。

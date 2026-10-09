@@ -1,0 +1,1400 @@
+{
+  "summary": {
+    "passed": true,
+    "stage": "completed",
+    "runs": [
+      {
+        "mode": "baselineA",
+        "actual_CLI_exit_code": 0,
+        "wall_seconds_including_model_load": 229.49210954457521,
+        "output_sha256": "bf7d05fbbd845e5298ab3ae39ba43d701bbd799f0ab5c571a0aad58292e8397f",
+        "all1880_output_ids_equal_original": true,
+        "request_count": 32,
+        "request_seconds": 113.80253501329571,
+        "aggregate_end_to_end_output_tokens_per_second": 16.51984289963626,
+        "aggregate_useful_decode_tokens_per_second": 31.295402475703224,
+        "peak_allocated_bytes": 31526430208,
+        "peak_reserved_bytes": 31608274944,
+        "request_end_device_used_bytes_max": 32398049280,
+        "groups": [
+          {
+            "group_index": 0,
+            "first_request_index": 0,
+            "batch_size": 4,
+            "input_tokens": [
+              27,
+              40,
+              39,
+              103
+            ],
+            "output_tokens": 235,
+            "graph_reused": false,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 0,
+            "shared_head_prepare_count": 0,
+            "first_token_seconds": 9.008675497025251,
+            "decode_seconds": 7.375515528023243,
+            "request_seconds": 16.384193804115057,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.31984457524581,
+            "aggregate_end_to_end_output_tokens_per_second": 14.343092056258353,
+            "peak_allocated_bytes": 31526430208,
+            "peak_reserved_bytes": 31604080640,
+            "device_used_bytes_at_observation": 32398049280,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 1,
+            "first_request_index": 4,
+            "batch_size": 4,
+            "input_tokens": [
+              103,
+              39,
+              40,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 1,
+            "shared_head_prepare_count": 1,
+            "first_token_seconds": 6.494760449044406,
+            "decode_seconds": 7.37600976228714,
+            "request_seconds": 13.870771476998925,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.317745968976585,
+            "aggregate_end_to_end_output_tokens_per_second": 16.942100184527337,
+            "peak_allocated_bytes": 30875935232,
+            "peak_reserved_bytes": 31608274944,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 2,
+            "first_request_index": 8,
+            "batch_size": 4,
+            "input_tokens": [
+              40,
+              39,
+              103,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 2,
+            "shared_head_prepare_count": 2,
+            "first_token_seconds": 6.5678043756634,
+            "decode_seconds": 7.380079506896436,
+            "request_seconds": 13.947885104455054,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.3004757989583,
+            "aggregate_end_to_end_output_tokens_per_second": 16.848432449801248,
+            "peak_allocated_bytes": 30875947520,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 3,
+            "first_request_index": 12,
+            "batch_size": 4,
+            "input_tokens": [
+              39,
+              103,
+              27,
+              40
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 3,
+            "shared_head_prepare_count": 3,
+            "first_token_seconds": 6.507745604030788,
+            "decode_seconds": 7.382200346328318,
+            "request_seconds": 13.88994739856571,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.291483455185876,
+            "aggregate_end_to_end_output_tokens_per_second": 16.918710579441527,
+            "peak_allocated_bytes": 30875941376,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 4,
+            "first_request_index": 16,
+            "batch_size": 4,
+            "input_tokens": [
+              27,
+              40,
+              39,
+              103
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 4,
+            "shared_head_prepare_count": 4,
+            "first_token_seconds": 6.5265057208016515,
+            "decode_seconds": 7.383457534015179,
+            "request_seconds": 13.909964476712048,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.286155427290783,
+            "aggregate_end_to_end_output_tokens_per_second": 16.894363777379528,
+            "peak_allocated_bytes": 30875953664,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 5,
+            "first_request_index": 20,
+            "batch_size": 4,
+            "input_tokens": [
+              103,
+              39,
+              40,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 5,
+            "shared_head_prepare_count": 5,
+            "first_token_seconds": 6.5004015527665615,
+            "decode_seconds": 7.384092170745134,
+            "request_seconds": 13.884494801983237,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.283466492359562,
+            "aggregate_end_to_end_output_tokens_per_second": 16.9253547465359,
+            "peak_allocated_bytes": 30875935232,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 6,
+            "first_request_index": 24,
+            "batch_size": 4,
+            "input_tokens": [
+              40,
+              39,
+              103,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 6,
+            "shared_head_prepare_count": 6,
+            "first_token_seconds": 6.4965651500970125,
+            "decode_seconds": 7.38462697993964,
+            "request_seconds": 13.881193502806127,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.281200882253383,
+            "aggregate_end_to_end_output_tokens_per_second": 16.929380024310877,
+            "peak_allocated_bytes": 30875947520,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 7,
+            "first_request_index": 28,
+            "batch_size": 4,
+            "input_tokens": [
+              39,
+              103,
+              27,
+              40
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 7,
+            "shared_head_prepare_count": 7,
+            "first_token_seconds": 6.649858028627932,
+            "decode_seconds": 7.384225352667272,
+            "request_seconds": 14.034084447659552,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.282902263615235,
+            "aggregate_end_to_end_output_tokens_per_second": 16.744946980790804,
+            "peak_allocated_bytes": 30875941376,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          }
+        ]
+      },
+      {
+        "mode": "candidateB",
+        "actual_CLI_exit_code": 0,
+        "wall_seconds_including_model_load": 222.9758940031752,
+        "output_sha256": "31de1eeec9914ba65095f5761c6d9e8dda1d8b9078ec2f80a74aa5cd22569bda",
+        "all1880_output_ids_equal_original": true,
+        "request_count": 32,
+        "request_seconds": 107.28610286582261,
+        "aggregate_end_to_end_output_tokens_per_second": 17.523238795906515,
+        "aggregate_useful_decode_tokens_per_second": 34.73525490470189,
+        "peak_allocated_bytes": 31526430208,
+        "peak_reserved_bytes": 31608274944,
+        "request_end_device_used_bytes_max": 32381272064,
+        "groups": [
+          {
+            "group_index": 0,
+            "first_request_index": 0,
+            "batch_size": 4,
+            "input_tokens": [
+              27,
+              40,
+              39,
+              103
+            ],
+            "output_tokens": 235,
+            "graph_reused": false,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 0,
+            "shared_head_prepare_count": 0,
+            "first_token_seconds": 8.68276069033891,
+            "decode_seconds": 6.64593823812902,
+            "request_seconds": 15.328700262121856,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.75807203183273,
+            "aggregate_end_to_end_output_tokens_per_second": 15.330719237866449,
+            "peak_allocated_bytes": 31526430208,
+            "peak_reserved_bytes": 31604080640,
+            "device_used_bytes_at_observation": 32381272064,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 1,
+            "first_request_index": 4,
+            "batch_size": 4,
+            "input_tokens": [
+              103,
+              39,
+              40,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 1,
+            "shared_head_prepare_count": 1,
+            "first_token_seconds": 6.41388110537082,
+            "decode_seconds": 6.648228044621646,
+            "request_seconds": 13.06211054045707,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.74610053228797,
+            "aggregate_end_to_end_output_tokens_per_second": 17.990967024213905,
+            "peak_allocated_bytes": 30875935232,
+            "peak_reserved_bytes": 31608274944,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 2,
+            "first_request_index": 8,
+            "batch_size": 4,
+            "input_tokens": [
+              40,
+              39,
+              103,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 2,
+            "shared_head_prepare_count": 2,
+            "first_token_seconds": 6.477319015190005,
+            "decode_seconds": 6.651676715351641,
+            "request_seconds": 13.128997012972832,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.728085847417525,
+            "aggregate_end_to_end_output_tokens_per_second": 17.899310950242068,
+            "peak_allocated_bytes": 30875947520,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 3,
+            "first_request_index": 12,
+            "batch_size": 4,
+            "input_tokens": [
+              39,
+              103,
+              27,
+              40
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 3,
+            "shared_head_prepare_count": 3,
+            "first_token_seconds": 6.4647828713059425,
+            "decode_seconds": 6.651451653800905,
+            "request_seconds": 13.11623557843268,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.729260922763736,
+            "aggregate_end_to_end_output_tokens_per_second": 17.91672607546145,
+            "peak_allocated_bytes": 30875941376,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 4,
+            "first_request_index": 16,
+            "batch_size": 4,
+            "input_tokens": [
+              27,
+              40,
+              39,
+              103
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 4,
+            "shared_head_prepare_count": 4,
+            "first_token_seconds": 6.43213517498225,
+            "decode_seconds": 6.651087660342455,
+            "request_seconds": 13.083224176429212,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.73116154781008,
+            "aggregate_end_to_end_output_tokens_per_second": 17.961933299543773,
+            "peak_allocated_bytes": 30875953664,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 5,
+            "first_request_index": 20,
+            "batch_size": 4,
+            "input_tokens": [
+              103,
+              39,
+              40,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 5,
+            "shared_head_prepare_count": 5,
+            "first_token_seconds": 6.7004232201725245,
+            "decode_seconds": 6.651085942052305,
+            "request_seconds": 13.351510325446725,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.73117052051218,
+            "aggregate_end_to_end_output_tokens_per_second": 17.60100500031911,
+            "peak_allocated_bytes": 30875935232,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 6,
+            "first_request_index": 24,
+            "batch_size": 4,
+            "input_tokens": [
+              40,
+              39,
+              103,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 6,
+            "shared_head_prepare_count": 6,
+            "first_token_seconds": 6.492295701988041,
+            "decode_seconds": 6.650852552615106,
+            "request_seconds": 13.143149308860302,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.73238929483877,
+            "aggregate_end_to_end_output_tokens_per_second": 17.880037308986324,
+            "peak_allocated_bytes": 30875947520,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 7,
+            "first_request_index": 28,
+            "batch_size": 4,
+            "input_tokens": [
+              39,
+              103,
+              27,
+              40
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 7,
+            "shared_head_prepare_count": 7,
+            "first_token_seconds": 6.420064507052302,
+            "decode_seconds": 6.652110125869513,
+            "request_seconds": 13.072175661101937,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.725823179273576,
+            "aggregate_end_to_end_output_tokens_per_second": 17.977114605281425,
+            "peak_allocated_bytes": 30875941376,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          }
+        ]
+      },
+      {
+        "mode": "candidateC",
+        "actual_CLI_exit_code": 0,
+        "wall_seconds_including_model_load": 225.08652046974748,
+        "output_sha256": "19cb2af1ff3c50b2dbf2bbd3f9767b454a0e3ca0e206d227b34395c8f937b727",
+        "all1880_output_ids_equal_original": true,
+        "request_count": 32,
+        "request_seconds": 108.22350130602717,
+        "aggregate_end_to_end_output_tokens_per_second": 17.371457930231454,
+        "aggregate_useful_decode_tokens_per_second": 34.734535517043454,
+        "peak_allocated_bytes": 31526430208,
+        "peak_reserved_bytes": 31608274944,
+        "request_end_device_used_bytes_max": 32381272064,
+        "groups": [
+          {
+            "group_index": 0,
+            "first_request_index": 0,
+            "batch_size": 4,
+            "input_tokens": [
+              27,
+              40,
+              39,
+              103
+            ],
+            "output_tokens": 235,
+            "graph_reused": false,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 0,
+            "shared_head_prepare_count": 0,
+            "first_token_seconds": 8.642942568287253,
+            "decode_seconds": 6.646191290579736,
+            "request_seconds": 15.289136036299169,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.75674862494821,
+            "aggregate_end_to_end_output_tokens_per_second": 15.370391069977243,
+            "peak_allocated_bytes": 31526430208,
+            "peak_reserved_bytes": 31604080640,
+            "device_used_bytes_at_observation": 32381272064,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 1,
+            "first_request_index": 4,
+            "batch_size": 4,
+            "input_tokens": [
+              103,
+              39,
+              40,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 1,
+            "shared_head_prepare_count": 1,
+            "first_token_seconds": 6.473878115415573,
+            "decode_seconds": 6.648390535265207,
+            "request_seconds": 13.12226998899132,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.74525131679638,
+            "aggregate_end_to_end_output_tokens_per_second": 17.908486885054856,
+            "peak_allocated_bytes": 30875935232,
+            "peak_reserved_bytes": 31608274944,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 2,
+            "first_request_index": 8,
+            "batch_size": 4,
+            "input_tokens": [
+              40,
+              39,
+              103,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 2,
+            "shared_head_prepare_count": 2,
+            "first_token_seconds": 6.530397093854845,
+            "decode_seconds": 6.650881656445563,
+            "request_seconds": 13.181279909797013,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.73223730813661,
+            "aggregate_end_to_end_output_tokens_per_second": 17.828314215931016,
+            "peak_allocated_bytes": 30875947520,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 3,
+            "first_request_index": 12,
+            "batch_size": 4,
+            "input_tokens": [
+              39,
+              103,
+              27,
+              40
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 3,
+            "shared_head_prepare_count": 3,
+            "first_token_seconds": 6.533040307462215,
+            "decode_seconds": 6.651337269693613,
+            "request_seconds": 13.184378589503467,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.72985816739989,
+            "aggregate_end_to_end_output_tokens_per_second": 17.82412408781188,
+            "peak_allocated_bytes": 30875941376,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 4,
+            "first_request_index": 16,
+            "batch_size": 4,
+            "input_tokens": [
+              27,
+              40,
+              39,
+              103
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 4,
+            "shared_head_prepare_count": 4,
+            "first_token_seconds": 7.206737193278968,
+            "decode_seconds": 6.650522626936436,
+            "request_seconds": 13.857261026278138,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.73411233342577,
+            "aggregate_end_to_end_output_tokens_per_second": 16.958618269105205,
+            "peak_allocated_bytes": 30875953664,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 5,
+            "first_request_index": 20,
+            "batch_size": 4,
+            "input_tokens": [
+              103,
+              39,
+              40,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 5,
+            "shared_head_prepare_count": 5,
+            "first_token_seconds": 6.489314557053149,
+            "decode_seconds": 6.651899804361165,
+            "request_seconds": 13.141215342096984,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.726921149436166,
+            "aggregate_end_to_end_output_tokens_per_second": 17.882668678839284,
+            "peak_allocated_bytes": 30875935232,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 6,
+            "first_request_index": 24,
+            "batch_size": 4,
+            "input_tokens": [
+              40,
+              39,
+              103,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 6,
+            "shared_head_prepare_count": 6,
+            "first_token_seconds": 6.5810902416706085,
+            "decode_seconds": 6.6515064323320985,
+            "request_seconds": 13.23259789776057,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.7289749096745,
+            "aggregate_end_to_end_output_tokens_per_second": 17.759173354747706,
+            "peak_allocated_bytes": 30875947520,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 7,
+            "first_request_index": 28,
+            "batch_size": 4,
+            "input_tokens": [
+              39,
+              103,
+              27,
+              40
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 7,
+            "shared_head_prepare_count": 7,
+            "first_token_seconds": 6.562558198347688,
+            "decode_seconds": 6.6528031937778,
+            "request_seconds": 13.215362515300512,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 34.722205553299474,
+            "aggregate_end_to_end_output_tokens_per_second": 17.78233474321428,
+            "peak_allocated_bytes": 30875941376,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31932481536,
+            "device_total_bytes": 33671348224
+          }
+        ]
+      },
+      {
+        "mode": "baselineD",
+        "actual_CLI_exit_code": 0,
+        "wall_seconds_including_model_load": 230.34115905407816,
+        "output_sha256": "f79880fafea96e5e1bdfed82d30ceac0e5f52ffb27b8e7a260f6f0b8c618fbc5",
+        "all1880_output_ids_equal_original": true,
+        "request_count": 32,
+        "request_seconds": 113.93002329580486,
+        "aggregate_end_to_end_output_tokens_per_second": 16.501357110397656,
+        "aggregate_useful_decode_tokens_per_second": 31.291601996164324,
+        "peak_allocated_bytes": 31526430208,
+        "peak_reserved_bytes": 31608274944,
+        "request_end_device_used_bytes_max": 32398049280,
+        "groups": [
+          {
+            "group_index": 0,
+            "first_request_index": 0,
+            "batch_size": 4,
+            "input_tokens": [
+              27,
+              40,
+              39,
+              103
+            ],
+            "output_tokens": 235,
+            "graph_reused": false,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 0,
+            "shared_head_prepare_count": 0,
+            "first_token_seconds": 8.989944216795266,
+            "decode_seconds": 7.37587523739785,
+            "request_seconds": 16.36582183558494,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.31831715763877,
+            "aggregate_end_to_end_output_tokens_per_second": 14.359193345795136,
+            "peak_allocated_bytes": 31526430208,
+            "peak_reserved_bytes": 31604080640,
+            "device_used_bytes_at_observation": 32398049280,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 1,
+            "first_request_index": 4,
+            "batch_size": 4,
+            "input_tokens": [
+              103,
+              39,
+              40,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 1,
+            "shared_head_prepare_count": 1,
+            "first_token_seconds": 6.517320207320154,
+            "decode_seconds": 7.377464924007654,
+            "request_seconds": 13.894786653108895,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.31156872712233,
+            "aggregate_end_to_end_output_tokens_per_second": 16.912818157407248,
+            "peak_allocated_bytes": 30875935232,
+            "peak_reserved_bytes": 31608274944,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 2,
+            "first_request_index": 8,
+            "batch_size": 4,
+            "input_tokens": [
+              40,
+              39,
+              103,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 2,
+            "shared_head_prepare_count": 2,
+            "first_token_seconds": 6.542054161429405,
+            "decode_seconds": 7.3827745243906975,
+            "request_seconds": 13.92483006697148,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.28904983307268,
+            "aggregate_end_to_end_output_tokens_per_second": 16.876328031995172,
+            "peak_allocated_bytes": 30875947520,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 3,
+            "first_request_index": 12,
+            "batch_size": 4,
+            "input_tokens": [
+              39,
+              103,
+              27,
+              40
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 3,
+            "shared_head_prepare_count": 3,
+            "first_token_seconds": 6.544354619458318,
+            "decode_seconds": 7.382974031381309,
+            "request_seconds": 13.92733018193394,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.28820432228736,
+            "aggregate_end_to_end_output_tokens_per_second": 16.873298538210435,
+            "peak_allocated_bytes": 30875941376,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 4,
+            "first_request_index": 16,
+            "batch_size": 4,
+            "input_tokens": [
+              27,
+              40,
+              39,
+              103
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 4,
+            "shared_head_prepare_count": 4,
+            "first_token_seconds": 6.561608541756868,
+            "decode_seconds": 7.383657393045723,
+            "request_seconds": 13.945267380215228,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.285308581295592,
+            "aggregate_end_to_end_output_tokens_per_second": 16.851595139251685,
+            "peak_allocated_bytes": 30875953664,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 5,
+            "first_request_index": 20,
+            "batch_size": 4,
+            "input_tokens": [
+              103,
+              39,
+              40,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 5,
+            "shared_head_prepare_count": 5,
+            "first_token_seconds": 6.563374309800565,
+            "decode_seconds": 7.385153506882489,
+            "request_seconds": 13.948529108427465,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.278970678770975,
+            "aggregate_end_to_end_output_tokens_per_second": 16.84765455721184,
+            "peak_allocated_bytes": 30875935232,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 6,
+            "first_request_index": 24,
+            "batch_size": 4,
+            "input_tokens": [
+              40,
+              39,
+              103,
+              27
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 6,
+            "shared_head_prepare_count": 6,
+            "first_token_seconds": 6.549199894070625,
+            "decode_seconds": 7.384113693609834,
+            "request_seconds": 13.933314725756645,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.283375308793794,
+            "aggregate_end_to_end_output_tokens_per_second": 16.86605123227333,
+            "peak_allocated_bytes": 30875947520,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          },
+          {
+            "group_index": 7,
+            "first_request_index": 28,
+            "batch_size": 4,
+            "input_tokens": [
+              39,
+              103,
+              27,
+              40
+            ],
+            "output_tokens": 235,
+            "graph_reused": true,
+            "graph_capture_count": 1,
+            "graph_reuse_count": 7,
+            "shared_head_prepare_count": 7,
+            "first_token_seconds": 6.60477605368942,
+            "decode_seconds": 7.385365733876824,
+            "request_seconds": 13.990143343806267,
+            "decode_graph_steps": 63,
+            "aggregate_useful_decode_tokens_per_second": 31.27807184150654,
+            "aggregate_end_to_end_output_tokens_per_second": 16.797540541572754,
+            "peak_allocated_bytes": 30875941376,
+            "peak_reserved_bytes": 31356616704,
+            "device_used_bytes_at_observation": 31949258752,
+            "device_total_bytes": 33671348224
+          }
+        ]
+      }
+    ],
+    "reserved_inputs_opened": false,
+    "weights_changed": false,
+    "CPU_weight_offload": false,
+    "quality_accepted": false,
+    "cap": 64,
+    "fixture_order": [
+      0,
+      1,
+      2,
+      3,
+      3,
+      2,
+      1,
+      0,
+      1,
+      2,
+      3,
+      0,
+      2,
+      3,
+      0,
+      1,
+      0,
+      1,
+      2,
+      3,
+      3,
+      2,
+      1,
+      0,
+      1,
+      2,
+      3,
+      0,
+      2,
+      3,
+      0,
+      1
+    ],
+    "fixture_sha256": "63d6f32d6295cc715e80712509dca0a1ec3c37688f8c151e61e2448024033cb3",
+    "source_policy_sha256": "1f5ea3fcf6587c275cc31ebca2a72b0544c6861d6ee9f5337444c679c7ae27e0",
+    "all7520_output_ids_equal_original": true,
+    "total_emitted_token_ids_compared": 7520,
+    "limits": "Four fresh processes ABBA: shared-head B4v4 baselineA, low-rank-only BMM candidateB/C, shared-head B4v4 baselineD. Same32 fixture isolates only expert rank8 correction GEMM batching within the published B4v4 pipeline; base expert GEMM remains per-route.32 authored short requests each with eight EOS rows, same cap64; eight B4 groups, seven graph/shared-head reuses. Original body prefills remain independent; per-row native head F.linear shapes retained while decoded weight blocks are shared. All7520 emitted IDs checked against completed original oracle. No refill/HTTP/vLLM/long-context/capability or sustained-service proof. Timing excludes model load and JSON/tokenization; memory is allocator peak/request-end observation."
+  },
+  "summary_sha256": "005d1414b3e40de5cc966ccb9166b3a55e41c59429580c6dbc8c541fb82e2c3b",
+  "lease_sha256": "dad55ae44fdad303a1288367b89bbf7790616b372e6a972aefccbd593e2f1d92",
+  "actual_exit_code": 0,
+  "owned_process_group_empty": true,
+  "all7520_saved_IDs_independently_recompared": true,
+  "all_source_files_unchanged": true,
+  "pooled_total_TPS": {
+    "baseline": 16.510594830698587,
+    "candidate": 17.447018263750945,
+    "ratio": 1.0567165170397885,
+    "gain_percent": 5.671651703978853
+  },
+  "observed_at_UTC": "2026-10-09T20:01:23.731379+00:00",
+  "status": "completed_four_process_ABBA_with_independent_saved_output_audit",
+  "local_public_compare_requests_on_downloaded_actual_pairs": [
+    {
+      "all_emitted_token_ids_equal": true,
+      "baseline": {
+        "request_count": 32,
+        "output_tokens": 1880,
+        "request_seconds": 113.80253501329571,
+        "aggregate_end_to_end_output_tokens_per_second": 16.51984289963626,
+        "peak_allocated_bytes": 31526430208,
+        "peak_reserved_bytes": 31608274944,
+        "request_end_device_used_bytes_max": 32398049280
+      },
+      "candidate": {
+        "request_count": 32,
+        "output_tokens": 1880,
+        "request_seconds": 107.28610286582261,
+        "aggregate_end_to_end_output_tokens_per_second": 17.523238795906515,
+        "peak_allocated_bytes": 31526430208,
+        "peak_reserved_bytes": 31608274944,
+        "request_end_device_used_bytes_max": 32381272064
+      },
+      "aggregate_end_to_end_throughput_ratio": 1.060738827988028,
+      "limits": "Request/group timing excludes model load and tokenization/JSON writing. Single fixed-order run comparison; not a randomized service benchmark. Memory maxima are allocator peaks or request-end observations, not full-device sampled peaks."
+    },
+    {
+      "all_emitted_token_ids_equal": true,
+      "baseline": {
+        "request_count": 32,
+        "output_tokens": 1880,
+        "request_seconds": 113.93002329580486,
+        "aggregate_end_to_end_output_tokens_per_second": 16.501357110397656,
+        "peak_allocated_bytes": 31526430208,
+        "peak_reserved_bytes": 31608274944,
+        "request_end_device_used_bytes_max": 32398049280
+      },
+      "candidate": {
+        "request_count": 32,
+        "output_tokens": 1880,
+        "request_seconds": 108.22350130602717,
+        "aggregate_end_to_end_output_tokens_per_second": 17.371457930231454,
+        "peak_allocated_bytes": 31526430208,
+        "peak_reserved_bytes": 31608274944,
+        "request_end_device_used_bytes_max": 32381272064
+      },
+      "aggregate_end_to_end_throughput_ratio": 1.0527290461028531,
+      "limits": "Request/group timing excludes model load and tokenization/JSON writing. Single fixed-order run comparison; not a randomized service benchmark. Memory maxima are allocator peaks or request-end observations, not full-device sampled peaks."
+    }
+  ],
+  "local_recomputed_pooled_timing": {
+    "baseline": {
+      "aggregate_end_to_end_output_tokens_per_second": 16.510594830698587,
+      "aggregate_useful_decode_tokens_per_second": 31.293502120545245,
+      "total_request_seconds": 227.73255830910057,
+      "total_decode_seconds": 118.10758622549474,
+      "emitted_tokens": 3760,
+      "group_first_token_median_seconds": 6.5467772567644715,
+      "request_end_used_bytes_max": 32398049280,
+      "allocator_peak_bytes_max": 31526430208
+    },
+    "candidate": {
+      "aggregate_end_to_end_output_tokens_per_second": 17.447018263750945,
+      "aggregate_useful_decode_tokens_per_second": 34.7348952071479,
+      "total_request_seconds": 215.5096041718498,
+      "total_decode_seconds": 106.40596374217421,
+      "emitted_tokens": 3760,
+      "group_first_token_median_seconds": 6.511346397921443,
+      "request_end_used_bytes_max": 32381272064,
+      "allocator_peak_bytes_max": 31526430208
+    }
+  },
+  "end_to_end_gain_percent": 5.671651703978831,
+  "useful_decode_gain_percent": 10.997149099343751,
+  "both_pairs_observed_gain": true,
+  "default_replaced": false,
+  "universal_or_service_speedup_claimed": false,
+  "limits": "Four fresh processes ABBA,32 authored requests per process using four distinct prompts in reordered B4 groups, eight EOS outputs per run,cap64/cache1536 and same native4095 weights. All7520 saved generated IDs independently reread and locally compared. Request/group timing includes prefill/capture/reuse/CPU token collection, excludes model load/tokenization/JSON writing. B4 throughput is summed useful emitted tokens, not single-stream speed. Fixed ABBA/two repeats per arm is not randomized or statistical proof; no HTTP/refill/continuous-batching or arbitrary workload/long-context/quality admission. Allocator peaks and request-end device observations are not sampled full-device peaks.",
+  "vllm_read_only_research": {
+    "environment": {
+      "versions": {
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1",
+        "triton": "3.6.0",
+        "vllm": "0.24.0",
+        "safetensors": "0.8.0",
+        "flashinfer-python": "0.6.12",
+        "causal-conv1d": "1.7.0"
+      },
+      "CUDA_VISIBLE_DEVICES": "",
+      "no_model_loaded": true
+    },
+    "actual_installed_API_inventory": {
+      "version": "0.24.0",
+      "sources": {
+        "vllm/model_executor/layers/quantization/__init__.py": {
+          "exists": true,
+          "sha256": "00b8bb4e90e334efb978d97395072ad6d4c64754cd55859c33cb580ff011cb7a",
+          "classes": {},
+          "selected_source_lines": []
+        },
+        "vllm/model_executor/layers/quantization/base_config.py": {
+          "exists": true,
+          "sha256": "260c70dbb390308fae32b07e09d275ad6003c9125bcdbaa6eb477e8a815ab7fe",
+          "classes": {
+            "QuantizeMethodBase": {
+              "bases": [
+                "ABC"
+              ],
+              "methods": [
+                {
+                  "name": "create_weights",
+                  "args": "self, layer: torch.nn.Module, *weight_args, **extra_weight_attrs",
+                  "return": null
+                },
+                {
+                  "name": "apply",
+                  "args": "self, layer: torch.nn.Module, *args, **kwargs",
+                  "return": "torch.Tensor"
+                },
+                {
+                  "name": "process_weights_after_loading",
+                  "args": "self, layer: nn.Module",
+                  "return": "None"
+                }
+              ]
+            },
+            "QuantizationConfig": {
+              "bases": [
+                "ABC"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self",
+                  "return": null
+                },
+                {
+                  "name": "get_name",
+                  "args": "self",
+                  "return": "QuantizationMethods"
+                },
+                {
+                  "name": "get_quant_method",
+                  "args": "self, layer: torch.nn.Module, prefix: str",
+                  "return": "QuantizeMethodBase | None"
+                }
+              ]
+            }
+          },
+          "selected_source_lines": []
+        },
+        "vllm/model_executor/layers/fused_moe/fused_moe_method_base.py": {
+          "exists": true,
+          "sha256": "b8d3f53f46614f2db1b4cf9be058296f84191e2437887fb0dd3dfc42bd8c5f48",
+          "classes": {
+            "FusedMoEMethodBase": {
+              "bases": [
+                "QuantizeMethodBase"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, moe: FusedMoEConfig",
+                  "return": null
+                },
+                {
+                  "name": "create_weights",
+                  "args": "self, layer: 'RoutedExperts', num_experts: int, hidden_size: int, intermediate_size_per_partition: int, params_dtype: torch.dtype, **extra_weight_attrs",
+                  "return": null
+                },
+                {
+                  "name": "get_fused_moe_quant_config",
+                  "args": "self, layer: 'RoutedExperts'",
+                  "return": "FusedMoEQuantConfig | None"
+                },
+                {
+                  "name": "apply",
+                  "args": "self, layer: 'RoutedExperts', x: torch.Tensor, topk_weights: torch.Tensor, topk_ids: torch.Tensor, shared_experts: 'SharedExperts | None', shared_experts_input: torch.Tensor | None",
+                  "return": "torch.Tensor"
+                },
+                {
+                  "name": "apply_monolithic",
+                  "args": "self, layer: 'RoutedExperts', x: torch.Tensor, router_logits: torch.Tensor, input_ids: torch.Tensor | None=None",
+                  "return": "torch.Tensor"
+                }
+              ]
+            }
+          },
+          "selected_source_lines": []
+        },
+        "vllm/model_executor/models/qwen3_5.py": {
+          "exists": true,
+          "sha256": "86ca256c5e3803245f27ac5c8d931cd3d3cb21611aaf2ba90961fb72646c5ca6",
+          "classes": {
+            "Qwen3_5ProcessingInfo": {
+              "bases": [
+                "Qwen3VLProcessingInfo"
+              ],
+              "methods": []
+            },
+            "Qwen3_5MoeProcessingInfo": {
+              "bases": [
+                "Qwen3VLProcessingInfo"
+              ],
+              "methods": []
+            },
+            "Qwen3_5DecoderLayer": {
+              "bases": [
+                "Qwen3NextDecoderLayer"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, vllm_config: VllmConfig, layer_type: str, prefix: str=''",
+                  "return": "None"
+                }
+              ]
+            },
+            "Qwen3_5Model": {
+              "bases": [
+                "Qwen3NextModel"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, *, vllm_config: VllmConfig, prefix: str=''",
+                  "return": null
+                },
+                {
+                  "name": "load_weights",
+                  "args": "self, weights: Iterable[tuple[str, torch.Tensor]]",
+                  "return": "set[str]"
+                }
+              ]
+            },
+            "Qwen3_5ForCausalLMBase": {
+              "bases": [
+                "nn.Module",
+                "HasInnerState",
+                "SupportsEagle3",
+                "SupportsLoRA",
+                "SupportsPP"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, *, vllm_config: VllmConfig, prefix: str=''",
+                  "return": null
+                },
+                {
+                  "name": "load_weights",
+                  "args": "self, weights: Iterable[tuple[str, torch.Tensor]]",
+                  "return": "set[str]"
+                }
+              ]
+            },
+            "Qwen3_5ForCausalLM": {
+              "bases": [
+                "Qwen3_5ForCausalLMBase"
+              ],
+              "methods": []
+            },
+            "Qwen3_5MoeForCausalLM": {
+              "bases": [
+                "Qwen3_5ForCausalLMBase",
+                "QwenNextMixtureOfExperts"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, *, vllm_config: VllmConfig, prefix: str=''",
+                  "return": null
+                }
+              ]
+            },
+            "Qwen3_5ForConditionalGeneration": {
+              "bases": [
+                "Qwen3VLForConditionalGeneration",
+                "IsHybrid"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, *, vllm_config: VllmConfig, prefix: str='model'",
+                  "return": null
+                },
+                {
+                  "name": "load_weights",
+                  "args": "self, weights: Iterable[tuple[str, torch.Tensor]]",
+                  "return": "set[str]"
+                }
+              ]
+            },
+            "Qwen3_5_MoeMixtureOfExperts": {
+              "bases": [
+                "MixtureOfExperts"
+              ],
+              "methods": []
+            },
+            "Qwen3_5MoeForConditionalGeneration": {
+              "bases": [
+                "Qwen3_5ForConditionalGeneration",
+                "Qwen3_5_MoeMixtureOfExperts"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, *, vllm_config: VllmConfig, prefix: str='model'",
+                  "return": null
+                }
+              ]
+            }
+          },
+          "selected_source_lines": [
+            "Qwen3NextSparseMoeBlock,",
+            "quant_config=quant_config,",
+            "self.mlp = Qwen3NextSparseMoeBlock(",
+            "quant_config=quant_config,",
+            "quant_config=self.quant_config,",
+            "quant_config=quant_config,",
+            "if isinstance(layer.mlp, Qwen3NextSparseMoeBlock):",
+            "layer.mlp, Qwen3NextSparseMoeBlock",
+            "class Qwen3_5MoeForConditionalGeneration(",
+            "quant_config=quant_config,"
+          ]
+        },
+        "vllm/model_executor/models/qwen3_next.py": {
+          "exists": true,
+          "sha256": "885ce3244d069871bd8df93e67d94e4f394259c951f6a778947743d4a57b7fa5",
+          "classes": {
+            "Qwen3NextSparseMoeBlock": {
+              "bases": [
+                "nn.Module"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, vllm_config: VllmConfig, prefix: str=''",
+                  "return": null
+                }
+              ]
+            },
+            "Qwen3NextAttention": {
+              "bases": [
+                "nn.Module"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, config: Qwen3NextConfig, model_config: ModelConfig | None=None, cache_config: CacheConfig | None=None, quant_config: QuantizationConfig | None=None, prefix: str=''",
+                  "return": "None"
+                }
+              ]
+            },
+            "Qwen3NextDecoderLayer": {
+              "bases": [
+                "nn.Module"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, vllm_config: VllmConfig, layer_type: str, prefix: str=''",
+                  "return": "None"
+                }
+              ]
+            },
+            "Qwen3NextModel": {
+              "bases": [
+                "nn.Module",
+                "EagleModelMixin"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, *, vllm_config: VllmConfig, prefix: str=''",
+                  "return": null
+                },
+                {
+                  "name": "load_weights",
+                  "args": "self, weights: Iterable[tuple[str, torch.Tensor]]",
+                  "return": "set[str]"
+                }
+              ]
+            },
+            "QwenNextMixtureOfExperts": {
+              "bases": [
+                "MixtureOfExperts"
+              ],
+              "methods": []
+            },
+            "Qwen3NextForCausalLM": {
+              "bases": [
+                "nn.Module",
+                "HasInnerState",
+                "SupportsLoRA",
+                "SupportsPP",
+                "QwenNextMixtureOfExperts",
+                "IsHybrid",
+                "SupportsEagle3"
+              ],
+              "methods": [
+                {
+                  "name": "__init__",
+                  "args": "self, *, vllm_config: VllmConfig, prefix: str=''",
+                  "return": null
+                },
+                {
+                  "name": "load_weights",
+                  "args": "self, weights: Iterable[tuple[str, torch.Tensor]]",
+                  "return": "set[str]"
+                }
+              ]
+            }
+          },
+          "selected_source_lines": [
+            "class Qwen3NextSparseMoeBlock(nn.Module):",
+            "quant_config=None,",
+            "quant_config=None,",
+            "quant_config=quant_config,",
+            "self.experts = FusedMoE(",
+            "quant_config=quant_config,",
+            "quant_config=quant_config,",
+            "quant_config=quant_config,",
+            "quant_config=quant_config,",
+            "quant_config=quant_config,",
+            "self.mlp = Qwen3NextSparseMoeBlock(",
+            "quant_config=quant_config,",
+            "if isinstance(layer.mlp, Qwen3NextSparseMoeBlock):",
+            "layer.mlp, Qwen3NextSparseMoeBlock"
+          ]
+        }
+      },
+      "CPU_only": true,
+      "model_loaded": false
+    },
+    "implemented": false,
+    "reference_documentation": "https://docs.vllm.ai/en/stable/features/quantization/index.html#out-of-tree-quantization-plugins",
+    "version_difference": "Installed0.24 uses RoutedExperts apply(x,topk_weights,topk_ids,shared_experts,shared_experts_input), while current stable documentation shows a router/router_logits example. Implementation must use pinned local interface; registration alone proves no compatibility or speed."
+  }
+}
