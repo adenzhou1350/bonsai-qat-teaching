@@ -416,6 +416,16 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests.py \
 
 vLLM 的模型唯一 CUDA storage 为 **30,306,158,272 字节（28.2248 GiB）**，原生为28.0998 GiB；这是权重与 buffer，不含全部缓存、临时空间或驱动保留。结果 JSON 的 allocator 峰值和请求末设备观察也不能当成全生命周期 NVML 采样峰值。现有原生 `compare_requests.py` 还要求相同的模型 storage，因此跨原生/vLLM时应核对 manifest、输入 token 数、完整输出 IDs 和 EOS，并单列 buffer/缓存配置差异。完整引擎四类短请求与下述四轮吞吐对照均已完成；默认原生入口保持不变。
 
+## 跨引擎的输出比较（CPU）
+
+从仓库根目录运行，不需要加载模型或使用显卡：
+
+```bash
+python experimental122/compare_engine_outputs.py --baseline native-A.json --candidate vllm-B/result.json
+```
+
+[比较工具](compare_engine_outputs.py)逐请求核对完整输出 ID、输入 token 数和 EOS，并要求完成状态、产物 manifest 元数据和生成上限相同；允许不同引擎的模型 buffer 与缓存布局不同。它不验证原始提示文本或实际加载权重，不计算吞吐、显存或质量分数。两组真实 B4 原生/vLLM 结果和六类故意不一致的拒绝检查已通过，见[工具验证记录](compare-engine-output-evidence.json)。同一原生入口的吞吐比较仍使用 `compare_requests.py`。
+
 ## 原生与完整 vLLM 图模式：四轮吞吐及全程显存对照完成
 
 同一新版权重、32 个换序请求、greedy cap64，按原生 / vLLM / vLLM / 原生各开一个全新进程。四轮全部正常退出，**7,520 个完整输出 ID、输入长度及 EOS 均一致**；真实输出与四条 NVML 原始采样流下载后，已在独立本地进程重新核对并重算。

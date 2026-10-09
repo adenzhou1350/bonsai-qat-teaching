@@ -1,0 +1,33 @@
+{
+  "status": "completed_saved_JSON_comparison_validation",
+  "entry": "compare_engine_outputs.py",
+  "entry_sha256": "b5f2edc94269fa04ae3d9a47bc036851eb12016d5fcdd3775a48c1bb559801f5",
+  "actual_reference_candidate_pairs": [
+    {
+      "all_saved_output_token_IDs_equal": true,
+      "input_token_counts_and_EOS_match": true,
+      "artifact_manifest_metadata_matches": true,
+      "requests": 32,
+      "output_tokens_per_result": 1880,
+      "limits": "Saved JSON comparison only. Does not load weights, verify prompt text, measure throughput/memory, or establish model quality."
+    },
+    {
+      "all_saved_output_token_IDs_equal": true,
+      "input_token_counts_and_EOS_match": true,
+      "artifact_manifest_metadata_matches": true,
+      "requests": 32,
+      "output_tokens_per_result": 1880,
+      "limits": "Saved JSON comparison only. Does not load weights, verify prompt text, measure throughput/memory, or establish model quality."
+    }
+  ],
+  "negative_controls_rejected": [
+    "token",
+    "EOS",
+    "input_count",
+    "manifest",
+    "incomplete",
+    "request_order"
+  ],
+  "CUDA_or_weights_loaded": false,
+  "limits": "Compares saved artifact manifest metadata, generation cap, input token counts, full output IDs, and EOS. Does not verify original prompt text, loaded weights, quality, memory, or throughput."
+}
