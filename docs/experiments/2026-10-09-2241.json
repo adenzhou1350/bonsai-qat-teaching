@@ -1,0 +1,80 @@
+{
+  "forward_objective_validate_target_AST_equal": true,
+  "initial_VAL128_exact": true,
+  "same_identity_order_step1_and_parameter_names": true,
+  "control_events": [
+    {
+      "step": 1,
+      "train_block": 1485,
+      "teacher_kl": 0.06184874847531319,
+      "normalized_state_relative_mse": 0.12524400651454926,
+      "nll": 0.981366259840764,
+      "grad_norm_before_clip": 0.20441843569278717,
+      "all171_FP32_gradients_connected_and_finite": true
+    },
+    {
+      "step": 2,
+      "train_block": 1602,
+      "teacher_kl": 0.021908657625317574,
+      "normalized_state_relative_mse": 0.06537534296512604,
+      "nll": 0.5589679994571486,
+      "grad_norm_before_clip": 0.09586847573518753,
+      "all171_FP32_gradients_connected_and_finite": true
+    }
+  ],
+  "actual_first_two_full_events": [
+    {
+      "step": 1,
+      "train_block": 1485,
+      "teacher_kl": 0.06184874847531319,
+      "normalized_state_relative_mse": 0.12524400651454926,
+      "nll": 0.981366259840764,
+      "grad_norm_before_clip": 0.20472000539302826,
+      "all171_FP32_gradients_connected_and_finite": true
+    },
+    {
+      "step": 2,
+      "train_block": 1602,
+      "teacher_kl": 0.021867817267775536,
+      "normalized_state_relative_mse": 0.0658218041062355,
+      "nll": 0.5591826102308592,
+      "grad_norm_before_clip": 0.09647935628890991,
+      "all171_FP32_gradients_connected_and_finite": true
+    }
+  ],
+  "CPU_rng_exact": false,
+  "CUDA_rng_saved_bytes_exact": false,
+  "tensor_counts": {
+    "master": {
+      "total": 171,
+      "exact": 8,
+      "different": 163
+    },
+    "exp_avg": {
+      "total": 171,
+      "exact": 4,
+      "different": 167
+    },
+    "exp_avg_sq": {
+      "total": 171,
+      "exact": 4,
+      "different": 167
+    }
+  },
+  "checkpoint_file_sha256": [
+    "d207d56dd3a31bf298cbf5c375011fb95d6338cc49c52a833bc0983fa439aa4c",
+    "7a85851a399e2c7ea455a076543f091a8498407486f44f50c95dfe76a136ba70"
+  ],
+  "CPU_only_no_GPU_initialized": true,
+  "cause_proven": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "comparison_report_sha256": "9392d7bdcaeb44f3556be4d9cf261ed30fd0e988a75ee572534d5923226cdfd8",
+  "format": "teaching-experiment-diagnostic-v1",
+  "observed_at_utc": "2026-10-09T14:40:58Z",
+  "experiment": "NR35-first-update-control-versus-full",
+  "training_modified": false,
+  "strict_deterministic_diagnostic_complete": false,
+  "primary_reproducibility_reference": "https://docs.pytorch.org/docs/2.11/notes/randomness.html",
+  "limits": "Read-only actual first-step master/moment and scalar comparison. Original forward/objective/validation/target AST and initial VAL agree; first-step forward loss agrees, gradients/updates do not. RNG differences are recorded, not proven causal. Full training continues unchanged; deterministic probe remains incomplete."
+}
