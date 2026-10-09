@@ -1,0 +1,13 @@
+{
+  "file_sha256": {
+    "experimental122/runtime/native122_ternary_lut_decode_v1533.py": "6069fb933065bce2f35c690b5775f03df98773ec9fbd1076bf3c40b871f375a7",
+    "experimental122/run_requests_lut.py": "5161c1d717abd48bbeb6adb685f990208e620783cf4d569d4147e169e1bc2022"
+  },
+  "numerics_evidence": "../docs/experiments/2026-10-10-0423.json",
+  "same_helper_bytes_as_actual_completed_micro_and_full48": true,
+  "CLI_help_isolated_CUDA_empty_exit_code": 0,
+  "full_GPU_CLI_performance_control_complete": false,
+  "queued_performance_source52_SHA256": "946e7384b3a8d9d67307078c9921769528e3397a6b6fa32eb2bb01054d91ef9f",
+  "shared_extra_lookup_bytes": 512,
+  "default_replaced": false
+}
