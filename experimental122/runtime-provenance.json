@@ -1,0 +1,352 @@
+{
+  "numeric_statements_AST_identical_to_original": true,
+  "module_count": 25,
+  "bytes": 54619,
+  "modules": [
+    {
+      "file": "affine4_packed_native.py",
+      "source_sha256": "862adf366d0e1e0ccbb2ac22f908a5f907f9f605f212f60a40b8f961652e11d6",
+      "extracted_sha256": "454dc096aecfed0cb79fe6ff6f8371ab464d47758f4b64369f2e905d420eb244",
+      "symbols": [
+        "PackedAffine4Linear",
+        "PackedAffine4NativeLinear",
+        "torch"
+      ]
+    },
+    {
+      "file": "affine4_packed_runtime.py",
+      "source_sha256": "86fa05c5866b85912ebf1928fa4ab3f4a24a473344789984f1ac7ffa3d54cfa8",
+      "extracted_sha256": "5c458dd0a844aace47bfc29db524667bd46440038dfbdf501a5b92ffe2faeb02",
+      "symbols": [
+        "PackedAffine4Linear",
+        "_decode",
+        "_gemv",
+        "tl",
+        "torch",
+        "triton"
+      ]
+    },
+    {
+      "file": "bounded_attention_rms_norm_v1.py",
+      "source_sha256": "bec74037287c90aee8d952aa977e240270f82ff81b9e063ac46acbbc23db74bc",
+      "extracted_sha256": "3cee623322b2b88626479ee83c81f40f3031ea42fb85aacf6f84f71891b84a28",
+      "symbols": [
+        "FORWARD_SHA",
+        "INNER_SHA",
+        "bind_bounded_attention_rms_layer",
+        "bind_bounded_attention_rms_model",
+        "bounded_attention_rms_forward",
+        "hashlib",
+        "inspect",
+        "q",
+        "torch",
+        "types"
+      ]
+    },
+    {
+      "file": "bounded_gated_norm_v1.py",
+      "source_sha256": "f149692eee97a3295749cb01500481319c0ac060d035fbca2e801391b2d9e470",
+      "extracted_sha256": "5f3904262e0629f6d2c526b55ef91be27bbe5a9a3c621a64eb28bb8d1ff4daf7",
+      "symbols": [
+        "F",
+        "ORIGINAL_FORWARD_SHA256",
+        "bind_gated_norm_layer",
+        "bind_gated_norm_model",
+        "bounded_gated_norm_forward",
+        "hashlib",
+        "inspect",
+        "original_norm_forward",
+        "q",
+        "torch",
+        "types"
+      ]
+    },
+    {
+      "file": "bounded_grouped_residual_v1.py",
+      "source_sha256": "96f96903fc73769c45b0d097fa2f921020fb4693e11fa60e060da562f053a315",
+      "extracted_sha256": "4bcb4bd436f152c34a3a7432d6206140fa032939954edffe1f56f6d78d1c45b2",
+      "symbols": [
+        "bounded_grouped_residual_add",
+        "torch"
+      ]
+    },
+    {
+      "file": "bounded_head_sdpa_v6_output_gate.py",
+      "source_sha256": "c874943048d5ce54aadf9acde4381946b6d4c8d1d33d63937a8bdc4ced750a5d",
+      "extracted_sha256": "cee97410a6a8e3e70f4c9c19f287319eab365e7d9ba0e3cf29461445044a5063",
+      "symbols": [
+        "ATTENTION_FORWARD_SHA",
+        "SDPA_FORWARD_SHA",
+        "_OwnAttentionRegistry",
+        "ast",
+        "bind_bounded_head_sdpa_layer",
+        "bind_bounded_head_sdpa_model",
+        "bounded_attention_output_gate",
+        "bounded_head_sdpa",
+        "hashlib",
+        "inspect",
+        "own_attention_forward",
+        "q",
+        "s",
+        "textwrap",
+        "torch",
+        "types"
+      ]
+    },
+    {
+      "file": "bounded_route_reduce_v1.py",
+      "source_sha256": "fa8006dd3aff99c948fe77d435b2b66f540dc4c2e80a02155a776741854d9043",
+      "extracted_sha256": "db7d6220541f94b03f9f7b666c25746b39ad815d838fe962470750820a130902",
+      "symbols": [
+        "bounded_route_reduce",
+        "torch"
+      ]
+    },
+    {
+      "file": "bounded_ternary_base_projection_v2_mm_out.py",
+      "source_sha256": "eecf488806fcd1f4021180f248d230db9f4ae4643174388a017dacb3ed1fda01",
+      "extracted_sha256": "0b45b7e228fbdf45224ee283645835c081c04d20bb8474c6d0b4b6de68b05201",
+      "symbols": [
+        "bounded_ternary_base_projection",
+        "torch"
+      ]
+    },
+    {
+      "file": "carry_fp32_segmented_delta_prefill_v5_preallocated.py",
+      "source_sha256": "76f60dafa69c376299d784cbc6afd85885e92a7d8eacbfc35c62e8bb7ae1e5ba",
+      "extracted_sha256": "e6bb274eca2b76431e790bd3eee37cb08849a5a9dae3a95e5c652a0a6079bdbe",
+      "symbols": [
+        "F",
+        "ORIGINAL_FUNCTION_SHA256",
+        "ORIGINAL_MODELING_SHA256",
+        "_carry_delta_kernel",
+        "bind_segmented_layer",
+        "bind_segmented_model",
+        "hashlib",
+        "inspect",
+        "l2norm",
+        "q",
+        "segmented_fp32_delta_prefill",
+        "torch"
+      ]
+    },
+    {
+      "file": "direct122_original_recovery_runtime_v38_expert_stream.py",
+      "source_sha256": "f2c8683938de49c20f72bd11b3db3f5310390b4903a32935fb6a6bba52f4815b",
+      "extracted_sha256": "e1a9f0d9161f7c09bd37b86439cfedef6aeaf46ab26854ba47f3f74bed7ed6ec",
+      "symbols": [
+        "AutoConfig",
+        "AutoTokenizer",
+        "FORMAT",
+        "GenerationConfig",
+        "PackedAffine4Embedding",
+        "PackedAffine4NativeChunkedHead",
+        "PackedAffine4NativeLinear",
+        "PackedRetainedFactorTritExperts",
+        "Path",
+        "Qwen3_5MoeForConditionalGeneration",
+        "assemble_controlled",
+        "backend",
+        "bank_rows",
+        "bind_bounded_attention_rms_model",
+        "bind_bounded_head_sdpa_model",
+        "bind_gated_norm_model",
+        "bind_linear_prefill_lifetime_model",
+        "bind_moe_shared_defer_model",
+        "bind_segmented_model",
+        "check_retained",
+        "gc",
+        "read_banks",
+        "sha",
+        "tensor_sha",
+        "torch"
+      ]
+    },
+    {
+      "file": "embedding4_packed_runtime.py",
+      "source_sha256": "740a81d5202630458f0868a50ac6d8b8aae1c85833bb051c03b9de7a802de2ec",
+      "extracted_sha256": "05dc147c4593e5a8311816d0cd66a21861db6db411bbb768292a1b4be86e3cb7",
+      "symbols": [
+        "PackedAffine4Embedding",
+        "_gather",
+        "tl",
+        "torch",
+        "triton"
+      ]
+    },
+    {
+      "file": "fixed_route_mm_out_v1.py",
+      "source_sha256": "c0528cd6bcaf25408b15d74e84c2fece33f820d5dc846e05a242624dc79dfda5",
+      "extracted_sha256": "e702952e46b623cba957d622b597ae2c435ca7cadb70066185e9ce10d3fc5baf",
+      "symbols": [
+        "fixed_route_mm_out",
+        "torch"
+      ]
+    },
+    {
+      "file": "gemq_dense_runtime.py",
+      "source_sha256": "50194c69cc2ebdab6112a1552a2161b66a10289ce0358282de691629baab2a8d",
+      "extracted_sha256": "239322f787facdf57da6f08a472e31e23789f1f24dcd0c80d480e8eaf3a8e457",
+      "symbols": [
+        "Path",
+        "backend",
+        "hashlib",
+        "q",
+        "sha",
+        "torch"
+      ]
+    },
+    {
+      "file": "gsq_graph_decoder_v3_cache_snapshot.py",
+      "source_sha256": "0c7dae48ff681298d81f6c5901e438ac06e6319a34f8c42f31368ee44cadfdcc",
+      "extracted_sha256": "257ce79f9b99c99ed5913ecf8b19a16c173cbbcc4c4252d0e51ef765f6a6804c",
+      "symbols": [
+        "GraphDecoder",
+        "StaticCache",
+        "gc",
+        "hashlib",
+        "inspect",
+        "torch"
+      ]
+    },
+    {
+      "file": "gsq_ternary_linear_runtime_v2.py",
+      "source_sha256": "402bfa2c000e686058d3bf44e68a2bc79a4c1a1498b565b564afa6a45dd7b6f2",
+      "extracted_sha256": "1b74e095ea1e085541c6e555dc8a84cfe61a1698a740cb643003c4772f1fe2f2",
+      "symbols": [
+        "LinearTritBank",
+        "TritBank",
+        "torch"
+      ]
+    },
+    {
+      "file": "gsq_ternary_packed_runtime.py",
+      "source_sha256": "c7132b0b9b7f1a265c3495d437b3909baf8b1865dae77d66cb65199e144a4606",
+      "extracted_sha256": "000219642e51d87168ab8f50891f9b0cbde93143cb4c5b3530abe086b599955f",
+      "symbols": [
+        "PackedGSQTritExperts",
+        "TritBank",
+        "_decode",
+        "tl",
+        "torch",
+        "triton"
+      ]
+    },
+    {
+      "file": "gsq_ternary_retained_factor_runtime_v1.py",
+      "source_sha256": "9c3587678e86f87eb7877b31aa762e47b7b3efc2fd98323f9ef338d71495d2b2",
+      "extracted_sha256": "31b19cf49894d8c162a7cbe87c43d05b96e82ffb277255146960a627b717a011",
+      "symbols": [
+        "LinearTritBank",
+        "RetainedFactorTritBank",
+        "torch"
+      ]
+    },
+    {
+      "file": "gsq_ternary_retained_factor_runtime_v17_silu_inplace.py",
+      "source_sha256": "dcfa718f0449febb360e2fb2fe088792d27aa340e13a488bb517c471fbbbd097",
+      "extracted_sha256": "4f8ce69a03e7ed43ff9b211d2327287434d74498844a46b0afca136b2025603d",
+      "symbols": [
+        "GroupedRetainedFactorTritBank",
+        "PackedGSQTritExperts",
+        "PackedGroupedRetainedFactorTritExperts",
+        "RetainedFactorTritBank",
+        "bounded_grouped_residual_add",
+        "bounded_route_reduce",
+        "bounded_ternary_base_projection",
+        "fixed_route_mm_out",
+        "indexed_gate_base_low_projection",
+        "torch"
+      ]
+    },
+    {
+      "file": "gsq_ternary_retained_factor_runtime_v18_expert_stream.py",
+      "source_sha256": "d6ef20055743f1df68eb48194bd13fb6d6dcd603fa1f7341ef870bb4d7006285",
+      "extracted_sha256": "0a55a76c536ed11fb195bd2a863b2a76e4f8fc4022338260f9e45dbdc19ea317",
+      "symbols": [
+        "PackedGroupedRetainedFactorTritExperts",
+        "PreviousExperts",
+        "bounded_route_reduce",
+        "torch"
+      ]
+    },
+    {
+      "file": "indexed_gate_base_low_projection_v1.py",
+      "source_sha256": "fd6c6281dc046a678a8c350e369fb10e6437ba10fce6609a069ad603a7c7ca94",
+      "extracted_sha256": "ce2693fd2f3d8eb4f6485d6533cff7737e77d5a5488f6b9c5c86a2227cad9c1d",
+      "symbols": [
+        "indexed_gate_base_low_projection",
+        "torch"
+      ]
+    },
+    {
+      "file": "linear_attention_prefill_lifetime_v6_detached_qkv.py",
+      "source_sha256": "fa9e674b407338748cacc770a0bcb6fa003a845808af5d1a27bf4c923da45563",
+      "extracted_sha256": "ef20c7d6596ac93ad330fa9c1c2db1b0ae31b20a11aa3916dbcc354f162d9f6f",
+      "symbols": [
+        "ORIGINAL_FORWARD_SHA256",
+        "ast",
+        "bind_linear_prefill_lifetime_layer",
+        "bind_linear_prefill_lifetime_model",
+        "bounded_causal_conv_silu",
+        "hashlib",
+        "inspect",
+        "q",
+        "textwrap",
+        "types"
+      ]
+    },
+    {
+      "file": "native_bounded_causal_conv_silu_v1.py",
+      "source_sha256": "214127a4ba34e2bf369647347b519575c67b3a60d063bd6c3963273e0eb7667e",
+      "extracted_sha256": "b792fab22d07a640bbf224549982e742490bca2634cbfb36a638e14ff474dd64",
+      "symbols": [
+        "bounded_causal_conv_silu",
+        "torch"
+      ]
+    },
+    {
+      "file": "native_moe_shared_defer_v2_dead_router.py",
+      "source_sha256": "209eb68a93cde123b4c04310900d3e3e5cd69a223a3710048c363bfbb21b8393",
+      "extracted_sha256": "f6ff3a50c84201197b5bb8ed9c25923136209b7ace956711371817e0c774f319",
+      "symbols": [
+        "NATIVE_FORWARD_SHA",
+        "ast",
+        "bind_moe_module",
+        "bind_moe_shared_defer_layer",
+        "bind_moe_shared_defer_model",
+        "hashlib",
+        "inspect",
+        "own_moe_forward",
+        "q",
+        "textwrap",
+        "torch",
+        "types"
+      ]
+    },
+    {
+      "file": "primary_gsq122_dense4_runtime_v1.py",
+      "source_sha256": "57193ca855215bd84ab4cc545557c8dc6c42493b6091f2e204f9217e8340137b",
+      "extracted_sha256": "2ef293421af594782bb2fa86b5a4e5be930bad0138b24109365b6c64e223fbfa",
+      "symbols": [
+        "PackedAffine4Linear",
+        "PackedAffine4NativeChunkedHead",
+        "Path",
+        "_decode",
+        "bank_rows",
+        "sha",
+        "torch"
+      ]
+    },
+    {
+      "file": "qtea_source_expert_probe.py",
+      "source_sha256": "9c6d0f5fa18ee3d1602d11588a9eed0e20587052f54b4df33dc89d965dee9e87",
+      "extracted_sha256": "023b809e7f65105ae41ebd49b70104f4b2fed034c90deaf0ee338b0875b6b816",
+      "symbols": [
+        "hashlib",
+        "tensor_sha",
+        "torch"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+# 单张 RTX 5090 跑 122B：已验证的实验版
+
+本目录保存 **Qwen3.5-122B-A10B** 的旧版自定义量化推理入口：48 层三值专家、非专家线性层与 embedding 4bit、rank-8 BF16 补偿。总参数约 122B，每 token 激活约 10B。这不是 122B 稠密模型，也不是完整 Bonsai 复现。
+
+**旧版已完成量化、4096 步补偿训练与打包，能在单张 32GB RTX 5090 上生成。质量仍未通过验收：中文/格式 45/48，验收线 48；CMMLU 162/201，验收线 163。** 新的教师对齐训练是另一版产物，仍在运行，不能继承这里的速度和验证结果。
+
+## 文件与运行环境
+
+从 `infer.py` 读起；`runtime/` 只保留已验证推理路径需要的 25 个依赖模块，移除了训练、集群调度与评测入口。数值计算语句与原实验 AST 一致，来源记录在 `runtime-provenance.json`。保留这些模块是为了维持舍入、路由、缓存与内存释放顺序。
+
+环境为 Linux、Python 3.12、Torch 2.11.0+cu130、Transformers 5.12.1、Triton。还需使用原环境的 `causal_conv1d` CUDA 扩展；缺少或替换实际卷积后端会改变计算。本目录没有修改系统包或自动安装 CUDA 扩展。模块对部分 Transformers 源码带 SHA 校验，版本或代码不一致时会拒绝运行。
+
+模型权重不放进 Git。需要另行提供**已经打包好的旧版实验模型目录**，包含配置、tokenizer、`summary.json`、`retained.pt`、embedding 和全部专家/dense bank 文件。原始 Hugging Face BF16 权重不能直接传给这个入口。本仓库目前没有从原始 122B 权重训练出该产物的一键流程；122B 的最小训练代码仍待完整验证。
+
+入口固定校验旧产物 manifest SHA256：
+
+```text
+5c9683297d71c1dbdd1c32a8a749aa1911c857fb9ef1a788dfe794230abd08a9
+```
+
+加载前逐文件校验 SHA；不需要实验机器的原目录、SSH 或旧调度日志。这里只验证文件身份与推理，不把去掉内部调度依赖解释为质量验收。
+
+```bash
+# 在已安装上述依赖的 Linux GPU 环境中运行。
+CUDA_VISIBLE_DEVICES=0 python experimental122/infer.py \
+  --model models/qwen35-122b-experimental-packed \
+  --prompt '用中文解释什么是模型量化。' --max-new-tokens 128 \
+  --output outputs/122b-generation.json
+
+# 与原记录相同的五种上下文、固定 64-token Graph/静态对照。
+CUDA_VISIBLE_DEVICES=0 python experimental122/infer.py \
+  --model models/qwen35-122b-experimental-packed --benchmark \
+  --output outputs/122b-benchmark.json
+```
+
+生成入口按 EOS 停止。测速入口固定执行 64 步，即使遇到 EOS 也继续，以对齐原来的工程记录；它排除提示词处理与 Graph 录制。单请求文本推理，无 CPU 权重卸载；没有并发服务、vLLM 插件或视觉推理支持。
+
+## 已有实测
+
+| 上下文 token | 解码 tokens/s | 峰值 CUDA allocated 字节 |
+|---|---:|---:|
+| 128 | 28.44 | 30,486,048,256 |
+| 512 | 28.34 | 30,530,485,248 |
+| 4096 | 25.56 | 31,042,519,552 |
+| 8192 | 22.72 | 31,369,777,664 |
+| 16384 | 18.81 | 32,494,375,424 |
+
+全部五种上下文的 Graph/静态 64-token 输出逐位一致。文字模型去重后的 CUDA 权重/缓冲存储为 30,171,940,608 字节，无 CPU 权重卸载；峰值包含缓存与 Graph 工作区。以上是固定输入工程测试，不能推导任意长上下文理解、服务吞吐或质量已经恢复。
+
+另有 768 个逐层与 16 个整模型缓存数值检查通过。这些数值对照与速度不能替代能力评测；本实验版适合研究和演示。

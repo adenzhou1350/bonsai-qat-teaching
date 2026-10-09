@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-09",
+  "model": "Qwen3.5-122B-A10B",
+  "artifact_manifest_sha256": "5c9683297d71c1dbdd1c32a8a749aa1911c857fb9ef1a788dfe794230abd08a9",
+  "old_artifact_optimizer_updates": 4096,
+  "numeric_runtime_statements_AST_identical_to_source": true,
+  "portable_bundle_files_verified": 28,
+  "portable_bundle_source_policy_sha256": "eb2b67686d57efc9380e14d626186d2b14dd25476018915b5f3f9f6970cd20be",
+  "portable_GPU_processes_exited0": true,
+  "complete_five_context_graph_static_token_equality": true,
+  "Chinese_prompt_generation_completed": true,
+  "Chinese_prompt_generated_tokens": 32,
+  "Chinese_prompt_generated_text": "**模型量化**（Model Quantization）是指将深度学习模型中的参数（如权重和激活值）从高精度浮点数（通常是 32 ",
+  "all_text_tensors_CUDA_no_CPU_weight_offload": true,
+  "unique_CUDA_text_storage_bytes": 30171940608,
+  "benchmarks": [
+    {
+      "context_tokens": 128,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 28.458942629098296,
+      "prepare_seconds_includes_prefill_and_capture": 3.166694683022797,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 30486048256
+    },
+    {
+      "context_tokens": 512,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 28.369410243407742,
+      "prepare_seconds_includes_prefill_and_capture": 3.89514203928411,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 30530485248
+    },
+    {
+      "context_tokens": 4096,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 25.579574196537735,
+      "prepare_seconds_includes_prefill_and_capture": 8.921747381798923,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 31042519552
+    },
+    {
+      "context_tokens": 8192,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 22.72902424375202,
+      "prepare_seconds_includes_prefill_and_capture": 16.32498033065349,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 31369777664
+    },
+    {
+      "context_tokens": 16384,
+      "fixed_new_tokens": 64,
+      "decode_tokens_per_second": 18.823343141874496,
+      "prepare_seconds_includes_prefill_and_capture": 33.23164727911353,
+      "graph_static_token_ids_equal": true,
+      "peak_allocated_bytes": 32494375424
+    }
+  ],
+  "environment": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.12.1",
+    "triton": "3.6.0",
+    "causal-conv1d": "1.7.0"
+  },
+  "quality_accepted": false,
+  "old_quality": {
+    "Chinese_and_format": {
+      "passes": 45,
+      "total": 48,
+      "acceptance_floor": 48
+    },
+    "CMMLU": {
+      "passes": 162,
+      "total": 201,
+      "acceptance_floor": 163
+    }
+  },
+  "limits": "Experimental old artifact, single request text only, fixed64 decode timing excludes prefill/capture and continues past EOS. No model weights or 122B training recipe distributed. New training is separate and unfinished."
+}
