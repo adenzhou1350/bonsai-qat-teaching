@@ -1,0 +1,4564 @@
+{
+  "summary": {
+    "passed": true,
+    "stage": "completed",
+    "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+    "source_policy_sha256": "a3a1b3f6abf63879434cf9866c1047737556ec5a64f7639cdeef8cc7ce8fff98",
+    "pinned_vllm_source_sha256": {
+      "model_executor/layers/fused_moe/fused_moe_method_base.py": "b8d3f53f46614f2db1b4cf9be058296f84191e2437887fb0dd3dfc42bd8c5f48",
+      "model_executor/layers/fused_moe/routed_experts.py": "957e62a0acbe665f5a15641161f2854d982ebdbffb74456b405105533ed8ed05",
+      "model_executor/layers/quantization/base_config.py": "260c70dbb390308fae32b07e09d275ad6003c9125bcdbaa6eb477e8a815ab7fe",
+      "model_executor/layers/quantization/__init__.py": "00b8bb4e90e334efb978d97395072ad6d4c64754cd55859c33cb580ff011cb7a",
+      "model_executor/layers/fused_moe/runner/moe_runner.py": "d11a841e24f46a14884d36334b83387370cd8232679d8569a6a06eb3a6918eb2"
+    },
+    "actual_installed_vllm_version": "0.24.0",
+    "actual_RoutedExperts_constructions": 48,
+    "banks": [
+      {
+        "layer": 0,
+        "attr": "gate_up_proj",
+        "bank_sha256": "263e4e30c68c845d4938365ee3124c5b6f597e42eb43472e69e840137cea023e",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 0,
+        "attr": "down_proj",
+        "bank_sha256": "fb327676bda6f39432a9a366ab70813f2f7c2f44e59b6f49dee52c8cd81df146",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 1,
+        "attr": "gate_up_proj",
+        "bank_sha256": "c4c28a2bc5aa076acf1ba8f29feb034fec4910b66bae8ae4af38f4ec52cb6f89",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 1,
+        "attr": "down_proj",
+        "bank_sha256": "e5d6a08582a9e7d727a0a250d8dccc96d5ffcd7f5fe912f0bb18cbfb50b9572b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 2,
+        "attr": "gate_up_proj",
+        "bank_sha256": "937985ca58545e4d70acc3613cd1752d7f1fd7ee339dd642271ce2821ad44003",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 2,
+        "attr": "down_proj",
+        "bank_sha256": "516aad92d5515b5edf4aa26d46f64aaf9cf16d9c85ac095333638de255f793c2",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 3,
+        "attr": "gate_up_proj",
+        "bank_sha256": "1a5ca11a44e5b448e5995d55ecfdecd5dd0216821db686b7217547181f2d2e2e",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 3,
+        "attr": "down_proj",
+        "bank_sha256": "d31168dcaed4bfb54303157c15d283a172874e6d65b284bd7ccfea6d9e587d7a",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 4,
+        "attr": "gate_up_proj",
+        "bank_sha256": "d6d9523ac7d26c286b94591bb7cdde19a97b2c86dc8c6dbbfa6b68a68b8814a7",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 4,
+        "attr": "down_proj",
+        "bank_sha256": "c36d61697e39dc9546a77b1d7030ee20e075c33fa92be9e9b70ab5d347e28aaa",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 5,
+        "attr": "gate_up_proj",
+        "bank_sha256": "6ca42c45a0ddfdb4e7e68029fd6923aafdbe403d8348e31c97a0d70688769201",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 5,
+        "attr": "down_proj",
+        "bank_sha256": "83ef893f9ac94588df6c595e6fe3ca5af1efe713f904ebbadc266e6fadcd2400",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 6,
+        "attr": "gate_up_proj",
+        "bank_sha256": "ec0c8462b1db4b8a220ee798eb32ec51848acd5bff5b8734a8f04931ab781514",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 6,
+        "attr": "down_proj",
+        "bank_sha256": "29575146493f281ca4aec778e035fd353177427f69c380b64da857b157b3d0b1",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 7,
+        "attr": "gate_up_proj",
+        "bank_sha256": "1e63d48f77d4e7ebcdb1ad65f4bbbe1d092d22555dc3cc0731700a6f6858238a",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 7,
+        "attr": "down_proj",
+        "bank_sha256": "08e4d6e9519364459b65c39a19e5e203e81df0f54b5be20bef325ce135d036b8",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 8,
+        "attr": "gate_up_proj",
+        "bank_sha256": "ff1b523a61fce5f91930d09600e5df3dff7544b8a593fd72c050746d5431f806",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 8,
+        "attr": "down_proj",
+        "bank_sha256": "455a8e5f8da01783539120116e2003e0d0cf25abef88ecfddf05bc8d72f1f2a3",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 9,
+        "attr": "gate_up_proj",
+        "bank_sha256": "8d9d0e4e485826efcbfdb89bd7cedecd5b104d86cc50f2fa118bcd15dbbc0cb6",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 9,
+        "attr": "down_proj",
+        "bank_sha256": "89b3f8f99a95b88e1b218310f7e9ee5a8019e40f2c0f9064ad30b725a989734c",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 10,
+        "attr": "gate_up_proj",
+        "bank_sha256": "fd0d006017c5302c73ca642502ddecf2e4d9514a5ff500bd6d92b02aa037af9e",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 10,
+        "attr": "down_proj",
+        "bank_sha256": "a26cfe4764c8c0a2692729cc7475acf32ad772d7d4ef769d2ff3c691a660c77e",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 11,
+        "attr": "gate_up_proj",
+        "bank_sha256": "56ee28a694c8438c614af3be849d2946211fd87f09f7fdb89cf164cdc9a4faf7",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 11,
+        "attr": "down_proj",
+        "bank_sha256": "ff472c6f87d95731f54b5855499df81b5c498e998e144a1f4f83789f3815da4e",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 12,
+        "attr": "gate_up_proj",
+        "bank_sha256": "0c0b81eeb719995ffd220c900bfa74e472d3b458146c9c5f88ed7dfc78ec82eb",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 12,
+        "attr": "down_proj",
+        "bank_sha256": "01e5257addca13efc97d12b0fbd9a2fc4fd95278fa0e1774eafc7090f17c1667",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 13,
+        "attr": "gate_up_proj",
+        "bank_sha256": "c35f14626cb8e8ab6cba43eecb8c085cec0edbd15196d76aad45d561a47b0fa4",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 13,
+        "attr": "down_proj",
+        "bank_sha256": "df7f87d5ce6c5aaf6baf988f540f321fca618999886a5c65cba4fce97601c9cd",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 14,
+        "attr": "gate_up_proj",
+        "bank_sha256": "bcca3f186d856e546ba0194465a00f808097569d26b41239f8b462b6204a0965",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 14,
+        "attr": "down_proj",
+        "bank_sha256": "4b1dd5f37b7ef6c0108724b0fa7325e29fd64f2d139a4aa30a474ac8caa6179b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 15,
+        "attr": "gate_up_proj",
+        "bank_sha256": "68c58150897aa667fe4da1abc967121c4214e2b49e8e8bd547cb253748739544",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 15,
+        "attr": "down_proj",
+        "bank_sha256": "880bebab44332d645c4d72c26f0a4a2d191f5893c29753f37ffeef4477e0f03e",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 16,
+        "attr": "gate_up_proj",
+        "bank_sha256": "1095c26d2eb83732847f85f90eb33e92e4cf52ce5c963541616f55422c983aac",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 16,
+        "attr": "down_proj",
+        "bank_sha256": "7f5df530749a6be9baed7645abe160af044b567a1b655579b4dfd8cd8a805330",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 17,
+        "attr": "gate_up_proj",
+        "bank_sha256": "9872eb3ec8c0fbefeff5e27f57d3e09a097253f01a4c171afddfc39a7da174f1",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 17,
+        "attr": "down_proj",
+        "bank_sha256": "eea4ced315e8c263003ccf260ae0caf4d402e1add821d053dbba1e8e043b6d99",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 18,
+        "attr": "gate_up_proj",
+        "bank_sha256": "3920015cbd12109688458628b6bc26e8af068a8b407e4046e9fff6efb3a99fdc",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 18,
+        "attr": "down_proj",
+        "bank_sha256": "2bb9274ee6685de61780e4a4f69d36ddfd51bb33baf34360b36c7bd67493260e",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 19,
+        "attr": "gate_up_proj",
+        "bank_sha256": "6c068c48806b75567d3b97060bca6f02b493bda3eca7c931f13edfa42feaff03",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 19,
+        "attr": "down_proj",
+        "bank_sha256": "86dd24c9c39b79a5959bd3f251551cebb96383e7222f322b010ccc7eaf6a5c10",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 20,
+        "attr": "gate_up_proj",
+        "bank_sha256": "d5214227b50b1a1fcf4bbb34e7a7f2572713a21a5ea1ee91c926e1478aa86dea",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 20,
+        "attr": "down_proj",
+        "bank_sha256": "c415c70108b329172d3022c8de402f6e63aeccdd6a58db1df1b6690c0b68f5a6",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 21,
+        "attr": "gate_up_proj",
+        "bank_sha256": "00159d0bc5ef927b8e9921fb58f2c919ec9747c35897354cd2fab0d5c214f36d",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 21,
+        "attr": "down_proj",
+        "bank_sha256": "4e1f3bbbedbea6559fb5516f6bbacf93a413307c18d016428a8411e1704c40df",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 22,
+        "attr": "gate_up_proj",
+        "bank_sha256": "0f8eab8abec9e4bce87c88cc2c84d5a0c37af85c586ee79a5f6d19ec30a585d0",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 22,
+        "attr": "down_proj",
+        "bank_sha256": "288c4c5bb975cff51adba9f579a7a6a9a7b8c6e1bbbd80eb365dddb182453baf",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 23,
+        "attr": "gate_up_proj",
+        "bank_sha256": "f782e1b47e7585131cedfa7f0ba09612a4640b6a5feb611efc255533816e6ff3",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 23,
+        "attr": "down_proj",
+        "bank_sha256": "19b2ed1663a697bb7bc1545f2577f181ea4e4e260b700597e5faf7158a1e93cc",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 24,
+        "attr": "gate_up_proj",
+        "bank_sha256": "5629ade8c05028d3405c7412636bee3f4b278ab892f113ebc98b36f1682db4fd",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 24,
+        "attr": "down_proj",
+        "bank_sha256": "d41bbc8f5e6749cb6914109e4fdc944e472eb3ff0fec5431c1c773540e4c8261",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 25,
+        "attr": "gate_up_proj",
+        "bank_sha256": "05e24b3f58351edda2a2d7f73ed9fcae64bb9fa217c46d96af9816e980af7f34",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 25,
+        "attr": "down_proj",
+        "bank_sha256": "8a4a7756a9e385a3929e8ab4dc95a2600ff85613005b8299a412ae54653a2999",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 26,
+        "attr": "gate_up_proj",
+        "bank_sha256": "45cd6efc3298d4359b836212fec654a37d93ca65bc7b333fd4036be8511efa3b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 26,
+        "attr": "down_proj",
+        "bank_sha256": "2418ad57692a18e63d72ac2de58213b5eb55c9e7b241b33059c2938cc03a4681",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 27,
+        "attr": "gate_up_proj",
+        "bank_sha256": "e4d449832bb626a550a29ff58dd4d188540d3583c97a037e89bf960635171a26",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 27,
+        "attr": "down_proj",
+        "bank_sha256": "34e53f6363ffcf14bb8acf8c7a83546427a4cb68ffcb49fb9395f9cb73e776dd",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 28,
+        "attr": "gate_up_proj",
+        "bank_sha256": "30cf4ed7da82020b12cf309bc050894fc17d8123b7d4f37742ae6c8ed0b173fb",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 28,
+        "attr": "down_proj",
+        "bank_sha256": "ca647ec3317eadf16516d917ca010591f9ccd6622047d36fa96f183edbfcb80d",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 29,
+        "attr": "gate_up_proj",
+        "bank_sha256": "267bc0b4091599de2ffccb53db2d3646cdb780a5546335446a2a6b41387f55ab",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 29,
+        "attr": "down_proj",
+        "bank_sha256": "e06b3f53468a545495a1208ca764f0ce66c2ad03b960ae91513690e3df7cb394",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 30,
+        "attr": "gate_up_proj",
+        "bank_sha256": "48067439fffd49440fca4cbcbb13e6606729d6ac0c81bd4df2b5b770b960fdf4",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 30,
+        "attr": "down_proj",
+        "bank_sha256": "8120457b589cc05f1f47e017defad1815f62d7b6009cb2b1c9a727267a914f01",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 31,
+        "attr": "gate_up_proj",
+        "bank_sha256": "6771a550ce00ab97f0a2d59d6d97fe0c26b32eb807eec45196526e879a72e3ae",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 31,
+        "attr": "down_proj",
+        "bank_sha256": "2ba27eebd57d03de8fb1554bd10432b2573fd1a6ada38ae5884e356e974952c8",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 32,
+        "attr": "gate_up_proj",
+        "bank_sha256": "97017c62ad2fd1a0bc6809f4b3bd6c19dae9025440d5f61596f9dcf6da182250",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 32,
+        "attr": "down_proj",
+        "bank_sha256": "08f09fd656982bf9beb6c543bd94e27598639aaeb10b661b9b93b12f4be6d101",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 33,
+        "attr": "gate_up_proj",
+        "bank_sha256": "3fdbff0dc506682d414211c34bbf2f40db24ef15826d5d2896dee5c380377f54",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 33,
+        "attr": "down_proj",
+        "bank_sha256": "c2f289642e34a11372c1421372fdc8cb8199febf235aa779a0d8abc58545723b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 34,
+        "attr": "gate_up_proj",
+        "bank_sha256": "792c13545e85fd0c2f8b948bae1f9c8734ec30fac6cc8d63b5de80c16f97119b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 34,
+        "attr": "down_proj",
+        "bank_sha256": "dccb2f3887938f03655ac5315ca7ba69a35ec6ec493cb47d89e4948b27b0c691",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 35,
+        "attr": "gate_up_proj",
+        "bank_sha256": "3bc4760a3e22363448f31acb615e700d4dc2d3aed3cc8c12cfb595884a66b26c",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 35,
+        "attr": "down_proj",
+        "bank_sha256": "5a0e86d109eee87f215a8cd0eb3ec318c3b334eb8252c97e46778a62cd3386e4",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 36,
+        "attr": "gate_up_proj",
+        "bank_sha256": "87a247d754b3cecd75c7d49c4c85632d1eacc64f709d363efd0094ae284a6dc8",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 36,
+        "attr": "down_proj",
+        "bank_sha256": "aeab4677822c29fe6bddba7f06049a269c862ceea14eaa372056959d9ae6c9a3",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 37,
+        "attr": "gate_up_proj",
+        "bank_sha256": "9e98b3ed715b87b779f2a171b0914edd618a8874ba4a53ab30ae1affeb836cd3",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 37,
+        "attr": "down_proj",
+        "bank_sha256": "eeff2a9e6c1e7af8c69c66cd750d27a017e1e80453371d64d20da39beba9609b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 38,
+        "attr": "gate_up_proj",
+        "bank_sha256": "a7408d379dc1041d450fe59103ebc3dd867492117770dd18ffb910a75704a08b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 38,
+        "attr": "down_proj",
+        "bank_sha256": "6732b0e2fe4440717bdf56bd1466584810ef868fda60f854e7a4fc3a452ea788",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 39,
+        "attr": "gate_up_proj",
+        "bank_sha256": "74dcbe4d7909b233910aea0b61715ae3feb06d0d9e8fb94e1b9c2fe1640893ad",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 39,
+        "attr": "down_proj",
+        "bank_sha256": "4d803227d05b2a3c14ab2062a0b63b1df85616be5fd0b6aa4529c75f3981867b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 40,
+        "attr": "gate_up_proj",
+        "bank_sha256": "d00f63f303d280ae419d3e434c9747debc2188830f8d341d084fec255e3ab8eb",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 40,
+        "attr": "down_proj",
+        "bank_sha256": "d267e3447ead8a5f99b4cd0cf7797cd1b9749751296b4f180b676b232feec64b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 41,
+        "attr": "gate_up_proj",
+        "bank_sha256": "08d4ca898075077e5521ae4cd318514e7bd104732cc011e480d714d9ca25947d",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 41,
+        "attr": "down_proj",
+        "bank_sha256": "88cda94c0faa32dcfd394b746c8ef2305204c35344e496e7eec9fa52a8988914",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 42,
+        "attr": "gate_up_proj",
+        "bank_sha256": "610703b925ffd228d66342184d7b2684f9d188a36f515b42c27c697d8af5b45b",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 42,
+        "attr": "down_proj",
+        "bank_sha256": "079507a7c642f93140557a5adda86a9b21363776f1b56ed4581a9cf84d055c8f",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 43,
+        "attr": "gate_up_proj",
+        "bank_sha256": "325e7da2ab4c801d56e73bed68f038a49ec3f414c1cd014241f839babd0316dd",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 43,
+        "attr": "down_proj",
+        "bank_sha256": "fd05f1dd801edf550e39cbf0d26b5134ff59986f260b842efee49871dbac1d1d",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 44,
+        "attr": "gate_up_proj",
+        "bank_sha256": "b664e2a79ab5576a0580ff1b39723a78ef98fe451488389a1e9f59de14649b5e",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 44,
+        "attr": "down_proj",
+        "bank_sha256": "ba65485b268cebaa813b892c0a963bb3cb3db069957e28ff61391e9db83217ac",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 45,
+        "attr": "gate_up_proj",
+        "bank_sha256": "9f3471b21d1a663479a281bd68dfb60fa639e8f346a499a8c12d1190b12b21f7",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 45,
+        "attr": "down_proj",
+        "bank_sha256": "ff8e799d17fe97fdf019df37b1ce2ad845434d755c0b5d3d6541605a1744b8cf",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 46,
+        "attr": "gate_up_proj",
+        "bank_sha256": "95128e68a7eeb6ecb40289529a4dad495989d95c79a80bcd3c59b695893439ea",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 46,
+        "attr": "down_proj",
+        "bank_sha256": "1212ce38142c6eac0d307f82f603f16eb365ca28586e2478f2d288f87eda1e20",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      },
+      {
+        "layer": 47,
+        "attr": "gate_up_proj",
+        "bank_sha256": "a27ea8e185c00d410cba53a47c8d521fc26d1889cca467e1d7d87028bc1324bf",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          2048,
+          3072
+        ]
+      },
+      {
+        "layer": 47,
+        "attr": "down_proj",
+        "bank_sha256": "79042128520b89f4bcd9f55861eda1482fbf2748be1813dd635a2349db95ddf5",
+        "all256_experts_match_independent_CPU_unpack_bitwise": true,
+        "unpacked_shape": [
+          256,
+          3072,
+          1024
+        ]
+      }
+    ],
+    "cases": [
+      {
+        "layer": 0,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 0,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 0,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 0,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 1,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 1,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 1,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 1,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 2,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 2,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 2,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 2,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 3,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 3,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 3,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 3,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 4,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 4,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 4,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 4,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 5,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 5,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 5,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 5,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 6,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 6,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 6,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 6,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 7,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 7,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 7,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 7,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 8,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 8,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 8,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 8,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 9,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 9,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 9,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 9,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 10,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 10,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 10,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 10,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 11,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 11,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 11,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 11,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 12,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 12,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 12,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 12,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 13,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 13,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 13,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 13,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 14,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 14,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 14,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 14,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 15,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 15,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 15,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 15,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 16,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 16,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 16,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 16,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 17,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 17,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 17,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 17,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 18,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 18,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 18,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 18,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 19,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 19,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 19,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 19,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 20,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 20,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 20,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 20,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 21,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 21,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 21,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 21,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 22,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 22,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 22,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 22,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 23,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 23,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 23,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 23,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 24,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 24,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 24,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 24,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 25,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 25,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 25,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 25,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 26,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 26,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 26,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 26,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 27,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 27,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 27,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 27,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 28,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 28,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 28,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 28,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 29,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 29,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 29,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 29,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 30,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 30,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 30,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 30,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 31,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 31,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 31,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 31,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 32,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 32,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 32,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 32,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 33,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 33,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 33,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 33,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 34,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 34,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 34,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 34,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 35,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 35,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 35,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 35,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 36,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 36,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 36,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 36,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 37,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 37,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 37,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 37,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 38,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 38,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 38,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 38,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 39,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 39,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 39,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 39,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 40,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 40,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 40,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 40,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 41,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 41,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 41,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 41,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 42,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 42,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 42,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 42,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 43,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 43,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 43,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 43,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 44,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 44,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 44,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 44,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 45,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 45,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 45,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 45,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 46,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 46,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 46,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 46,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 47,
+        "kind": "decode_unsorted8",
+        "tokens": 1,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 47,
+        "kind": "small_batch4",
+        "tokens": 4,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 47,
+        "kind": "prefill_all256",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 47,
+        "kind": "prefill_collapsed8",
+        "tokens": 64,
+        "actual_forward_modular_to_apply_executed": true,
+        "native_dispatch_output_bitwise_equal": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      }
+    ],
+    "router_cases": [
+      {
+        "layer": 0,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "5df92fcf8594d0e943c90e44828c326e42efec51f8909e2d8bb9feff1f0c48f3",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 0,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "5df92fcf8594d0e943c90e44828c326e42efec51f8909e2d8bb9feff1f0c48f3",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 1,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "eaca3b2cca7d5cc073282167aff894ddb24d01805c6e62fd70921f2a15149af6",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 1,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "eaca3b2cca7d5cc073282167aff894ddb24d01805c6e62fd70921f2a15149af6",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 2,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "e9143fc98b64a52fafcd7ea0001e77b5c9f2579d847b937e665672372c8db3fa",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 2,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "e9143fc98b64a52fafcd7ea0001e77b5c9f2579d847b937e665672372c8db3fa",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 3,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "6ed30d95b95b7e56732edc57e6aa3b211fb00475cdd9afadadec1a27c71546d6",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 3,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "6ed30d95b95b7e56732edc57e6aa3b211fb00475cdd9afadadec1a27c71546d6",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 4,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "c0f7b0c93ff63821b7328d578af8bcf6002830f2a096fcec5fa40163b5b57e29",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 4,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "c0f7b0c93ff63821b7328d578af8bcf6002830f2a096fcec5fa40163b5b57e29",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 5,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "7d195229daed6e636ff50d4f5742c6a5545dadeecd799d54abf901f73fb1de20",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 5,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "7d195229daed6e636ff50d4f5742c6a5545dadeecd799d54abf901f73fb1de20",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 6,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "a3d9d3adbe52ed46b40744620329a2b967f96d2726f64ac80cebe11fea3b139b",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 6,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "a3d9d3adbe52ed46b40744620329a2b967f96d2726f64ac80cebe11fea3b139b",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 7,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "7f7d6fce233a52d8c540772aef3c7e9dc36a8602051ff438cd627e4ffee7f1c0",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 7,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "7f7d6fce233a52d8c540772aef3c7e9dc36a8602051ff438cd627e4ffee7f1c0",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 8,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "8e21a992f44d872dbc6908985a5ed0797d149bcd963fdc5dfea89c27bf44c777",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 8,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "8e21a992f44d872dbc6908985a5ed0797d149bcd963fdc5dfea89c27bf44c777",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 9,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "b294588ac5bc663a7eafe06f2efd672c33ec3bb76ad8d0984497bc7be331dbba",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 9,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "b294588ac5bc663a7eafe06f2efd672c33ec3bb76ad8d0984497bc7be331dbba",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 10,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "00c33edf052fc1ad2c1186dc6c79eb6f5c5972b00fdc15385ef84c8a4be3b47b",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 10,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "00c33edf052fc1ad2c1186dc6c79eb6f5c5972b00fdc15385ef84c8a4be3b47b",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 11,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "a6d5e394be0d701cc8c19c53504df2a967121a436e5a90f07d47022e67989661",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 11,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "a6d5e394be0d701cc8c19c53504df2a967121a436e5a90f07d47022e67989661",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 12,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "df966d0a6a42c14a4bb997f310613a0df66f817cf4c19421776c6e159dcfe06c",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 12,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "df966d0a6a42c14a4bb997f310613a0df66f817cf4c19421776c6e159dcfe06c",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 13,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "8bf25cd615867715de8ad29b98c5e3aebe260237b7ec66586551be2d02971b39",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 13,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "8bf25cd615867715de8ad29b98c5e3aebe260237b7ec66586551be2d02971b39",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 14,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "9e0873e4cd4dbacecbb3166fcf72ea572c722c5b4269f2352f0fa832e2922f50",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 14,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "9e0873e4cd4dbacecbb3166fcf72ea572c722c5b4269f2352f0fa832e2922f50",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 15,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "3957c0c57a0f992b81dbd99dca67ca3352e20af59e58014b0d8cafbe58321d25",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 15,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "3957c0c57a0f992b81dbd99dca67ca3352e20af59e58014b0d8cafbe58321d25",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 16,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "569a5e9ddfb40342cb7dc0a11a9f4650e8a147a9013e89ac5c4d858d1f7b4884",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 16,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "569a5e9ddfb40342cb7dc0a11a9f4650e8a147a9013e89ac5c4d858d1f7b4884",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 17,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "8b60f4909d431e93e6d23299ab516c2233accc3428008fcaa2609185b1aa2841",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 17,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "8b60f4909d431e93e6d23299ab516c2233accc3428008fcaa2609185b1aa2841",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 18,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "83a5e8b31a1c2239e3f792f0f77a78450dc5dc52718a1756edb89984705edea0",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 18,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "83a5e8b31a1c2239e3f792f0f77a78450dc5dc52718a1756edb89984705edea0",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 19,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "03861a4b9829402542bf148bb7a6b13dacbbdf96ee5def7125d0e455052f7d7e",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 19,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "03861a4b9829402542bf148bb7a6b13dacbbdf96ee5def7125d0e455052f7d7e",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 20,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "fb748fae1c452d875b8ca0a348bd730393e5f88ecc7bf98c6b354d7bb6cfccb9",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 20,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "fb748fae1c452d875b8ca0a348bd730393e5f88ecc7bf98c6b354d7bb6cfccb9",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 21,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "40f02523b5a7195be0dbe954cadd35a08d17c6731000f99ff8b4ad337f4bb76c",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 21,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "40f02523b5a7195be0dbe954cadd35a08d17c6731000f99ff8b4ad337f4bb76c",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 22,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "ab847266ff63b64ec71e4e1be22388595701a3bcf69d737ab4a98e2096298598",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 22,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "ab847266ff63b64ec71e4e1be22388595701a3bcf69d737ab4a98e2096298598",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 23,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "eebe07359960d18255bfc06d6576043a95c8264db47f504262d6682a3f20a781",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 23,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "eebe07359960d18255bfc06d6576043a95c8264db47f504262d6682a3f20a781",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 24,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "70de0b57d91018f5297a2e36860a73039f086a7b1597384767755ee584300463",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 24,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "70de0b57d91018f5297a2e36860a73039f086a7b1597384767755ee584300463",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 25,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "1b2e2c2add2abbf9a6b50f7919dcbd9cd9df1f5118f165ce7d88914a22c8626e",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 25,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "1b2e2c2add2abbf9a6b50f7919dcbd9cd9df1f5118f165ce7d88914a22c8626e",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 26,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "493a051ace49a2c2db364e72b6678d3d75655e19da13929a0d8aef68eefa0ef7",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 26,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "493a051ace49a2c2db364e72b6678d3d75655e19da13929a0d8aef68eefa0ef7",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 27,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "c0d8e097408e3a5a061dcda1de5db87f3aa6745e7a9ce82b30308f856235bf38",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 27,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "c0d8e097408e3a5a061dcda1de5db87f3aa6745e7a9ce82b30308f856235bf38",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 28,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "7c35e49138d98d6426375b7c184d3c0e9a8b9f7fc302f5719c0144c7484a314b",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 28,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "7c35e49138d98d6426375b7c184d3c0e9a8b9f7fc302f5719c0144c7484a314b",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 29,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "314fe1e0cefb34b4ca8417b9fecf4566f42e2c85bcbb38f9c6309ec2e656af6c",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 29,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "314fe1e0cefb34b4ca8417b9fecf4566f42e2c85bcbb38f9c6309ec2e656af6c",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 30,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "f258aa0455f03825a0e7f2b68c3287caac8472da2f05419410ff49b513dca0c2",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 30,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "f258aa0455f03825a0e7f2b68c3287caac8472da2f05419410ff49b513dca0c2",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 31,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "553553d46332651083aee6f57aac380e34ca38d9f493015b142c649e3a7dbd65",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 31,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "553553d46332651083aee6f57aac380e34ca38d9f493015b142c649e3a7dbd65",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 32,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "5781351aa7c53bdd34f9534544d2f17cd793b64bc900e7976d14e4c96f1f45ec",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 32,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "5781351aa7c53bdd34f9534544d2f17cd793b64bc900e7976d14e4c96f1f45ec",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 33,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "03a772a686b6cf82695cba5f359e5edb0a4469798e2f8941bddf405f31278e94",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 33,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "03a772a686b6cf82695cba5f359e5edb0a4469798e2f8941bddf405f31278e94",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 34,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "dfcbb5414b3b901aec3364bd51bd6ca71098bc87fe7fcc2c1e34e0c8b19afab2",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 34,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "dfcbb5414b3b901aec3364bd51bd6ca71098bc87fe7fcc2c1e34e0c8b19afab2",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 35,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "a2473f5b9e356950f70098256fc0602c8080540997a274b1640ba5bb4cb97dc3",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 35,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "a2473f5b9e356950f70098256fc0602c8080540997a274b1640ba5bb4cb97dc3",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 36,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "3c5df85574aea4cf8bed18c22ac5c147ca3a2bc68aa16c3d6a3707c9eebdcaf9",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 36,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "3c5df85574aea4cf8bed18c22ac5c147ca3a2bc68aa16c3d6a3707c9eebdcaf9",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 37,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "6a917dd74fa19d1921aa4c13e1133de669bce6c0d4a0b557af391d7f76031b5f",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 37,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "6a917dd74fa19d1921aa4c13e1133de669bce6c0d4a0b557af391d7f76031b5f",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 38,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "66b93c9dd6cdb0787cedbb77d8a5bf1cb0bc76ec8a542d05d818d6084e675004",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 38,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "66b93c9dd6cdb0787cedbb77d8a5bf1cb0bc76ec8a542d05d818d6084e675004",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 39,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "d4394ed85ebdb069f3ef696d478b816a1784fc462b12dedd5c48f5732636f566",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 39,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "d4394ed85ebdb069f3ef696d478b816a1784fc462b12dedd5c48f5732636f566",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 40,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "259da6fcd05331b56c478ea8ba3f28396d40c77fa98e334f4a13edd159e7e408",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 40,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "259da6fcd05331b56c478ea8ba3f28396d40c77fa98e334f4a13edd159e7e408",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 41,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "12d8ee1efe694a488f83d4bf1c66932efb02707d0f172717973b24cf08314a06",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 41,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "12d8ee1efe694a488f83d4bf1c66932efb02707d0f172717973b24cf08314a06",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 42,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "279f7b156601c5061a0431f09cad2a0c4e063e8e0abe5ba8cfdd2401b6250d89",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 42,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "279f7b156601c5061a0431f09cad2a0c4e063e8e0abe5ba8cfdd2401b6250d89",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 43,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "168304e582473fd0f0c413de235ba9a140f2f8b535ebbe7d35aa3e68c39de422",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 43,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "168304e582473fd0f0c413de235ba9a140f2f8b535ebbe7d35aa3e68c39de422",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 44,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "9116be21e001a1c4f8638c89d0504f3be6a45e3566eb1d511821d5b0cbaa8f9f",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 44,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "9116be21e001a1c4f8638c89d0504f3be6a45e3566eb1d511821d5b0cbaa8f9f",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 45,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "f8e52e28f297986daebae5f687efe5b1efb0d688532b842174419b88baee3844",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 45,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "f8e52e28f297986daebae5f687efe5b1efb0d688532b842174419b88baee3844",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 46,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "2ad78f4b568e25721aa6447c8c581f1d54f80aa433c050fd00aa57df0229fb4d",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 46,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "2ad78f4b568e25721aa6447c8c581f1d54f80aa433c050fd00aa57df0229fb4d",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 47,
+        "tokens": 1,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "e37bf6ec3e206302f4ed122b8776b5828bb4bfe05d3f7bf0f9fe6488c16d14b8",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      },
+      {
+        "layer": 47,
+        "tokens": 64,
+        "actual_native_router_and_vllm_fused_topk_executed": true,
+        "router_tensor_sha256": "e37bf6ec3e206302f4ed122b8776b5828bb4bfe05d3f7bf0f9fe6488c16d14b8",
+        "same_selected_expert_sets": true,
+        "native_probability_dtype": "torch.bfloat16",
+        "vllm_probability_dtype": "torch.float32",
+        "BF16_probability_cast_before_experts": true,
+        "output_BF16_bitwise_equal": true,
+        "output_relative_L2": 0.0,
+        "maximum_absolute_error": 0.0,
+        "passed": true
+      }
+    ],
+    "numeric_relative_L2_tolerance": 0.005,
+    "BF16_reduced_precision_reduction": false,
+    "whole_vllm_engine_run": false,
+    "MoERunner_shared_expert_execution_tested": false,
+    "speedup_claimed": false,
+    "quality_accepted": false,
+    "reserved_inputs_opened": false,
+    "seconds": 2218.0476777926087,
+    "peak_allocated_bytes": 5546315776,
+    "peak_reserved_bytes": 5731516416,
+    "limits": "All48 real vLLM0.24 RoutedExperts constructors and forward_modular/apply dispatches, all96 native4095 ternary+rank8 expert banks, all256 experts per bank independently CPU-unpacked and bitwise checked. Synthetic1/4/64token cases cover unsorted routes, collapsed8 and all256; independent per-expert BF16 F.linear checks use unchanged relativeL2<.005. Actual native router versus vLLM fused_topk checked1/64tokens per layer. Layer tests are isolated; no whole-model propagation/attention/cache/shared MoERunner/model-loader/HTTP/continuous batching/quality/speed proof. GPU diagnostic arrays are checked live and not serialized for independent re-comparison."
+  },
+  "summary_sha256": "0b58860daa92286994c2e726ebcc8408f98b7afe2cd6f41cfd347b6dcb7a8628",
+  "lease_sha256": "2e0a9a40fa5d93bf3cdfd694fd10cc91f3aad861115310e84c00a3d7836d62a3",
+  "source53_unchanged": true,
+  "all96_actual_bank_files_SHA_rechecked": true,
+  "all288_case_metadata_and_96_bank_metadata_checked": true,
+  "actual_installed_vllm_source_independently_rechecked": true,
+  "actual_exit_code": 0,
+  "owned_process_group_empty": true,
+  "numeric_arrays_serialized_for_independent_reread": false,
+  "max_independent_reference_relative_L2": 0.0,
+  "max_actual_router_reference_relative_L2": 0.0,
+  "bitwise_equal_independent_reference_cases": 192,
+  "bitwise_equal_actual_router_reference_cases": 96,
+  "status": "completed_all48_actual_vllm_expert_and_router_GPU_component_validation",
+  "actual_public_expert_adapter_sha256": "1ff0fc474e6ae50348ce8c11efc6bb4aa7a9622def9a550b56b0616242390b29",
+  "full_vllm_engine_validated": false,
+  "speedup_claimed": false,
+  "numerics_scope": "All96 actual expert banks, all256 experts per bank independently CPU-unpacked;48 real vLLM RoutedExperts modules with four route/token geometries each plus96 real router/output cases. All288 outputs bitwise equal. Live GPU arrays were not serialized for later independent reread; terminal audit rechecked all bank files/source hashes and saved case metadata. Shared-expert MoERunner/full model/attention/cache/generation/throughput not validated by this component test."
+}

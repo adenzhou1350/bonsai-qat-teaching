@@ -100,3 +100,5 @@
 - [已有优化 B4 加查表的完整 ABBA 对照](2026-10-10-0509-B4-lut.json)：7,520 输出 ID 一致，增量含预填充吞吐观测 +0.214%，未证明稳定额外收益，默认入口保持不变。
 
 - [vLLM dense/embedding 实际 GPU 组件验证](../../experimental122/vllm-dense-component-evidence.json)：229 模块、373 dense bank、691/691 组输出逐位一致；独立组件完成，完整引擎仍待验证。
+
+- [48 层 vLLM 专家与路由 GPU 组件验证](../../experimental122/vllm-expert-component-evidence.json)：96 bank、288/288 组输出逐位一致；完整引擎另行验证。

@@ -144,3 +144,5 @@ This is a Bonsai-style research implementation, not a complete Bonsai reproducti
 B4 上叠加查表的独立对照也已完成：同一固定请求集合计吞吐 **17.44 → 17.47 tokens/s（+0.21%）**，输出 ID 全一致；未证明稳定额外收益，默认入口保持不变。不同实验的加速百分比不能直接相加。[对照记录与复刻条件](docs/experiments/2026-10-10-0509-B4-lut.json)。
 
 vLLM 适配新增可复刻的 dense/embedding GPU 检查：**691/691 组输出逐位一致**。这是实际 vLLM 组件验证；完整引擎生成和吞吐尚待验证。[验证入口与范围](experimental122/README.md#vllm-denseembedding-适配组件验证完成)。
+
+48 层 vLLM 专家与路由组件也已全部完成 GPU 对照：**288/288 组输出逐位一致**，[专家证据](experimental122/vllm-expert-component-evidence.json)。完整引擎生成验证继续进行。

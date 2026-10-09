@@ -10411,5 +10411,7 @@
   "full_vllm_engine_validated": false,
   "expert_all48_status_at_publication": "running_separate_GPU_test",
   "deployment_memory_or_throughput_measured": false,
-  "numerics_scope": "All373 dense banks and every embedding base row independently CPU-unpacked;229 actual vLLM projection modules each tested at1,4,64 tokens plus4 embedding cases. GPU numeric tensors were compared live, not serialized for later re-comparison. Independent terminal audit rechecked every bank, all case metadata and the exact54-source portable bundle. Diagnostic retains BF16 reference weights and is not deployment memory measurement."
+  "numerics_scope": "All373 dense banks and every embedding base row independently CPU-unpacked;229 actual vLLM projection modules each tested at1,4,64 tokens plus4 embedding cases. GPU numeric tensors were compared live, not serialized for later re-comparison. Independent terminal audit rechecked every bank, all case metadata and the exact54-source portable bundle. Diagnostic retains BF16 reference weights and is not deployment memory measurement.",
+  "expert_all48_current_status": "completed",
+  "expert_all48_evidence": "vllm-expert-component-evidence.json"
 }
