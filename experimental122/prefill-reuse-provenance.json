@@ -1,0 +1,19 @@
+{
+  "file_sha256": {
+    "experimental122/runtime/reusable122_shared_head_batch_decoder_v5_no_copy_checks.py": "0913e9bfe5267a3aeb442386bf536a89f8d3bfc496adb22be702297864fc7c37",
+    "experimental122/run_requests_microbatch_no_copy_checks.py": "577dd8c1bb2f605e9057f5718dc7348329e7ab52f6f0d8defecb4068c0ce935d",
+    "experimental122/runtime/reusable122_layerwise_prefill_batch_decoder_v6.py": "81efe24f793799e498ad59c87d733cc6dd5067801d83fb8594a289e5aeceda2b",
+    "experimental122/run_requests_microbatch_layerwise_prefill.py": "5eb2348dac00db2514c21bae687a0d0a426e20827280ae3f65dc7f69a2ad8f1b"
+  },
+  "same_bytes_as_actual_complete_GPU_CLIs": true,
+  "same_runtime_bytes_as_completed_independent_numerics": true,
+  "performance_evidence": "../docs/experiments/2026-10-10-0313.json",
+  "no_copy_numerics_evidence": "../docs/experiments/2026-10-10-0233.json",
+  "layerwise_numerics_evidence": "../docs/experiments/2026-10-10-0243.json",
+  "fixture_sha256": "63d6f32d6295cc715e80712509dca0a1ec3c37688f8c151e61e2448024033cb3",
+  "original_default_CLI_sha256": "e106bad7b274cd5980d9471ec39c3f5523271a376593caf5507ecac985e045ab",
+  "default_replaced": false,
+  "performance_checked_batch_size": 4,
+  "candidate_B2_branch_revalidated_in_this_control": false,
+  "runtime_transformers_modeling_SHA_guard": "f738a9eb46d1351a751f36a1cae5f7435d589e8c3218e7315182419c4c0230f1"
+}

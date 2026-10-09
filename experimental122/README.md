@@ -246,6 +246,32 @@ python experimental122/compare_requests.py \
 
 用同一 32 请求序列比较原 B4v3 与共享头 B4v4，四个独立进程按 A/B/B/A 执行并退出 0，全部 7520 个保存输出 ID 已重新核对一致。两臂均只录制一次 Graph、复用七次；合并全部请求耗时后，原 B4 为 **16.3947 tokens/s**，共享头为 **16.4833 tokens/s**，观测差异 **+0.541%**。此项未建立共享头的独立提速结论，保留为可运行对照，默认入口不替换。见[相同负载的完整证据](../docs/experiments/2026-10-10-0242.json)。
 
-此前 15.75→16.30 tokens/s 是串行与 B4/复用/共享头组合的比较，不能归因给共享头本身。九请求的 B4 负结果也保持原样。当前继续测试去掉四处复制后 GPU 同步检查的版本：独立数值诊断已退出 0，16 行完整 logits、768 个逐行逐层缓存和 144 个保存的前缀 ID 均一致；完整 EOS/吞吐对照仍在运行，尚未发布该新入口。见[数值节点](../docs/experiments/2026-10-10-0233.json)。
+此前 15.75→16.30 tokens/s 是串行与 B4/复用/共享头组合的比较，不能归因给共享头本身。九请求的 B4 负结果也保持原样。当前继续测试去掉四处复制后 GPU 同步检查的版本：独立数值诊断已退出 0，16 行完整 logits、768 个逐行逐层缓存和 144 个保存的前缀 ID 均一致；完整 EOS/吞吐对照现已完成并发布候选入口，见下文。见[数值节点](../docs/experiments/2026-10-10-0233.json)。
 
-逐层 dense 解包复用的独立数值诊断也已完成：四个 B1 请求按层推进，当前层的 dense BF16 解包权重临时复用，离开该层即恢复原方法并释放临时缓存。四轮换序共 768 个完整层输出、768 个逐行逐层缓存、16 行完整 logits 均逐位一致；144 个保存的前缀 ID 独立重读一致。首个原型因静态发现旧变量引用而取消，修正版在新进程完成，取消证据保留。此候选同时省略四处复制后的相等断言，完整 EOS/吞吐对照正在运行，尚不发布该入口或宣称提速。见[02:43 数值证据](../docs/experiments/2026-10-10-0243.json)。
+逐层 dense 解包复用的独立数值诊断也已完成：四个 B1 请求按层推进，当前层的 dense BF16 解包权重临时复用，离开该层即恢复原方法并释放临时缓存。四轮换序共 768 个完整层输出、768 个逐行逐层缓存、16 行完整 logits 均逐位一致；144 个保存的前缀 ID 独立重读一致。首个原型因静态发现旧变量引用而取消，修正版在新进程完成，取消证据保留。此候选同时省略四处复制后的相等断言，完整 EOS/吞吐对照现已完成，原样入口及结果见下文；尚未建立稳定提速。见[02:43 数值证据](../docs/experiments/2026-10-10-0243.json)。
+
+## 两项预填充优化的完整 ABBA 对照
+
+两组四进程 A/B/B/A 均退出 0，每组 7520 个保存输出 ID 独立重读一致，共 15040 个。四个独立源码文件已按实际 GPU 执行字节发布。
+
+| 候选，相对 B4v4 共享头 | 原版合并吞吐 | 候选合并吞吐 | 观测差值 |
+|---|---:|---:|---:|
+| 省略四处复制后相等断言 v5 | 16.3658 tokens/s | 16.4604 tokens/s | +0.578% |
+| 逐层 dense 解包复用并省略四处断言 v6 | 16.4461 tokens/s | 16.5357 tokens/s | +0.545% |
+
+两轮观测不建立稳定或通用提速，默认入口保持不变。v6 同时改变逐层 dense 解包复用和四处复制后断言，不能单独归因给解包复用。旧中断记录保持原样。见[完成记录](../docs/experiments/2026-10-10-0313.json)和[源码身份](prefill-reuse-provenance.json)。
+
+复刻时沿用固定 native4095 产物、Linux 环境及[32 请求 fixture](examples/shared-head-requests32.jsonl)，候选命令为：
+
+~~~bash
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_microbatch_no_copy_checks.py \
+  --model models/qwen35-122b-native4095-packed \
+  --requests experimental122/examples/shared-head-requests32.jsonl \
+  --batch-size 4 --max-new-tokens 64 --output outputs/no-copy32-B.json
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_microbatch_layerwise_prefill.py \
+  --model models/qwen35-122b-native4095-packed \
+  --requests experimental122/examples/shared-head-requests32.jsonl \
+  --batch-size 4 --max-new-tokens 64 --output outputs/layerwise32-B.json
+~~~
+
+每个候选单独与 run_requests_microbatch_shared_head.py 做 A/B/B/A，使用四个新输出文件；用 compare_requests.py 对照 A/B 与 D/C，再合并相同分支的总输出与总请求耗时。不要拿两个候选之间的差当成层内复用的隔离收益。完整本轮性能验证仅 B4；候选的 B2 分支未在本轮重新验证。限制仍为 cache1536、greedy、cap≤64，没有 HTTP、refill、连续批处理或 vLLM 集成。
