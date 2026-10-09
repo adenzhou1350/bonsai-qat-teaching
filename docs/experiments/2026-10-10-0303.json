@@ -1,0 +1,119 @@
+{
+  "observed_at_UTC": "2026-10-09T19:03:03.322146+00:00",
+  "status": "two_ABBA_controls_interrupted_and_preserved",
+  "results": {
+    "v5": {
+      "status": "ABBA_incomplete_interprocess_idle_gate_exit1",
+      "source46_unchanged": true,
+      "completed_CLI_runs": [
+        {
+          "mode": "baselineA",
+          "actual_CLI_exit_code": 0,
+          "wall_seconds_including_model_load": 229.3145140586421,
+          "output_sha256": "d456e01eb32602524f9da540345c8be4fccd40db885e4172738b9a4b28a08d69",
+          "all1880_output_ids_equal_original": true,
+          "request_count": 32,
+          "request_seconds": 113.89727288205177,
+          "aggregate_end_to_end_output_tokens_per_second": 16.50610196740062,
+          "aggregate_useful_decode_tokens_per_second": 31.29304713789512,
+          "peak_allocated_bytes": 31526430208,
+          "peak_reserved_bytes": 31608274944,
+          "request_end_device_used_bytes_max": 32398049280
+        },
+        {
+          "mode": "candidateB",
+          "actual_CLI_exit_code": 0,
+          "wall_seconds_including_model_load": 232.72739257011563,
+          "output_sha256": "357397f5e6f950d63abaabbdab1d63fa2d3f7fb3201e96f3769c7985032ee474",
+          "all1880_output_ids_equal_original": true,
+          "request_count": 32,
+          "request_seconds": 114.19529281929135,
+          "aggregate_end_to_end_output_tokens_per_second": 16.463025345317963,
+          "aggregate_useful_decode_tokens_per_second": 31.275755790852745,
+          "peak_allocated_bytes": 31526430208,
+          "peak_reserved_bytes": 31608274944,
+          "request_end_device_used_bytes_max": 32398049280
+        }
+      ],
+      "all_saved_emitted_IDs_independently_recompared": 3760,
+      "next_CLI_not_started": "candidateC",
+      "wrapper_exit_code": 1,
+      "owned_process_group_empty": true,
+      "lease_sha256": "5ed38e2f70a6f17097d39b1f985f67b02b059b4e8b3b28a7cc6ff4e1eae868a9",
+      "progress_sha256": "b11478a2b4a219214201d9b426fa537da25042e39c44b6c7ddb3b720ab809660",
+      "benchmark_log_sha256": "109a9132fc841768cce18ab1daa1639c9fe0a2f9cefa061be7cc86b58746fd85",
+      "performance_result_complete": false
+    },
+    "v6": {
+      "status": "ABBA_incomplete_interprocess_idle_gate_exit1",
+      "source46_unchanged": true,
+      "completed_CLI_runs": [
+        {
+          "mode": "baselineA",
+          "actual_CLI_exit_code": 0,
+          "wall_seconds_including_model_load": 235.08007948100567,
+          "output_sha256": "123ec960603910938c0f7551472f07b42dffaa09ff28322e2ad0c275dd247de8",
+          "all1880_output_ids_equal_original": true,
+          "request_count": 32,
+          "request_seconds": 113.02037165034562,
+          "aggregate_end_to_end_output_tokens_per_second": 16.634169332022815,
+          "aggregate_useful_decode_tokens_per_second": 31.537000550639803,
+          "peak_allocated_bytes": 31526430208,
+          "peak_reserved_bytes": 31608274944,
+          "request_end_device_used_bytes_max": 32398049280
+        },
+        {
+          "mode": "candidateB",
+          "actual_CLI_exit_code": 0,
+          "wall_seconds_including_model_load": 233.887136711739,
+          "output_sha256": "e985c1841561968f953b2ba3c58e25ee38a3970db1427865ad457e1d8ee0ee49",
+          "all1880_output_ids_equal_original": true,
+          "request_count": 32,
+          "request_seconds": 113.06835802551359,
+          "aggregate_end_to_end_output_tokens_per_second": 16.627109766428045,
+          "aggregate_useful_decode_tokens_per_second": 31.5287485048366,
+          "peak_allocated_bytes": 31526430208,
+          "peak_reserved_bytes": 31937527808,
+          "request_end_device_used_bytes_max": 32398049280
+        },
+        {
+          "mode": "candidateC",
+          "actual_CLI_exit_code": 0,
+          "wall_seconds_including_model_load": 233.38641685806215,
+          "output_sha256": "017abc04cfbe1a577b5f9a3d933f0a9b2bbc0bd6984a2314bf45e59988ea2af0",
+          "all1880_output_ids_equal_original": true,
+          "request_count": 32,
+          "request_seconds": 113.13902398291975,
+          "aggregate_end_to_end_output_tokens_per_second": 16.61672457315716,
+          "aggregate_useful_decode_tokens_per_second": 31.536548479789168,
+          "peak_allocated_bytes": 31526430208,
+          "peak_reserved_bytes": 31937527808,
+          "request_end_device_used_bytes_max": 32398049280
+        }
+      ],
+      "all_saved_emitted_IDs_independently_recompared": 5640,
+      "next_CLI_not_started": "baselineD",
+      "wrapper_exit_code": 1,
+      "owned_process_group_empty": true,
+      "lease_sha256": "e76d30c9f267a3a7ebca71d8612136454760f3bc7397ac5e3a18bc82026beade",
+      "progress_sha256": "a8e584eac71493aa61dda93b1c0536ec1be7ca32ade16937042930a0a3c4479d",
+      "benchmark_log_sha256": "885159c70f4bed79ce36617329c249ec80cda619d432c36d3d180f1ed450119b",
+      "performance_result_complete": false
+    }
+  },
+  "rechecked_saved_IDs_total": 9400,
+  "interruption_reason": "Before next child launch, memory was1MiB but sampled GPU utilization was56%/50%, above required5%. Original controller asserted immediately rather than waiting for both metrics. All previously launched inference children exited0 and all saved output IDs match. Each wrapper exited1 and its owned process group is empty. These are incomplete ABBA controls; no pooled speedup claim.",
+  "fresh_reruns": {
+    "v5_source46_policy_sha256": "dc79caa7d505f820b2beb9f868a0f4e44520bcd3d4c3c910de016e4aefd42304",
+    "v6_source46_policy_sha256": "f5b39188ed56b246152e6d66be49005990cc0dfd8bb7408e6b545bddad82410b",
+    "between_runs_wait_for_both_memory_and_utilization": true,
+    "maximum_wait_seconds": 60,
+    "consecutive_fresh_idle_observations_required": 2,
+    "thresholds_unchanged": true,
+    "candidate_inference_sources_unchanged": true,
+    "new_immutable_roots": true,
+    "complete": false
+  },
+  "default_replaced": false,
+  "limits": "The completed independent numeric guards remain valid. The incomplete performance controls do not establish gains or a complete ABBA result. Failed roots and outputs retained without modification; new controls only change idle waiting."
+}
