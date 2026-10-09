@@ -9,8 +9,12 @@
   "full_GPU_CLI_performance_control_complete": true,
   "performance_ABBA_source_policy_sha256": "1f5ea3fcf6587c275cc31ebca2a72b0544c6861d6ee9f5337444c679c7ae27e0",
   "performance_checked_batch_size": 4,
-  "B2_branch_revalidated_in_this_control": false,
+  "B2_branch_revalidated_in_this_control": true,
   "default_replaced": false,
   "performance_evidence": "../docs/experiments/2026-10-10-0401.json",
-  "all7520_saved_IDs_independently_recompared": true
+  "all7520_saved_IDs_independently_recompared": true,
+  "branch_conformance_evidence": "../docs/experiments/2026-10-10-0412.json",
+  "B2_B4_singleton_saved_output_conformance": true,
+  "all2136_saved_IDs_independently_recompared": true,
+  "B2_full_layer_cache_logit_bitwise_check": false
 }

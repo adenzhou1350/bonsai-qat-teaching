@@ -136,3 +136,5 @@ This is a Bonsai-style research implementation, not a complete Bonsai reproducti
 122B 显存实测：文本张量常驻约 **28.10GiB**；默认短缓存的请求末整卡观察最大约 **29.75GiB**。固定 16K 容量、最长 14755-token 输入的混合请求已验证输出一致，但整卡观察最高约 **31.33GiB**，余量很小。见[显存与长短请求对照](docs/experiments/2026-10-09-2354.json)。新版缓存优化已完成并发布：短请求整卡观察约 **29.18GiB**，固定 16K 清理后约 **29.83GiB**，连续长请求的自适应版约 **30.03GiB**；预填充瞬时仍接近卡容量。三个独立进程、1245 个输出 token 全部与原量化路径一致，见[完成证据](docs/experiments/2026-10-10-0014.json)。
 
 新增完成节点：32 请求 ABBA 对照中，B4 + Graph 复用 + 共享输出头的整体总吞吐约 **15.75 → 16.30 tokens/s（+3.54%）**，全部 7520 个保存 ID 相同；这是组合收益，不是共享头独立归因，也不是单请求速度或服务压测。[运行与限制](experimental122/README.md#b4-共享输出头32-请求对照完成)。完整 469-bank seed 组装审计和[校准数据重建课程](courses/122b/README.md)也已完成，完整可移植恢复训练仍待执行。
+
+单张 5090 的显存口径：权重与持久缓冲区 CUDA 存储 **28.10GiB**，没有 CPU 权重卸载；当前 B4 的 PyTorch allocated 峰值 **29.36GiB**，请求末设备观察最大 **30.16GiB**，后者不是全程采样峰值。另一个原版长输入实验（14,755 个输入 token）整卡 NVML used 采样峰值 **31.11GiB**，还有约 **0.48GiB** 驱动 reserved，32GiB 卡余量已很小。长输入结果不能当作当前 B4 的上下文支持证明。见[长输入显存证据](docs/experiments/2026-10-10-0105.json)与[B4 原始测量](docs/experiments/2026-10-10-0401.json)。
