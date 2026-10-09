@@ -1674,7 +1674,7 @@
   ],
   "deployment_accepted": false,
   "remaining_checks": [
-    "Shared-stream v2 full greedy EOS/cap64 and throughput source39 experiment is running.",
+    "Fixed microbatch reusable CLI validated separately; nine-request fixture showed no end-to-end acceleration.",
     "Longer stress and serving/continuous batching are not verified."
   ],
   "remaining_checks_at_original_recording": [
@@ -1683,5 +1683,7 @@
     "Shared-stream candidate requires separate full EOS/cap64 and throughput controls before adoption.",
     "No continuous batching, HTTP or vLLM implementation yet."
   ],
-  "independent_variable_layer_numerics_and_bounded_stream_lifetime_completed_evidence": "2026-10-10-0136.json"
+  "independent_variable_layer_numerics_and_bounded_stream_lifetime_completed_evidence": "2026-10-10-0136.json",
+  "shared_stream_full_EOS_and_throughput_completed_evidence": "2026-10-10-0148.json",
+  "later_completed_reusable_CLI_evidence": "2026-10-10-0156.json"
 }

@@ -1,0 +1,23 @@
+{
+  "format": "optional-native122-fixed-microbatch-reuse-v1",
+  "file_sha256": {
+    "experimental122/run_requests_microbatch.py": "405cad111bde597f4392928dd5d4e76b0a6ec52842a1b9df621945133b201c26",
+    "experimental122/runtime/reusable122_batch_decoder_v3.py": "a17391228b23646fc4c4dfdd355ab1627e347611495661d93cc69afd6f925caa",
+    "experimental122/runtime/small_batch122_experts_v2.py": "7020398cc0538e8b23480cccd6c26d0047caaaa85b79bcf5677be96aa9500f3c",
+    "experimental122/runtime/split_decode122_native_math_v1.py": "9d3a15a91e52101dcf2b34a398dc9eeb3eee276834b357b41fd207fafd3ec9a2",
+    "experimental122/runtime/split_decode122_native_math_v2.py": "e162bf8a9ade01e0d8e64785adcc3ea780493a3c2c01f6a2c3c62bd7518102de",
+    "experimental122/runtime/variable_prefill122_batch_decoder_v2_shared_stream.py": "b083a01d632b94b53b342eeba8ec709cc77e984446c7d636dabf8be0d318f6d1"
+  },
+  "same_bytes_as_actual_GPU_execution": true,
+  "completed_evidence": "../docs/experiments/2026-10-10-0156.json",
+  "source41_policy_sha256": "0a4ab3a2a8cfeb51c3d7048a164c160bef28a75e5af4370f85ad2a5ab692c116",
+  "independent_original_variable_numerics_evidence": "../docs/experiments/2026-10-10-0136.json",
+  "shared_stream_full_EOS_evidence": "../docs/experiments/2026-10-10-0148.json",
+  "original_default_CLI_sha256": "e106bad7b274cd5980d9471ec39c3f5523271a376593caf5507ecac985e045ab",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "authored_fixture_sha256": "bd1d76325f8f93f2488b36d2fa1d038edbd75e56cad7ec7052bbd65dd486662d",
+  "CPU_comparison_tool_sha256": "70658c1fd167642ced0a794fc56a2e4fd81cc9727addace6fca96b0156679721",
+  "comparison_tool_included_in_actual_GPU_source41": false,
+  "default_replaced": false,
+  "end_to_end_acceleration_demonstrated_on9_request_fixture": false
+}

@@ -186,4 +186,34 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_lazy_mask.py \
 
 ## 不同长度请求的微批处理进展
 
-实验已验证 B2/B4 不同输入长度、独立原位置 KV 与因果掩码、每请求 EOS/cap64。B4 的有效 decode 总吞吐中位数约 31.32 tokens/s，对照串行约 27.57；含准备的端到端总吞吐约 14.80 对 14.21。B2 此组未改善。固定三轮、4 条短请求，不能推为通用服务吞吐。独立逐层数值与短程资源复用对照已完成，初始化后共享 stream 的三轮清理显存稳定；完整 EOS/吞吐复测仍在运行，当前不提供部署入口。见[完整已完成实验与剩余检查](../docs/experiments/2026-10-10-0127.json)。
+实验已验证 B2/B4 不同输入长度、独立原位置 KV 与因果掩码、每请求 EOS/cap64。B4 的有效 decode 总吞吐中位数约 31.32 tokens/s，对照串行约 27.57；含准备的端到端总吞吐约 14.80 对 14.21。B2 此组未改善。固定三轮、4 条短请求，不能推为通用服务吞吐。独立逐层数值与短程资源复用对照已完成，初始化后共享 stream 的三轮清理显存稳定；共享 stream 版完整 EOS/吞吐复测也已退出 0，B4 有效 decode 总吞吐中位数 31.24、端到端 14.58 tokens/s，原串行分别 27.59、14.30；B2 未改善。见[共享 stream 完成记录](../docs/experiments/2026-10-10-0148.json)和[最初完整实验](../docs/experiments/2026-10-10-0127.json)。
+
+## 跨批次 Graph 复用入口与端到端反例
+
+[run_requests_microbatch.py](run_requests_microbatch.py) 已在独立 GPU 进程完成 B2/B4，每组同尺寸请求复用 Graph 和固定缓存地址。9 条短请求包括长度换序、两次提前 EOS 和最后单条回退；原串行、B2、B4 三个新进程均退出 0，保存的全部 1602 个输出 token ID 与原路径重新比较一致。代码身份见 [microbatch-provenance.json](microbatch-provenance.json)。
+
+```bash
+# 同一 fixture、同一产物、同一 EOS/cap64，输出文件须选择新路径。
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests.py \
+  --model models/qwen35-122b-native4095-packed \
+  --requests experimental122/examples/microbatch-requests.jsonl \
+  --max-new-tokens 64 --output outputs/122b-serial-control.json
+
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_microbatch.py \
+  --model models/qwen35-122b-native4095-packed \
+  --requests experimental122/examples/microbatch-requests.jsonl \
+  --batch-size 4 --max-new-tokens 64 --output outputs/122b-B4-control.json
+
+python experimental122/compare_requests.py \
+  --baseline outputs/122b-serial-control.json --candidate outputs/122b-B4-control.json
+```
+
+| 同一 9 条请求，总输出均 534 token | 有效 decode 总吞吐 | 端到端总吞吐 | 完整请求耗时 |
+|---|---:|---:|---:|
+| 原串行 | 27.93 tokens/s | 15.19 tokens/s | 35.16 秒 |
+| B2 复用 | 28.59 tokens/s | 14.46 tokens/s | 36.93 秒 |
+| B4 复用 | 31.07 tokens/s | 14.94 tokens/s | 35.73 秒 |
+
+**这组请求没有端到端提速，默认入口不替换。** B4 第二组复用后的准备约 6.62 秒，首次约 9.18 秒；仍需独立预填充各请求，最后单条还需切换 Graph。不能把 decode 总吞吐提升直接当成部署吞吐提升。完整数值以[完成记录](../docs/experiments/2026-10-10-0156.json)为准。
+
+此可选入口固定容量 1536、生成上限至多 64，只支持 B2/B4 和尾部 B1；余数 3 拆为 B2+B1，只保留一份 Graph。结束行停止输出但计算到组结束，未实现 refill、HTTP 或 vLLM。B4 峰值 allocated 约 29.36GiB，请求末设备观察最大约 30.17GiB；不是全程整卡采样峰值。比较工具先检查产物、生成设置、输入长度、EOS 和全部输出 ID，再汇总计时；不会把不一致的输出算作加速结果。

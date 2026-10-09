@@ -111,5 +111,6 @@
   "variable_v1_source_sha256": "86b59d1059c70fd6f7a9aa1c234e1c6e1ad2d714ea9b301e4b8ea8bc2d9d64aa",
   "variable_v2_source_sha256": "b083a01d632b94b53b342eeba8ec709cc77e984446c7d636dabf8be0d318f6d1",
   "deployment_accepted": false,
-  "full_EOS_and_throughput_shared_stream_status": "running in separate source39 experiment; not completed by this record"
+  "full_EOS_and_throughput_shared_stream_status": "running in separate source39 experiment; not completed by this record",
+  "later_completed_full_EOS_and_throughput_evidence": "2026-10-10-0148.json"
 }
