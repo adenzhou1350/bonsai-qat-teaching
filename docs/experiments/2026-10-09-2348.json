@@ -1,0 +1,138 @@
+{
+  "format": "teaching-deployment-milestone-v1",
+  "observed_at_utc": "2026-10-09T15:47:40.577998+00:00",
+  "experiment": "R122-native4095-batch-candidates-not-adopted",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "records": [
+    {
+      "source_count": 30,
+      "source_policy_sha256": "2ebeb76e7cd0d049c586950e76217f3b6df758f4eede81fda552b9c6293e4471",
+      "result_sha256": "729304ece218172943e2864ddead0bdfc5e4c8c22de2087a1bbdcc400a663c89",
+      "terminal_sha256": "895a9a2970524a991cf6503c9f63d4e719f5238feb96c8560a3fdea0e5deef08",
+      "actual_exit_code": 0,
+      "owned_process_group_empty": true,
+      "fixed_context_tokens_per_request": 512,
+      "fixed_decode_steps": 64,
+      "batch_deployment_accepted": false,
+      "weights_changed": false,
+      "CPU_weight_offload": false,
+      "EOS_stopping_enabled": false,
+      "decode_timing_includes_prefill_or_capture": false,
+      "experiment": "batched-prefill-forced-input-diagnostic",
+      "diagnostic_completed": true,
+      "original_relative_l2_tolerance": 0.005,
+      "forced_input_comparison_count": 34,
+      "forced_decode_steps": 16,
+      "all_blocks_within_original_tolerance": false,
+      "all_logits_within_original_tolerance": false,
+      "all_free_token_identity_guards_pass": false,
+      "batch_free_decode_diagnostics": [
+        {
+          "batch_size": 2,
+          "fixed_decode_steps": 64,
+          "prepare_seconds": 4.487068095244467,
+          "decode_seconds": 3.5547939529642463,
+          "aggregate_decode_tokens_per_second": 36.00771287834117,
+          "per_request_decode_tokens_per_second": 18.003856439170583,
+          "all64_token_ids_equal_original_single": false,
+          "matching_token_ids": 83,
+          "token_id_denominator": 128,
+          "prepare_peak_allocated_bytes": 30815929344,
+          "whole_control_peak_allocated_bytes": 30815929344,
+          "peak_reserved_bytes": 30893146112,
+          "device_used_bytes_at_observation": 31626297344,
+          "device_total_bytes": 33671348224,
+          "first_difference_index_per_request": [
+            19,
+            null
+          ]
+        },
+        {
+          "batch_size": 4,
+          "fixed_decode_steps": 64,
+          "prepare_seconds": 5.302026859484613,
+          "decode_seconds": 5.6641592383384705,
+          "aggregate_decode_tokens_per_second": 45.19646945432545,
+          "per_request_decode_tokens_per_second": 11.299117363581363,
+          "all64_token_ids_equal_original_single": false,
+          "matching_token_ids": 199,
+          "token_id_denominator": 256,
+          "prepare_peak_allocated_bytes": 31442819072,
+          "whole_control_peak_allocated_bytes": 31442819072,
+          "peak_reserved_bytes": 31518097408,
+          "device_used_bytes_at_observation": 32280608768,
+          "device_total_bytes": 33671348224,
+          "first_difference_index_per_request": [
+            null,
+            null,
+            5,
+            null
+          ]
+        }
+      ],
+      "prefill_comparisons": [
+        {
+          "batch_size": 2,
+          "stage": "prefill",
+          "forced_step": null,
+          "logits_relative_l2": 0.06551405787467957,
+          "logits_argmax_matches": 2,
+          "argmax_denominator": 2,
+          "max_block_relative_l2": 0.38082069158554077,
+          "all_blocks_within_original_reference_tolerance": false
+        },
+        {
+          "batch_size": 4,
+          "stage": "prefill",
+          "forced_step": null,
+          "logits_relative_l2": 0.14147672057151794,
+          "logits_argmax_matches": 4,
+          "argmax_denominator": 4,
+          "max_block_relative_l2": 0.3651827573776245,
+          "all_blocks_within_original_reference_tolerance": false
+        }
+      ]
+    },
+    {
+      "source_count": 33,
+      "source_policy_sha256": "cc30ac743404d38b6ba2eed4721d7dd655c1f12d595b60c8b570257c32c600f3",
+      "result_sha256": "8c1cb86dca50208d1c3117eec9b37a436524e063198288739807b72f4e3ea5d3",
+      "terminal_sha256": "a85b09d2539ab594f8e120de5c55928c68efeb02841ee459a1e805377fe066fb",
+      "actual_exit_code": 1,
+      "owned_process_group_empty": true,
+      "fixed_context_tokens_per_request": 512,
+      "fixed_decode_steps": 64,
+      "batch_deployment_accepted": false,
+      "weights_changed": false,
+      "CPU_weight_offload": false,
+      "EOS_stopping_enabled": false,
+      "decode_timing_includes_prefill_or_capture": false,
+      "experiment": "independent-prefill-merged-cache-row-preserving-dense-batch",
+      "diagnostic_completed": false,
+      "batch_checks": [
+        {
+          "batch_size": 2,
+          "repeat": 0,
+          "prepare_seconds": 6.664963856339455,
+          "prepare_peak_allocated_bytes": 30892606464,
+          "seconds": 3.7941534547135234,
+          "aggregate_decode_tokens_per_second": 33.7361157179829,
+          "per_request_decode_tokens_per_second": 16.86805785899145,
+          "peak_allocated_bytes": 30892606464,
+          "peak_reserved_bytes": 31224496128,
+          "device_used_bytes_at_observation": 31829721088,
+          "device_total_bytes": 33671348224,
+          "initialization_peak_allocated_bytes": 30884086784,
+          "all_token_ids_equal_independent_single": false,
+          "matching_token_ids": 75,
+          "compared_token_ids": 128
+        }
+      ],
+      "identity_guard_failure_preserved": true
+    }
+  ],
+  "batch_deployment_accepted": false,
+  "quality_noninferiority_accepted": false,
+  "reserved_inputs_opened": false,
+  "limits": "Batch2/4 equal512-token contexts and fixed64-token decode show candidate performance only; all-output identity gates failed. Forced-input diagnostic completed but exceeded unchanged .005 tolerance. Sequential prefill/cache merge also failed token identity. These results do not authorize publishing candidate batching as usable service throughput; current public CLI remains serial."
+}

@@ -128,3 +128,5 @@ docs/experiments/    按路线、权重身份、时间分开的实验记录
 A code-first learning repository for ternary quantization, straight-through gradients, knowledge distillation, checkpoint recovery, and compressed MoE inference. Start with small Linux CPU checks; explore full-expert QAT for Qwen3.5-35B-A3B on 2×B300 and a separate packed Qwen3.5-122B-A10B inference experiment on one 32GB RTX 5090.
 
 This is a Bonsai-style research implementation, not a complete Bonsai reproduction. Weights are not included, the end-to-end 122B training recipe is incomplete, and the current 122B candidate falls below its matched BF16 baseline on all four reported development panels. See the [method](docs/METHOD.md), [reproduction guide](docs/REPRODUCING.md), and [dated evidence](docs/experiments/README.md).
+
+122B 显存实测：文本张量常驻约 **28.10GiB**；默认短缓存的请求末整卡观察最大约 **29.75GiB**。固定 16K 容量、最长 14755-token 输入的混合请求已验证输出一致，但整卡观察最高约 **31.33GiB**，余量很小。见[显存与长短请求对照](docs/experiments/2026-10-09-2354.json)；更省显存的候选正在验证。

@@ -1,0 +1,312 @@
+{
+  "format": "teaching-deployment-milestone-v1",
+  "observed_at_utc": "2026-10-09T15:54:36.318119+00:00",
+  "source_count": 33,
+  "source_policy_sha256": "7fe8543420ad500e9f89b311793180cddb6f4d7456ce97c2e128c0efbe0b7a08",
+  "summary_sha256": "638008d51f40231928565f810493d207ef38b43afd12d33ce1c75c77824f8177",
+  "terminal_sha256": "ae7bf615219db8f4709558e8d7746066e4cd095a9c1bbaa2ca6d135413f81b5b",
+  "actual_exit_code": 0,
+  "owned_process_group_empty": true,
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "weights_changed": false,
+  "CPU_weight_offload": false,
+  "quality_noninferiority_accepted": false,
+  "reserved_inputs_opened": false,
+  "experiment": "R122-independent-prefill-merged-cache-forced-decode-component-diagnostic",
+  "diagnostic_completed": true,
+  "batch_deployment_accepted": false,
+  "all_prefill_blocks_and_logits_exact": true,
+  "forced_input_comparison_count": 34,
+  "forced_decode_steps": 16,
+  "original_relative_l2_tolerance": 0.005,
+  "all_forced_blocks_within_original_tolerance": false,
+  "all_forced_logits_within_original_tolerance": false,
+  "all_free_token_identity_guards_pass": false,
+  "selected_comparisons": [
+    {
+      "batch_size": 2,
+      "stage": "prefill",
+      "forced_step": null,
+      "logits_relative_l2": 0.0,
+      "logits_argmax_matches": 2,
+      "argmax_denominator": 2,
+      "max_block_relative_l2": 0.0,
+      "all_blocks_within_original_reference_tolerance": true,
+      "first_nonexact_block": null,
+      "first_component_difference": null
+    },
+    {
+      "batch_size": 2,
+      "stage": "forced_decode",
+      "forced_step": 0,
+      "logits_relative_l2": 0.05323626473546028,
+      "logits_argmax_matches": 2,
+      "argmax_denominator": 2,
+      "max_block_relative_l2": 0.1179657131433487,
+      "all_blocks_within_original_reference_tolerance": false,
+      "first_nonexact_block": {
+        "layer": 12,
+        "block_bitwise_equal": false,
+        "block_relative_l2": 0.0002982818987220526,
+        "router_input_relative_l2": 0.00018411358178127557,
+        "routing_probabilities_relative_l2": 0.0,
+        "same_selected_expert_set_rows": 2,
+        "selected_row_denominator": 2,
+        "components_relative_l2": {
+          "input_norm": 1.2493503163568676e-05,
+          "post_norm": 0.00018411358178127557,
+          "attention": 0.0006022919551469386,
+          "experts": 0.0024382162373512983,
+          "shared": 0.0012647203402593732
+        }
+      },
+      "first_component_difference": {
+        "layer": 12,
+        "components_relative_l2": {
+          "input_norm": 1.2493503163568676e-05,
+          "post_norm": 0.00018411358178127557,
+          "attention": 0.0006022919551469386,
+          "experts": 0.0024382162373512983,
+          "shared": 0.0012647203402593732
+        }
+      }
+    },
+    {
+      "batch_size": 2,
+      "stage": "forced_decode",
+      "forced_step": 1,
+      "logits_relative_l2": 0.1156163439154625,
+      "logits_argmax_matches": 2,
+      "argmax_denominator": 2,
+      "max_block_relative_l2": 0.30904141068458557,
+      "all_blocks_within_original_reference_tolerance": false,
+      "first_nonexact_block": {
+        "layer": 12,
+        "block_bitwise_equal": false,
+        "block_relative_l2": 0.00017263396875932813,
+        "router_input_relative_l2": 0.00010652036871761084,
+        "routing_probabilities_relative_l2": 0.0,
+        "same_selected_expert_set_rows": 2,
+        "selected_row_denominator": 2,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 0.00010652036871761084,
+          "attention": 0.0002925512089859694,
+          "experts": 0.0019350280053913593,
+          "shared": 0.0009156868909485638
+        }
+      },
+      "first_component_difference": {
+        "layer": 12,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 0.00010652036871761084,
+          "attention": 0.0002925512089859694,
+          "experts": 0.0019350280053913593,
+          "shared": 0.0009156868909485638
+        }
+      }
+    },
+    {
+      "batch_size": 2,
+      "stage": "forced_decode",
+      "forced_step": 15,
+      "logits_relative_l2": 0.03411500155925751,
+      "logits_argmax_matches": 2,
+      "argmax_denominator": 2,
+      "max_block_relative_l2": 0.09697213023900986,
+      "all_blocks_within_original_reference_tolerance": false,
+      "first_nonexact_block": {
+        "layer": 3,
+        "block_bitwise_equal": false,
+        "block_relative_l2": 0.00019795798289123923,
+        "router_input_relative_l2": 8.389933645958081e-05,
+        "routing_probabilities_relative_l2": 0.0,
+        "same_selected_expert_set_rows": 2,
+        "selected_row_denominator": 2,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 8.389933645958081e-05,
+          "attention": 0.0001150763055193238,
+          "experts": 0.001523273647762835,
+          "shared": 0.0005882054101675749
+        }
+      },
+      "first_component_difference": {
+        "layer": 3,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 8.389933645958081e-05,
+          "attention": 0.0001150763055193238,
+          "experts": 0.001523273647762835,
+          "shared": 0.0005882054101675749
+        }
+      }
+    },
+    {
+      "batch_size": 4,
+      "stage": "prefill",
+      "forced_step": null,
+      "logits_relative_l2": 0.0,
+      "logits_argmax_matches": 4,
+      "argmax_denominator": 4,
+      "max_block_relative_l2": 0.0,
+      "all_blocks_within_original_reference_tolerance": true,
+      "first_nonexact_block": null,
+      "first_component_difference": null
+    },
+    {
+      "batch_size": 4,
+      "stage": "forced_decode",
+      "forced_step": 0,
+      "logits_relative_l2": 0.03242674097418785,
+      "logits_argmax_matches": 4,
+      "argmax_denominator": 4,
+      "max_block_relative_l2": 0.060957130044698715,
+      "all_blocks_within_original_reference_tolerance": false,
+      "first_nonexact_block": {
+        "layer": 7,
+        "block_bitwise_equal": false,
+        "block_relative_l2": 0.00011076252849306911,
+        "router_input_relative_l2": 2.2500325940200128e-05,
+        "routing_probabilities_relative_l2": 0.0,
+        "same_selected_expert_set_rows": 4,
+        "selected_row_denominator": 4,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 2.2500325940200128e-05,
+          "attention": 0.0,
+          "experts": 0.0008690985268913209,
+          "shared": 0.00048629057710058987
+        }
+      },
+      "first_component_difference": {
+        "layer": 7,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 2.2500325940200128e-05,
+          "attention": 0.0,
+          "experts": 0.0008690985268913209,
+          "shared": 0.00048629057710058987
+        }
+      }
+    },
+    {
+      "batch_size": 4,
+      "stage": "forced_decode",
+      "forced_step": 1,
+      "logits_relative_l2": 0.12566332519054413,
+      "logits_argmax_matches": 4,
+      "argmax_denominator": 4,
+      "max_block_relative_l2": 0.37170836329460144,
+      "all_blocks_within_original_reference_tolerance": false,
+      "first_nonexact_block": {
+        "layer": 8,
+        "block_bitwise_equal": false,
+        "block_relative_l2": 0.000264315603999421,
+        "router_input_relative_l2": 0.00036060696584172547,
+        "routing_probabilities_relative_l2": 0.0,
+        "same_selected_expert_set_rows": 4,
+        "selected_row_denominator": 4,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 0.00036060696584172547,
+          "attention": 0.0006438541458919644,
+          "experts": 0.001939889625646174,
+          "shared": 0.0007705446914769709
+        }
+      },
+      "first_component_difference": {
+        "layer": 8,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 0.00036060696584172547,
+          "attention": 0.0006438541458919644,
+          "experts": 0.001939889625646174,
+          "shared": 0.0007705446914769709
+        }
+      }
+    },
+    {
+      "batch_size": 4,
+      "stage": "forced_decode",
+      "forced_step": 15,
+      "logits_relative_l2": 0.034174785017967224,
+      "logits_argmax_matches": 4,
+      "argmax_denominator": 4,
+      "max_block_relative_l2": 0.1565927267074585,
+      "all_blocks_within_original_reference_tolerance": false,
+      "first_nonexact_block": {
+        "layer": 2,
+        "block_bitwise_equal": false,
+        "block_relative_l2": 0.00042999626020900905,
+        "router_input_relative_l2": 0.0004006040107924491,
+        "routing_probabilities_relative_l2": 0.0,
+        "same_selected_expert_set_rows": 4,
+        "selected_row_denominator": 4,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 0.0004006040107924491,
+          "attention": 0.0005658564041368663,
+          "experts": 0.0018131211400032043,
+          "shared": 0.0010024945950135589
+        }
+      },
+      "first_component_difference": {
+        "layer": 2,
+        "components_relative_l2": {
+          "input_norm": 0.0,
+          "post_norm": 0.0004006040107924491,
+          "attention": 0.0005658564041368663,
+          "experts": 0.0018131211400032043,
+          "shared": 0.0010024945950135589
+        }
+      }
+    }
+  ],
+  "batch_free_decode_diagnostics": [
+    {
+      "batch_size": 2,
+      "fixed_decode_steps": 64,
+      "prepare_seconds": 6.475449604913592,
+      "decode_seconds": 3.8101153345778584,
+      "aggregate_decode_tokens_per_second": 33.594783559007865,
+      "per_request_decode_tokens_per_second": 16.797391779503933,
+      "all64_token_ids_equal_original_single": false,
+      "matching_token_ids": 75,
+      "token_id_denominator": 128,
+      "prepare_peak_allocated_bytes": 30815929344,
+      "whole_control_peak_allocated_bytes": 30815929344,
+      "peak_reserved_bytes": 30905729024,
+      "device_used_bytes_at_observation": 31638880256,
+      "device_total_bytes": 33671348224,
+      "first_difference_index_per_request": [
+        11,
+        null
+      ]
+    },
+    {
+      "batch_size": 4,
+      "fixed_decode_steps": 64,
+      "prepare_seconds": 12.275970112532377,
+      "decode_seconds": 6.641578770242631,
+      "aggregate_decode_tokens_per_second": 38.54505214136725,
+      "per_request_decode_tokens_per_second": 9.636263035341813,
+      "all64_token_ids_equal_original_single": false,
+      "matching_token_ids": 219,
+      "token_id_denominator": 256,
+      "prepare_peak_allocated_bytes": 31442819072,
+      "whole_control_peak_allocated_bytes": 31442819072,
+      "peak_reserved_bytes": 31597789184,
+      "device_used_bytes_at_observation": 32299483136,
+      "device_total_bytes": 33671348224,
+      "first_difference_index_per_request": [
+        27,
+        null,
+        null,
+        null
+      ]
+    }
+  ],
+  "limits": "Exact independent per-request prefill and cache merge removes prefill differences. Forced-input decode still diverges: norms and attention are among first differing components. Completion means diagnostic completed, not batching passed. Per-component traces motivate preserving per-request norm/SDPA shapes; cause and repair still require fresh controls."
+}
