@@ -1,0 +1,197 @@
+{
+  "summary": {
+    "passed": true,
+    "stage": "completed",
+    "runs": [
+      {
+        "mode": "baselineA",
+        "actual_CLI_exit_code": 0,
+        "wall_seconds_including_model_load": 241.84601590782404,
+        "output_sha256": "1a766a9459aa92c19f6e44186db95001a6eb080ba4405f12b6479b76c2b953a7",
+        "all1880_output_ids_equal_original": true,
+        "request_count": 32,
+        "request_seconds": 120.44059918355197,
+        "aggregate_end_to_end_output_tokens_per_second": 15.609354426532471,
+        "aggregate_useful_decode_tokens_per_second": null,
+        "peak_allocated_bytes": 30531890688,
+        "peak_reserved_bytes": 30586961920,
+        "request_end_device_used_bytes_max": 31332696064,
+        "groups": []
+      },
+      {
+        "mode": "candidateB",
+        "actual_CLI_exit_code": 0,
+        "wall_seconds_including_model_load": 237.1920592142269,
+        "output_sha256": "61b5669db34233bc12c0bf7ed9a5b267cb40f5479d7a4834ccd0f4edc974c9fc",
+        "all1880_output_ids_equal_original": true,
+        "request_count": 32,
+        "request_seconds": 118.03301239199936,
+        "aggregate_end_to_end_output_tokens_per_second": 15.927747347126354,
+        "aggregate_useful_decode_tokens_per_second": null,
+        "peak_allocated_bytes": 30531891200,
+        "peak_reserved_bytes": 30586961920,
+        "request_end_device_used_bytes_max": 31332696064,
+        "groups": []
+      },
+      {
+        "mode": "candidateC",
+        "actual_CLI_exit_code": 0,
+        "wall_seconds_including_model_load": 238.79441247228533,
+        "output_sha256": "0a0d6915ee6b107f34f07b3c8acb8d6d0904d0313cc1c7a016db322cc997dfda",
+        "all1880_output_ids_equal_original": true,
+        "request_count": 32,
+        "request_seconds": 118.16926498804241,
+        "aggregate_end_to_end_output_tokens_per_second": 15.909382191640422,
+        "aggregate_useful_decode_tokens_per_second": null,
+        "peak_allocated_bytes": 30531891200,
+        "peak_reserved_bytes": 30586961920,
+        "request_end_device_used_bytes_max": 31332696064,
+        "groups": []
+      },
+      {
+        "mode": "baselineD",
+        "actual_CLI_exit_code": 0,
+        "wall_seconds_including_model_load": 240.1999137857929,
+        "output_sha256": "aad3dd8948e758cb336d1a70cc2425016b2a62172b7b2b0be81a499dd99ac058",
+        "all1880_output_ids_equal_original": true,
+        "request_count": 32,
+        "request_seconds": 119.4133022474125,
+        "aggregate_end_to_end_output_tokens_per_second": 15.743639650001695,
+        "aggregate_useful_decode_tokens_per_second": null,
+        "peak_allocated_bytes": 30531890688,
+        "peak_reserved_bytes": 30586961920,
+        "request_end_device_used_bytes_max": 31332696064,
+        "groups": []
+      }
+    ],
+    "reserved_inputs_opened": false,
+    "weights_changed": false,
+    "CPU_weight_offload": false,
+    "quality_accepted": false,
+    "cap": 64,
+    "fixture_order": [
+      0,
+      1,
+      2,
+      3,
+      3,
+      2,
+      1,
+      0,
+      1,
+      2,
+      3,
+      0,
+      2,
+      3,
+      0,
+      1,
+      0,
+      1,
+      2,
+      3,
+      3,
+      2,
+      1,
+      0,
+      1,
+      2,
+      3,
+      0,
+      2,
+      3,
+      0,
+      1
+    ],
+    "fixture_sha256": "63d6f32d6295cc715e80712509dca0a1ec3c37688f8c151e61e2448024033cb3",
+    "source_policy_sha256": "946e7384b3a8d9d67307078c9921769528e3397a6b6fa32eb2bb01054d91ef9f",
+    "all7520_output_ids_equal_original": true,
+    "total_emitted_token_ids_compared": 7520,
+    "limits": "Four fresh processes ABBA: original serial CLI baselineA/D versus same serial CLI with exact ternary LUT decoder candidateB/C. Both one capture31 reuses, same32 authored requests from four distinct prompts, eight EOS rows and cap64/cache1536. All7520 emitted IDs independently checked against completed original oracle. This isolates LUT decoding; no BMM projection change, no refill/HTTP/vLLM/long-context/capability or sustained-service proof. Timing includes prefill/capture/reuse/CPU token collection, excludes model load/tokenization/JSON writing. Memory is allocator peak and request-end observation, not sampled full-device peak. Extra shared lookup512bytes."
+  },
+  "summary_sha256": "fb1d2f2ef43adc44ee584b31b67b2174e99e0d72ed3fcaec33e06094e45e6866",
+  "lease_sha256": "155e69bffac1d870537d0227b4b1f9f0acfcedd10ad958d32fdef6aa788e329b",
+  "actual_exit_code": 0,
+  "owned_process_group_empty": true,
+  "all7520_saved_IDs_independently_recompared": true,
+  "all_source_files_unchanged": true,
+  "pooled_total_TPS": {
+    "baseline": 15.67620946571184,
+    "candidate": 15.918559472440151,
+    "ratio": 1.0154597326131931,
+    "gain_percent": 1.5459732613193111
+  },
+  "observed_at_UTC": "2026-10-09T20:43:12.881109+00:00",
+  "status": "completed_exact_LUT_serial_four_process_ABBA",
+  "local_public_compare_on_downloaded_actual_results": [
+    {
+      "all_emitted_token_ids_equal": true,
+      "baseline": {
+        "request_count": 32,
+        "output_tokens": 1880,
+        "request_seconds": 120.44059918355197,
+        "aggregate_end_to_end_output_tokens_per_second": 15.609354426532471,
+        "peak_allocated_bytes": 30531890688,
+        "peak_reserved_bytes": 30586961920,
+        "request_end_device_used_bytes_max": 31332696064
+      },
+      "candidate": {
+        "request_count": 32,
+        "output_tokens": 1880,
+        "request_seconds": 118.03301239199936,
+        "aggregate_end_to_end_output_tokens_per_second": 15.927747347126354,
+        "peak_allocated_bytes": 30531891200,
+        "peak_reserved_bytes": 30586961920,
+        "request_end_device_used_bytes_max": 31332696064
+      },
+      "aggregate_end_to_end_throughput_ratio": 1.020397571346877,
+      "limits": "Request/group timing excludes model load and tokenization/JSON writing. Single fixed-order run comparison; not a randomized service benchmark. Memory maxima are allocator peaks or request-end observations, not full-device sampled peaks."
+    },
+    {
+      "all_emitted_token_ids_equal": true,
+      "baseline": {
+        "request_count": 32,
+        "output_tokens": 1880,
+        "request_seconds": 119.4133022474125,
+        "aggregate_end_to_end_output_tokens_per_second": 15.743639650001695,
+        "peak_allocated_bytes": 30531890688,
+        "peak_reserved_bytes": 30586961920,
+        "request_end_device_used_bytes_max": 31332696064
+      },
+      "candidate": {
+        "request_count": 32,
+        "output_tokens": 1880,
+        "request_seconds": 118.16926498804241,
+        "aggregate_end_to_end_output_tokens_per_second": 15.909382191640422,
+        "peak_allocated_bytes": 30531891200,
+        "peak_reserved_bytes": 30586961920,
+        "request_end_device_used_bytes_max": 31332696064
+      },
+      "aggregate_end_to_end_throughput_ratio": 1.0105275873510424,
+      "limits": "Request/group timing excludes model load and tokenization/JSON writing. Single fixed-order run comparison; not a randomized service benchmark. Memory maxima are allocator peaks or request-end observations, not full-device sampled peaks."
+    }
+  ],
+  "local_recomputed_pooled_measurements": {
+    "serial": {
+      "emitted_tokens": 3760,
+      "total_request_seconds": 239.85390143096447,
+      "aggregate_end_to_end_output_tokens_per_second": 15.67620946571184,
+      "allocator_peak_bytes": 30531890688,
+      "allocator_reserved_peak_bytes": 30586961920,
+      "request_end_used_bytes_max": 31332696064
+    },
+    "serial_LUT": {
+      "emitted_tokens": 3760,
+      "total_request_seconds": 236.20227738004178,
+      "aggregate_end_to_end_output_tokens_per_second": 15.918559472440151,
+      "allocator_peak_bytes": 30531891200,
+      "allocator_reserved_peak_bytes": 30586961920,
+      "request_end_used_bytes_max": 31332696064
+    }
+  },
+  "observed_end_to_end_gain_percent": 1.5459732613193111,
+  "shared_extra_lookup_bytes": 512,
+  "combined_B4_LUT_gain_measured": false,
+  "HTTP_continuous_batching_or_vllm_engine_validated": false,
+  "default_entry_replaced": false
+}

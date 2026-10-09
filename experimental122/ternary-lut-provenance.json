@@ -6,7 +6,7 @@
   "numerics_evidence": "../docs/experiments/2026-10-10-0423.json",
   "same_helper_bytes_as_actual_completed_micro_and_full48": true,
   "CLI_help_isolated_CUDA_empty_exit_code": 0,
-  "full_GPU_CLI_performance_control_complete": false,
+  "full_GPU_CLI_performance_control_complete": true,
   "queued_performance_source52_SHA256": "946e7384b3a8d9d67307078c9921769528e3397a6b6fa32eb2bb01054d91ef9f",
   "shared_extra_lookup_bytes": 512,
   "default_replaced": false,
@@ -14,5 +14,9 @@
     "experimental122/examples/shared-head-requests32.jsonl": "63d6f32d6295cc715e80712509dca0a1ec3c37688f8c151e61e2448024033cb3",
     "experimental122/examples/microbatch-requests.jsonl": "bd1d76325f8f93f2488b36d2fa1d038edbd75e56cad7ec7052bbd65dd486662d"
   },
-  "actual_GPU_fixture_bytes_match_public_examples": true
+  "actual_GPU_fixture_bytes_match_public_examples": true,
+  "performance_evidence": "../docs/experiments/2026-10-10-0443-lut.json",
+  "all7520_saved_CLI_token_IDs_equal_original": true,
+  "observed_serial_end_to_end_gain_percent": 1.5459732613193111,
+  "combined_B4_LUT_gain_measured": false
 }

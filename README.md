@@ -97,7 +97,7 @@ HumanEval 本轮 1 个不支持样本仍计入 164 分母，另一个历史原�
 
 项目使用者现已接受 122B 当前量化效果，后续优先优化部署性能，历史质量成绩继续保留。 同一 32 请求序列的最新完整 ABBA 中，原串行与优化 B4 的含预填充合计吞吐 **15.66 → 17.28 tokens/s（+10.36%）**；7,520 个保存 ID 相同，allocated 峰值约增加 0.93GiB。这是组合吞吐收益，单请求延迟和批处理准备分别报告，见[结果与复刻限制](docs/experiments/2026-10-10-0427.json)。新增[常驻请求入口](experimental122/README.md#常驻模型与跨请求-graph-复用)已通过独立新进程验证；短请求对照的首 token 中位数约 **6.06 → 1.52 秒**，包含准备的串行请求吞吐约 **10.21 → 18.99 tokens/s**，输出 token 全部相同。见[显存、计时范围与限制](docs/experiments/INFERENCE.md#122b部署优化与显存口径)。
 
-显存须区分权重与运行峰值：122B 文本权重及缓冲 **28.10GiB**，短请求末整卡观察约 **29.18GiB**；长短混合优化版全程 NVML v2 采样最大 **30.755GiB used**，另列驱动 reserved **0.484GiB**，该时刻 free **618.3MiB**。单张 32GB 5090 已运行，但长预填充余量较小；采样可能遗漏更快瞬态。见[完整显存采样](docs/experiments/2026-10-10-0105.json)。
+显存须区分权重与运行占用：122B 文本权重及缓冲 **28.10GiB**；最新九短请求全程 NVML v2 采样，原串行最大观察 used **29.181GiB**，优化 B4 **30.161GiB**，两者另列驱动 reserved **0.484GiB**，B4 当时 free **1.198GiB**。无 CPU 权重卸载；采样可能遗漏更快瞬态。这是短请求范围，见[实际样本核对与限制](docs/experiments/2026-10-10-0443-memory.json)。此前长短混合缓存整理候选最大观察 used 为 30.755GiB，free 618.3MiB，见[另一长输入实验](docs/experiments/2026-10-10-0105.json)。
 
 查看原始证据：[35B 记录](docs/experiments/35B.md) · [8192 步完成节点](docs/experiments/2026-10-09-2110.json) · [独立重载](docs/experiments/2026-10-09-2129.json) · [B300 缓存检查](docs/experiments/2026-10-09-2132.json) · [35B 5090 缓存与 Graph](docs/experiments/2026-10-09-2156.json) · [122B 训练与质量](experimental122/native4095-training-result.json) · [122B 5090 实测](experimental122/native4095-verified-run.json)
 
@@ -137,4 +137,6 @@ This is a Bonsai-style research implementation, not a complete Bonsai reproducti
 
 新增完成节点：32 请求 ABBA 对照中，B4 + Graph 复用 + 共享输出头的整体总吞吐约 **15.75 → 16.30 tokens/s（+3.54%）**，全部 7520 个保存 ID 相同；这是组合收益，不是共享头独立归因，也不是单请求速度或服务压测。[运行与限制](experimental122/README.md#b4-共享输出头32-请求对照完成)。完整 469-bank seed 组装审计和[校准数据重建课程](courses/122b/README.md)也已完成，完整可移植恢复训练仍待执行。
 
-单张 5090 的显存口径：权重与持久缓冲区 CUDA 存储 **28.10GiB**，没有 CPU 权重卸载；当前 B4 的 PyTorch allocated 峰值 **29.36GiB**，请求末设备观察最大 **30.16GiB**，后者不是全程采样峰值。另一个原版长输入实验（14,755 个输入 token）整卡 NVML used 采样峰值 **31.11GiB**，还有约 **0.48GiB** 驱动 reserved，32GiB 卡余量已很小。长输入结果不能当作当前 B4 的上下文支持证明。见[长输入显存证据](docs/experiments/2026-10-10-0105.json)与[B4 原始测量](docs/experiments/2026-10-10-0401.json)。
+单张 5090 的显存口径：权重与持久缓冲区 CUDA 存储 **28.10GiB**，没有 CPU 权重卸载；当前 B4 的 PyTorch allocated 峰值 **29.36GiB**；最新短请求全程采样最大观察 used **30.16GiB**，见[独立显存采样](docs/experiments/2026-10-10-0443-memory.json)。另一个原版长输入实验（14,755 个输入 token）整卡 NVML used 采样峰值 **31.11GiB**，还有约 **0.48GiB** 驱动 reserved，32GiB 卡余量已很小。长输入结果不能当作当前 B4 的上下文支持证明。见[长输入显存证据](docs/experiments/2026-10-10-0105.json)与[B4 原始测量](docs/experiments/2026-10-10-0401.json)。
+
+精确三值查找表的串行四进程对照也已完成：固定 32 请求的含预填充吞吐 **15.68 → 15.92 tokens/s（+1.55%）**，7,520 个输出 ID 相同，额外表 512 字节。该收益单独测量，没有与 B4 的组合收益相加；默认入口保持原样。[可复刻命令与数值边界](experimental122/README.md#精确查找表解包数值与单请求吞吐对照完成)，[完整测速记录](docs/experiments/2026-10-10-0443-lut.json)。

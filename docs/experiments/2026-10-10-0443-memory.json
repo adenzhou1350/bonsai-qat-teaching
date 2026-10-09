@@ -1,0 +1,141 @@
+{
+  "summary": {
+    "passed": true,
+    "stage": "completed",
+    "runs": [
+      {
+        "mode": "serial",
+        "actual_CLI_exit_code": 0,
+        "result_sha256": "d4baaa784c0e17894d4e143562ef473cc296d4560b8bb40731db1328af538cf6",
+        "all534_IDs_equal_original": true,
+        "emitted_tokens": 534,
+        "source_entry_sha256": "e106bad7b274cd5980d9471ec39c3f5523271a376593caf5507ecac985e045ab",
+        "NVML_v2_profile": {
+          "samples": 7434,
+          "sample_file_sha256": "bf813ebdae38f3d8d23368e2761e1fe364620d223c76d0e672a9b391df8dd2c8",
+          "observed_duration_seconds": 153.1479114871472,
+          "maximum_observed_used_bytes": 31332696064,
+          "maximum_observed_used_sample": {
+            "elapsed_seconds": 121.31915605906397,
+            "used_bytes": 31332696064,
+            "driver_reserved_bytes": 519569408,
+            "free_bytes": 2338652160,
+            "physical_total_bytes": 34190917632
+          },
+          "minimum_observed_free_bytes": 2338652160,
+          "driver_reserved_bytes_min": 519569408,
+          "driver_reserved_bytes_max": 519569408,
+          "sample_gap_median_seconds": 0.020083305425941944,
+          "sample_gap_p99_seconds": 0.02395227737724781,
+          "sample_gap_maximum_seconds": 0.30506731383502483,
+          "physical_total_bytes": 34190917632
+        },
+        "process_spawn_elapsed_seconds": 0.018285895697772503,
+        "process_termination_observed_elapsed_seconds": 153.09092127811164,
+        "peak_allocated_bytes": 30531890688,
+        "peak_reserved_bytes": 30586961920,
+        "request_end_used_max_bytes": 31332696064
+      },
+      {
+        "mode": "optimizedB4",
+        "actual_CLI_exit_code": 0,
+        "result_sha256": "64ae266b1e8f448eebd21e2949aa0f4372d09febc6d88daed12451dc2b6088c5",
+        "all534_IDs_equal_original": true,
+        "emitted_tokens": 534,
+        "source_entry_sha256": "76f1d9b64a6f224bda5df78bbd3d4b96a064658c4669298699396d5f32484727",
+        "NVML_v2_profile": {
+          "samples": 7391,
+          "sample_file_sha256": "88611e4c77ec338c838e8f56d84ff8c315dd35c614d35d452ced874a25b5601d",
+          "observed_duration_seconds": 152.19310316164047,
+          "maximum_observed_used_bytes": 32385466368,
+          "maximum_observed_used_sample": {
+            "elapsed_seconds": 134.9774519391358,
+            "used_bytes": 32385466368,
+            "driver_reserved_bytes": 519569408,
+            "free_bytes": 1285881856,
+            "physical_total_bytes": 34190917632
+          },
+          "minimum_observed_free_bytes": 1285881856,
+          "driver_reserved_bytes_min": 519569408,
+          "driver_reserved_bytes_max": 519569408,
+          "sample_gap_median_seconds": 0.020080547779798508,
+          "sample_gap_p99_seconds": 0.02397811319679022,
+          "sample_gap_maximum_seconds": 0.2056859638541937,
+          "physical_total_bytes": 34190917632
+        },
+        "process_spawn_elapsed_seconds": 0.01876650657504797,
+        "process_termination_observed_elapsed_seconds": 152.13591490220279,
+        "peak_allocated_bytes": 31526430208,
+        "peak_reserved_bytes": 31608274944,
+        "request_end_used_max_bytes": 32381272064
+      }
+    ],
+    "NVML_memory_version": 2,
+    "target_sample_interval_seconds": 0.02,
+    "used_excludes_driver_reserved": true,
+    "reserved_inputs_opened": false,
+    "CPU_weight_offload": false,
+    "weights_changed": false,
+    "fixture_sha256": "bd1d76325f8f93f2488b36d2fa1d038edbd75e56cad7ec7052bbd65dd486662d",
+    "fixture_request_count": 9,
+    "ABBA_performance_claimed": false,
+    "all1068_IDs_equal_original": true,
+    "source_policy_sha256": "04a35b4d973ab6ee10a0fd45cebaed18a50130d9c49bb0c8ad311ff6f85691f5",
+    "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+    "limits": "One fresh serial process and one fresh optimized B4 process, nine authored short requests from four distinct prompts, including two EOS rows and final singleton,cap64/cache1536. Target20ms external NVMLv2 samples cover before process spawn through explicit final observation after child termination, including loading,prefill,capture,reuse,decode and all gaps. Used excludes driverreserved. Actual sample gaps reported; sampling can miss faster transients. Not ABBA/performance or universal/long-context/service memory proof. Same native4095 weights, no CPU weight offload."
+  },
+  "summary_sha256": "1355f60256573aded995717b128a2e2433cf6bdd08778b04b8c1103def1e9479",
+  "lease_sha256": "fe0697fb4233a4ee3c4cf1f032eadbd746f9456b9dd52e06a0d3f39ac6df6aee",
+  "source52_unchanged": true,
+  "all1068_saved_IDs_independently_recompared": true,
+  "both_raw_NVMLv2_streams_independently_recounted": true,
+  "each_sampler_covers_before_spawn_and_after_child_termination": true,
+  "actual_exit_code": 0,
+  "owned_process_group_empty": true,
+  "ABBA_speed_claimed": false,
+  "continuous_true_peak_proved": false,
+  "observed_at_UTC": "2026-10-09T20:43:12.881109+00:00",
+  "status": "completed_fresh_serial_and_optimized_B4_NVMLv2_memory_sampling",
+  "local_downloaded_actual_raw_streams_SHA_recount_and_memory_balance_verified": true,
+  "local_downloaded_actual_output_comparison": {
+    "all_emitted_token_ids_equal": true,
+    "baseline": {
+      "request_count": 9,
+      "output_tokens": 534,
+      "request_seconds": 35.444357882253826,
+      "aggregate_end_to_end_output_tokens_per_second": 15.065867514766335,
+      "peak_allocated_bytes": 30531890688,
+      "peak_reserved_bytes": 30586961920,
+      "request_end_device_used_bytes_max": 31332696064
+    },
+    "candidate": {
+      "request_count": 9,
+      "output_tokens": 534,
+      "request_seconds": 34.3149676611647,
+      "aggregate_end_to_end_output_tokens_per_second": 15.561722373538593,
+      "peak_allocated_bytes": 31526430208,
+      "peak_reserved_bytes": 31608274944,
+      "request_end_device_used_bytes_max": 32381272064
+    },
+    "limits": "Request/group timing excludes model load and tokenization/JSON writing. Single fixed-order run comparison; not a randomized service benchmark. Memory maxima are allocator peaks or request-end observations, not full-device sampled peaks.",
+    "performance_conclusion_drawn": false
+  },
+  "local_recomputed_memory_GiB": {
+    "serial": {
+      "sampled_used_max_GiB": 29.18084716796875,
+      "driver_reserved_GiB": 0.48388671875,
+      "free_at_sampled_max_GiB": 2.17803955078125,
+      "sample_count": 7434,
+      "median_gap_ms": 20.083305425941944,
+      "maximum_gap_ms": 305.06731383502483
+    },
+    "optimizedB4": {
+      "sampled_used_max_GiB": 30.16131591796875,
+      "driver_reserved_GiB": 0.48388671875,
+      "free_at_sampled_max_GiB": 1.19757080078125,
+      "sample_count": 7391,
+      "median_gap_ms": 20.080547779798508,
+      "maximum_gap_ms": 205.6859638541937
+    }
+  }
+}
