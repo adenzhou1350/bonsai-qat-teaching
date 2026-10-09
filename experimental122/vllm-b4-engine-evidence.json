@@ -1,0 +1,130 @@
+{
+  "status": "completed_independent_numerical_verification",
+  "model": "Qwen3.5-122B-A10B",
+  "hardware": "one RTX5090",
+  "vllm_version": "0.24.0",
+  "text_only": true,
+  "entry": "run_vllm_requests_b4.py",
+  "entry_sha256": "5a505827a9bbc83d8798befdc0e9a5dce919b12b4a344e019ee9b5ac2a12b632",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "frozen_source_policy_sha256": "3354d9218847d36ae064493adcb7b9ef7665ced2816b56a73b0971395719a407",
+  "frozen_summary_sha256": "6e8607a5de77dfc6265711b78a69a90e51fb8522cd4dfd8e4c17534ca4561751",
+  "terminal0_and_owned_process_group_dead_independently_verified": true,
+  "all_prospective_code_files_verified": 58,
+  "max_input_tokens": 128,
+  "max_model_len": 1536,
+  "max_new_tokens": 64,
+  "max_num_seqs": 4,
+  "KV_cache_budget_bytes": 1073741824,
+  "modes": [
+    {
+      "mode": "eager",
+      "requests": 32,
+      "output_tokens": 1880,
+      "all_output_IDs_and_input_lengths_and_EOS_match_original": true,
+      "result_sha256": "f43de895e00677facf9e042088dfd6d1abc5667c2e3a8e07a66c4bce601244e5",
+      "weight_proof_sha256": "8ad03a5142c1695001bac9d8a56c9f8583659d0b82ed765aeaed4de483042b75",
+      "actual_capture_entries": [],
+      "actual_graph_replays": null,
+      "all361_retained_postload_hashes_exact": true,
+      "unique_CUDA_model_storage_bytes": 30306158272,
+      "CPU_weight_offload": false,
+      "mixed_prefill_audit": {
+        "dense_head_calls": 7440,
+        "expert_calls": 960,
+        "router_calls": 1920,
+        "embedding_calls": 20,
+        "prefill_context_CPU_boundary_reads": 20,
+        "layouts": {
+          "27+40+39+103": 1,
+          "1+1+1+103": 3,
+          "1+39+40+27": 1,
+          "1+1+1+40": 4,
+          "1+39+103+27": 1,
+          "1+1+1+39": 3,
+          "1+1+27+40": 2,
+          "1+1+39+103": 1,
+          "1+1+103+39": 1,
+          "1+1+1+27": 2,
+          "1+1+103+27": 1
+        }
+      }
+    },
+    {
+      "mode": "graph",
+      "requests": 32,
+      "output_tokens": 1880,
+      "all_output_IDs_and_input_lengths_and_EOS_match_original": true,
+      "result_sha256": "fa0199e0ce32296d7beeb0ece9e5886eef0ab5b3135a61a837b9b6ac8c05f07d",
+      "weight_proof_sha256": "8ad03a5142c1695001bac9d8a56c9f8583659d0b82ed765aeaed4de483042b75",
+      "actual_capture_entries": [
+        {
+          "mode": "FULL",
+          "batch_descriptor": "BatchDescriptor(num_tokens=4, num_reqs=4, uniform=True, has_lora=False, num_active_loras=0)",
+          "actual_CUDAGraph_created": true
+        },
+        {
+          "mode": "FULL",
+          "batch_descriptor": "BatchDescriptor(num_tokens=2, num_reqs=2, uniform=True, has_lora=False, num_active_loras=0)",
+          "actual_CUDAGraph_created": true
+        },
+        {
+          "mode": "FULL",
+          "batch_descriptor": "BatchDescriptor(num_tokens=1, num_reqs=1, uniform=True, has_lora=False, num_active_loras=0)",
+          "actual_CUDAGraph_created": true
+        }
+      ],
+      "actual_graph_replays": 499,
+      "all361_retained_postload_hashes_exact": true,
+      "unique_CUDA_model_storage_bytes": 30306158272,
+      "CPU_weight_offload": false,
+      "mixed_prefill_audit": {
+        "dense_head_calls": 7440,
+        "expert_calls": 960,
+        "router_calls": 1920,
+        "embedding_calls": 20,
+        "prefill_context_CPU_boundary_reads": 20,
+        "layouts": {
+          "27+40+39+103": 1,
+          "1+1+1+103": 3,
+          "1+39+40+27": 1,
+          "1+1+1+40": 4,
+          "1+39+103+27": 1,
+          "1+1+1+39": 3,
+          "1+1+27+40": 2,
+          "1+1+39+103": 1,
+          "1+1+103+39": 1,
+          "1+1+1+27": 2,
+          "1+1+103+27": 1
+        }
+      }
+    }
+  ],
+  "throughput_comparison_completed": false,
+  "full_process_NVML_peak_comparison_completed": false,
+  "quality_or_HTTP_or_vision_or_long_input_or_sustained_service_claimed": false,
+  "reserved_inputs_opened": false,
+  "limits": "Existing four authored prompts only;32reordered/repeated rows per B4 process,4rows per window process. Numerical output equality does not establish broad quality or sustained service. Instrumented timings are omitted; model/cache buffers and scheduler policies differ from native.",
+  "all3760_portable_output_IDs_match_original": true,
+  "historical_small_control": {
+    "requests_per_call": [
+      4,
+      8
+    ],
+    "output_IDs": 705,
+    "all_equal_original": true,
+    "actual_graph_replays": 189,
+    "summary_sha256": "93897224ffc9c1e0ecc94256f3f6849469787a43b4c192613f6c4875efd83a40"
+  },
+  "historical_mixed_decode_only32_failure": {
+    "preserved": true,
+    "mode": "eager",
+    "requests": 32,
+    "matching_requests": 31,
+    "mismatching_request_index": 30,
+    "first_difference_zero_based": 36,
+    "actual_result_sha256": "912241301f6df7a3f64281e2065147336fa0ae2d281ab1b246d75798e8d8dcde",
+    "speedup_or_service_claimed": false
+  },
+  "final_change": "Keep original scalar decode paths; split each eager prefill by actual request boundaries, including embedding/dense/expert/router projections. Copy sequence boundaries once per prefill context; pure decode graph capture/replay does not read CUDA boundaries on CPU. Stock vLLM attention/GDN/cache remain."
+}

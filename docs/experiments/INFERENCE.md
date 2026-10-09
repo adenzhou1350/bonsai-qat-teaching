@@ -401,3 +401,32 @@ vLLM 的模型唯一 CUDA storage 为 **30,306,158,272 字节（28.2248 GiB）**
 两者均串行单请求，原生固定 cache1536，vLLM max-model-len1536、显式512MiB KV/mamba 缓存、batch1 decode 图，预填充 eager。引擎的模型派生 buffer 和缓存布局不同，这不是相同内存预算的内核消融；同机另卡仍有训练。这是四类作者自编问题重复换序、固定次序 ABBA，尚非随机化、长输入、HTTP、连续批处理或普遍性能证明；默认原生入口保持不变。
 
 复刻使用公开 `shared-head-requests32.jsonl`，分别运行 `run_requests.py --max-cache-len 1536 --max-new-tokens 64` 与 `run_vllm_requests.py --decode-graph --kv-cache-mib 512 --max-model-len 1536 --max-new-tokens 64`，按 A/B/B/A 各开新进程和新输出路径。测速候选关闭 `--audit-graph-replays`；实际回放在同源码的独立数值控制里已验证。模型加载/分词/JSON 写入不计入请求时间，预填充和请求内图操作计入。不同实验的加速百分比不相加。
+
+
+## vLLM 四请求并发与每请求预填充：数值验证完成
+
+新入口 [../../experimental122/run_vllm_requests_b4.py](../../experimental122/run_vllm_requests_b4.py) 在两个全新进程分别运行 eager 与 decode 图模式，每进程使用公开32请求样例。**共3,760个完整输出 ID、输入长度和 EOS 与原生逐项一致**，全部361个保留参数加载后哈希一致，无 CPU offload；实际捕获 batch1/2/4 图并确认回放。[完整证据](../../experimental122/vllm-b4-engine-evidence.json)。
+
+之前仅拆分混合批次的 decode 前缀时，4/8请求共705个 ID 已一致；扩大到32请求后，仍有1条从第37个 token 分歧，这条失败记录保留在证据中。当前版本进一步按真实请求边界分别计算每条 prompt 的预填充，包括 embedding、dense、expert 和 router，保留各自矩阵形状。预填充每个上下文读取一次边界；纯 decode 图不做这次 CPU 读取。注意力、GDN 和缓存使用原 vLLM 实现。
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_b4.py \
+  --model ./packed-native4095 \
+  --requests experimental122/examples/shared-head-requests32.jsonl \
+  --output ./vllm-b4-output --decode-graph --audit-graph-replays
+```
+
+最多4条活跃序列，KV/mamba预算1GiB、max-model-len1536、cap64，入口限制输入≤128 token。该模式允许已完成序列之后补入排队请求；原生固定B4组则等整组结束。测速时移除回放计数选项。32行由四类作者自编问题重复换序而来，尚非能力、HTTP、视觉、长输入或持续服务证明；并发吞吐与全生命周期显存另做多轮对照，原生和串行入口继续保留。
+
+## vLLM 文本窗口位置缓存：独立入口验证完成
+
+[../../experimental122/run_vllm_requests_window.py](../../experimental122/run_vllm_requests_window.py) 的独立 eager/图模式共 **470个输出 ID 与原生一致**。保持已部署的1536文本窗口、theta、维度、dtype和mRoPE布局，位置缓存从128MiB减为0.75MiB，静态少 **127.25MiB**。此前完整 GPU 前缀已逐位对照；部署入口验证相同前缀哈希，加载时不再临时创建大参考缓存。[证据](../../experimental122/vllm-window-engine-evidence.json)。
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_window.py \
+  --model ./packed-native4095 \
+  --requests experimental122/examples/shared-head-requests32.jsonl \
+  --output ./vllm-window-output --decode-graph
+```
+
+该入口为串行、固定max-model-len1536、输入≤128 token、默认KV/mamba512MiB，与B4是两项独立候选。模型权重与buffer为 **30,172,726,976字节（28.1005GiB）**；这不是全部运行显存，也不能直接把127.25MiB静态变化减到旧运行峰值。完整NVML采样对照尚待完成。

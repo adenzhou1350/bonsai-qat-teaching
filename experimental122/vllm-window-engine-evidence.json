@@ -1,0 +1,85 @@
+{
+  "status": "completed_independent_numerical_verification",
+  "model": "Qwen3.5-122B-A10B",
+  "hardware": "one RTX5090",
+  "vllm_version": "0.24.0",
+  "text_only": true,
+  "entry": "run_vllm_requests_window.py",
+  "entry_sha256": "2ddb67bcb8d377c86b32aae0d2fbadfbd4a67d6fbfa6ce8faaa09cbed6341366",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "frozen_source_policy_sha256": "a4ce96454905ea1112d5741b7f74065e3c89534a37fc14aa1c577200ed2bcbd9",
+  "frozen_summary_sha256": "5957d1a1fe1f49d1adb73f5f4dd7f0f69f0268c90c77ab58b5ee6fae1b03f5a3",
+  "terminal0_and_owned_process_group_dead_independently_verified": true,
+  "all_prospective_code_files_verified": 60,
+  "max_input_tokens": 128,
+  "max_model_len": 1536,
+  "max_new_tokens": 64,
+  "max_num_seqs": 1,
+  "KV_cache_budget_bytes": 536870912,
+  "modes": [
+    {
+      "mode": "eager",
+      "requests": 4,
+      "output_tokens": 235,
+      "all_output_IDs_and_input_lengths_and_EOS_match_original": true,
+      "result_sha256": "8f0cfef0f7dbd22ab1851a8e0b488476d37eac5eba028782276cb01c8abb25e5",
+      "weight_proof_sha256": "ab72d00a0f93b2454aa9d73e2c0f5f150c2db8784f7a21a7afea38264e66ceec",
+      "actual_capture_entries": [],
+      "actual_graph_replays": 0,
+      "all361_retained_postload_hashes_exact": true,
+      "unique_CUDA_model_storage_bytes": 30172726976,
+      "CPU_weight_offload": false,
+      "mixed_prefill_audit": null
+    },
+    {
+      "mode": "graph",
+      "requests": 4,
+      "output_tokens": 235,
+      "all_output_IDs_and_input_lengths_and_EOS_match_original": true,
+      "result_sha256": "4a511391e708de049dc8aac3e0d779a17e657f5ebe0992fef915ca0dbccbdb2e",
+      "weight_proof_sha256": "ab72d00a0f93b2454aa9d73e2c0f5f150c2db8784f7a21a7afea38264e66ceec",
+      "actual_capture_entries": [
+        {
+          "mode": "FULL",
+          "batch_descriptor": "BatchDescriptor(num_tokens=1, num_reqs=1, uniform=True, has_lora=False, num_active_loras=0)",
+          "actual_CUDAGraph_created": true
+        }
+      ],
+      "actual_graph_replays": 232,
+      "all361_retained_postload_hashes_exact": true,
+      "unique_CUDA_model_storage_bytes": 30172726976,
+      "CPU_weight_offload": false,
+      "mixed_prefill_audit": null
+    }
+  ],
+  "throughput_comparison_completed": false,
+  "full_process_NVML_peak_comparison_completed": false,
+  "quality_or_HTTP_or_vision_or_long_input_or_sustained_service_claimed": false,
+  "reserved_inputs_opened": false,
+  "limits": "Existing four authored prompts only;32reordered/repeated rows per B4 process,4rows per window process. Numerical output equality does not establish broad quality or sustained service. Instrumented timings are omitted; model/cache buffers and scheduler policies differ from native.",
+  "all470_portable_output_IDs_match_original": true,
+  "rotary_cache": {
+    "actual_GPU_candidate_cache_SHA256": "e8e4b56df2f9917ccdbd96f509cfb3e905ed5dd81c8c000dc4897d65fdb3fe58",
+    "candidate_cache_bytes": 786432,
+    "original_cache_bytes_in_independent_GPU_control": 134217728,
+    "reclaimed_static_cache_bytes": 133431296,
+    "full_reference_GPU_cache_allocated_by_this_loader": false,
+    "matches_independently_proved_GPU_prefix_hash": true,
+    "independent_GPU_control_summary_SHA256": "174a057882d3e187dd01717c48119ba23fcb3cc78ea91e138d5d2642c43be8bc",
+    "theta_dimensions_dtype_and_mrope_layout_unchanged": true,
+    "source_SHA256": {
+      "model_executor/layers/rotary_embedding/base.py": "c81804498f08f072356a26b41967f211475df2694dabf5da9f488c074d1fdef5",
+      "model_executor/layers/rotary_embedding/mrope.py": "d5fc5ca640bf47fdfc27447bcc6b67b2294c9ac840bbc736fe75cc6098e2a51c",
+      "model_executor/layers/rotary_embedding/__init__.py": "f703d3f7ca6be6b41837d4a07a27b94d1442149554bb4f4837cd3722671a5bbd"
+    }
+  },
+  "independent_full_GPU_prefix_control": {
+    "all6144_rows_bitwise_equal_original_prefix": true,
+    "original_cache_bytes": 134217728,
+    "candidate_cache_bytes": 786432,
+    "saved_static_bytes": 133431296,
+    "summary_sha256": "174a057882d3e187dd01717c48119ba23fcb3cc78ea91e138d5d2642c43be8bc",
+    "all470_output_IDs_match_original": true,
+    "loading_peak_is_diagnostic_includes_full_reference": true
+  }
+}

@@ -106,3 +106,6 @@
 - [完整 vLLM eager/图模式与实际教学 CLI 验证](../../experimental122/vllm-engine-evidence.json)：短请求完整输出一致，图回放确实执行，无 CPU offload；更广质量、长输入、并发和部署吞吐另行验证。
 
 - [原生与完整 vLLM 图模式四轮对照及全程显存](2026-10-10-0557-native-vllm.json)：7,520 输出 ID 一致，合计吞吐 15.82→18.19 tokens/s（+14.96%）；全程采样 used 29.18/29.76 GiB，驱动另计。
+
+- [vLLM B4 32请求数值验证与较早失败边界](../../experimental122/vllm-b4-engine-evidence.json)
+- [vLLM 文本窗口缓存与独立入口数值验证](../../experimental122/vllm-window-engine-evidence.json)

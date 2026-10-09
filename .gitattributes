@@ -5,3 +5,5 @@ courses/122b/seed_cpu/*.txt text eol=lf
 courses/122b/seed_cpu/portable122_gptq4_v1.py whitespace=-blank-at-eol
 experimental122/examples/*.jsonl text eol=lf
 docs/experiments/*.svg text eol=lf
+experimental122/run_vllm_requests*.py text eol=lf
+experimental122/runtime/bonsai_native122_vllm_*.py text eol=lf
