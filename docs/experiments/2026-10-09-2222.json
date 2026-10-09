@@ -1,0 +1,65 @@
+{
+  "observed_at_utc": "2026-10-09T14:22:02.047135+00:00",
+  "experiment": "R35-8192",
+  "artifact_manifest_sha256": "2a8aba243717e5b0230cc388d65e0f2f9c446bf30dde69581fbfa731f85e0f99",
+  "source78_unchanged": true,
+  "completed_public_panels": [
+    {
+      "mode": "human",
+      "completed": true,
+      "exit_code": 0,
+      "owned_process_group_empty": true,
+      "all_cases": 164,
+      "passes": 141,
+      "native_BF16_passes": 129,
+      "unsupported_cases_retained_in_denominator": 1,
+      "summary_sha256": "f277dca9324eada09acbc4867a3d869c8fb555f8c9793ebf9c98cb97c4b14d0b",
+      "terminal_sha256": "aa0b85fd4f17bceb193a2a509d7d369d28b35a67ff1139cf8eb64a3855a1cb88",
+      "native_reference_summary_sha256": "2e06f140c48cd5540ddf43606df7febd73c885a6858dc259f70e9f0cb8f7cc45",
+      "dataset_sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+      "protocol_and_EOS_unchanged": true
+    },
+    {
+      "mode": "cn",
+      "completed": true,
+      "exit_code": 0,
+      "owned_process_group_empty": true,
+      "all_cases": 48,
+      "passes": 48,
+      "native_BF16_passes": 30,
+      "unsupported_cases_retained_in_denominator": 0,
+      "summary_sha256": "abc17ab43017c8d518a24be960d24e72dbcfc29dc99628d12b8f2449cf72465d",
+      "terminal_sha256": "0b8b3606667af8a5bbe11181673e600e5c7cc6011dda012f5f23a71aea2c0007",
+      "native_reference_summary_sha256": "d9e5eb8e98c0361e80ecbf58ad503b39daa97058bab6bb83813a8e63841172fe",
+      "dataset_sha256": "1515e209fc393cd7bb361c85793f42d662a81a0f23b3f2871d4a34b2381c8059",
+      "protocol_and_EOS_unchanged": true
+    },
+    {
+      "mode": "cmmlu",
+      "completed": true,
+      "exit_code": 0,
+      "owned_process_group_empty": true,
+      "all_cases": 201,
+      "passes": 158,
+      "native_BF16_passes": 161,
+      "unsupported_cases_retained_in_denominator": 0,
+      "summary_sha256": "d58f5f5945076ebac2777d852a83408db7c920a885c293440ec883f1f2b52f42",
+      "terminal_sha256": "aac1be2432d3bbb50284c494c1b6ca6eb1bda852f4ad04692b632ba29ba53df0",
+      "native_reference_summary_sha256": "e00639ddc997f111a8b912d1183e65a53f951f522f149e01a36ed43c256bf622",
+      "dataset_sha256": "be18445dc42183d2a31d75adb48049b18e661eb587c755a6ececa86af687de2f",
+      "protocol_and_EOS_unchanged": true
+    }
+  ],
+  "pending_public_panels": [
+    "gsm8k"
+  ],
+  "public_development_evaluation_complete": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "format": "teaching-experiment-milestone-v1",
+  "training_complete": true,
+  "independent_replay_complete": true,
+  "B300_and5090_cached_checks_complete": true,
+  "all5_Graph_checks_complete": true,
+  "limits": "Three complete public development panels, unchanged data/graders/EOS/caps; GSM8K and aggregate paired audit still pending. CMMLU is below its matched BF16 reference, so completion does not mean capability acceptance. No complete portable recipe claim."
+}
