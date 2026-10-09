@@ -1,0 +1,12 @@
+{
+  "file_sha256": {
+    "courses/122b/prepare_dense_data.py": "71a434d0ff575661d9f465da3ebb96f40b23100198630ac847ddfdfc563a6539"
+  },
+  "entry_same_bytes_as_executed_CPU_CLI_except_filename": true,
+  "recipe_sha256": "29f698f738ae4c2d7208c029c2db43768033a9117d8d7b686bf85388de745aa9",
+  "license_original_CRLF_sha256": "43a372304b1da21ff143b9dd10424d93dc193073aecd5984a6b3872416dc7acd",
+  "license_published_LF_sha256": "3711f963c05d0be80d53e5923308a6dee31b203da23435c9cfb7c7b6e4dd5e19",
+  "license_words_unchanged": true,
+  "evidence": "../../docs/experiments/2026-10-10-0217.json",
+  "full_training_recipe_complete": false
+}

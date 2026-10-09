@@ -181,3 +181,27 @@ B4 请求末设备观察从 32505004032 增至 32672776192 字节，重复组的
 原串行、B2、B4 三个独立进程分别完成同一 9 条请求，1602 个保存的输出 ID 全部与原路径一致，包括两次 EOS、不同长度换序和尾部 B1。B2 复用 3 次、B4 复用 1 次，均只保留一份 Graph。端到端总吞吐分别为 15.19/14.46/14.94 tokens/s；B4 decode 提升没有转化为这组请求的整体改善，默认版保持原样。
 
 可选教学入口提供原始 fixture 和 CPU 比较工具；先比较全部 ID，再报告耗时和显存。见[完整完成证据](2026-10-10-0156.json)与[可复现命令](../../experimental122/README.md#跨批次-graph-复用入口与端到端反例)。下一项实验检查独立预填充后合并输出头计算，尚未作为已验证优化。
+
+## B4 共享输出头：32 请求对照完成
+
+候选在复用组的独立 B1 body 预填充后，只合并最后一个归一化隐藏状态；输出头复用每块解包权重，仍按原行形状计算。缓存复制保持各行 KV/GDN 状态、绝对位置和 Graph 地址。独立诊断的 16 行完整 logits、768 个逐行逐层缓存全部逐位一致，144 个保存的前缀 ID 重新比较通过。见[数值证据](2026-10-10-0216.json)与[代码身份](../../experimental122/shared-head-provenance.json)。
+
+四个新进程按串行/候选/候选/串行运行同一 32 条请求，7520 个保存输出 ID 全部相同。整体请求总吞吐合并后 **15.75 → 16.30 tokens/s，约 +3.54%**；有效 decode 约 **27.62 → 31.29 tokens/s**。候选每进程只录制一次 B4 Graph、复用七次。候选 allocated 峰值 31526430208 字节，请求末整卡最大观察 32398049280 字节（约 30.17GiB）；此项不是全程采样峰值。
+
+```bash
+# 固定权重与环境沿用上述 native4095 入口；输出路径须不存在。
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests.py \
+  --model models/qwen35-122b-native4095-packed \
+  --requests experimental122/examples/shared-head-requests32.jsonl \
+  --max-new-tokens 64 --output outputs/serial32.json
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_microbatch_shared_head.py \
+  --model models/qwen35-122b-native4095-packed \
+  --requests experimental122/examples/shared-head-requests32.jsonl \
+  --batch-size 4 --max-new-tokens 64 --output outputs/shared-head32.json
+python experimental122/compare_requests.py \
+  --baseline outputs/serial32.json --candidate outputs/shared-head32.json
+```
+
+复刻 ABBA 时用新输出文件再依次运行候选、串行，先核对 ID 再合并总耗时。计时包含预填充、录制/复用、CPU token 收集，排除加载、tokenization 与 JSON 写入。这是四条自编输入重复换序后的八组 B4、greedy、cap64、cache1536；结束行停止输出但继续内部计算，没有 refill。只有两轮/分支，不能推为任意负载或服务收益。
+
+本对照比较的是 **B4、Graph 复用及共享头的组合与原串行**；尚未用相同 32 条请求隔离共享头单独收益。前述九请求 B4 端到端未提速的记录保留，默认入口不替换。尚未实现 HTTP、连续批处理或 vLLM 集成。见[完整吞吐证据](2026-10-10-0219.json)。

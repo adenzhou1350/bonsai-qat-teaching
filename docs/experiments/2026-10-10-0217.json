@@ -1,0 +1,67 @@
+{
+  "observed_at_UTC": "2026-10-09T18:16:38Z",
+  "status": "completed_CPU_CLI_exit0",
+  "summary": {
+    "passed": true,
+    "actual_CLI_exit_code": 0,
+    "all5224_approved_reference_conversations_reconstructed_byte_exact": true,
+    "all528_blocks_all270864_token_ids_exact_live_full48_calibration": true,
+    "source_policy_sha256": "bb817372b1cbe135b29c9bb8525faf7d729ac5a25a3ac0130448c7ff5c674e33",
+    "entry_sha256": "71a434d0ff575661d9f465da3ebb96f40b23100198630ac847ddfdfc563a6539",
+    "recipe_sha256": "29f698f738ae4c2d7208c029c2db43768033a9117d8d7b686bf85388de745aa9",
+    "source_json_sha256": "f5e84c780740ad1a69a73047e4d41b06b7ad7a73dd767af8e57e8191782be7fa",
+    "data_summary_sha256": "934b5282d73f7f9da96352be5954e02f3fd848658bc217695820f3afbc12f738",
+    "GPU_held": false,
+    "reserved_inputs_opened": false,
+    "complete_portable_training_recipe": false,
+    "quality_accepted": false
+  },
+  "data_summary": {
+    "passed": true,
+    "format": "portable122-approved-dense-data-reconstruction-v1",
+    "source_sha256": "f5e84c780740ad1a69a73047e4d41b06b7ad7a73dd767af8e57e8191782be7fa",
+    "source_commit": "2f78ddc5c682ed6738ad092bbbfa59ba915afcb0",
+    "recipe_sha256": "29f698f738ae4c2d7208c029c2db43768033a9117d8d7b686bf85388de745aa9",
+    "corpus_sha256": {
+      "validation": "87fae9da09d4e151f66e2d9179b2957c89f3d19acd319a4acbac6063a2d98659",
+      "train": "5ff6b1250f24ed4559dbcf69b9f640b6bc96e2b38a5a7c296429d525e648c317"
+    },
+    "tokens_file_sha256": "ce298b506b086b7fecfaaf2b3a25a08895f651ec0a73cc640a0d6a9b44f8c1d9",
+    "tokenizer_files_sha256": {
+      "tokenizer.json": "5f9e4d4901a92b997e463c1f46055088b6cca5ca61a6522d1b9f64c4bb81cb42",
+      "tokenizer_config.json": "316230d6a809701f4db5ea8f8fc862bc3a6f3229c937c174e674ff3ca0a64ac8"
+    },
+    "reserved_inputs_opened": false,
+    "recovery_training_data_generated": false,
+    "complete_portable_training_recipe": false,
+    "limits": "Reconstructs fixed historical approved calibration TRAIN and calibration VAL, including reference responses. No benchmark inputs are read. Only TRAIN updates Hessians; VAL is a reconstruction control. Blocks concatenate complete conversations and may cut the last one; no padding or repetition. CodeAlpaca license is CC BY-NC4.0. Frozen selection does not rerun historical exclusion filtering or establish semantic contamination/answer correctness guarantees. Recovery OpenThoughts4096/128 remains separate."
+  },
+  "splits": {
+    "train": {
+      "blocks": 512,
+      "serialized_tokens": 262656,
+      "model_input_positions": 262144,
+      "selected_rows": 2663,
+      "selected_domains": {
+        "code": 2113,
+        "math": 550
+      },
+      "serialized_tokens_before_final_cut": 262676,
+      "selected_token_sha256": "52f5d0ba4955f4576750b0861424f426f91a3019131c849ae54f5840a363c6dc"
+    },
+    "validation": {
+      "blocks": 16,
+      "serialized_tokens": 8208,
+      "model_input_positions": 8192,
+      "selected_rows": 100,
+      "selected_domains": {
+        "code": 51,
+        "math": 49
+      },
+      "serialized_tokens_before_final_cut": 8233,
+      "selected_token_sha256": "9956b8ab6f45709c90b7ecf9f33798a8cf2c1281f6ccf5ee92b749833eb1449f"
+    }
+  },
+  "all270864_IDs_independently_recompared": true,
+  "summary_sha256": "716fbbd02f82341ef08dda222f75cf559ac480ab911549bb2a8680d59d465e8d"
+}

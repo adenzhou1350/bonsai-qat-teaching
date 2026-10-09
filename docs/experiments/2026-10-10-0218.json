@@ -1,0 +1,24 @@
+{
+  "observed_at_UTC": "2026-10-09T18:17:58Z",
+  "status": "completed_exit0",
+  "source_policy_sha256": "be24c02be1b2d6860ea26e45920187cc62d53f2660610b0c0125cbf95b310550",
+  "summary_sha256": "280f76c9130586368c809975d02f270a29bd46ecb038fcdfe08f698ff640fa42",
+  "summary": {
+    "passed": true,
+    "actual_CLI_exit_code": 0,
+    "expert_banks_exact_reference": 96,
+    "dense_banks_including_original_head_exact_reference": 373,
+    "all469_bank_values_and_metadata_exact_reference": true,
+    "embedding_codes_scales_zeros_rank16_and_metadata_exact_reference": true,
+    "retained361_names_dtypes_shapes_and_bytes_exact_reference": true,
+    "source831_parameter_hashes_exact_native_original_teacher": true,
+    "assembled_manifest_sha256": "1feb951fa2d18435174a16f50894e82f60a08b142ba1bb5e30d360c5c4f41dda",
+    "source_dense_control_summary_sha256": "137cfa62c1a96e928447d68781807202c401684e2945f24f397452c9eeb59726",
+    "expert_recovery_training_completed": false,
+    "GPU_held": false,
+    "reserved_inputs_opened": false,
+    "quality_accepted": false,
+    "limits": "Complete original-source portable seed assembly and exact reference comparison only. No full portable teacher4224 generation, rank8 recovery training, independent capabilities or generated-artifact single5090 inference established."
+  },
+  "complete_portable_training_recipe": false
+}
