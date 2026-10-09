@@ -111,3 +111,5 @@
 - [vLLM 文本窗口缓存与独立入口数值验证](../../experimental122/vllm-window-engine-evidence.json)
 
 - [B4 原生与 vLLM 请求队列完成](2026-10-10-0644-b4-deployment.json)：32请求四轮、7,520输出ID相同；吞吐 17.46→21.75 tokens/s，已采样 used 30.16/30.87GiB，驱动另计。
+
+- [vLLM 短上下文缓存完成](2026-10-10-0658-window-deployment.json)：32请求四轮、7,520输出ID相同；吞吐 18.20→18.13 tokens/s，已采样 used 29.76/29.60GiB，驱动另计。

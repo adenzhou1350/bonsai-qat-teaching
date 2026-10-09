@@ -471,7 +471,7 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_window.py \
   --output ./vllm-window-output --decode-graph
 ```
 
-该入口为串行、固定max-model-len1536、输入≤128 token、默认KV/mamba512MiB，与B4是两项独立候选。模型权重与buffer为 **30,172,726,976字节（28.1005GiB）**；这不是全部运行显存，也不能直接把127.25MiB静态变化减到旧运行峰值。完整NVML采样对照尚待完成。
+该入口为串行、固定max-model-len1536、输入≤128 token、默认KV/mamba512MiB，与B4是两项独立候选。模型权重与buffer为 **30,172,726,976字节（28.1005GiB）**；这不是全部运行显存，也不能直接把127.25MiB静态变化减到旧运行峰值。完整四轮 NVML 采样对照已完成，结果见下文。
 
 ## B4 原生与 vLLM 请求队列：四轮对照完成
 
@@ -489,5 +489,24 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_window.py \
 原生是固定四请求一组，vLLM 是最多四个活动请求的队列补位；KV/mamba 预算1GiB，max-model-len1536。原生首次录图计入组时间，vLLM 启动录图在计时前，因此这是部署入口比较，不能解释成同一内核的纯加速。每个入口吞吐均按总有效输出 token / 总请求时间计算，**不是单个用户的 tokens/s**。同机另卡有训练；四类自编题重复换序，不代表长输入、HTTP 或持续并发服务。
 
 复刻分别运行 `run_requests_microbatch_lora_bmm.py --batch-size 4` 和 `run_vllm_requests_b4.py --decode-graph --max-model-len 1536 --kv-cache-mib 1024`，共用 `examples/shared-head-requests32.jsonl`，cap64；每轮新进程、新输出路径。测速关闭回放计数。
+
+分词、模型加载和 JSON 写入不计入请求时间，预填充与 CPU 输出收集计入。不同实验的加速百分比不相加。
+
+## vLLM 短上下文缓存：四轮对照完成
+
+同一产物、32 个换序短请求，四轮全新进程 A/B/B/A；**7,520 个完整输出 ID、输入长度及 EOS 与原始对照一致**。下载真实输出和全部 38,623 个 NVML 样本后，已在独立本地进程重算。
+
+| 口径 | reference | window |
+|---|---:|---:|
+| 含预填充合计吞吐 | 18.2000 tokens/s | 18.1270 tokens/s |
+| 全程最大已采样 NVML used | 29.7609 GiB | 29.6047 GiB |
+
+吞吐观测变化 **-0.401%**，两组配对 -1.126% / +0.330%。驱动另保留约 0.4839 GiB；本组最小观察 free 1636.3 MiB。采样从加载前覆盖至退出之后，目标间隔20ms，可能遗漏更快瞬态；原始流 SHA、实际采样间隔及完整口径见[完成记录](../docs/experiments/2026-10-10-0658-window-deployment.json)。
+
+![四轮显存和请求吞吐](../docs/experiments/2026-10-10-0658-window-deployment.svg)
+
+两者均串行、max-model-len1536、512MiB KV/mamba 缓存，启动录图均不计入请求时间。窗口入口只把旋转位置缓存从128MiB缩至0.75MiB，静态省 **127.25MiB**；完整 GPU 前缀哈希独立核验，部署不分配完整参考缓存。本组运行 used 最大观察值实际相差 **160MiB**，与静态缓存的127.25MiB是不同口径；不将全部差值归因于这一个张量，也不把它解释为吞吐优化。两轮速度有自然波动；四类短题与同机另卡训练的限制仍在。
+
+复刻分别运行 `run_vllm_requests.py` 与 `run_vllm_requests_window.py`，共同参数 `--decode-graph --max-model-len 1536 --kv-cache-mib 512 --max-new-tokens 64`，同一公开32请求，A/B/B/A全新进程与输出目录。
 
 分词、模型加载和 JSON 写入不计入请求时间，预填充与 CPU 输出收集计入。不同实验的加速百分比不相加。

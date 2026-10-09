@@ -52,8 +52,8 @@
       "mixed_prefill_audit": null
     }
   ],
-  "throughput_comparison_completed": false,
-  "full_process_NVML_peak_comparison_completed": false,
+  "throughput_comparison_completed": true,
+  "full_process_NVML_peak_comparison_completed": true,
   "quality_or_HTTP_or_vision_or_long_input_or_sustained_service_claimed": false,
   "reserved_inputs_opened": false,
   "limits": "Existing four authored prompts only;32reordered/repeated rows per B4 process,4rows per window process. Numerical output equality does not establish broad quality or sustained service. Instrumented timings are omitted; model/cache buffers and scheduler policies differ from native.",
@@ -81,5 +81,7 @@
     "summary_sha256": "174a057882d3e187dd01717c48119ba23fcb3cc78ea91e138d5d2642c43be8bc",
     "all470_output_IDs_match_original": true,
     "loading_peak_is_diagnostic_includes_full_reference": true
-  }
+  },
+  "completed_ABBA_record": "../docs/experiments/2026-10-10-0658-window-deployment.json",
+  "completed_ABBA_summary_sha256": "fefa1cc52d4d139bc0e3f97be79bd98c6c1679297476c47a5c011c868dbd1781"
 }
