@@ -142,3 +142,22 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests.py \
 新版默认短请求的整卡请求末观察最大约 **29.18GiB**；固定 16K 清理约 **29.83GiB**；自适应混合请求约 **30.03GiB**，其中短请求恢复到约 27.5 tokens/s 纯解码，长输入约 18.8 tokens/s。固定 16K 预填充时、清理前仍观察到约 **31.32GiB**，清理不能消除预填充峰值；这些边界观察不是连续采样峰值。自适应切换和长输入重新录制有时间成本，不保证所有请求组合都更快。
 
 代码结果中的保守 `limits` 字段仍保留初版“其他容量需另行验证”的说明；新版已验证范围以上述独立完成证据为准。当前仍为单 worker 串行入口，固定长度 batch 的实验速度不代表这个 CLI 的服务吞吐。
+
+## 按块生成长输入因果掩码的独立实验
+
+新增 [run_requests_lazy_mask.py](run_requests_lazy_mask.py)，默认常驻入口保持原样。本实验入口的字节与 GPU 上执行的候选完全相同，仅文件名调整；原数值 runtime 文件保持原样，新增 [掩码模块及身份](lazy-mask-provenance.json)。命令与 `run_requests.py` 参数相同：
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_requests_lazy_mask.py \
+  --model models/qwen35-122b-native4095-packed \
+  --requests experimental122/examples/deployment-requests.jsonl \
+  --max-new-tokens 64 --max-cache-len 16384 \
+  --auto-cache-len --trim-prefill-cache \
+  --output outputs/122b-lazy-mask-requests.json
+```
+
+示例文件只有短提示；本次 GPU 对照使用 12 次自拟长短请求，包含连续两次 14755-token 和两次 7543-token 输入。638 个输出 token ID 全部与已完成原路径相同，正常退出；CPU 对 4097/7543/14755 三种长度的全部因果掩码元素比较也完全相同。
+
+原运行库已经使用布尔掩码；优化是在原生逐 head、1024-query SDPA 路径中只生成当前行块的布尔掩码，保留全部 key、因果边界、算子精度和整段输入传播。14755×16384 的完整掩码原占 241745920 字节，切片最大 16777216 字节。不将整模型输入切块，避免改变线性注意力块间状态舍入。当前只支持无 padding 的单条文本、从空 StaticCache 进行长预填充；不支持变长 batch 或服务调度。
+
+整组峰值 allocated：原修正版 **29.992GiB**，此实验 **29.767GiB**，差额 **230.4MiB**。峰值 reserved 为 30.568/30.590GiB，请求末整卡观察最大为 30.025/30.064GiB（原/候选），本次并未证明整卡驻留显存降低，故保留独立入口。两轮分开执行，总请求耗时分别 159.12/157.82 秒，包含预填充与录制、排除模型加载；不作为随机配对加速结论。权重仍占 28.10GiB，请求末占用和预填充峰值分别报告。全部数值、源码身份、首次绑定失败和限制见[完成记录](../docs/experiments/2026-10-10-0031.json)。
