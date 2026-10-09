@@ -510,3 +510,17 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_window.py \
 复刻分别运行 `run_vllm_requests.py` 与 `run_vllm_requests_window.py`，共同参数 `--decode-graph --max-model-len 1536 --kv-cache-mib 512 --max-new-tokens 64`，同一公开32请求，A/B/B/A全新进程与输出目录。
 
 分词、模型加载和 JSON 写入不计入请求时间，预填充与 CPU 输出收集计入。不同实验的加速百分比不相加。
+
+## B4 与短上下文缓存的组合：完整输出检查完成
+
+[run_vllm_requests_b4_window.py](run_vllm_requests_b4_window.py)组合已有的请求边界适配与1536文本位置缓存；投影实现保持原样，协作的两个加载器分别保存B4绑定证据和GPU缓存前缀证据。两个独立进程分别完成 eager32、图模式32：**3,760个完整输出ID、输入长度及EOS与原参考一致**，361个保留张量哈希一致，实际图回放已验证。见[独立检查记录](vllm-b4-window-engine-evidence.json)。
+
+从仓库根目录运行：
+
+```bash
+python experimental122/run_vllm_requests_b4_window.py --model PACKED_MODEL --requests experimental122/examples/shared-head-requests32.jsonl --output combined-eager
+python experimental122/run_vllm_requests_b4_window.py --model PACKED_MODEL --requests experimental122/examples/shared-head-requests32.jsonl --output combined-graph --decode-graph --audit-graph-replays
+python experimental122/compare_engine_outputs.py --baseline combined-eager/result.json --candidate combined-graph/result.json
+```
+
+输入≤128token、cap≤64、最多4个活动请求、KV/mamba预算1GiB。文本权重与模型buffer为28.1005GiB，不含运行缓存、临时空间或驱动保留。这里确认组合的输出数值；前面的B4吞吐与串行省显存是两项独立实验，**不能直接相加或当成组合版的实测结果**。组合版的四轮吞吐及全程NVML采样仍需单独完成。正常测速移除回放计数选项。

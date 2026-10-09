@@ -1,0 +1,99 @@
+{
+  "status": "completed_independent_combined_B4_window_numerical_control",
+  "observed_at_UTC": "2026-10-09T23:05:15.940584+00:00",
+  "model": "Qwen3.5-122B-A10B",
+  "hardware": "oneRTX5090",
+  "entry": "run_vllm_requests_b4_window.py",
+  "entry_sha256": "6ce9848e2d97632587061394302e39ecb1d1fb329d7239fffa8d1e9615f08de6",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "frozen_source_policy_sha256": "20a2eb1aa49fed476547b245e96dbeec3fd34878da3dbada296fd1344062106f",
+  "summary_sha256": "fe02dede6d8477ffd0ac35cc934cf06e8cbb077af5cb04509201ed5cb1ac924a",
+  "lease_sha256": "67a7fe328a51ed01b1cc55250e27c9457b91379d4a9f6001ed2c8c8611bf4603",
+  "all62_frozen_code_identities_verified": true,
+  "all3760_complete_output_IDs_equal_original": true,
+  "locally_downloaded_full_IDs_independently_recompared": true,
+  "terminal0_and_owned_process_group_dead": true,
+  "max_input_tokens": 128,
+  "max_model_len": 1536,
+  "max_new_tokens": 64,
+  "max_num_seqs": 4,
+  "KV_cache_budget_bytes": 1073741824,
+  "modes": [
+    {
+      "mode": "eager",
+      "requests": 32,
+      "all_output_IDs_equal_original": true,
+      "output_tokens": 1880,
+      "actual_graph_replays": null,
+      "result_sha256": "649dd6a0ec075f1c1ec2f51ff463893293755447e42e70b4d31c28d9c264bbc4",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "actual_capture_entries": [],
+      "all361_retained_hashes_exact": true,
+      "unique_CUDA_model_storage_bytes": 30172726976,
+      "rotary_cache": {
+        "actual_GPU_candidate_cache_SHA256": "e8e4b56df2f9917ccdbd96f509cfb3e905ed5dd81c8c000dc4897d65fdb3fe58",
+        "candidate_cache_bytes": 786432,
+        "original_cache_bytes_in_independent_GPU_control": 134217728,
+        "reclaimed_static_cache_bytes": 133431296,
+        "full_reference_GPU_cache_allocated_by_this_loader": false,
+        "matches_independently_proved_GPU_prefix_hash": true,
+        "independent_GPU_control_summary_SHA256": "174a057882d3e187dd01717c48119ba23fcb3cc78ea91e138d5d2642c43be8bc",
+        "theta_dimensions_dtype_and_mrope_layout_unchanged": true,
+        "source_SHA256": {
+          "model_executor/layers/rotary_embedding/base.py": "c81804498f08f072356a26b41967f211475df2694dabf5da9f488c074d1fdef5",
+          "model_executor/layers/rotary_embedding/mrope.py": "d5fc5ca640bf47fdfc27447bcc6b67b2294c9ac840bbc736fe75cc6098e2a51c",
+          "model_executor/layers/rotary_embedding/__init__.py": "f703d3f7ca6be6b41837d4a07a27b94d1442149554bb4f4837cd3722671a5bbd"
+        }
+      }
+    },
+    {
+      "mode": "graph",
+      "requests": 32,
+      "all_output_IDs_equal_original": true,
+      "output_tokens": 1880,
+      "actual_graph_replays": 499,
+      "result_sha256": "82927ca392e1667dba2b5a57270c80a9b7d566be3665cef5932a5e91366751a8",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "actual_capture_entries": [
+        {
+          "mode": "FULL",
+          "batch_descriptor": "BatchDescriptor(num_tokens=4, num_reqs=4, uniform=True, has_lora=False, num_active_loras=0)",
+          "actual_CUDAGraph_created": true
+        },
+        {
+          "mode": "FULL",
+          "batch_descriptor": "BatchDescriptor(num_tokens=2, num_reqs=2, uniform=True, has_lora=False, num_active_loras=0)",
+          "actual_CUDAGraph_created": true
+        },
+        {
+          "mode": "FULL",
+          "batch_descriptor": "BatchDescriptor(num_tokens=1, num_reqs=1, uniform=True, has_lora=False, num_active_loras=0)",
+          "actual_CUDAGraph_created": true
+        }
+      ],
+      "all361_retained_hashes_exact": true,
+      "unique_CUDA_model_storage_bytes": 30172726976,
+      "rotary_cache": {
+        "actual_GPU_candidate_cache_SHA256": "e8e4b56df2f9917ccdbd96f509cfb3e905ed5dd81c8c000dc4897d65fdb3fe58",
+        "candidate_cache_bytes": 786432,
+        "original_cache_bytes_in_independent_GPU_control": 134217728,
+        "reclaimed_static_cache_bytes": 133431296,
+        "full_reference_GPU_cache_allocated_by_this_loader": false,
+        "matches_independently_proved_GPU_prefix_hash": true,
+        "independent_GPU_control_summary_SHA256": "174a057882d3e187dd01717c48119ba23fcb3cc78ea91e138d5d2642c43be8bc",
+        "theta_dimensions_dtype_and_mrope_layout_unchanged": true,
+        "source_SHA256": {
+          "model_executor/layers/rotary_embedding/base.py": "c81804498f08f072356a26b41967f211475df2694dabf5da9f488c074d1fdef5",
+          "model_executor/layers/rotary_embedding/mrope.py": "d5fc5ca640bf47fdfc27447bcc6b67b2294c9ac840bbc736fe75cc6098e2a51c",
+          "model_executor/layers/rotary_embedding/__init__.py": "f703d3f7ca6be6b41837d4a07a27b94d1442149554bb4f4837cd3722671a5bbd"
+        }
+      }
+    }
+  ],
+  "throughput_ABBA_comparison_completed": false,
+  "full_process_NVML_peak_comparison_completed": false,
+  "CPU_weight_offload": false,
+  "HTTP_or_vision_or_long_input_or_sustained_service_claimed": false,
+  "reserved_inputs_opened": false,
+  "limits": "Same four authored prompts repeated/reordered32rows, eager32+graph32. This independently validates the composition, not a broad quality or service benchmark. Instrumented controls do not establish throughput or sampled memory savings of the combined entry."
+}
