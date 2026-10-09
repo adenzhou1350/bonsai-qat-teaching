@@ -1,1 +1,3 @@
 courses/122b/data/approved-recipe.json text eol=lf
+courses/122b/seed_cpu/*.py text eol=lf
+courses/122b/seed_cpu/*.txt text eol=lf

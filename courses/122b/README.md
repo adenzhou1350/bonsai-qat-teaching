@@ -1,5 +1,7 @@
 # 122B 课程：重建 dense 校准输入
 
+数据重建之后，可继续[完整 CPU 低比特初始化课程](seed_cpu/README.md)，运行专家 PTQ、dense4 校准、embedding 补偿与完整 seed 组装。各环节已有全量完成记录；完整恢复训练链路仍在整理。
+
 这一课已在 Linux CPU 上实际运行并退出 0：5224 条已批准对话逐字节重建，528 个块、270864 个 token ID 与完整 48 层校准的原输入相同。[完成证据](../../docs/experiments/2026-10-10-0217.json)与[源码身份](provenance.json)单独记录。此入口只准备校准数据；完整教师、恢复训练与新产物重载仍待完成。
 
 使用 Python 3.12、Transformers 5.12.1，以及原始 Qwen3.5-122B-A10B 的完整本地 tokenizer 目录（含 chat template）。CPU 即可，不需要加载模型权重。

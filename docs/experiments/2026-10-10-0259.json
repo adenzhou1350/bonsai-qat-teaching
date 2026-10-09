@@ -1,0 +1,96 @@
+{
+  "observed_at_UTC": "2026-10-09T18:58:31.041147+00:00",
+  "status": "published_exact_completed_CPU_initialization_sources",
+  "stages": [
+    "expert_PTQ_full96_banks",
+    "dense_GPTQ_full48_and_head373",
+    "embedding_RTN4_rank16_128TRAIN_updates",
+    "complete_seed_assembly469_and_embedding"
+  ],
+  "source_manifest": "../../courses/122b/seed_cpu/provenance.json",
+  "published_file_sha256": {
+    "portable122_source_ternary_v1.py": "4b972327e0d9e794f9de3eca7b87390015c67014b8260e6bf913d7bec870b13d",
+    "portable122_calibrate_dense4_v1.py": "fd3a3a3786cb3ec9ac0155a6dc2821dc826138273d3a408c15d963b4e961c37f",
+    "portable122_dense_capture_v1.py": "af59260757f6df0feadafc3aaa1af92ada50b3cff2ecf3fea048942005ec1882",
+    "portable122_gptq4_v1.py": "ee9860a1399cc424e255a2db0a2fffd8de88ed8ead8c954bdbde748c42e321ae",
+    "affine4_cpu.py": "f29fd1071e8eb92ff149a01b20d6bbdee2cc986754f28d7a19c1995aeaa8c596",
+    "portable122_embedding4_v1.py": "a293e727c3198ea8701b784d3aff96115434a1b87fb09371a83b9ba903115b1e",
+    "portable122_assemble_seed_v1.py": "097e65dace237a8acbe32ef9477d75a14543ee4d54de304c7cb3a9f4e4fc461a"
+  },
+  "same_bytes_as_actual_completed_CPU_entries": true,
+  "full_stage_identity": {
+    "experts": {
+      "entry_files_sha256": {
+        "portable122_source_ternary_v1.py": "4b972327e0d9e794f9de3eca7b87390015c67014b8260e6bf913d7bec870b13d"
+      },
+      "source_policy_sha256": "119cb7dcfd5837d5e50daa2d1caad6dc411376cedf8e0959fdd6282aab6f1c75",
+      "completed_summary_sha256": "00d6f26f29f87cbc66e418619d783fab11170f08d34c2bda6f5db7c27832b711"
+    },
+    "dense": {
+      "entry_files_sha256": {
+        "portable122_calibrate_dense4_v1.py": "fd3a3a3786cb3ec9ac0155a6dc2821dc826138273d3a408c15d963b4e961c37f",
+        "portable122_dense_capture_v1.py": "af59260757f6df0feadafc3aaa1af92ada50b3cff2ecf3fea048942005ec1882",
+        "portable122_gptq4_v1.py": "ee9860a1399cc424e255a2db0a2fffd8de88ed8ead8c954bdbde748c42e321ae",
+        "affine4_cpu.py": "f29fd1071e8eb92ff149a01b20d6bbdee2cc986754f28d7a19c1995aeaa8c596"
+      },
+      "source_policy_sha256": "befbe51afb81bee38bd641992be9849218b977892a8b014741d952ef89f9a6a7",
+      "completed_summary_sha256": "137cfa62c1a96e928447d68781807202c401684e2945f24f397452c9eeb59726"
+    },
+    "embedding": {
+      "entry_files_sha256": {
+        "portable122_embedding4_v1.py": "a293e727c3198ea8701b784d3aff96115434a1b87fb09371a83b9ba903115b1e",
+        "affine4_cpu.py": "f29fd1071e8eb92ff149a01b20d6bbdee2cc986754f28d7a19c1995aeaa8c596"
+      },
+      "source_policy_sha256": "8fd5ff7b9fc82d9f62d4dd8690e1646f229c7592af177a795034eab8dab510b9",
+      "completed_summary_sha256": "9cadbed79ff5223e7971062872ab5a73656e7d8d5824c90b8d8fb707fcea0bcf"
+    },
+    "assembly": {
+      "entry_files_sha256": {
+        "portable122_assemble_seed_v1.py": "097e65dace237a8acbe32ef9477d75a14543ee4d54de304c7cb3a9f4e4fc461a"
+      },
+      "source_policy_sha256": "be24c02be1b2d6860ea26e45920187cc62d53f2660610b0c0125cbf95b310550",
+      "completed_summary_sha256": "280f76c9130586368c809975d02f270a29bd46ecb038fcdfe08f698ff640fa42"
+    },
+    "actual_CPU_GPU_runtime": {
+      "python": "3.12.13 (main, Mar  4 2026, 09:23:07) [GCC 11.4.0]",
+      "packages": {
+        "torch": "2.11.0+cu130",
+        "transformers": "5.12.1",
+        "safetensors": "0.8.0",
+        "triton": "3.6.0"
+      }
+    }
+  },
+  "isolated_public_entry_smoke": {
+    "isolated_four_public_CLIs_help_exit0": {
+      "portable122_source_ternary_v1.py": {
+        "exit_code": 0,
+        "source_sha256": "4b972327e0d9e794f9de3eca7b87390015c67014b8260e6bf913d7bec870b13d",
+        "usage_contains_model_output": true
+      },
+      "portable122_calibrate_dense4_v1.py": {
+        "exit_code": 0,
+        "source_sha256": "fd3a3a3786cb3ec9ac0155a6dc2821dc826138273d3a408c15d963b4e961c37f",
+        "usage_contains_model_output": true
+      },
+      "portable122_embedding4_v1.py": {
+        "exit_code": 0,
+        "source_sha256": "a293e727c3198ea8701b784d3aff96115434a1b87fb09371a83b9ba903115b1e",
+        "usage_contains_model_output": true
+      },
+      "portable122_assemble_seed_v1.py": {
+        "exit_code": 0,
+        "source_sha256": "097e65dace237a8acbe32ef9477d75a14543ee4d54de304c7cb3a9f4e4fc461a",
+        "usage_contains_model_output": true
+      }
+    },
+    "published_seven_files_only_in_workdir": true,
+    "CUDA_VISIBLE_DEVICES": "",
+    "full_initialization_rerun": false
+  },
+  "teacher4224_complete": false,
+  "full_portable_expert_rank8_recovery_complete": false,
+  "new_generated_seed_supported_by_existing_experimental122_entry": false,
+  "weights_distributed": false,
+  "limits": "Completed original-source CPU initialization and exact published-source dependency closure. The help smoke does not rerun full initialization. Full stage execution and independent experiment-reference value audits are linked separately. These sources do not complete portable recovery, checkpoint reload or5090 deployment of the generated seed."
+}

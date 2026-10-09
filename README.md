@@ -55,7 +55,7 @@ CUDA_VISIBLE_DEVICES='' python test_equations.py
 |---|---|---|---|
 | **35B 全专家 QAT** | Linux、2×B300、原始模型、本地文本 | 准备 tokens 和 BF16 教师，先两步控制，再训练、导出与恢复 | [训练指南](docs/REPRODUCING.md#35b全专家权重qat) |
 | **122B 固定产物推理** | Linux、32GB RTX 5090、指定版本的 packed 权重 | 运行单请求文本生成与固定 64-token Graph/静态对照 | [运行说明](experimental122/README.md) |
-| **122B 从原始模型复刻** | 校准、教师、训练与独立验证资源 | 目前先研究方法与各环节证据；完整可移植链路仍在整理 | [已验证环节与缺口](docs/experiments/122B.md) |
+| **122B 从原始模型复刻** | Linux CPU、原始 BF16 权重；后续教师与恢复另需资源 | 可重建校准数据并运行完整 CPU 低比特初始化；完整恢复链路仍在整理 | [数据课程](courses/122b/README.md) · [初始化课程](courses/122b/seed_cpu/README.md) · [已验证环节与缺口](docs/experiments/122B.md) |
 
 35B 的全专家 QAT 更新全部专家 FP32 主权重；122B 案例冻结低比特基座，只训练 rank-8 补偿。**它们是两条不同路线，训练成本与实验分数不能互换。**
 

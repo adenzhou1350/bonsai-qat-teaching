@@ -57,3 +57,5 @@ CUDA_VISIBLE_DEVICES='' python test_equations.py
 ## 给自己的实验留一份记录
 
 每个新实验复制 [记录模板](experiments/TEMPLATE.md)，固定变量后再运行。保留失败与原始输出，新结果加入对应模型文档和新的时间快照。首页只更新学习入口与主要结论。
+
+122B 进阶可从[重建校准数据](../courses/122b/README.md)继续到[完整 CPU 低比特初始化](../courses/122b/seed_cpu/README.md)。这两部分已有实际完成记录；完整专家恢复训练尚未随此课程发布。
