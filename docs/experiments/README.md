@@ -109,3 +109,5 @@
 
 - [vLLM B4 32请求数值验证与较早失败边界](../../experimental122/vllm-b4-engine-evidence.json)
 - [vLLM 文本窗口缓存与独立入口数值验证](../../experimental122/vllm-window-engine-evidence.json)
+
+- [B4 原生与 vLLM 请求队列完成](2026-10-10-0644-b4-deployment.json)：32请求四轮、7,520输出ID相同；吞吐 17.46→21.75 tokens/s，已采样 used 30.16/30.87GiB，驱动另计。

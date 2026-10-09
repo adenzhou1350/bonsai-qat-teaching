@@ -100,8 +100,8 @@
       }
     }
   ],
-  "throughput_comparison_completed": false,
-  "full_process_NVML_peak_comparison_completed": false,
+  "throughput_comparison_completed": true,
+  "full_process_NVML_peak_comparison_completed": true,
   "quality_or_HTTP_or_vision_or_long_input_or_sustained_service_claimed": false,
   "reserved_inputs_opened": false,
   "limits": "Existing four authored prompts only;32reordered/repeated rows per B4 process,4rows per window process. Numerical output equality does not establish broad quality or sustained service. Instrumented timings are omitted; model/cache buffers and scheduler policies differ from native.",
@@ -126,5 +126,7 @@
     "actual_result_sha256": "912241301f6df7a3f64281e2065147336fa0ae2d281ab1b246d75798e8d8dcde",
     "speedup_or_service_claimed": false
   },
-  "final_change": "Keep original scalar decode paths; split each eager prefill by actual request boundaries, including embedding/dense/expert/router projections. Copy sequence boundaries once per prefill context; pure decode graph capture/replay does not read CUDA boundaries on CPU. Stock vLLM attention/GDN/cache remain."
+  "final_change": "Keep original scalar decode paths; split each eager prefill by actual request boundaries, including embedding/dense/expert/router projections. Copy sequence boundaries once per prefill context; pure decode graph capture/replay does not read CUDA boundaries on CPU. Stock vLLM attention/GDN/cache remain.",
+  "completed_ABBA_record": "../docs/experiments/2026-10-10-0644-b4-deployment.json",
+  "completed_ABBA_summary_sha256": "058729085c513ab8f65442a72b2e002dc1879c0fff0862edb5f05fdc3a0b8022"
 }

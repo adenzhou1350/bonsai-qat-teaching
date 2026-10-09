@@ -430,3 +430,22 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_window.py \
 ```
 
 该入口为串行、固定max-model-len1536、输入≤128 token、默认KV/mamba512MiB，与B4是两项独立候选。模型权重与buffer为 **30,172,726,976字节（28.1005GiB）**；这不是全部运行显存，也不能直接把127.25MiB静态变化减到旧运行峰值。完整NVML采样对照尚待完成。
+
+## B4 原生与 vLLM 请求队列：四轮对照完成
+
+同一产物、32 个换序短请求，四轮全新进程 A/B/B/A；**7,520 个完整输出 ID、输入长度及 EOS 与原始对照一致**。下载真实输出和全部 39,134 个 NVML 样本后，已在独立本地进程重算。
+
+| 口径 | native | vllm |
+|---|---:|---:|
+| 含预填充合计吞吐 | 17.4610 tokens/s | 21.7489 tokens/s |
+| 全程最大已采样 NVML used | 30.1613 GiB | 30.8683 GiB |
+
+吞吐观测变化 **+24.557%**，两组配对 +25.218% / +23.897%。驱动另保留约 0.4839 GiB；本组最小观察 free 502.3 MiB。采样从加载前覆盖至退出之后，目标间隔20ms，可能遗漏更快瞬态；原始流 SHA、实际采样间隔及完整口径见[完成记录](2026-10-10-0644-b4-deployment.json)。
+
+![四轮显存和请求吞吐](2026-10-10-0644-b4-deployment.svg)
+
+原生是固定四请求一组，vLLM 是最多四个活动请求的队列补位；KV/mamba 预算1GiB，max-model-len1536。原生首次录图计入组时间，vLLM 启动录图在计时前，因此这是部署入口比较，不能解释成同一内核的纯加速。每个入口吞吐均按总有效输出 token / 总请求时间计算，**不是单个用户的 tokens/s**。同机另卡有训练；四类自编题重复换序，不代表长输入、HTTP 或持续并发服务。
+
+复刻分别运行 `run_requests_microbatch_lora_bmm.py --batch-size 4` 和 `run_vllm_requests_b4.py --decode-graph --max-model-len 1536 --kv-cache-mib 1024`，共用 `examples/shared-head-requests32.jsonl`，cap64；每轮新进程、新输出路径。测速关闭回放计数。
+
+分词、模型加载和 JSON 写入不计入请求时间，预填充与 CPU 输出收集计入。不同实验的加速百分比不相加。
