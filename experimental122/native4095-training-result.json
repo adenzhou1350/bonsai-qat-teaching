@@ -55,7 +55,7 @@
   "single_5090_speed_verified_for_this_artifact": true,
   "portable_training_recipe_included": false,
   "weights_included": false,
-  "limits": "Training, export, independent numerical checks and prospective portable single5090 inference completed. Chinese/format46/48 versus native48/48 and CMMLU161/201 versus native163/201 fail fixed targets. GSM8K and HumanEval pending. Numerical agreement and speed do not establish capability acceptance. Complete raw-model portable122 training recipe and weights are not included.",
+  "limits": "Training, export, independent numerical checks and single5090 inference completed. Complete matched public panels all below native original: CN46/48 vs48/48, CMMLU161/201 vs163/201, GSM8K189/200 vs190/200, HumanEval134/164 vs135/164. Final queues closed under the existing development gate without reserved-data reads. No capability acceptance. Complete portable raw122 training recipe and weights not included.",
   "independent_numeric_checks": {
     "B300_reloaded_validation128": {
       "rows": 128,
@@ -87,24 +87,66 @@
     }
   },
   "public_development_evaluation": {
-    "observed_at_utc": "2026-10-09T11:42:17Z",
-    "cn_format": {
-      "completed": 48,
-      "passes": 46,
-      "fixed_acceptance_threshold": 48,
-      "accepted": false,
-      "summary_sha256": "407fb950a51068733f89bb51228b213dd2c37f92db42afee3187889eeb5c1630"
-    },
-    "other_panels": "GSM8K and HumanEval still running; partial scores omitted",
+    "observed_at_utc": "2026-10-09T11:53:52Z",
+    "complete_matched_public_summary_sha256": "4162f428bd10113eba6715883f4eb5315ccf31e7d30e8868a2f9ef884801a21e",
+    "panels": [
+      {
+        "mode": "cn",
+        "completed": 48,
+        "native_original_passes": 48,
+        "new_candidate_passes": 46,
+        "both_passed": 46,
+        "source_passes_lost": 2,
+        "new_passes": 0,
+        "both_failed": 0,
+        "unsupported_kept_in_denominator": 0,
+        "aggregate_noninferior": false,
+        "candidate_summary_sha256": "407fb950a51068733f89bb51228b213dd2c37f92db42afee3187889eeb5c1630"
+      },
+      {
+        "mode": "cmmlu",
+        "completed": 201,
+        "native_original_passes": 163,
+        "new_candidate_passes": 161,
+        "both_passed": 151,
+        "source_passes_lost": 12,
+        "new_passes": 10,
+        "both_failed": 28,
+        "unsupported_kept_in_denominator": 0,
+        "aggregate_noninferior": false,
+        "candidate_summary_sha256": "bde1400d14d70be582f6a0643b9a078395bd0bbd26b2a8223c2929803361f8ef"
+      },
+      {
+        "mode": "gsm8k",
+        "completed": 200,
+        "native_original_passes": 190,
+        "new_candidate_passes": 189,
+        "both_passed": 187,
+        "source_passes_lost": 3,
+        "new_passes": 2,
+        "both_failed": 8,
+        "unsupported_kept_in_denominator": 0,
+        "aggregate_noninferior": false,
+        "candidate_summary_sha256": "7c22d11ba1e969492d17dd2d73ef7f355e6b1e4965ff3ae8b1ee52f2a2afc9da"
+      },
+      {
+        "mode": "human",
+        "completed": 164,
+        "native_original_passes": 135,
+        "new_candidate_passes": 134,
+        "both_passed": 127,
+        "source_passes_lost": 8,
+        "new_passes": 7,
+        "both_failed": 22,
+        "unsupported_kept_in_denominator": 2,
+        "aggregate_noninferior": false,
+        "candidate_summary_sha256": "70fe26e86f5707390499741879ca9e4c0ade424a0a7d4df490f8b41654368b26"
+      }
+    ],
+    "all_four_aggregate_noninferior": false,
     "quality_accepted": false,
-    "cmmlu": {
-      "completed": 201,
-      "passes": 161,
-      "native_original_passes": 163,
-      "fixed_acceptance_threshold": 163,
-      "accepted": false,
-      "summary_sha256": "bde1400d14d70be582f6a0643b9a078395bd0bbd26b2a8223c2929803361f8ef"
-    }
+    "reserved_inputs_opened": false,
+    "limits": "Full public panels, original data/caps/EOS/graders and unsupported denominators preserved. Summary bookkeeping and candidate terminal identities audited; no new execution of generated code or independent model capability test here."
   },
   "portable_inference_verification": "native4095-verified-run.json"
 }

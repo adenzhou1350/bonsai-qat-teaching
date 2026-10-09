@@ -229,4 +229,4 @@ CUDA_VISIBLE_DEVICES=0,1 python train.py \
 
 [运行命令与限制](experimental122/README.md#新版-native4095仓库入口重新验证)、[本次实际记录](experimental122/native4095-verified-run.json)、[训练与独立数值检查](experimental122/native4095-training-result.json) 分别保存。`infer.py` 默认保留旧版，新版需指定 `--artifact-version native4095` 和对应 packed 权重目录。
 
-新版中文/格式 **46/48（原模型 48/48）**、CMMLU **161/201（原模型 163/201）**，仍未通过质量验收；GSM8K 和 HumanEval 继续评测。这里只收录已验证的推理代码与去除机器信息的记录，没有模型权重，也没有完整的 122B 原始模型训练入口。后续继续整理原始专家三值拟合、dense/embedding 4bit 校准、教师目标生成和补偿训练流程。
+新版四组公开评测全部完成：中文/格式 **46/48（原模型 48/48）**、CMMLU **161/201（163/201）**、GSM8K **189/200（190/200）**、HumanEval **134/164（135/164）**，均低于原模型，未通过质量验收。最终测试流程按既定条件关闭，没有读取保留测试数据。这里只收录已验证的推理代码与去除机器信息的记录，没有模型权重，也没有完整的 122B 原始模型训练入口。后续继续整理原始专家三值拟合、dense/embedding 4bit 校准、教师目标生成和补偿训练流程。
