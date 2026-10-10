@@ -746,3 +746,33 @@ python experimental122/compare_engine_outputs.py \
 ```
 
 同样比较groupedC和originalD。本次三组保存输出已用公开CPU比较器实际重放；该比较器不测显存、时间或质量。完整来源与采样统计见[四轮记录](../docs/experiments/2026-10-10-0921-long-input-ABBA.json)。
+
+## HTTP服务入口：完成短程验证
+
+在上述Linux环境和同一份native4095 packed产物上，仓库根目录运行以下命令。模型清单SHA必须匹配本页的指定产物；输出目录必须是新目录。默认监听本机127.0.0.1:8000，4路活动序列、256预填充批次token、1536上下文、896MiB缓存，无CPU权重卸载；请求建议沿用已测输入≤128、输出≤64的范围。
+
+```bash
+python experimental122/serve_vllm.py \
+  --model /path/to/native4095-packed --output http-original
+```
+
+另一个终端调用OpenAI兼容的流式聊天接口：
+
+```bash
+curl http://127.0.0.1:8000/v1/chat/completions \
+  -H 'Content-Type: application/json' \
+  -d '{"model":"bonsai-native122","messages":[{"role":"user","content":"你好，请简短介绍自己。"}],"temperature":0,"max_tokens":64,"stream":true}'
+```
+
+可选分组预填充：停掉前一个服务、确认显卡空闲后，指定新输出目录运行：
+
+```bash
+python experimental122/serve_vllm.py \
+  --model /path/to/native4095-packed --output http-grouped --grouped-prefill
+```
+
+服务通过随仓库提供的进程内插件注册自定义模型，主进程和spawn引擎工作进程均核验68份源码，不修改共享site-packages。启动时写入 `HTTP-source-policy.json`，模型加载生成 `weight-proof.json`；可与[HTTP来源清单](vllm-http-provenance.json)核对。默认shutdown timeout为30秒。
+
+实际测试分别启动两个新服务，每个8条短请求、4个客户端线程，16次HTTP200/DONE、940输出ID与已有量化CLI完全相同，361保留张量一致；合计观察21.16/23.38输出tokens/s、最大已采样used30.636GiB、最少free740.3125MiB，驱动reserved另0.484GiB。所有请求完成后SIGTERM，两次drain退出0且无此前abort退出警告。没有测试请求进行中的drain，也没有持续压测；上述吞吐是短程观察，分组BF16预填充在其他题目仍可能改变输出。完整记录见[实际GPU验证](../docs/experiments/2026-10-10-1025-public-HTTP.json)。
+
+此入口要求已有指定packed权重；仓库不含权重，原始模型到可移植训练产物的完整链路仍未完成。

@@ -709,3 +709,9 @@ python experimental122/compare_engine_outputs.py \
 所有请求完成后主动SIGTERM停服，两个服务均退出0、GPU和所属进程组已释放；两个服务的abort退出均记录信号量清理警告，原预填充服务另记录EngineDeadError。保留这些日志事实，优雅停服与持续服务仍待验证。首次尝试因NVML v1把驱动reserved计入idle阈值，在创建服务前退出；改为v2分列used/reserved后，用全新目录完成上述测试。
 
 HTTP引导和客户端压测脚本尚未整理为公开便携入口，此节点记录已经完成的实际服务验证；现有公开CLI可复刻模型推理，不等同于可直接复刻全部HTTP流程。见[完整记录、来源和限制](2026-10-10-0951-HTTP-smoke.json)。
+
+## 公开 HTTP 入口与请求完成后停服：完成
+
+后续用仓库内 `experimental122/serve_vllm.py` 和独立插件，在单张5090分别启动原预填充/分组预填充服务。68份公开源码与实际测试逐字节一致。16次SSE、940输出ID和361保留张量全部核验；11,932条原始NVML采样及完整SSE下载复算。8请求客户端墙钟22.209/20.100秒，合计21.16/23.38输出tokens/s，峰值30.636GiB，最少剩余740.3125MiB，驱动reserved另0.484GiB。这是短程服务检查，不据此新增正式提速结论。
+
+把默认shutdown timeout从0改为30秒，实际日志确认drain；所有请求完成后SIGTERM，两次退出0、释放GPU，没有观察到EngineDeadError或信号量泄漏警告。请求进行中的drain、持续服务和代表性p95/p99仍待验证。前一版abort退出警告的历史记录保留。运行命令见[公开入口说明](../../experimental122/README.md#http服务入口完成短程验证)，证据见[本轮记录](2026-10-10-1025-public-HTTP.json)。
