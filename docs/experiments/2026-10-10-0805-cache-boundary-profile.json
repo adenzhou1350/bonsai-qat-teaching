@@ -1,0 +1,217 @@
+{
+  "status": "completed_negative_cache_boundary_and_completed_diagnostic_profiles",
+  "observed_at_UTC": "2026-10-10T00:05:16.482748+00:00",
+  "artifact_manifest_sha256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "model": "Qwen3.5-122B-A10B",
+  "hardware": "one RTX 5090",
+  "public_default_cache_MiB": 896,
+  "public_entry_sha256": "3292ae826869e98db28b0e931315ce2b33fb51b6369a1a3070cdb1247ca92d97",
+  "cache768": {
+    "experiment_passed": false,
+    "terminal_exit_code": 1,
+    "source66_unchanged": true,
+    "eager32_short_requests_completed": true,
+    "all1880_eager_output_IDs_equal_original": false,
+    "output_comparison": {
+      "outputs_exact": false,
+      "differences": [
+        {
+          "index": 12,
+          "first_diff": 43,
+          "actual_count": 64,
+          "reference_count": 64
+        },
+        {
+          "index": 21,
+          "first_diff": 43,
+          "actual_count": 64,
+          "reference_count": 64
+        }
+      ]
+    },
+    "graph_test_not_run": true,
+    "actual_KV_tokens": 5760,
+    "maximum_full1536_concurrency": 3.75,
+    "required_four_full_sequences_not_met": true,
+    "summary_exists": false,
+    "lease_sha256": "a16971c0718c7ac92dc4c3ba7f95354059e024982b6e5d6b9621b39b46df40e0",
+    "eager_result_sha256": "d8cb02c1ac8c5d4a6c588acf07c8f8082fdd6da01be1648fa323291294689f9e",
+    "all361_retained_maps_locally_recompared": true,
+    "local_complete_ID_recomparison": {
+      "mode": "eager",
+      "matching_original_requests": 30,
+      "differing_indices": [
+        12,
+        21
+      ],
+      "tokens": 1880,
+      "instrumented_request_seconds": 162.5765932155773,
+      "result_sha256": "d8cb02c1ac8c5d4a6c588acf07c8f8082fdd6da01be1648fa323291294689f9e"
+    },
+    "note": "The eager control terminated on an assertion before graph mode. Actual logs independently show capacity3.75, and full IDs independently differ for two rows. Neither a passing four-full-sequence configuration nor a throughput comparison."
+  },
+  "profiles": [
+    {
+      "summary_sha256": "7e1899544b0e098f51c691c57c0a48edad6c34aea0405371628871e6ee78137d",
+      "lease_sha256": "7c34610cc6af4037392d8cd9411017d3a65b9dbe7ddb437950afe8ab0a696cd1",
+      "profile_summary_sha256": "4f8acf17c7937bcbaa91156b5239b8830f6ab730d8d2877aaa5ab432b0e134da",
+      "actual_trace_sha256": "c2b1021e10042ea3b0b4062a9105fdd77503faf93eee46b8dbdfe0b9c4cc9836",
+      "actual_trace_bytes": 1101656512,
+      "streamed_trace_events": 4277108,
+      "independent_trace_kernel_events": 347185,
+      "independent_sum_kernel_duration_us": 1714756.4829999367,
+      "all32_prefix_output_IDs_equal": true,
+      "all361_retained_maps_exact": true,
+      "actual_graph_replays": 7,
+      "all_kernel_counts_and_durations_independently_recomputed": true,
+      "limits": "Four requests cap8; diagnostic includes prefill and decode and profiler overhead. Summed CUDA event duration is not wall time or throughput, and does not by itself isolate decode bottlenecks. No new quality/long-input/service claim.",
+      "diagnostic_instrumented_request_seconds": 227.75957331620157,
+      "Python_CPU_function_event_tree_materialized": true,
+      "top10_kernels": [
+        {
+          "name": "_decode",
+          "calls": 43198,
+          "CUDA_duration_us": 509424.32499997853,
+          "fraction_of_summed_kernel_duration": 0.29708260621866817
+        },
+        {
+          "name": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 44408,
+          "CUDA_duration_us": 349822.1769999909,
+          "fraction_of_summed_kernel_duration": 0.2040069132078644
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x1_tn_align8::Params)",
+          "calls": 43895,
+          "CUDA_duration_us": 301521.13399999845,
+          "fraction_of_summed_kernel_duration": 0.1758390401140181
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x2_tn_align8::Params)",
+          "calls": 21944,
+          "CUDA_duration_us": 191608.02899999253,
+          "fraction_of_summed_kernel_duration": 0.11174066457808493
+        },
+        {
+          "name": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 21464,
+          "CUDA_duration_us": 96163.24199999984,
+          "fraction_of_summed_kernel_duration": 0.056079824134423986
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul>)",
+          "calls": 38525,
+          "CUDA_duration_us": 34808.22199999536,
+          "fraction_of_summed_kernel_duration": 0.020299221694207552
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>)",
+          "calls": 38141,
+          "CUDA_duration_us": 31302.9509999853,
+          "fraction_of_summed_kernel_duration": 0.018255041640210818
+        },
+        {
+          "name": "std::enable_if<true, void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, true, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 14664,
+          "CUDA_duration_us": 26362.085999996372,
+          "fraction_of_summed_kernel_duration": 0.015373661660620382
+        },
+        {
+          "name": "void at::native::index_elementwise_kernel<128, 4, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1}>(long, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1})",
+          "calls": 7332,
+          "CUDA_duration_us": 21510.281999999817,
+          "fraction_of_summed_kernel_duration": 0.012544219668070858
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+          "calls": 13996,
+          "CUDA_duration_us": 16488.392999999,
+          "fraction_of_summed_kernel_duration": 0.009615588664317422
+        }
+      ]
+    },
+    {
+      "summary_sha256": "7195ee0cb03e0599bf48ac2e9613fced49de53210a13bdbd42365af8bd594cce",
+      "lease_sha256": "e99afc491dbc857fbe1e9147b157964c09cf7fdb50ab8c887c789275e727bce4",
+      "profile_summary_sha256": "fa36712de3f9ef14d66dae54e7e383d112217cdcf40c7fba2c78263de7f0af07",
+      "actual_trace_sha256": "d9593e9108e0135ff118425a7e3d0f839348287eeef902ca92a8a7f8b58640b5",
+      "actual_trace_bytes": 1101657358,
+      "streamed_trace_events": 4277108,
+      "independent_trace_kernel_events": 347185,
+      "independent_sum_kernel_duration_us": 1714750.8289999394,
+      "all32_prefix_output_IDs_equal": true,
+      "all361_retained_maps_exact": true,
+      "actual_graph_replays": 7,
+      "all_kernel_counts_and_durations_independently_recomputed": true,
+      "limits": "Four requests cap8; diagnostic includes prefill and decode and profiler overhead. Summed CUDA event duration is not wall time or throughput, and does not by itself isolate decode bottlenecks. No new quality/long-input/service claim.",
+      "diagnostic_instrumented_request_seconds": 65.36165448464453,
+      "Python_CPU_function_event_tree_materialized": false,
+      "top10_kernels": [
+        {
+          "name": "_decode",
+          "calls": 43198,
+          "CUDA_duration_us": 509405.33899997856,
+          "fraction_of_summed_kernel_duration": 0.29707251361824333
+        },
+        {
+          "name": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 6, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 44408,
+          "CUDA_duration_us": 349753.46899999166,
+          "fraction_of_summed_kernel_duration": 0.20396751707883504
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x1_tn_align8>(cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x1_tn_align8::Params)",
+          "calls": 43895,
+          "CUDA_duration_us": 301221.6700000012,
+          "fraction_of_summed_kernel_duration": 0.17566497995261318
+        },
+        {
+          "name": "void cutlass::Kernel2<cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x2_tn_align8>(cutlass_80_wmma_tensorop_bf16_s161616gemm_bf16_16x16_128x2_tn_align8::Params)",
+          "calls": 21944,
+          "CUDA_duration_us": 191633.78399999198,
+          "fraction_of_summed_kernel_duration": 0.11175605269236394
+        },
+        {
+          "name": "std::enable_if<!(false), void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, false, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 21464,
+          "CUDA_duration_us": 96198.13699999933,
+          "fraction_of_summed_kernel_duration": 0.056100358940256695
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul> >(int, at::native::CUDAFunctor_add<c10::BFloat16>, std::array<char*, 3ul>)",
+          "calls": 38525,
+          "CUDA_duration_us": 34826.07199999586,
+          "fraction_of_summed_kernel_duration": 0.020309698301943256
+        },
+        {
+          "name": "void at::native::vectorized_elementwise_kernel<4, at::native::AUnaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul> >(int, at::native::AUnaryFunctor<c10::BFloat16, c10::BFloat16, c10::BFloat16, at::native::binary_internal::MulFunctor<float> >, std::array<char*, 2ul>)",
+          "calls": 38141,
+          "CUDA_duration_us": 31291.40499998505,
+          "fraction_of_summed_kernel_duration": 0.018248368492251744
+        },
+        {
+          "name": "std::enable_if<true, void>::type internal::gemvx::kernel<int, int, __nv_bfloat16, __nv_bfloat16, __nv_bfloat16, float, true, true, true, false, 7, false, cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float> >(cublasGemvParamsEx<int, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16 const>, cublasGemvTensorStridedBatched<__nv_bfloat16>, float>)",
+          "calls": 14664,
+          "CUDA_duration_us": 26420.475999996383,
+          "fraction_of_summed_kernel_duration": 0.015407763946325124
+        },
+        {
+          "name": "void at::native::index_elementwise_kernel<128, 4, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1}>(long, at::native::gpu_index_kernel<at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1}>(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>, at::native::index_kernel_impl<at::native::OpaqueType<2> >(at::TensorIteratorBase&, c10::ArrayRef<long>, c10::ArrayRef<long>)::{lambda(char*, char const*, long)#1} const&, bool)::{lambda(int)#1})",
+          "calls": 7332,
+          "CUDA_duration_us": 21515.528999999835,
+          "fraction_of_summed_kernel_duration": 0.012547320949567883
+        },
+        {
+          "name": "void at::native::vectorized_gather_kernel<16, long>(char*, char*, long*, int, long, long, long, long, bool)",
+          "calls": 13996,
+          "CUDA_duration_us": 16498.870999999017,
+          "fraction_of_summed_kernel_duration": 0.009621730878311533
+        }
+      ]
+    }
+  ],
+  "raw_trace_JSON_not_added_to_repository": true,
+  "profile_overhead_reduction_is_not_model_inference_speedup": true,
+  "no_quality_long_input_HTTP_or_sustained_service_claim": true,
+  "public_runtime_and_historical_provenance_unchanged": true
+}

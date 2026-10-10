@@ -565,3 +565,15 @@ python experimental122/compare_engine_outputs.py --baseline combined-eager/resul
 复刻用同一个`run_vllm_requests_b4_window.py`与公开`examples/shared-head-requests32.jsonl`，共同参数`--decode-graph --max-model-len 1536 --max-new-tokens 64`，分别显式传`--kv-cache-mib 1024`和`--kv-cache-mib 896`，按A/B/B/A各开全新进程及输出目录。测速关闭图回放计数，先用`compare_engine_outputs.py`核对完整输出。缓存减小会降低可容纳的最大请求数；这组只验证现有4活动短请求范围。
 
 请求时间包含预填充、队列补入和CPU输出收集；分词、加载及JSON写入不计入。目标20ms采样从启动前覆盖至退出后，可能遗漏更快瞬态。无HTTP、长输入、持续服务或新质量结论；不同实验的收益不相加。完整SHA、实际采样间隔及口径见[完成记录](../docs/experiments/2026-10-10-0740-cache896-deployment.json)。
+
+## 缓存边界与CUDA轨迹：完成，保留负结果
+
+继续缩小同一个B4组合入口的缓存到768MiB，eager模式完成32个短请求、共1,880个输出token，但完整核对发现第12、21条（索引从0开始）在第44个生成token开始与原部署不同。32条中30条完整一致，361个保留张量哈希仍一致。控制进程断言失败并以1退出，未继续运行Graph。引擎实际报告5,760个缓存token，按1536长度为3.75并发，也未达到4个完整序列的要求。**默认保持896MiB**。未将这组标为通过或用于吞吐结论。
+
+两次独立CUDA诊断均已完成并释放进程：同4个短请求、cap8，32个输出ID与原部署一致。逐事件流式重算各自约1.1GB原始轨迹，均有4,277,108个事件，其中347,185个CUDA kernel事件；事件数及每个kernel的次数、时长与报告一致。第二次先导出Kineto轨迹，再流式汇总kernel，避开Python侧CPU事件树构建。它减少的是诊断开销，**不能当成推理吞吐提速**。
+
+诊断中`_decode`约占累加kernel时长的29.7%，此外有大量小GEMV/GEMM。不同解包实现会使用相同`_decode`名称，不能仅凭名字归因到某一种量化kernel。该轨迹混合了预填充与解码，累加kernel时长也不等于请求墙钟时间；这些结果用于选择后续优化方向。
+
+复刻缓存边界实验时，以已验证组合入口为对照，仅在独立副本中把缓存参数的最低预算放宽到768MiB，并显式传`--kv-cache-mib 768`；其余使用相同的32请求fixture、maxlen1536、maxseq4、cap64。保留容量日志，完整比较每条输出ID/EOS，不能只检查进程是否返回文本。不要将768MiB写成支持4个完整1536-token序列的配置。
+
+完整哈希、两个差异位置、轨迹计数及kernel排序见[完成记录](../docs/experiments/2026-10-10-0805-cache-boundary-profile.json)。巨大原始轨迹及机器日志未上传；无新的质量、长输入、HTTP或持续服务结论。
