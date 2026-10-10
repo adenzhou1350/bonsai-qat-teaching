@@ -778,3 +778,5 @@ python experimental122/serve_vllm.py \
 此入口要求已有指定packed权重；仓库不含权重，原始模型到可移植训练产物的完整链路仍未完成。
 
 后续较长HTTP队列出现了新的边界：原版服务热身8条后，正式64条中2条中文docstring输出与旧CLI不同；服务未崩溃，精确输出检查停止了原定ABBA。持续服务的输出一致性仍需诊断，见[保留的失败记录](../docs/experiments/2026-10-10-1037-HTTP-warm-queue-failure.json)。
+
+新增[top2与输出层绑定诊断](../docs/experiments/2026-10-10-1118-HTTP-top2-and-head-binding.json)：记录概率并列、官方GDN不兼容及私有精度候选的绑定覆盖问题；默认公开部署保持原样，尚未宣称持续服务输出完全一致。

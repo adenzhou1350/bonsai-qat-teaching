@@ -1,0 +1,547 @@
+{
+  "status": "completed_diagnostics_not_deployment_fix_acceptance",
+  "model": "Qwen3.5-122B-A10B",
+  "artifact_manifest_SHA256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "original_native": {
+    "source77_SHA256": "51bac4d46a75adbcb227f3f820298b809696d4ad67615829dcb2c2da3506d1e0",
+    "SSE_streams_locally_reparsed": 72,
+    "NVML_samples_locally_recounted": 19713,
+    "engines": [
+      {
+        "engine": "native",
+        "official_batch_invariant_enabled": false,
+        "actual_server_exit_code": 0,
+        "phases": [
+          {
+            "phase": "warmup",
+            "requests": 8,
+            "CLI_exact_ID_requests": 8,
+            "mismatches": [],
+            "requests_SHA256": "bad84fd591ebd491f11cca63ba7cfba6fbb0f3e75fc68fd056116f56755966f2"
+          },
+          {
+            "phase": "measured",
+            "requests": 64,
+            "CLI_exact_ID_requests": 63,
+            "mismatches": [
+              {
+                "request_index": 21,
+                "prompt_index": 5,
+                "first_divergence_position": 43,
+                "actual_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 包含整数的列表\n    \n    返回:\n        list: 去重且升序排列的",
+                "CLI_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 整数列表\n    \n    返回:\n        list: 去重且升序排列的整数列表",
+                "first_different_token_logprob": {
+                  "token": "包含",
+                  "logprob": -0.7200347781181335,
+                  "bytes": [
+                    229,
+                    140,
+                    133,
+                    229,
+                    144,
+                    171
+                  ],
+                  "top_logprobs": [
+                    {
+                      "token": "包含",
+                      "logprob": -0.7200347781181335,
+                      "bytes": [
+                        229,
+                        140,
+                        133,
+                        229,
+                        144,
+                        171
+                      ]
+                    },
+                    {
+                      "token": "整数",
+                      "logprob": -0.7200347781181335,
+                      "bytes": [
+                        230,
+                        149,
+                        180,
+                        230,
+                        149,
+                        176
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "requests_SHA256": "ed02fd5232bf43657a0d41067915e78736c55c07d1ce40067ac75d10aff89a0c"
+          }
+        ],
+        "repeat_variants": [
+          {
+            "prompt_index": 0,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 1,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 2,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": [
+              0.125,
+              0.25
+            ],
+            "position43_actual_token_variants": [
+              "整数"
+            ]
+          },
+          {
+            "prompt_index": 3,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 4,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 5,
+            "requests": 9,
+            "distinct_full_outputs": 2,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": [
+              0.0,
+              0.25
+            ],
+            "position43_actual_token_variants": [
+              "包含",
+              "整数"
+            ]
+          },
+          {
+            "prompt_index": 6,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 7,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          }
+        ],
+        "server_log_SHA256": "7fc70b5747338770a597d43aced90155eb3ed0bd3f739b33fb20298ad3c2d302",
+        "client_wall_seconds_with_logprob_collection": 182.04318035393953,
+        "observed_TPS_with_logprobs_not_performance_comparison": 20.654440296470195,
+        "drain_and_application_shutdown_complete": true,
+        "batchInvariant_GDN_unsupported": false,
+        "loaded_weight_proof_SHA256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+        "NVML": {
+          "samples": 15086,
+          "raw_sha256": "8e34a87a630a043adb576f20e46d3b36239d80a1e67a80fee64cfb50c440d8a2",
+          "maximum_observed_used_bytes": 32895139840,
+          "minimum_observed_free_bytes": 776208384,
+          "driver_reserved_bytes_min": 519569408,
+          "driver_reserved_bytes_max": 519569408
+        }
+      },
+      {
+        "engine": "batchInvariant",
+        "official_batch_invariant_enabled": true,
+        "actual_server_exit_code": 1,
+        "phases": [],
+        "repeat_variants": [
+          {
+            "prompt_index": 0,
+            "requests": 0,
+            "distinct_full_outputs": 0,
+            "same_full_input_IDs": false,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 1,
+            "requests": 0,
+            "distinct_full_outputs": 0,
+            "same_full_input_IDs": false,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 2,
+            "requests": 0,
+            "distinct_full_outputs": 0,
+            "same_full_input_IDs": false,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 3,
+            "requests": 0,
+            "distinct_full_outputs": 0,
+            "same_full_input_IDs": false,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 4,
+            "requests": 0,
+            "distinct_full_outputs": 0,
+            "same_full_input_IDs": false,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 5,
+            "requests": 0,
+            "distinct_full_outputs": 0,
+            "same_full_input_IDs": false,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 6,
+            "requests": 0,
+            "distinct_full_outputs": 0,
+            "same_full_input_IDs": false,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 7,
+            "requests": 0,
+            "distinct_full_outputs": 0,
+            "same_full_input_IDs": false,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          }
+        ],
+        "server_log_SHA256": "4b2de1dbc66433f0aada85446defe058a29c4b3fed3354a5e138466b08c62474",
+        "client_wall_seconds_with_logprob_collection": null,
+        "observed_TPS_with_logprobs_not_performance_comparison": null,
+        "drain_and_application_shutdown_complete": false,
+        "batchInvariant_GDN_unsupported": true,
+        "loaded_weight_proof_SHA256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+        "NVML": {
+          "samples": 4627,
+          "raw_sha256": "37955d19921aefb56a2ca622b5e74d5fc22a8fb0e4dc822117eeca71ef181253",
+          "maximum_observed_used_bytes": 30894456832,
+          "minimum_observed_free_bytes": 2776891392,
+          "driver_reserved_bytes_min": 519569408,
+          "driver_reserved_bytes_max": 519569408
+        }
+      }
+    ]
+  },
+  "first_private_head_candidate": {
+    "source79_SHA256": "cc8a9701753b141dff064c72c57a1af693dc5753b339c35d7ec9abb0d7fd0f80",
+    "SSE_streams_locally_reparsed": 72,
+    "NVML_samples_locally_recounted": 14967,
+    "engines": [
+      {
+        "engine": "headFP32",
+        "official_batch_invariant_enabled": false,
+        "actual_server_exit_code": 0,
+        "phases": [
+          {
+            "phase": "warmup",
+            "requests": 8,
+            "CLI_exact_ID_requests": 8,
+            "mismatches": [],
+            "requests_SHA256": "766b9b35305de848c1654e431d61bb0234b858aab6383395d2bfc278b146f753"
+          },
+          {
+            "phase": "measured",
+            "requests": 64,
+            "CLI_exact_ID_requests": 61,
+            "mismatches": [
+              {
+                "request_index": 29,
+                "prompt_index": 5,
+                "first_divergence_position": 43,
+                "actual_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 包含整数的列表\n    \n    返回:\n        list: 去重且升序排列的",
+                "CLI_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 整数列表\n    \n    返回:\n        list: 去重且升序排列的整数列表",
+                "first_different_token_logprob": {
+                  "token": "包含",
+                  "logprob": -0.7216731905937195,
+                  "bytes": [
+                    229,
+                    140,
+                    133,
+                    229,
+                    144,
+                    171
+                  ],
+                  "top_logprobs": [
+                    {
+                      "token": "包含",
+                      "logprob": -0.7216731905937195,
+                      "bytes": [
+                        229,
+                        140,
+                        133,
+                        229,
+                        144,
+                        171
+                      ]
+                    },
+                    {
+                      "token": "整数",
+                      "logprob": -0.7216731905937195,
+                      "bytes": [
+                        230,
+                        149,
+                        180,
+                        230,
+                        149,
+                        176
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "request_index": 53,
+                "prompt_index": 5,
+                "first_divergence_position": 43,
+                "actual_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 包含整数的列表\n    \n    返回:\n        list: 去重且升序排列的",
+                "CLI_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 整数列表\n    \n    返回:\n        list: 去重且升序排列的整数列表",
+                "first_different_token_logprob": {
+                  "token": "包含",
+                  "logprob": -0.7198299169540405,
+                  "bytes": [
+                    229,
+                    140,
+                    133,
+                    229,
+                    144,
+                    171
+                  ],
+                  "top_logprobs": [
+                    {
+                      "token": "包含",
+                      "logprob": -0.7198299169540405,
+                      "bytes": [
+                        229,
+                        140,
+                        133,
+                        229,
+                        144,
+                        171
+                      ]
+                    },
+                    {
+                      "token": "整数",
+                      "logprob": -0.7198299169540405,
+                      "bytes": [
+                        230,
+                        149,
+                        180,
+                        230,
+                        149,
+                        176
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "request_index": 58,
+                "prompt_index": 2,
+                "first_divergence_position": 43,
+                "actual_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 包含整数的列表\n    \n    返回:\n        list: 去重且升序排列的",
+                "CLI_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 整数列表\n    \n    返回:\n        list: 去重且升序排列的整数列表",
+                "first_different_token_logprob": {
+                  "token": "包含",
+                  "logprob": -0.7198299169540405,
+                  "bytes": [
+                    229,
+                    140,
+                    133,
+                    229,
+                    144,
+                    171
+                  ],
+                  "top_logprobs": [
+                    {
+                      "token": "包含",
+                      "logprob": -0.7198299169540405,
+                      "bytes": [
+                        229,
+                        140,
+                        133,
+                        229,
+                        144,
+                        171
+                      ]
+                    },
+                    {
+                      "token": "整数",
+                      "logprob": -0.7198299169540405,
+                      "bytes": [
+                        230,
+                        149,
+                        180,
+                        230,
+                        149,
+                        176
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "requests_SHA256": "e184a7909aabafe1ba3c625a30772068b4fcc0e4f5446806a930aa2b4490ea01"
+          }
+        ],
+        "repeat_variants": [
+          {
+            "prompt_index": 0,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 1,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 2,
+            "requests": 9,
+            "distinct_full_outputs": 2,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": [
+              0.0,
+              0.25
+            ],
+            "position43_actual_token_variants": [
+              "包含",
+              "整数"
+            ]
+          },
+          {
+            "prompt_index": 3,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 4,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 5,
+            "requests": 9,
+            "distinct_full_outputs": 2,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": [
+              0.0,
+              0.25
+            ],
+            "position43_actual_token_variants": [
+              "包含",
+              "整数"
+            ]
+          },
+          {
+            "prompt_index": 6,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          },
+          {
+            "prompt_index": 7,
+            "requests": 9,
+            "distinct_full_outputs": 1,
+            "same_full_input_IDs": true,
+            "position43_top2_gap_range": null,
+            "position43_actual_token_variants": []
+          }
+        ],
+        "server_log_SHA256": "0c57de9cc86780cec497d4e1f183ac7619aa0760ac6f5350a8f8ec359abcdfcc",
+        "client_wall_seconds_with_logprob_collection": 180.12756230682135,
+        "observed_TPS_with_logprobs_not_performance_comparison": 20.874095845450803,
+        "drain_and_application_shutdown_complete": true,
+        "batchInvariant_GDN_unsupported": false,
+        "loaded_weight_proof_SHA256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+        "NVML": {
+          "samples": 14967,
+          "raw_sha256": "375797663f48bf73b64fe914eae62f33c73282fd51c77a1df9e06957795c634d",
+          "maximum_observed_used_bytes": 32895074304,
+          "minimum_observed_free_bytes": 776273920,
+          "driver_reserved_bytes_min": 519569408,
+          "driver_reserved_bytes_max": 519569408
+        }
+      }
+    ],
+    "standalone_full_head_GPU_math": {
+      "passed": true,
+      "actual_torch_version": "2.11.0+cu130",
+      "actual_full_head_output_elements": 993280,
+      "original_dtype": "bfloat16",
+      "candidate_dtype": "float32",
+      "same_packed_BF16_weights_inputs_chunk_size_and_decode": true,
+      "persistent_buffers_unchanged": true,
+      "no_persistent_full_precision_head_weight": true,
+      "FP32_reference_max_absolute_error_original": 0.014713287353515625,
+      "FP32_reference_max_absolute_error_candidate": 1.5497207641601562e-05,
+      "FP32_reference_RMSE_original": 0.001360236213658217,
+      "FP32_reference_RMSE_candidate": 1.9808811105372063e-06,
+      "same_input_max_absolute_output_difference_B1_B2_vs_B4": {
+        "1": 1.52587890625e-05,
+        "2": 0.0
+      },
+      "whole_model_batch_invariance_claimed": false,
+      "quality_accepted": false,
+      "reserved_inputs_opened": false
+    },
+    "actual_whole_engine_FP32_head_use_proven": false,
+    "binding_override_discovered": "The instance head installed by bind_vllm_small_decode in bonsai_native122_vllm_request_prefill_v1662.py uses BF16 outputs for 2-4 rows, bypassing the class-forward patch. Single-row calls can use the patched class function; whole-engine FP32 coverage was not established.",
+    "public_default_changed": false
+  },
+  "observations": [
+    "Native measured outputs match old CLI in63/64 requests; the variant differs at output position43 with exactly tied top2 logprobs. This is evidence for a sensitive tie, not a proof excluding other state or cache issues.",
+    "Official VLLM_BATCH_INVARIANT=1 loaded all361 retained tensors but failed during engine initialization because GDN_ATTN is unsupported. No HTTP request ran in this mode.",
+    "The first head candidate improved standalone numerical error but bypassed the actual2-4-row instance head. Its61/64 old-CLI equality cannot be treated as a whole-engine FP32 result.",
+    "Both completed request engines returned all72 HTTP200/DONE and drained normally; the batch-invariance startup failed and released its owned process group.",
+    "All source, raw SSE and NVML evidence is preserved locally. These diagnostics do not constitute a completed throughput ABBA or a stability fix."
+  ],
+  "official_reference": "https://docs.vllm.ai/en/latest/features/batch_invariance/",
+  "formal_throughput_improvement_claimed": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false
+}

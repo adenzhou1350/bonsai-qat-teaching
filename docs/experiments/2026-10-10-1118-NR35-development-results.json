@@ -1,0 +1,60 @@
+{
+  "status": "completed_cached_graph_HumanEval_CN_CMMLU_development_only",
+  "parent_recovery_updates": 8192,
+  "norm_router_only_optimizer_updates": 4096,
+  "norm_router_overlay_SHA256": "cb8bdd19f2250548ba40265e2eba504e873a2431e06bb75135822cc61a00a11f",
+  "selected_source87_SHA256": "549a0cc4c9bfc57789a9e1ae46133a38e4c0b636ca338b0c64842d07e740346f",
+  "completed_results": {
+    "cached": {
+      "summary_SHA256": "b5a12c88f03f80def36fc18b227498cf3e22fda9c01dcba48b5b298e3dca2766",
+      "terminal_SHA256": "59a7ce10f1568ee3727b0dc129a97cda3cf279f943fc3e6c150f7b9eb43afa79",
+      "whole_packed_vs_cuda_hard_nll_difference": 0.0007465909620805178,
+      "whole_nll_completed_blocks": 16,
+      "seconds": 1172.2371994517744
+    },
+    "graph": {
+      "summary_SHA256": "b5ae8527551aa8b2495158bef8fcdbf546aa56b27ecec2aa6d65d16f1dba0afe",
+      "terminal_SHA256": "de282202410d96f9e78e9da89be75e5c02147ef4cb270f3e9fd214f537601dfa",
+      "all_graph_static_equal": true
+    },
+    "human": {
+      "summary_SHA256": "2bcf946334c5a9fa0abca519e51e5e989136b58c320ab280edcdcb1bea95768c",
+      "terminal_SHA256": "2482a11a3e7b8764e3b230d569deefce06b5392fd31f549b1b11df6cf4c2544b",
+      "completed": 164,
+      "passes": 136,
+      "unsupported": 2,
+      "peak_allocated_bytes": 16197727232,
+      "seconds": 1002.2553401626647
+    },
+    "cn": {
+      "summary_SHA256": "ba08d9d520faa4d935b5ef8b321ba8d1c464039c440d143f56d35e6b4cf496ae",
+      "terminal_SHA256": "25d102feeb4570ef2887cb9f3f9895fccf20904401dfbd1a4c59a030ea503c9b",
+      "completed": 48,
+      "passes": 47,
+      "peak_allocated_bytes": 16018022912,
+      "seconds": 62.35767292045057
+    },
+    "cmmlu": {
+      "summary_SHA256": "6740810265803d3131f779c09e353f5bceba05a0454342bee2e76235cfc3516a",
+      "terminal_SHA256": "6a9088c575138edc0ce03b4fe86018aa94b203bbb519d376992ff7933abaa315",
+      "completed": 201,
+      "passes": 159,
+      "peak_allocated_bytes": 16032165376,
+      "seconds": 165.96437659393996
+    }
+  },
+  "cached_layer_checks": 640,
+  "cached_whole_model_blocks": 16,
+  "all_cached_checks_passed": true,
+  "all_completed_summaries_and_terminal_records_downloaded": true,
+  "case_counts_and_pass_counts_locally_recomputed": true,
+  "GSM200_complete_in_this_snapshot": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "limitations": [
+    "These are reused adaptive public development protocols, not a fresh final acceptance panel.",
+    "Cached validation compares packed and hard numerical execution; it does not establish original-model quality.",
+    "HumanEval uses the existing adapted whole-program greedy non-thinking protocol; two unsupported cases remain recorded.",
+    "Graph result includes five benchmark lengths and no sample prompt outputs; do not relabel it as a completed14-prompt generation panel."
+  ]
+}

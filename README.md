@@ -28,6 +28,8 @@
 
 后续热身后的64请求HTTP队列中，原版有2条输出措辞变化，精确ID检查停止了四轮对照；服务正常退出，原因仍在诊断。见[长队列失败记录](docs/experiments/2026-10-10-1037-HTTP-warm-queue-failure.json)。
 
+连续请求诊断已抓到输出分岔位置的top2概率并列；官方batch-invariance因GDN不支持而启动失败，第一次私有FP32修改又被实例绑定覆盖。结果及限制见[诊断记录](docs/experiments/2026-10-10-1118-HTTP-top2-and-head-binding.json)，默认部署代码未替换。NR35另外完成缓存/Graph和部分开发集检查，见[结果](docs/experiments/2026-10-10-1118-NR35-development-results.json)。
+
 ## 可以从这里学到什么
 
 | 你想回答的问题 | 对应的实现与材料 |
