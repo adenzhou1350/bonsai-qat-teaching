@@ -644,3 +644,49 @@ python experimental122/compare_engine_outputs.py \
 ```
 
 题目中的expected字段用于核对输出；推理入口只读取prompt。隔离准备脚本不会采样显存或代替资源调度。完整SHA、每条回答、实际分块布局与显存采样统计见[完成记录](2026-10-10-0854-chunked-context.json)。
+
+## 较长输入的32请求四轮吞吐对照：完成
+
+沿用前述隔离副本，在同一张5090、相同896MiB缓存、maxseq4/maxlen1536、cap32下，按原版A→分组B→分组C→原版D运行四个新进程。每轮把四条252/503/1020/1404-token检索题各重复8次，总输入25,432token、输出104token，全部EOS。不是32种独立题目。四轮416个输出ID及361保留张量全部一致，128次回答均正确；完整原始NVMLv2采样已下载复算。
+
+| 顺序 | 生成阶段秒 | 合计输入token/s | 合计输出token/s | 最大已采样used GiB | 生成中JIT警告数 |
+|---|---:|---:|---:|---:|---:|
+| originalA | 225.837 | 112.61 | 0.461 | 30.652 | 6 |
+| groupedB | 173.600 | 146.50 | 0.599 | 30.652 | 6 |
+| groupedC | 172.540 | 147.40 | 0.603 | 30.652 | 6 |
+| originalD | 219.425 | 115.90 | 0.474 | 30.652 | 6 |
+
+将两次原版/两次分组分别按总token÷总时间汇总，输入处理吞吐 **114.23 → 146.95 tokens/s**，观察变化 **+28.64%**；两对变化分别+30.09%、+27.17%。同一时间窗口里的输出吞吐为0.467/0.601tokens/s。输入很多、输出很少，主要反映预填充与请求补入；不能与短请求24输出tokens/s直接比较，也不是纯解码内核提速。
+
+计时包括预填充、队列补位和输出收集，排除加载、tokenization、JSON处理和启动录图；每轮都有三档启动图。没有额外warmup generate，生成中的JIT警告保留在表中，没有从时间扣除。固定顺序、共享宿主、四种重复提示词；没有HTTP、逐请求TTFT、持续服务或广泛质量结论。驱动reserved另约0.484GiB，采样间隔和最低free见原始记录。公开默认输入检查仍是128。
+
+复刻时使用前文相同已打包模型和Linux依赖；每轮使用新输出目录并保持同卡其他负载一致。隔离准备脚本生成的66个引擎及清单文件与本次实际实验完全相同：
+
+```bash
+python experimental122/prepare_context_probe.py --output long-abba-engine
+
+python long-abba-engine/experimental122/run_vllm_requests_b4_window.py \
+  --model /path/to/native4095-packed \
+  --requests experimental122/examples/chunked-context32.jsonl \
+  --output long-originalA --max-new-tokens 32 --kv-cache-mib 896 --decode-graph
+
+python long-abba-engine/experimental122/run_vllm_requests_b4_prefill.py \
+  --model /path/to/native4095-packed \
+  --requests experimental122/examples/chunked-context32.jsonl \
+  --output long-groupedB --max-new-tokens 32 --kv-cache-mib 896 --decode-graph
+
+python long-abba-engine/experimental122/run_vllm_requests_b4_prefill.py \
+  --model /path/to/native4095-packed \
+  --requests experimental122/examples/chunked-context32.jsonl \
+  --output long-groupedC --max-new-tokens 32 --kv-cache-mib 896 --decode-graph
+
+python long-abba-engine/experimental122/run_vllm_requests_b4_window.py \
+  --model /path/to/native4095-packed \
+  --requests experimental122/examples/chunked-context32.jsonl \
+  --output long-originalD --max-new-tokens 32 --kv-cache-mib 896 --decode-graph
+
+python experimental122/compare_engine_outputs.py \
+  --baseline long-originalA/result.json --candidate long-groupedB/result.json
+```
+
+同样比较groupedC和originalD。本次三组保存输出已用公开CPU比较器实际重放；该比较器不测显存、时间或质量。完整来源与采样统计见[四轮记录](2026-10-10-0921-long-input-ABBA.json)。

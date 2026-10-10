@@ -178,3 +178,5 @@ vLLM 适配新增可复刻的 dense/embedding GPU 检查：**691/691 组输出�
 分组预填充已补齐[独立启动入口和复刻完成证明](experimental122/vllm-prefill-block16-engine-evidence.json)：`run_vllm_requests_b4_prefill.py`沿用现有参数，eager32/Graph32的完整输出及保留张量与原量化部署一致，Graph实际回放499次。此前四轮性能记录测的是内联实现，包装入口的数值验证单独留证。
 
 另完成[252–1404 token输入的隔离分块检查](docs/experiments/2026-10-10-0854-chunked-context.json)：四条自编检索题，在原eager、原Graph和分组Graph分别运行，逐条答案、输出一致性及峰值显存单独记录；准备脚本可生成实际测试的源码副本。公开默认输入范围仍为128 token，未宣布长期服务或长上下文能力达标。
+
+[较长输入的四轮对照](docs/experiments/2026-10-10-0921-long-input-ABBA.json)也已完成：32条排队请求、每轮25,432输入token/104输出token，输入处理吞吐114.23→146.95token/s（+28.64%），416个完整输出ID相同。它测量输入较多、输出较少的预填充工作负载，不能与短输入24输出token/s当作同一指标。原始JIT警告和显存采样均保留，未证明HTTP或持续服务性能。
