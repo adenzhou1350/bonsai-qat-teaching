@@ -1,0 +1,283 @@
+{
+  "status": "completed_observational_HTTP_ABBA_not_exact_ID_acceptance",
+  "source77_SHA256": "e445df840f51ed661f3f32da34ef0bbfb00a214de01518142a639b90717e9d3a",
+  "summary_SHA256": "eb5a0730b4a35c9ef5ec9da2bf94aaa72cc162ac2094303e1e34aacca8b82ec5",
+  "lease_SHA256": "1aca896935a872bb23e05d0cbabb64d6b31d836b838595eb879a76caeb9b829e",
+  "model": "Qwen3.5-122B-A10B",
+  "artifact_manifest_SHA256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "public_HTTP_entry_SHA256": "c0ee15d7bf4f5755a3b34d67d5dee70333f5aadecdddf857cfbce32724a186ff",
+  "protocol": {
+    "order": [
+      "originalA",
+      "groupedB",
+      "groupedC",
+      "originalD"
+    ],
+    "fresh_servers": 4,
+    "warmup_per_server": 8,
+    "measured_per_server": 64,
+    "closed_loop_clients": 4,
+    "fixture_entries": 8,
+    "greedy": true,
+    "max_output_tokens": 64,
+    "max_model_len": 1536,
+    "KV_cache_MiB": 896,
+    "FP32_head_candidate_used": false,
+    "loading_graph_capture_explicit_warmup_excluded": true,
+    "HTTP_scheduling_prefill_decode_serialization_included": true
+  },
+  "runs": [
+    {
+      "mode": "original",
+      "round_name": "originalA",
+      "client_wall_seconds": 176.4021928757429,
+      "observed_output_tokens_per_second": 21.314927772176453,
+      "measured_requests": 64,
+      "output_tokens": 3760,
+      "input_tokens": 3344,
+      "old_CLI_exact_ID_count": 60,
+      "closed_loop_fixture_token_TTFT_seconds": {
+        "0.5": 2.9159375871531665,
+        "0.95": 5.688790038740259,
+        "0.99": 5.8609685814380645
+      },
+      "closed_loop_fixture_request_wall_seconds": {
+        "0.5": 10.899024077225477,
+        "0.95": 14.394263094710185,
+        "0.99": 14.949519015355035
+      },
+      "NVML_v2_profile": {
+        "samples": 14586,
+        "raw_sha256": "12d105e8e062e8e82b54d9c2914eddeb8b3211433b9fb343672bb3a8da30e198",
+        "maximum_observed_used_bytes": 32895074304,
+        "minimum_observed_free_bytes": 776273920,
+        "driver_reserved_bytes_min": 519569408,
+        "driver_reserved_bytes_max": 519569408
+      },
+      "requests_sha256": "fa2b8369cc6f8f228c6694f0996b0dc4e8b6a6795dec10fc8ddbe701a10aba12",
+      "warmup_requests_SHA256": "c3c50507331b33b76481fe8e9cf843ecea73c6b383707cb805a4ee3a74b25a42",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "server_log_SHA256": "5862b8102ddecd0947c3d991e866bc4719d8ddbaa3b698438a835b5d00eb49d0",
+      "actual_server_exit_code": 0,
+      "positive_shutdown_timeout_seconds": 30,
+      "all361_retained_maps_exact": true
+    },
+    {
+      "mode": "grouped",
+      "round_name": "groupedB",
+      "client_wall_seconds": 161.40248631406575,
+      "observed_output_tokens_per_second": 23.29579974798893,
+      "measured_requests": 64,
+      "output_tokens": 3760,
+      "input_tokens": 3344,
+      "old_CLI_exact_ID_count": 61,
+      "closed_loop_fixture_token_TTFT_seconds": {
+        "0.5": 2.5668669934384525,
+        "0.95": 4.657827933970834,
+        "0.99": 4.854921717904508
+      },
+      "closed_loop_fixture_request_wall_seconds": {
+        "0.5": 10.22274615895003,
+        "0.95": 13.279869771003723,
+        "0.99": 13.297004470592364
+      },
+      "NVML_v2_profile": {
+        "samples": 13814,
+        "raw_sha256": "30e6389689e498c8f2d2028bd9dc7b27d96a8e52ea458ef4fd2042f777110afb",
+        "maximum_observed_used_bytes": 32895074304,
+        "minimum_observed_free_bytes": 776273920,
+        "driver_reserved_bytes_min": 519569408,
+        "driver_reserved_bytes_max": 519569408
+      },
+      "requests_sha256": "004375841bf2605498503e31cf08b5ee6f715f9b812bd58fad57a20829e3e599",
+      "warmup_requests_SHA256": "784f751f83825b997612b2f63381bc75a64fb7a2ef6343ed5e33be99f2a45e7e",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "server_log_SHA256": "dc06e09ea36d83800c4915ce9f7cf718a0a8d8c6f37d00907dad499b2cb413e7",
+      "actual_server_exit_code": 0,
+      "positive_shutdown_timeout_seconds": 30,
+      "all361_retained_maps_exact": true
+    },
+    {
+      "mode": "grouped",
+      "round_name": "groupedC",
+      "client_wall_seconds": 161.27658537961543,
+      "observed_output_tokens_per_second": 23.313985667229073,
+      "measured_requests": 64,
+      "output_tokens": 3760,
+      "input_tokens": 3344,
+      "old_CLI_exact_ID_count": 63,
+      "closed_loop_fixture_token_TTFT_seconds": {
+        "0.5": 2.731244556605816,
+        "0.95": 4.656749285617841,
+        "0.99": 4.801937881801277
+      },
+      "closed_loop_fixture_request_wall_seconds": {
+        "0.5": 10.273225657176226,
+        "0.95": 13.240017512114719,
+        "0.99": 13.365954604800791
+      },
+      "NVML_v2_profile": {
+        "samples": 13746,
+        "raw_sha256": "18f69b394b63acbc30772dea671dc33a2909d5dca8c6cd0594aac3111d310225",
+        "maximum_observed_used_bytes": 32895074304,
+        "minimum_observed_free_bytes": 776273920,
+        "driver_reserved_bytes_min": 519569408,
+        "driver_reserved_bytes_max": 519569408
+      },
+      "requests_sha256": "587eed73c4e3b98a3170881bacda50bfa3c455ec99322c2b7c8dc3555d33a686",
+      "warmup_requests_SHA256": "4acfa34dbd228b75cd21bb5e8ee90a817340aaba2ff2b53977094f723ddbe85e",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "server_log_SHA256": "32ad8d2f7bb99df1254181a3a44348e9935a9c4f8ca8d3a8ca4e9a267cf13708",
+      "actual_server_exit_code": 0,
+      "positive_shutdown_timeout_seconds": 30,
+      "all361_retained_maps_exact": true
+    },
+    {
+      "mode": "original",
+      "round_name": "originalD",
+      "client_wall_seconds": 181.45656417589635,
+      "observed_output_tokens_per_second": 20.721212357769623,
+      "measured_requests": 64,
+      "output_tokens": 3760,
+      "input_tokens": 3344,
+      "old_CLI_exact_ID_count": 60,
+      "closed_loop_fixture_token_TTFT_seconds": {
+        "0.5": 3.1056667012162507,
+        "0.95": 5.901072453521188,
+        "0.99": 6.086073892777786
+      },
+      "closed_loop_fixture_request_wall_seconds": {
+        "0.5": 11.322095370385796,
+        "0.95": 14.691314661270008,
+        "0.99": 15.5166267574206
+      },
+      "NVML_v2_profile": {
+        "samples": 14890,
+        "raw_sha256": "b8f53a2fd5d7df0f53a1ca3096395cd78b6209b119d3c8c78746050084e42fa2",
+        "maximum_observed_used_bytes": 32895074304,
+        "minimum_observed_free_bytes": 776273920,
+        "driver_reserved_bytes_min": 519569408,
+        "driver_reserved_bytes_max": 519569408
+      },
+      "requests_sha256": "b61846739ee311299b014a298b9e26c71a953207841ff1958c5dec745c0e083f",
+      "warmup_requests_SHA256": "36b0a700b62e3b434d1d75140d2516240283f482826e6656c401106dd86079f1",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "server_log_SHA256": "3d173343127b93da15955957b32f28ace929aeebb48f14ae93a2ed579b9fd8e7",
+      "actual_server_exit_code": 0,
+      "positive_shutdown_timeout_seconds": 30,
+      "all361_retained_maps_exact": true
+    }
+  ],
+  "pooled_measured_output_tokens_per_second": {
+    "original": 21.01387726810569,
+    "grouped": 23.304889159773975
+  },
+  "observed_change_percent": 10.902375903496498,
+  "all288_HTTP_200_DONE": true,
+  "all288_SSE_independently_reparsed": true,
+  "all_repeat_full_input_IDs_equal": true,
+  "measured_output_IDs": 15040,
+  "all_output_IDs_including_warmup": 16920,
+  "NVML_rows_recounted": 57036,
+  "measured_requests_exact_to_old_CLI": 244,
+  "different_wording_requests": [
+    {
+      "round": "originalA",
+      "phase": "measured",
+      "request_index": 26,
+      "fixture_entry": 2,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "originalA",
+      "phase": "measured",
+      "request_index": 37,
+      "fixture_entry": 5,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "originalA",
+      "phase": "measured",
+      "request_index": 42,
+      "fixture_entry": 2,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "originalA",
+      "phase": "measured",
+      "request_index": 53,
+      "fixture_entry": 5,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "groupedB",
+      "phase": "measured",
+      "request_index": 18,
+      "fixture_entry": 2,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "groupedB",
+      "phase": "measured",
+      "request_index": 29,
+      "fixture_entry": 5,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "groupedB",
+      "phase": "measured",
+      "request_index": 42,
+      "fixture_entry": 2,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "groupedC",
+      "phase": "measured",
+      "request_index": 53,
+      "fixture_entry": 5,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "originalD",
+      "phase": "measured",
+      "request_index": 37,
+      "fixture_entry": 5,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "originalD",
+      "phase": "measured",
+      "request_index": 42,
+      "fixture_entry": 2,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "originalD",
+      "phase": "measured",
+      "request_index": 53,
+      "fixture_entry": 5,
+      "first_divergence_position": 43
+    },
+    {
+      "round": "originalD",
+      "phase": "measured",
+      "request_index": 58,
+      "fixture_entry": 2,
+      "first_divergence_position": 43
+    }
+  ],
+  "exact_ID_acceptance_claimed": false,
+  "all_servers_post_request_drain_exit0": true,
+  "maximum_observed_NVML_used_GiB": 30.63592529296875,
+  "minimum_observed_NVML_free_MiB": 740.3125,
+  "driver_reserved_GiB_separate": 0.48388671875,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "limitations": [
+    "Four fixed-order fresh servers with repeated short author-written fixture entries; not representative sustained service, production p95/p99, or a randomized benchmark.",
+    "12 of256 measured requests differ from the old CLI in Chinese code docstring wording starting at output position43; all streams and variants are retained. This is measured throughput, not numerical equivalence acceptance.",
+    "Do not add percentages from other experiments or interpret aggregate B4 output throughput as per-user decoding speed.",
+    "The public server command is available; the exact observational load generator, weights, and full evaluation pipeline are not distributed.",
+    "The earlier strict-ID failure is preserved; this separate protocol explicitly records variants without declaring that failed gate passed."
+  ]
+}

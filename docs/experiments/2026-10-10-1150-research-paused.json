@@ -1,0 +1,141 @@
+{
+  "status": "research_paused_at_user_request",
+  "stopped_at_UTC": "2026-10-10T03:48:06Z",
+  "reason": "Stop further training and marginal deployment optimization; preserve evidence and finish teaching documentation.",
+  "T35_full_expert_QAT": [
+    {
+      "source_policy_SHA256": "69f9513b853defc3be7160088f937ad0dd47d1bafc30471c9a235b7e1e4fb8a5",
+      "lease_SHA256": "1041051fa9285e6ceb6b6afd2407568897faab4ac1bb43c6bbf3fe53d483bd4e",
+      "progress_SHA256": "882798a7dc7659185da8ff51db9f758b4b1b7db50211aeffa9773762740cb3ee",
+      "TRAIN_file_SHA256": "33d85a92985771b7191bdc888cd263c1c2e09f8f0da3f05b3caee4ce54d92276",
+      "TRAIN_event_count_this_process": 2680,
+      "last_recorded_completed_step": 2680,
+      "progress_step_count": 2680,
+      "checkpoint_directories_preserved": [
+        {
+          "name": "checkpoint-000512",
+          "file_count": 82,
+          "file_bytes": 386547257631,
+          "published_manifest": true,
+          "manifest_SHA256": "d16c09a9aea0a2e02651e79502d8464a17b0b76ee6b04addfe86edb754e2ac9c",
+          "manifest_step": 512,
+          "manifest_bank_count": 80
+        },
+        {
+          "name": "checkpoint-001024",
+          "file_count": 82,
+          "file_bytes": 386547257632,
+          "published_manifest": true,
+          "manifest_SHA256": "ec5680039b1f85c87155c6da5da37c55be149973f020d125760abf258c409aae",
+          "manifest_step": 1024,
+          "manifest_bank_count": 80
+        },
+        {
+          "name": "checkpoint-001536",
+          "file_count": 82,
+          "file_bytes": 386547257632,
+          "published_manifest": true,
+          "manifest_SHA256": "deda2c1e519ed7de100a260f8366067ce5cbaa49ee90a72a93ea3cd8a9c0f960",
+          "manifest_step": 1536,
+          "manifest_bank_count": 80
+        },
+        {
+          "name": "checkpoint-002048",
+          "file_count": 82,
+          "file_bytes": 386547257632,
+          "published_manifest": true,
+          "manifest_SHA256": "5e122afab6460ee440a4bd158e58d00a52d3ba0f0fa84df3c6360d84b860c5ae",
+          "manifest_step": 2048,
+          "manifest_bank_count": 80
+        },
+        {
+          "name": "checkpoint-002560",
+          "file_count": 82,
+          "file_bytes": 386547257632,
+          "published_manifest": true,
+          "manifest_SHA256": "289d899117864d71edd0244c83d675865f773b2ba9913f521a78891c4eed3c5a",
+          "manifest_step": 2560,
+          "manifest_bank_count": 80
+        }
+      ],
+      "full4096_training_complete": false,
+      "checkpoint_files_not_rehashed_in_this_metadata_snapshot": true,
+      "complete_export_not_claimed": true,
+      "learning_rate": 0.0001,
+      "lease_released_after_intentional_interrupt": true,
+      "latest_preserved_checkpoint_step": 2560
+    },
+    {
+      "source_policy_SHA256": "bd797158bac5b838bce7d865bd8c5af1245f8c4c9fb53b0aea034437b4bb4f81",
+      "lease_SHA256": "a5380637940f76ebcd240b08626620c1605dcd70307162a19e22cb4dae6dfe8b",
+      "progress_SHA256": "23b711dbb74d56c5be9aa55233499c9fb41f53bdb4ce6f3008b8cfb63cb991ba",
+      "TRAIN_file_SHA256": "0509e850a0607575982dd0339fa4ca4a74157adb5de5c93e9e22ef608f83cf1f",
+      "TRAIN_event_count_this_process": 91,
+      "last_recorded_completed_step": 1115,
+      "progress_step_count": 1115,
+      "checkpoint_directories_preserved": [],
+      "full4096_training_complete": false,
+      "checkpoint_files_not_rehashed_in_this_metadata_snapshot": true,
+      "complete_export_not_claimed": true,
+      "learning_rate": 1e-05,
+      "lease_released_after_intentional_interrupt": true,
+      "latest_preserved_checkpoint_step": 1024,
+      "preserved_parent_checkpoint1024": {
+        "manifest_SHA256": "b25fa7c10c93a37772f935c4eac793fa608d0f0b06def996a1b5c25e766c32bc",
+        "file_count": 82,
+        "file_bytes": 386547257631
+      },
+      "full80_state_restore_proof": {
+        "restored_step": 1024,
+        "bank_count": 80,
+        "all_master_exp_avg_exp_avg_sq_hashes_exact": true,
+        "all_optimizer_scalar_steps_exact": true,
+        "CPU_and_all_CUDA_RNG_exact": true,
+        "optimizer_lr": 1e-05,
+        "checkpoint_manifest_sha256": "b25fa7c10c93a37772f935c4eac793fa608d0f0b06def996a1b5c25e766c32bc",
+        "exact_full_GPU_next_update_trajectory_claimed": false
+      },
+      "future_optimizer_trajectory_bitwise_equal_claimed": false
+    }
+  ],
+  "owned_GPU_jobs_stopped": 3,
+  "B300_cards_released": 4,
+  "RTX5090_cards_released": 1,
+  "all_project_CPU_waiters_stopped_on_both_hosts": true,
+  "all_own_GPU_process_groups_empty": true,
+  "foreign_work_untouched": true,
+  "checkpoint_and_raw_evidence_files_deleted": false,
+  "full4096_T35_training_complete": false,
+  "portable122_complete_training_chain": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "merged_FP32_head_optimization": {
+    "status": "intentionally_stopped_incomplete_ABBA",
+    "source79_SHA256": "f1607806f85dacf00983b91e958886ac627580dec5f7ef60879e3e72f9622eaf",
+    "progress_SHA256": "b3a0e19e7b4d44649bb8e1917326a0c6d03b53f9e02853670d274f887873bd10",
+    "lease_SHA256": "57177ddaa62ca60309d890cd5591b9cef331f2856645f0367b5eaab2bc6966b9",
+    "last_recorded_stage": "warmup_completed_mergedB",
+    "recorded_run_count": 2,
+    "completed_measured_rounds": [
+      {
+        "round_name": "perrowA",
+        "observed_output_tokens_per_second": 23.446420124398486,
+        "measured_requests": 64,
+        "output_tokens": 3760,
+        "actual_server_exit_code": 0
+      },
+      {
+        "round_name": "mergedB"
+      }
+    ],
+    "head_micro_SHA256": "d49201eda41a15a38eef88a1edbd1b969ba8e52b60acdac8222a658f74240279",
+    "pooled_ABBA_gain_claimed": false,
+    "candidate_not_adopted": true
+  },
+  "limits": [
+    "Final saved T35 checkpoint steps differ from last recorded optimizer updates:2680 observed/2560 saved and1115 observed/1024 saved. Unsaved updates are not recoverable from those checkpoints.",
+    "The new merged-head trial stopped during its second server. No four-round throughput gain or stability conclusion is claimed.",
+    "Historical dated running snapshots are retained as historical observations; this record supersedes their current status.",
+    "No additional GPU research or queued evaluations remain active. Resuming requires a new user request."
+  ]
+}

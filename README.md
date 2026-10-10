@@ -10,29 +10,42 @@
 
 这是 **Bonsai 风格的教学与研究实现**。35B 和 122B 都是 MoE，总参数与每 token 激活参数不同；当前尚未建立完整 Bonsai 配方复现或质量无损的结论。仓库公开代码与实验记录，不包含模型权重。
 
-当前单卡部署可从 [vLLM 实验入口](experimental122/README.md)开始：同一份已打包的 122B-A10B 权重，无 CPU 权重卸载，4 路活动请求、1536 总上下文、896 MiB 缓存预算。下表来自已完成的短输入四轮对照，输入最多128 token、输出上限64；吞吐是包含预填充的请求队列合计值。
+## 当前结果：122B MoE，单张 32GB RTX 5090
 
-| 当前部署测量 | 已验证结果 |
+已打包的 **Qwen3.5-122B-A10B** 文本模型已完成训练、导出、独立数值检查和单卡推理；这里的 122B 是总参数，每 token 激活约 10B。部署使用自定义三值/4bit 格式与 rank-8 补偿，全部文本权重驻留 GPU，无 CPU 权重卸载。
+
+| 短请求部署口径 | 已验证结果 |
 |---|---:|
 | 权重与持久缓冲区 CUDA 存储 | 28.10 GiB |
-| 运行全程最大已采样 NVML used | 30.64 GiB |
-| 驱动 reserved（另计） | 约 0.484 GiB |
-| 最少已观察剩余显存 | 740 MiB |
-| 原预填充 / 可选分组预填充的合计吞吐 | 21.72 / 24.00 tokens/s |
+| 全程已采样 NVML used 峰值 | 30.64 GiB |
+| 驱动 reserved，另计 | 约 0.484 GiB |
+| 最少已观察 free | 740 MiB |
+| HTTP 原预填充 → 可选分组预填充，4 路合计输出吞吐 | **21.01 → 23.30 tokens/s（+10.90%）** |
 
-分组预填充在该组中提升 **10.51%**，四轮7520个输出 ID 相同；另32种自编短请求两边完整输出一致、均通过31/32题，保留共同的严格JSON格式失败。默认保留原预填充，可选入口为 `run_vllm_requests_b4_prefill.py`。见[吞吐与显存原始记录](docs/experiments/2026-10-10-0816-prefill16-deployment.json)和[32种请求检查](docs/experiments/2026-10-10-0838-deployment-probes32.json)。这些结果不代表单路速度、长输入或持续服务能力。
+HTTP 四轮采用原版/分组/分组/原版，各启动新服务，先热身 8 条再测 64 条，4 个闭环客户端；1536 总上下文、896MiB 缓存、输入≤128 token、输出上限64。吞吐包含 HTTP、调度、预填充与解码，排除加载、启动录图和显式热身。**这是四路合计吞吐，不能当作每个用户的速度。**
 
-长输入另有已完成的四轮对照：32条请求重复四种自编检索题，输入252–1404 token、输出上限32，分组预填充的合计输入处理吞吐 **114.23 → 146.95 input tokens/s（+28.64%）**。全部416个输出 ID 与原量化入口相同；最大已采样 NVML used **30.65GiB**，驱动 reserved 另约0.484GiB，最少观察空闲 **724MiB**。这是包含预填充和短输出的整组计时，仍包含首次推理 JIT，不能当作解码速度；上下文窗口1536。见[长输入结果及可复刻请求](docs/experiments/2026-10-10-0921-long-input-ABBA.json)。
+288 条请求全部 HTTP200/DONE，全部 SSE 与 57,036 条显存采样已独立复算。正式请求中 **244/256 与旧 CLI 输出 ID 相同**；另 12 条在代码 docstring 的中文措辞上变化，均保留记录。该实验完成了吞吐测量，没有通过严格逐 token 一致性验收；见[四轮数据与限制](docs/experiments/2026-10-10-1145-HTTP-observed-ABBA.json)。当前证据不足以保证继续修改还能获得明显收益，本轮研究已暂停。
 
-公开 [HTTP 服务入口](experimental122/README.md#http服务入口完成短程验证)已在单张5090验证：两个新服务、16条请求、940个输出 ID 与量化 CLI 一致，4路客户端合计观察21.16/23.38tokens/s。运行峰值30.64GiB；所有请求完成后的 drain 停服正常，未观察到前一版退出警告。持续压测和请求进行中的停服仍待验证。见[完成记录](docs/experiments/2026-10-10-1025-public-HTTP.json)。
+另外两种口径单独保留：短请求 **CLI** 四轮为21.72→24.00输出 tokens/s，7,520个输出ID相同；较长输入252–1404 token的四轮为114.23→146.95 **input tokens/s**，测的是预填充较重的工作负载。这些数字不与 HTTP 收益相加，见[CLI 记录](docs/experiments/2026-10-10-0816-prefill16-deployment.json)和[输入吞吐记录](docs/experiments/2026-10-10-0921-long-input-ABBA.json)。上述显存余量很小，不能据此承诺更长上下文或更多并发。
 
-后续热身后的64请求HTTP队列中，原版有2条输出措辞变化，精确ID检查停止了四轮对照；服务正常退出，原因仍在诊断。见[长队列失败记录](docs/experiments/2026-10-10-1037-HTTP-warm-queue-failure.json)。
+## 有指定权重：启动 HTTP 服务
 
-连续请求诊断已抓到输出分岔位置的top2概率并列；官方batch-invariance因GDN不支持而启动失败，第一次私有FP32修改又被实例绑定覆盖。结果及限制见[诊断记录](docs/experiments/2026-10-10-1118-HTTP-top2-and-head-binding.json)，默认部署代码未替换。NR35另外完成缓存/Graph和部分开发集检查，见[结果](docs/experiments/2026-10-10-1118-NR35-development-results.json)。
+先按[推理环境说明](experimental122/README.md)准备 Linux、已测试的 Torch `2.11.0+cu130` / vLLM `0.24.0` 和 **native4095 指定 packed 产物**。仓库不附权重；原始 BF16 模型不能直接替代该目录。默认保留原预填充，`--grouped-prefill` 启用上表测过的可选优化。以下命令从仓库根目录运行，输出目录须不存在：
 
-随后修正输出层绑定的私有候选已完成[真实服务检查](docs/experiments/2026-10-10-1120-bound-FP32-head-completed.json)：1–4行GPU输出确认FP32，短样本72/72输出ID一致。该结果仍是诊断通过，尚未替换默认部署或证明长时间稳定。
+```bash
+CUDA_VISIBLE_DEVICES=0 python experimental122/serve_vllm.py \
+  --model /path/to/native4095-packed --output http-original
+```
 
-输出层精度实验现已提供[独立复现命令](experimental122/README.md#复现输出层fp32诊断)，可生成与实际GPU测试相同的源码，并记录服务内实际dtype；默认HTTP部署仍保持原配置。
+在另一终端调用默认的本机接口：
+
+```bash
+curl http://127.0.0.1:8000/v1/chat/completions \
+  -H 'Content-Type: application/json' \
+  -d '{"model":"bonsai-native122","messages":[{"role":"user","content":"用一句话解释量化。"}],"temperature":0,"max_tokens":64,"stream":true}'
+```
+
+服务在请求完成后的正常停服已验证；持续压测、请求进行中的停服和生产延迟分布尚未验收。输出层 FP32 的独立诊断提供[可执行复现命令](experimental122/README.md#复现输出层fp32诊断)，短样本72/72输出ID相同；它仍是可选实验，没有替换默认部署或获得完整吞吐对照结论。
 
 ## 可以从这里学到什么
 
@@ -75,57 +88,38 @@ CUDA_VISIBLE_DEVICES='' python test_equations.py
 
 ## 再选一条进阶路线
 
-| 路线 | 资源与输入 | 你可以做什么 | 入口 |
+| 路线 | 资源与输入 | 复刻范围 | 入口 |
 |---|---|---|---|
-| **35B 全专家 QAT** | Linux、2×B300、原始模型、本地文本 | 准备 tokens 和 BF16 教师，先两步控制，再训练、导出与恢复 | [训练指南](docs/REPRODUCING.md#35b全专家权重qat) |
-| **122B 固定产物推理** | Linux、32GB RTX 5090、指定版本的 packed 权重 | 运行单请求文本生成与固定 64-token Graph/静态对照 | [运行说明](experimental122/README.md) |
-| **122B 从原始模型复刻** | Linux CPU、原始 BF16 权重；后续教师与恢复另需资源 | 可重建校准数据并运行完整 CPU 低比特初始化；完整恢复链路仍在整理 | [数据课程](courses/122b/README.md) · [初始化课程](courses/122b/seed_cpu/README.md) · [已验证环节与缺口](docs/experiments/122B.md) |
+| **35B 全专家 QAT** | Linux、2×B300、原始模型、本地文本 | 准备 tokens/教师，运行控制、训练、导出与恢复；长程实验已暂停 | [训练指南](docs/REPRODUCING.md#35b全专家权重qat) |
+| **122B 固定产物推理** | Linux、32GB RTX 5090、指定 packed 权重 | 单请求、Graph/静态对照及 HTTP 服务 | [运行说明](experimental122/README.md) |
+| **122B 从原始模型复刻** | 原始 BF16 权重、大内存 Linux CPU；后续教师/恢复另需 GPU | 校准数据重建和完整 CPU 低比特初始化已验证；完整恢复链路未完成 | [数据课程](courses/122b/README.md) · [初始化课程](courses/122b/seed_cpu/README.md) |
 
-35B 的全专家 QAT 更新全部专家 FP32 主权重；122B 案例冻结低比特基座，只训练 rank-8 补偿。**它们是两条不同路线，训练成本与实验分数不能互换。**
+35B 更新全部专家 FP32 主权重；122B 案例冻结低比特基座，只训练 rank-8 补偿。两者训练成本和成绩不能互换；本仓库采用已验证的两张 B300 训练路线。
 
-35B 专家训练状态约 480GiB，两步控制实测峰值约 247.3/247.5GiB 每卡；完整优化器检查点约 360GiB/份。预留磁盘、环境与数据要求见训练指南。根目录 35B 导出不能直接传给 `experimental122/infer.py`。
+35B 专家训练状态约480GiB，两步控制实测每卡峰值约247.5GiB；完整优化器检查点约360GiB/份。磁盘、教师与主机内存要求见训练指南。根目录35B导出不能直接传给122B推理入口。
 
-## 已经做到了哪里
+## 实验状态与质量
 
-下表是 **2026-10-09 已提交记录**的摘要，进行中的实验以带时间的记录为准。
+截至 **2026-10-10**，已完成的实验保留为教学案例；新的部署优化、两组 B300 长程训练及其等待任务均已停止，显卡已释放、已有检查点保留。后续恢复需重新发起任务，见[暂停与检查点记录](docs/experiments/2026-10-10-1150-research-paused.json)。
 
-| 实验 | 已有证据 | 尚不能得出的结论 |
-|---|---|---|
-| **T35：35B 全专家 QAT** | 全 40 层两步控制、80 个专家梯度、完整检查点和导出核验通过 | 长程质量尚未完成；不能用补偿路线的成绩替代 |
-| **R35-8192：35B rank-16 补偿** | **训练、数值/推理检查及四组完整开发评测已完成**，逐题汇总审计完成，见下表 | CMMLU、GSM8K 低于原模型，质量未通过；保留测试关闭 |
-| **R122-native4095：122B rank-8 补偿** | 4096 步训练、独立数值检查、5090 五档推理对照完成 | 四组公开开发评测均低于对应 BF16 原模型，质量未通过 |
+| 实验 | 最终记录状态 |
+|---|---|
+| **T35：全专家 QAT** | 全40层两步控制通过；长程主线最后记录2680步、最新保存2560步；低学习率续训最后记录1115步、保存点1024步。两组均暂停，未完成4096步长程质量验收 |
+| **R35-8192：rank-16 补偿** | 8192步、数值/推理和四组开发评测完成；质量门槛未通过 |
+| **NR35：norm/router 恢复** | 4096步、导出、独立128条重载、缓存/Graph和四组开发评测全部完成；未证明整体质量改善 |
+| **R122-native4095：rank-8 补偿** | 4096步、导出、独立数值、单卡推理及四组开发评测完成；四组分数略低于对应 BF16 |
+| **P122：完整可移植训练链路** | 校准和初始化等环节已验证；原始模型到同一122B恢复产物的完整公开链路仍未完成，已暂停 |
 
-35B 的 8192 步产物已完成以下完整题集评测（2026-10-09 22:45 北京时间）：
+| 公开开发评测 | 35B rank-16 | 35B + norm/router | 对应35B BF16 | 122B native4095 | 对应122B BF16 |
+|---|---:|---:|---:|---:|---:|
+| HumanEval /164 | 141 | 136 | 129 | 134 | 135 |
+| 中文及格式 /48 | 48 | 47 | 30 | 46 | 48 |
+| CMMLU /201 | 158 | 159 | 161 | 161 | 163 |
+| GSM8K /200 | 190 | 189 | 192 | 189 | 190 |
 
-| 35B 公开开发评测 | 状态 | R35-8192 | 对应 BF16 | 总题数 |
-|---|---|---:|---:|---:|
-| HumanEval | 已完成 | 141 | 129 | 164 |
-| 中文及格式 | 已完成 | 48 | 30 | 48 |
-| CMMLU | 已完成，未达基线 | 158 | 161 | 201 |
-| GSM8K | 已完成，未达基线 | 190 | 192 | 200 |
+HumanEval 的不支持样本保留在分母内：35B rank-16为1个，norm/router和122B各2个；历史另一个35B原模型对照为133/164。各列沿用对应开发协议，不能跨模型大小排名。见[35B 完整评测](docs/experiments/2026-10-09-2245.json)、[norm/router 最终评测](docs/experiments/2026-10-10-1145-NR35-development-complete.json)及[122B 训练与评测](experimental122/native4095-training-result.json)。
 
-HumanEval 本轮 1 个不支持样本仍计入 164 分母，另一个历史原模型对照为 133/164。评分规则、EOS、生成上限和完整题集保持不变。**四组评测与逐题汇总均已完成，质量未通过**，见[22:45 完整评测记录](docs/experiments/2026-10-09-2245.json)。保留测试的四条等待流程均已因开发门槛未通过而关闭，没有读取保留题。
-
-122B 新版在 128/512/4K/8K/16K 上下文的已记录解码速度约 **19–29 tokens/s**，文本权重与缓冲全部驻留单张 RTX 5090，无 CPU 权重卸载。口径是每档一个样本、固定 64-token 解码，排除预填充与 Graph 录制；不代表端到端吞吐、并发服务或长上下文能力。
-
-部署优化另有完整 B4 A/B/B/A：只批量化 rank-8 修正，固定 32 请求的含预填充合计吞吐 **16.51 → 17.45 tokens/s（+5.67%）**，7,520 个保存输出 ID 独立核对一致。这个数字是四请求的合计吞吐，原始单请求入口保持不变；见[完成结果与计时限制](docs/experiments/2026-10-10-0401.json)。
-
-| 122B 公开开发评测 | native4095 | 对应 BF16 | 总题数 |
-|---|---:|---:|---:|
-| 中文及格式 | 46 | 48 | 48 |
-| CMMLU | 161 | 163 | 201 |
-| GSM8K | 189 | 190 | 200 |
-| HumanEval | 134 | 135 | 164 |
-
-两个不支持的 HumanEval 样本保留在 164 分母内。质量门槛未通过，保留测试保持关闭。模型权重、完整数据修订/采样清单及独立评分流水线尚未随仓库发布，因此目前不能仅凭 clone 重建 122B 产物或复制全部质量数字。
-
-项目使用者现已接受 122B 当前量化效果，后续优先优化部署性能，历史质量成绩继续保留。 同一 32 请求序列的最新完整 ABBA 中，原串行与优化 B4 的含预填充合计吞吐 **15.66 → 17.28 tokens/s（+10.36%）**；7,520 个保存 ID 相同，allocated 峰值约增加 0.93GiB。这是组合吞吐收益，单请求延迟和批处理准备分别报告，见[结果与复刻限制](docs/experiments/2026-10-10-0427.json)。新增[常驻请求入口](experimental122/README.md#常驻模型与跨请求-graph-复用)已通过独立新进程验证；短请求对照的首 token 中位数约 **6.06 → 1.52 秒**，包含准备的串行请求吞吐约 **10.21 → 18.99 tokens/s**，输出 token 全部相同。见[显存、计时范围与限制](docs/experiments/INFERENCE.md#122b部署优化与显存口径)。
-
-显存须区分权重与运行占用：122B 文本权重及缓冲 **28.10GiB**；最新九短请求全程 NVML v2 采样，原串行最大观察 used **29.181GiB**，优化 B4 **30.161GiB**，两者另列驱动 reserved **0.484GiB**，B4 当时 free **1.198GiB**。无 CPU 权重卸载；采样可能遗漏更快瞬态。这是短请求范围，见[实际样本核对与限制](docs/experiments/2026-10-10-0443-memory.json)。此前长短混合缓存整理候选最大观察 used 为 30.755GiB，free 618.3MiB，见[另一长输入实验](docs/experiments/2026-10-10-0105.json)。
-
-查看原始证据：[35B 记录](docs/experiments/35B.md) · [8192 步完成节点](docs/experiments/2026-10-09-2110.json) · [独立重载](docs/experiments/2026-10-09-2129.json) · [B300 缓存检查](docs/experiments/2026-10-09-2132.json) · [35B 5090 缓存与 Graph](docs/experiments/2026-10-09-2156.json) · [122B 训练与质量](experimental122/native4095-training-result.json) · [122B 5090 实测](experimental122/native4095-verified-run.json)
-
-[初始状态快照](docs/experiments/2026-10-09.json)与[后续完成节点](docs/experiments/README.md)保留每个时点的真实状态，旧快照不改写成后来的结果；机器地址、PID 和凭证不写入公开记录。
+项目使用者接受当前122B量化效果用于继续部署实验；原定严格质量门槛未通过的事实保留，保留测试未打开。权重、精确数据采样与独立评分流水线尚未全部发布，**仅 clone 仓库不能重建同一122B权重或复制全部分数**。目前可以复刻核心机制、已公开的数据/初始化环节，以及在取得指定权重后的推理流程。
 
 ## 代码阅读地图
 
@@ -141,7 +135,7 @@ experimental122/     固定 122B 产物的推理入口与 runtime
 docs/experiments/    按路线、权重身份、时间分开的实验记录
 ```
 
-三值编码为 1.6bit/权重，实际存储还包括尺度、padding、保留权重与缓存。方法说明解释这些数字怎样计算；[推理复盘](docs/experiments/INFERENCE.md)保留舍入、CUDA 后端、缓存与 Graph 的失败和修复；[代码身份清单](docs/reproducibility-manifest.json)用于核对已验证的实现。早期实验流水记录保存在[归档](docs/archive/2026-10-09-original-readme.md)。
+三值编码为 1.6bit/权重，实际存储还包括尺度、padding、保留权重与缓存。方法说明解释这些数字怎样计算；[推理复盘](docs/experiments/INFERENCE.md)保留舍入、CUDA 后端、缓存与 Graph 的失败和修复；[代码身份清单](docs/reproducibility-manifest.json)用于核对已验证的实现。早期训练记录保存在[原始归档](docs/archive/2026-10-09-original-readme.md)，按时间追加的部署进展移至[部署归档](docs/archive/2026-10-10-deployment-progress-readme.md)。当前状态见[实验索引](docs/experiments/README.md)；旧日期快照不改写。
 
 ## 一起完善这门课
 
@@ -155,40 +149,4 @@ docs/experiments/    按路线、权重身份、时间分开的实验记录
 
 A code-first learning repository for ternary quantization, straight-through gradients, knowledge distillation, checkpoint recovery, and compressed MoE inference. Start with small Linux CPU checks; explore full-expert QAT for Qwen3.5-35B-A3B on 2×B300 and a separate packed Qwen3.5-122B-A10B inference experiment on one 32GB RTX 5090.
 
-This is a Bonsai-style research implementation, not a complete Bonsai reproduction. Weights are not included, the end-to-end 122B training recipe is incomplete, and the current 122B candidate falls below its matched BF16 baseline on all four reported development panels. See the [method](docs/METHOD.md), [reproduction guide](docs/REPRODUCING.md), and [dated evidence](docs/experiments/README.md).
-
-122B 显存实测：文本张量常驻约 **28.10GiB**；默认短缓存的请求末整卡观察最大约 **29.75GiB**。固定 16K 容量、最长 14755-token 输入的混合请求已验证输出一致，但整卡观察最高约 **31.33GiB**，余量很小。见[显存与长短请求对照](docs/experiments/2026-10-09-2354.json)。新版缓存优化已完成并发布：短请求整卡观察约 **29.18GiB**，固定 16K 清理后约 **29.83GiB**，连续长请求的自适应版约 **30.03GiB**；预填充瞬时仍接近卡容量。三个独立进程、1245 个输出 token 全部与原量化路径一致，见[完成证据](docs/experiments/2026-10-10-0014.json)。
-
-新增完成节点：32 请求 ABBA 对照中，B4 + Graph 复用 + 共享输出头的整体总吞吐约 **15.75 → 16.30 tokens/s（+3.54%）**，全部 7520 个保存 ID 相同；这是组合收益，不是共享头独立归因，也不是单请求速度或服务压测。[运行与限制](experimental122/README.md#b4-共享输出头32-请求对照完成)。完整 469-bank seed 组装审计和[校准数据重建课程](courses/122b/README.md)也已完成，完整可移植恢复训练仍待执行。
-
-单张 5090 的显存口径：权重与持久缓冲区 CUDA 存储 **28.10GiB**，没有 CPU 权重卸载；当前 B4 的 PyTorch allocated 峰值 **29.36GiB**；最新短请求全程采样最大观察 used **30.16GiB**，见[独立显存采样](docs/experiments/2026-10-10-0443-memory.json)。另一个原版长输入实验（14,755 个输入 token）整卡 NVML used 采样峰值 **31.11GiB**，还有约 **0.48GiB** 驱动 reserved，32GiB 卡余量已很小。长输入结果不能当作当前 B4 的上下文支持证明。见[长输入显存证据](docs/experiments/2026-10-10-0105.json)与[B4 原始测量](docs/experiments/2026-10-10-0401.json)。
-
-精确三值查找表的串行四进程对照也已完成：固定 32 请求的含预填充吞吐 **15.68 → 15.92 tokens/s（+1.55%）**，7,520 个输出 ID 相同，额外表 512 字节。该收益单独测量，没有与 B4 的组合收益相加；默认入口保持原样。[可复刻命令与数值边界](experimental122/README.md#精确查找表解包数值与单请求吞吐对照完成)，[完整测速记录](docs/experiments/2026-10-10-0443-lut.json)。
-
-B4 上叠加查表的独立对照也已完成：同一固定请求集合计吞吐 **17.44 → 17.47 tokens/s（+0.21%）**，输出 ID 全一致；未证明稳定额外收益，默认入口保持不变。不同实验的加速百分比不能直接相加。[对照记录与复刻条件](docs/experiments/2026-10-10-0509-B4-lut.json)。
-
-vLLM 适配新增可复刻的 dense/embedding GPU 检查：**691/691 组输出逐位一致**。这是实际 vLLM 组件验证；完整引擎短请求已完成验证，部署吞吐对照继续。[验证入口与范围](experimental122/README.md#vllm-denseembedding-适配组件验证完成)。
-
-48 层 vLLM 专家与路由组件也已全部完成 GPU 对照：**288/288 组输出逐位一致**，[专家证据](experimental122/vllm-expert-component-evidence.json)。随后完整引擎短请求也已完成验证，见下。
-
-完整 vLLM 0.24.0 压缩模型加载、注意力/GDN 缓存和文本生成已在单卡 5090 跑通；教学 CLI 的 eager 与 decode 图模式共 **470 个输出 ID 与原生入口一致**。模型权重与 buffer 常驻 **28.22 GiB**，无 CPU offload；运行空间另计。图回放已确认，原生与 vLLM 的四轮短请求对照已完成，结果见下。[直接运行命令与范围](experimental122/README.md#vllm-完整引擎短请求与图回放验证完成)。
-
-原生与完整 vLLM 图模式的四轮对照完成：固定32请求的含预填充合计吞吐 **15.82 → 18.19 tokens/s（+14.96%）**，7,520 输出 ID 一致。全程 NVML used 已采样峰值分别 **29.18/29.76 GiB**，驱动另约 0.48 GiB；两者缓存布局不同，完整边界和采样间隔见[四轮记录](docs/experiments/2026-10-10-0557-native-vllm.json)。
-
-并发数值检查完成：新 vLLM B4 入口的 eager/图模式共 **3,760 输出 ID 一致**，包含32请求排队补入；位置缓存独立入口另完成470个 ID 对照，静态少 **127.25MiB**。两项候选的正式吞吐和全程显存另做对照。[复刻命令与失败边界记录](experimental122/README.md#vllm-四请求并发与每请求预填充数值验证完成)。
-
-完整 vLLM **B4 请求队列对照已完成**：相同32条短请求，原生优化B4 **17.46 → 21.75 tokens/s（合计吞吐 +24.56%）**，四轮7,520个输出ID均与原参考相同。全程最大已采样 NVML used **30.16 / 30.87GiB**，驱动另约0.484GiB，vLLM最少观察空闲约502MiB。原生首次录图计时、vLLM启动录图不计时，固定分组与队列补位也不同；这是部署入口比较，不能当成单请求速度或内核独立收益。见[四轮结果与复刻命令](docs/experiments/2026-10-10-0644-b4-deployment.json)。
-
-串行 **短上下文省显存对照也已完成**：NVML used 最大观察值 **29.7609 → 29.6047GiB**，驱动另约0.484GiB；7,520个输出ID一致。静态位置缓存省127.25MiB，本组运行采样相差160MiB，口径不同。合计吞吐18.20→18.13 tokens/s，未证明额外提速；当前入口仍限制输入≤128 token。见[完成记录](docs/experiments/2026-10-10-0658-window-deployment.json)。
-
-[B4与省显存缓存的组合入口](experimental122/README.md#b4-与短上下文缓存的组合完整输出检查完成)也已完成独立 eager/图模式验证：3,760个输出ID与原参考相同、361个保留张量哈希一致，499次实际图回放。组合版本自己的四轮对照已完成，前两项独立实验的收益不直接叠加。原B4与组合版吞吐 21.49 / 21.75 tokens/s，最大已采样used 30.87 / 30.73GiB，驱动另计。见[组合版完成记录](docs/experiments/2026-10-10-0718-b4-window-deployment.json)。
-
-组合入口的[缓存预算后续对照](docs/experiments/2026-10-10-0740-cache896-deployment.json)也已完成：1GiB/896MiB吞吐21.62/21.41 tokens/s，最大已采样used 30.73/30.64GiB，驱动另约0.484GiB；896MiB最低剩余740MiB。完整输出及4活动请求调度一致。已将组合入口默认及最低缓存预算改为896MiB；权重与计算代码保持相同。
-
-[分组预填充的同缓存四轮对照](docs/experiments/2026-10-10-0816-prefill16-deployment.json)已完成：原部署/候选合计吞吐21.72/24.00 tokens/s（+10.51%），候选最大已采样used 30.64GiB，驱动另约0.484GiB。7,520个输出ID及361保留张量一致。分组BF16可能改变其他输入的舍入，尚无广泛质量/长期服务结论，默认仍保留原部署。
-
-分组预填充已补齐[独立启动入口和复刻完成证明](experimental122/vllm-prefill-block16-engine-evidence.json)：`run_vllm_requests_b4_prefill.py`沿用现有参数，eager32/Graph32的完整输出及保留张量与原量化部署一致，Graph实际回放499次。此前四轮性能记录测的是内联实现，包装入口的数值验证单独留证。
-
-另完成[252–1404 token输入的隔离分块检查](docs/experiments/2026-10-10-0854-chunked-context.json)：四条自编检索题，在原eager、原Graph和分组Graph分别运行，逐条答案、输出一致性及峰值显存单独记录；准备脚本可生成实际测试的源码副本。公开默认输入范围仍为128 token，未宣布长期服务或长上下文能力达标。
-
-[较长输入的四轮对照](docs/experiments/2026-10-10-0921-long-input-ABBA.json)也已完成：32条排队请求、每轮25,432输入token/104输出token，输入处理吞吐114.23→146.95token/s（+28.64%），416个完整输出ID相同。它测量输入较多、输出较少的预填充工作负载，不能与短输入24输出token/s当作同一指标。原始JIT警告和显存采样均保留，未证明HTTP或持续服务性能。
+This is a Bonsai-style research implementation, not a complete Bonsai reproduction. Weights are not included, the end-to-end 122B training recipe is incomplete, and the current 122B candidate falls below its matched BF16 baseline on all four reported development panels. Research is paused; completed results and checkpoints are preserved. See the [method](docs/METHOD.md), [reproduction guide](docs/REPRODUCING.md), and [dated evidence](docs/experiments/README.md).
