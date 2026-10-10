@@ -30,6 +30,8 @@
 
 连续请求诊断已抓到输出分岔位置的top2概率并列；官方batch-invariance因GDN不支持而启动失败，第一次私有FP32修改又被实例绑定覆盖。结果及限制见[诊断记录](docs/experiments/2026-10-10-1118-HTTP-top2-and-head-binding.json)，默认部署代码未替换。NR35另外完成缓存/Graph和部分开发集检查，见[结果](docs/experiments/2026-10-10-1118-NR35-development-results.json)。
 
+随后修正输出层绑定的私有候选已完成[真实服务检查](docs/experiments/2026-10-10-1120-bound-FP32-head-completed.json)：1–4行GPU输出确认FP32，短样本72/72输出ID一致。该结果仍是诊断通过，尚未替换默认部署或证明长时间稳定。
+
 ## 可以从这里学到什么
 
 | 你想回答的问题 | 对应的实现与材料 |

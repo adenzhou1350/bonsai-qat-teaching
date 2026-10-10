@@ -142,3 +142,5 @@
 
 - [HTTP top2与输出层绑定诊断](2026-10-10-1118-HTTP-top2-and-head-binding.json)：保留并列概率、GDN启动不兼容、第一次精度修改被覆盖的证据。
 - [NR35已完成的部署检查与开发集结果](2026-10-10-1118-NR35-development-results.json)：缓存640+16通过，Graph通过；HumanEval136/164、中文47/48、CMMLU159/201，GSM尚未计入本快照。
+
+- [修正绑定后的FP32输出层真实服务检查完成](2026-10-10-1120-bound-FP32-head-completed.json)：实际GPU dtype证明，短样本72/72输出ID一致，默认未替换。

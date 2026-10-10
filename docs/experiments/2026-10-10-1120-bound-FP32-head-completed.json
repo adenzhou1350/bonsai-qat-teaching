@@ -1,0 +1,215 @@
+{
+  "status": "completed_instance_bound_FP32_head_short_HTTP_diagnostic",
+  "model": "Qwen3.5-122B-A10B",
+  "artifact_manifest_SHA256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "source79_SHA256": "8f0ba17bbf88fb30b05e814da0bc80e2b8f93026110f48112d52d7679fa2b6ff",
+  "private_head_helper_SHA256": "2e35944de371796de9996227681cf77faffbb0626664182d14392f579f00ca34",
+  "summary_SHA256": "36aaf493cebf6536e351733dcca1c377ebc11da53c9fff5784fc06c0801e3909",
+  "lease_SHA256": "d0c748e12d3b246883f97e82847e0e757759b685256be559407c5c3ad16e6c02",
+  "actual_whole_engine_head_GPU_call_proof_SHA256": "8c7258b509637c7aeee73b680d2ded6b6035185cef0c874dcd8be8b09e637022",
+  "actual_whole_engine_head_GPU_call_proof": {
+    "actual_GPU_calls": {
+      "4": {
+        "input_rows": 4,
+        "input_dtype": "torch.bfloat16",
+        "actual_output_dtype": "torch.float32",
+        "actual_output_is_CUDA": true,
+        "candidate_function_executed": true,
+        "current_outer_forward_name": "dense",
+        "shape": [
+          4,
+          248320
+        ]
+      },
+      "1": {
+        "input_rows": 1,
+        "input_dtype": "torch.bfloat16",
+        "actual_output_dtype": "torch.float32",
+        "actual_output_is_CUDA": true,
+        "candidate_function_executed": true,
+        "current_outer_forward_name": "dense",
+        "shape": [
+          1,
+          248320
+        ]
+      },
+      "3": {
+        "input_rows": 3,
+        "input_dtype": "torch.bfloat16",
+        "actual_output_dtype": "torch.float32",
+        "actual_output_is_CUDA": true,
+        "candidate_function_executed": true,
+        "current_outer_forward_name": "dense",
+        "shape": [
+          3,
+          248320
+        ]
+      },
+      "2": {
+        "input_rows": 2,
+        "input_dtype": "torch.bfloat16",
+        "actual_output_dtype": "torch.float32",
+        "actual_output_is_CUDA": true,
+        "candidate_function_executed": true,
+        "current_outer_forward_name": "dense",
+        "shape": [
+          2,
+          248320
+        ]
+      }
+    },
+    "binding_proof": {
+      "after_original_small_decode_binding": true,
+      "heads": 1,
+      "previous_instance_function": "head",
+      "original_body_retained_on_disk": true,
+      "candidate_function": "forward_fp32",
+      "persistent_weights_unchanged": true
+    }
+  },
+  "standalone_GPU_head_math": {
+    "passed": true,
+    "actual_torch_version": "2.11.0+cu130",
+    "actual_full_head_output_elements": 993280,
+    "original_dtype": "bfloat16",
+    "candidate_dtype": "float32",
+    "same_packed_BF16_weights_inputs_chunk_size_and_decode": true,
+    "persistent_buffers_unchanged": true,
+    "no_persistent_full_precision_head_weight": true,
+    "FP32_reference_max_absolute_error_original": 0.014713287353515625,
+    "FP32_reference_max_absolute_error_candidate": 9.5367431640625e-07,
+    "FP32_reference_RMSE_original": 0.001360236213658217,
+    "FP32_reference_RMSE_candidate": 9.548842971241017e-08,
+    "same_input_max_absolute_output_difference_B1_B2_vs_B4": {
+      "1": 0.0,
+      "2": 0.0
+    },
+    "whole_model_batch_invariance_claimed": false,
+    "quality_accepted": false,
+    "reserved_inputs_opened": false
+  },
+  "phases": [
+    {
+      "phase": "warmup",
+      "requests": 8,
+      "CLI_exact_ID_requests": 8,
+      "mismatches": [],
+      "requests_SHA256": "380c6396a11fe3e9bf8067a53474c6f6c6ac8f5d2cd487ed39865ecd2fd53466"
+    },
+    {
+      "phase": "measured",
+      "requests": 64,
+      "CLI_exact_ID_requests": 64,
+      "mismatches": [],
+      "requests_SHA256": "6971775545c0d70a259d40d9c6d1b86411bb562b39b78810f09271ffaed3eb91"
+    }
+  ],
+  "repeat_variants": [
+    {
+      "prompt_index": 0,
+      "requests": 9,
+      "distinct_full_outputs": 1,
+      "same_full_input_IDs": true,
+      "position43_top2_gap_range": null,
+      "position43_actual_token_variants": []
+    },
+    {
+      "prompt_index": 1,
+      "requests": 9,
+      "distinct_full_outputs": 1,
+      "same_full_input_IDs": true,
+      "position43_top2_gap_range": null,
+      "position43_actual_token_variants": []
+    },
+    {
+      "prompt_index": 2,
+      "requests": 9,
+      "distinct_full_outputs": 1,
+      "same_full_input_IDs": true,
+      "position43_top2_gap_range": [
+        0.0765380859375,
+        0.17304420471191406
+      ],
+      "position43_actual_token_variants": [
+        "整数"
+      ]
+    },
+    {
+      "prompt_index": 3,
+      "requests": 9,
+      "distinct_full_outputs": 1,
+      "same_full_input_IDs": true,
+      "position43_top2_gap_range": null,
+      "position43_actual_token_variants": []
+    },
+    {
+      "prompt_index": 4,
+      "requests": 9,
+      "distinct_full_outputs": 1,
+      "same_full_input_IDs": true,
+      "position43_top2_gap_range": null,
+      "position43_actual_token_variants": []
+    },
+    {
+      "prompt_index": 5,
+      "requests": 9,
+      "distinct_full_outputs": 1,
+      "same_full_input_IDs": true,
+      "position43_top2_gap_range": [
+        0.090850830078125,
+        0.14771652221679688
+      ],
+      "position43_actual_token_variants": [
+        "整数"
+      ]
+    },
+    {
+      "prompt_index": 6,
+      "requests": 9,
+      "distinct_full_outputs": 1,
+      "same_full_input_IDs": true,
+      "position43_top2_gap_range": null,
+      "position43_actual_token_variants": []
+    },
+    {
+      "prompt_index": 7,
+      "requests": 9,
+      "distinct_full_outputs": 1,
+      "same_full_input_IDs": true,
+      "position43_top2_gap_range": null,
+      "position43_actual_token_variants": []
+    }
+  ],
+  "all72_HTTP_200_DONE_and_old_CLI_output_IDs_exact": true,
+  "all72_SSE_locally_reparsed": true,
+  "NVML_rows_locally_recounted": 14929,
+  "NVML": {
+    "samples": 14929,
+    "raw_sha256": "25cfba14919f6621a3d59330c25fe58f86450af43b233ff5ca03783833b51dd5",
+    "maximum_observed_used_bytes": 32895139840,
+    "minimum_observed_free_bytes": 776208384,
+    "driver_reserved_bytes_min": 519569408,
+    "driver_reserved_bytes_max": 519569408
+  },
+  "maximum_observed_used_GiB": 30.635986328125,
+  "minimum_observed_free_MiB": 740.25,
+  "client_wall_seconds_with_top2_collection": 182.5477323392406,
+  "observed_output_TPS_with_top2_not_comparison": 20.59735254893521,
+  "server_exit_code": 0,
+  "experiment_exit_code": 0,
+  "normal_post_request_drain_and_resource_release": true,
+  "all361_loaded_retained_weights_unchanged": true,
+  "default_public_runtime_changed": false,
+  "formal_throughput_improvement_claimed": false,
+  "whole_model_batch_invariance_claimed": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "limitations": [
+    "Only the same eight short fixture entries, repeated nine times including warmup, were tested. This does not establish prolonged stability or all-input batch invariance.",
+    "Actual GPU outputs for1/2/3/4-row head calls were verified FP32 after the original small-decode instance binding. Packed BF16 weights and all persistent tensors remain unchanged.",
+    "Per-row FP32 GEMM output removes the tested head rounding ties; other layers can still have batch-dependent arithmetic.",
+    "All72 outputs match this old CLI fixture; the earlier failed gate and bypassed candidate remain preserved.",
+    "The candidate is still isolated and has not replaced the public default or received a matched throughput comparison.",
+    "A separate four-engine original/grouped public-runtime throughput experiment is queued; it records output variants and is not exact-ID acceptance."
+  ]
+}
