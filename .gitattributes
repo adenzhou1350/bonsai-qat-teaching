@@ -9,3 +9,4 @@ experimental122/run_vllm_requests*.py text eol=lf
 experimental122/runtime/bonsai_native122_vllm_*.py text eol=lf
 experimental122/runtime/bonsai_vllm_prefill_block16_candidate_v1747.py text eol=lf
 experimental122/evaluate_deployment_probes.py text eol=lf
+experimental122/prepare_context_probe.py text eol=lf

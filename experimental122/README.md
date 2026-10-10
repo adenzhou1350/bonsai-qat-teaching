@@ -660,3 +660,43 @@ python experimental122/compare_engine_outputs.py \
 ```
 
 题目及答案、CPU评分器均已公开，评分函数AST与实际实验一致，新增CLI后也用实际保存输出复算。完整来源、每组结果SHA及失败文本见[完成记录](../docs/experiments/2026-10-10-0838-deployment-probes32.json)。
+
+## 四条较长输入的分块预填充检查：完成
+
+同一122B量化产物，独立进程依次跑原eager、原Graph和分组Graph。四条自编检索题实际输入252/503/1020/1404 token，cap32、maxseq4、maxlen1536、896MiB缓存。只在隔离副本中把输入检查从128放宽至1408；公开默认入口继续限制128。缓存与注意力算法没有更换。
+
+| 模式 | 检索正确且EOS | 与原eager完整ID不同的题号 | 最大已采样used GiB | 最少已观察free MiB |
+|---|---:|---|---:|---:|
+| original-eager | 4/4 | [] | 30.148 | 1240.3 |
+| original-graph | 4/4 | [] | 30.654 | 722.3 |
+| grouped-graph | 4/4 | [] | 30.654 | 722.3 |
+
+驱动reserved另约0.484GiB。20ms目标间隔的NVMLv2采样从CLI启动前持续至退出后；全部原始采样、输出ID、361保留张量与评分已下载复核。记录包含实际分块布局及采样间隔。这是四题的上下文/缓存/显存检查，原eager也是分块调度，没有未分块参考或原BF16教师对照；固定顺序和少量输出不能证明吞吐提升、广泛长上下文质量或持续服务稳定性。
+
+隔离准备脚本只用Python标准库，不加载模型、不运行GPU。生成的64个引擎源码与两个清单共66文件，已逐字节核对为实际GPU实验副本，两个入口的CPU `--help`通过。按前文相同Linux依赖和已打包模型运行；每次指定新输出目录：
+
+```bash
+python experimental122/prepare_context_probe.py --output context-probe
+
+python context-probe/experimental122/run_vllm_requests_b4_window.py \
+  --model /path/to/native4095-packed \
+  --requests experimental122/examples/chunked-context4.jsonl \
+  --output context-eager --max-new-tokens 32 --kv-cache-mib 896
+
+python context-probe/experimental122/run_vllm_requests_b4_window.py \
+  --model /path/to/native4095-packed \
+  --requests experimental122/examples/chunked-context4.jsonl \
+  --output context-graph --max-new-tokens 32 --kv-cache-mib 896 --decode-graph
+
+python context-probe/experimental122/run_vllm_requests_b4_prefill.py \
+  --model /path/to/native4095-packed \
+  --requests experimental122/examples/chunked-context4.jsonl \
+  --output context-grouped --max-new-tokens 32 --kv-cache-mib 896 --decode-graph
+
+python experimental122/compare_engine_outputs.py \
+  --baseline context-eager/result.json --candidate context-graph/result.json
+python experimental122/compare_engine_outputs.py \
+  --baseline context-eager/result.json --candidate context-grouped/result.json
+```
+
+题目中的expected字段用于核对输出；推理入口只读取prompt。隔离准备脚本不会采样显存或代替资源调度。完整SHA、每条回答、实际分块布局与显存采样统计见[完成记录](../docs/experiments/2026-10-10-0854-chunked-context.json)。

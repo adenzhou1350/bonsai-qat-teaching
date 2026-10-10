@@ -1,0 +1,250 @@
+{
+  "terminal_exit_code": 0,
+  "source72_unchanged": true,
+  "all_owned_PIDs_dead": true,
+  "input_tokens": [
+    252,
+    503,
+    1020,
+    1404
+  ],
+  "source_policy_sha256": "541a84da4aeabecba4b9349e4c145fd6c48892f8d6168c359b7f555a9f296d09",
+  "progress_sha256": "7a7efe33ff0f20a046ef9ce925bf7c6fc2ddd55d29d7b7da9fb5f00a6b3e06ff",
+  "summary_sha256": "7a7efe33ff0f20a046ef9ce925bf7c6fc2ddd55d29d7b7da9fb5f00a6b3e06ff",
+  "lease_sha256": "989c83c5ca158ff026b6a98cadb8d6f979a5f98477d9e8d7c62859b336d21e41",
+  "fixture_sha256": "ce0989973fa4c4c9a666a4fb228af1deef7d8192fde8335b6c568c681524b301",
+  "modes": [
+    {
+      "mode": "original-eager",
+      "exit": 0,
+      "result_sha256": "a79f98b95c3ab9c7f184663b92e1ede4e6a48e4548da55aafba842495d14c9f1",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "NVML_v2_profile": {
+        "samples": 5625,
+        "sample_file_sha256": "5387a6022fe849070bc9bcd0ccc7fd0477fcb2f621a1128d7a9ed0a1a0560d16",
+        "observed_duration_seconds": 116.501952287741,
+        "maximum_observed_used_bytes": 32370786304,
+        "maximum_observed_used_sample": {
+          "elapsed_seconds": 109.97954287566245,
+          "used_bytes": 32370786304,
+          "driver_reserved_bytes": 519569408,
+          "free_bytes": 1300561920,
+          "physical_total_bytes": 34190917632
+        },
+        "minimum_observed_free_bytes": 1300561920,
+        "driver_reserved_bytes_min": 519569408,
+        "driver_reserved_bytes_max": 519569408,
+        "sample_gap_median_seconds": 0.020080404356122017,
+        "sample_gap_p99_seconds": 0.025073441676795483,
+        "sample_gap_maximum_seconds": 0.18240455072373152,
+        "physical_total_bytes": 34190917632
+      },
+      "grades": [
+        {
+          "index": 0,
+          "expected": "ALPHA",
+          "actual": "ALPHA",
+          "eos_reached": true,
+          "passed": true
+        },
+        {
+          "index": 1,
+          "expected": "BETA",
+          "actual": "BETA",
+          "eos_reached": true,
+          "passed": true
+        },
+        {
+          "index": 2,
+          "expected": "GAMMA",
+          "actual": "GAMMA",
+          "eos_reached": true,
+          "passed": true
+        },
+        {
+          "index": 3,
+          "expected": "DELTA",
+          "actual": "DELTA",
+          "eos_reached": true,
+          "passed": true
+        }
+      ],
+      "complete_ID_difference_indices_vs_original_eager": [],
+      "mixed_decode_audit": {
+        "dense_head_calls": 4836,
+        "expert_calls": 624,
+        "router_calls": 1248,
+        "embedding_calls": 13,
+        "prefill_context_CPU_boundary_reads": 13,
+        "layouts": {
+          "252+4": 1,
+          "1+255": 7,
+          "1+244+11": 1,
+          "1+1+254": 1,
+          "245+11": 1,
+          "256": 1,
+          "117": 1
+        }
+      }
+    },
+    {
+      "mode": "original-graph",
+      "exit": 0,
+      "result_sha256": "77da10ac899d7c54a92dfea04798b3e9c4d77b005c3369cbeb062d596322579c",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "NVML_v2_profile": {
+        "samples": 5675,
+        "sample_file_sha256": "2ee2e084b4bad36dab754f7ac8ff3a1e87b8858859eae3b39524e33d63628eee",
+        "observed_duration_seconds": 117.5053408909589,
+        "maximum_observed_used_bytes": 32913948672,
+        "maximum_observed_used_sample": {
+          "elapsed_seconds": 111.51326720230281,
+          "used_bytes": 32913948672,
+          "driver_reserved_bytes": 519569408,
+          "free_bytes": 757399552,
+          "physical_total_bytes": 34190917632
+        },
+        "minimum_observed_free_bytes": 757399552,
+        "driver_reserved_bytes_min": 519569408,
+        "driver_reserved_bytes_max": 519569408,
+        "sample_gap_median_seconds": 0.020081764087080956,
+        "sample_gap_p99_seconds": 0.025223147124052048,
+        "sample_gap_maximum_seconds": 0.2788094198331237,
+        "physical_total_bytes": 34190917632
+      },
+      "grades": [
+        {
+          "index": 0,
+          "expected": "ALPHA",
+          "actual": "ALPHA",
+          "eos_reached": true,
+          "passed": true
+        },
+        {
+          "index": 1,
+          "expected": "BETA",
+          "actual": "BETA",
+          "eos_reached": true,
+          "passed": true
+        },
+        {
+          "index": 2,
+          "expected": "GAMMA",
+          "actual": "GAMMA",
+          "eos_reached": true,
+          "passed": true
+        },
+        {
+          "index": 3,
+          "expected": "DELTA",
+          "actual": "DELTA",
+          "eos_reached": true,
+          "passed": true
+        }
+      ],
+      "complete_ID_difference_indices_vs_original_eager": [],
+      "mixed_decode_audit": {
+        "dense_head_calls": 4836,
+        "expert_calls": 624,
+        "router_calls": 1248,
+        "embedding_calls": 13,
+        "prefill_context_CPU_boundary_reads": 13,
+        "layouts": {
+          "252+4": 1,
+          "1+255": 7,
+          "1+244+11": 1,
+          "1+1+254": 1,
+          "245+11": 1,
+          "256": 1,
+          "117": 1
+        }
+      }
+    },
+    {
+      "mode": "grouped-graph",
+      "exit": 0,
+      "result_sha256": "31c6b7805981f2ca75ad7d07ecbee830a69d88c3bca09c5af99c33691939354c",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "NVML_v2_profile": {
+        "samples": 5478,
+        "sample_file_sha256": "e37ecdfa42925931fec16224b73c73c6704323746147b7055cf03239c64a8011",
+        "observed_duration_seconds": 112.99790290277451,
+        "maximum_observed_used_bytes": 32913948672,
+        "maximum_observed_used_sample": {
+          "elapsed_seconds": 106.9158836491406,
+          "used_bytes": 32913948672,
+          "driver_reserved_bytes": 519569408,
+          "free_bytes": 757399552,
+          "physical_total_bytes": 34190917632
+        },
+        "minimum_observed_free_bytes": 757399552,
+        "driver_reserved_bytes_min": 519569408,
+        "driver_reserved_bytes_max": 519569408,
+        "sample_gap_median_seconds": 0.02008016686886549,
+        "sample_gap_p99_seconds": 0.02394486777484417,
+        "sample_gap_maximum_seconds": 0.285739759914577,
+        "physical_total_bytes": 34190917632
+      },
+      "grades": [
+        {
+          "index": 0,
+          "expected": "ALPHA",
+          "actual": "ALPHA",
+          "eos_reached": true,
+          "passed": true
+        },
+        {
+          "index": 1,
+          "expected": "BETA",
+          "actual": "BETA",
+          "eos_reached": true,
+          "passed": true
+        },
+        {
+          "index": 2,
+          "expected": "GAMMA",
+          "actual": "GAMMA",
+          "eos_reached": true,
+          "passed": true
+        },
+        {
+          "index": 3,
+          "expected": "DELTA",
+          "actual": "DELTA",
+          "eos_reached": true,
+          "passed": true
+        }
+      ],
+      "complete_ID_difference_indices_vs_original_eager": [],
+      "mixed_decode_audit": {
+        "dense_head_calls": 4836,
+        "expert_calls": 624,
+        "router_calls": 1248,
+        "embedding_calls": 13,
+        "prefill_context_CPU_boundary_reads": 13,
+        "layouts": {
+          "252+4": 1,
+          "1+255": 7,
+          "1+244+11": 1,
+          "1+1+254": 1,
+          "245+11": 1,
+          "256": 1,
+          "117": 1
+        }
+      }
+    }
+  ],
+  "quality_accepted": false,
+  "formal_throughput_comparison_completed": false,
+  "limits": "Four synthetic retrieval inputs near256/512/1024/1408 tokens, cap32, maxlen1536. Original eager is scheduler/graph control, not an unchunked or full-precision quality reference. Fixed order, no ABBA performance claim; no HTTP or sustained-load claim.",
+  "status": "completed_four_synthetic_context_probes_original_eager_original_graph_grouped_graph",
+  "observed_at_UTC": "2026-10-10T00:54:28.992430+00:00",
+  "all_saved_outputs_and_361_retained_maps_and_grades_locally_rechecked": true,
+  "all_raw_NVML_samples_locally_recounted": 16778,
+  "public_default_maximum_input_tokens": 128,
+  "isolated_diagnostic_maximum_input_tokens": 1408,
+  "probe_helper": "experimental122/prepare_context_probe.py",
+  "probe_fixture": "experimental122/examples/chunked-context4.jsonl",
+  "public_preparation_all66_files_match_GPU_tested_bytes": true,
+  "no_unchunked_or_BF16_teacher_reference": true
+}
