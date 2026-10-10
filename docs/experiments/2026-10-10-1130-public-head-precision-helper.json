@@ -1,0 +1,22 @@
+{
+  "status": "public_CPU_preparer_byte_replay_completed",
+  "public_source_SHA256": {
+    "experimental122/prepare_head_precision_probe.py": "45a56ee77c7c9d36388c4eeaa74fb263de302239920bd6f3493e9b11b13d413c",
+    "experimental122/runtime/head_fp32_bound_candidate_v1871.py": "2e35944de371796de9996227681cf77faffbb0626664182d14392f579f00ca34"
+  },
+  "GPU_run_started_by_preparer": false,
+  "GPU_candidate_already_tested_in_separate_process": true,
+  "default_HTTP_source_unchanged": true,
+  "no_weights_included": true,
+  "no_general_stability_or_throughput_acceptance": true,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "generated72_source_bodies_exact_to_GPU_tested_candidate": true,
+  "actual_Linux_public_preparer_executed": true,
+  "actual_original_and_grouped_CPU_main_passed": true,
+  "CPU_source75_SHA256": "0142510ca68b9e29f88f23cfe271b16596152e673cae5d1ba25b62bd417a6529",
+  "CPU_summary_SHA256": "12bc6c811847adf3e95d1c6f7fd5d7c630ff2e9d7ac0a4d94d05671c4f41acaa",
+  "generated72_source_bodies_locally_replayed_byte_exact": true,
+  "prior_CPU_failure_missing_source_manifests_preserved": true,
+  "CPU_validation_started_GPU": false
+}

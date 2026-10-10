@@ -12,3 +12,5 @@ experimental122/evaluate_deployment_probes.py text eol=lf
 experimental122/prepare_context_probe.py text eol=lf
 experimental122/serve_vllm.py text eol=lf
 experimental122/http_plugin/** text eol=lf
+experimental122/prepare_head_precision_probe.py text eol=lf
+experimental122/runtime/head_fp32_bound_candidate_v1871.py text eol=lf

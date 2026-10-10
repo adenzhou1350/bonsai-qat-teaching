@@ -780,3 +780,20 @@ python experimental122/serve_vllm.py \
 后续较长HTTP队列出现了新的边界：原版服务热身8条后，正式64条中2条中文docstring输出与旧CLI不同；服务未崩溃，精确输出检查停止了原定ABBA。持续服务的输出一致性仍需诊断，见[保留的失败记录](../docs/experiments/2026-10-10-1037-HTTP-warm-queue-failure.json)。
 
 新增[top2与输出层绑定诊断](../docs/experiments/2026-10-10-1118-HTTP-top2-and-head-binding.json)：记录概率并列、官方GDN不兼容及私有精度候选的绑定覆盖问题；默认公开部署保持原样，尚未宣称持续服务输出完全一致。
+
+## 复现输出层FP32诊断
+
+修正后的候选已完成真实服务检查：热身8条、正式64条，全部输出ID与旧CLI固定样本相同；服务内1–4行输出层返回FP32，峰值30.636GiB。它保持BF16压缩权重与持久张量，只让输出层GEMM返回FP32，减少最终舍入造成的并列概率。短样本通过不能代表所有输入或长时间稳定，默认部署仍不切换。
+
+下面的准备工具仅复制源码，不启动引擎、不修改默认入口。生成的72份文件与已测试候选逐字节一致；Linux上已实际执行准备工具，并完成原版/分组两种CPU入口检查，未启动GPU服务。最初准备工具漏带两份来源清单的失败保留，修复后验证通过。此处要求同一份指定packed产物和前述Linux环境。
+
+```bash
+python experimental122/prepare_head_precision_probe.py --output head-probe
+
+BONSAI_HEAD_FP32=1 \
+BONSAI_HEAD_CALL_PROOF="$PWD/head-probe/head-call-proof.json" \
+python head-probe/experimental122/serve_vllm.py \
+  --model /path/to/native4095-packed --output http-head-fp32
+```
+
+仍用前述curl调用服务。`head-probe/head-call-proof.json`记录实际调用的输出dtype；Python单测或插件注册成功不能替代这份服务内证据。必须设置`BONSAI_HEAD_FP32=1`才能启用候选；不同请求批次出现后，证明文件才会包含对应行数。源码见[准备工具](prepare_head_precision_probe.py)、[51行候选](runtime/head_fp32_bound_candidate_v1871.py)，校验见[来源清单](head-precision-provenance.json)，GPU结果见[完成记录](../docs/experiments/2026-10-10-1120-bound-FP32-head-completed.json)。

@@ -1,0 +1,22 @@
+{
+  "scope": "Opt-in isolated head-precision diagnostic; defaultHTTP68 and engine64 unchanged. Preparation alone starts no GPU.",
+  "file_sha256": {
+    "experimental122/prepare_head_precision_probe.py": "45a56ee77c7c9d36388c4eeaa74fb263de302239920bd6f3493e9b11b13d413c",
+    "experimental122/runtime/head_fp32_bound_candidate_v1871.py": "2e35944de371796de9996227681cf77faffbb0626664182d14392f579f00ca34"
+  },
+  "generated_candidate_plugin_SHA256": "fddbbbb546cf0dd6bcd0dca6c171437390efabbcc97b309606d08b59f8c2eebc",
+  "completed_GPU_candidate_source79_SHA256": "8f0ba17bbf88fb30b05e814da0bc80e2b8f93026110f48112d52d7679fa2b6ff",
+  "actual_GPU_summary_SHA256": "36aaf493cebf6536e351733dcca1c377ebc11da53c9fff5784fc06c0801e3909",
+  "actual_GPU_head_dtype_proof_SHA256": "8c7258b509637c7aeee73b680d2ded6b6035185cef0c874dcd8be8b09e637022",
+  "short_fixture_HTTP_requests_exact": 72,
+  "whole_model_batch_invariance_claimed": false,
+  "default_deployment_replaced": false,
+  "generated_package72_source_bodies_byte_exact_to_completed_GPU_candidate": true,
+  "actual_Linux_public_preparer_executed": true,
+  "actual_original_and_grouped_CPU_main_passed": true,
+  "CPU_source75_SHA256": "0142510ca68b9e29f88f23cfe271b16596152e673cae5d1ba25b62bd417a6529",
+  "CPU_summary_SHA256": "12bc6c811847adf3e95d1c6f7fd5d7c630ff2e9d7ac0a4d94d05671c4f41acaa",
+  "generated72_source_bodies_locally_replayed_byte_exact": true,
+  "prior_CPU_failure_missing_source_manifests_preserved": true,
+  "CPU_validation_started_GPU": false
+}

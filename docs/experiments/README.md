@@ -144,3 +144,5 @@
 - [NR35已完成的部署检查与开发集结果](2026-10-10-1118-NR35-development-results.json)：缓存640+16通过，Graph通过；HumanEval136/164、中文47/48、CMMLU159/201，GSM尚未计入本快照。
 
 - [修正绑定后的FP32输出层真实服务检查完成](2026-10-10-1120-bound-FP32-head-completed.json)：实际GPU dtype证明，短样本72/72输出ID一致，默认未替换。
+
+- [输出层精度候选的公开复现入口](2026-10-10-1130-public-head-precision-helper.json)：标准库准备工具生成72份与实际GPU候选完全相同的文件，默认部署不改。
