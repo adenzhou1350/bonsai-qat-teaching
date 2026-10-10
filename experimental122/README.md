@@ -776,3 +776,5 @@ python experimental122/serve_vllm.py \
 实际测试分别启动两个新服务，每个8条短请求、4个客户端线程，16次HTTP200/DONE、940输出ID与已有量化CLI完全相同，361保留张量一致；合计观察21.16/23.38输出tokens/s、最大已采样used30.636GiB、最少free740.3125MiB，驱动reserved另0.484GiB。所有请求完成后SIGTERM，两次drain退出0且无此前abort退出警告。没有测试请求进行中的drain，也没有持续压测；上述吞吐是短程观察，分组BF16预填充在其他题目仍可能改变输出。完整记录见[实际GPU验证](../docs/experiments/2026-10-10-1025-public-HTTP.json)。
 
 此入口要求已有指定packed权重；仓库不含权重，原始模型到可移植训练产物的完整链路仍未完成。
+
+后续较长HTTP队列出现了新的边界：原版服务热身8条后，正式64条中2条中文docstring输出与旧CLI不同；服务未崩溃，精确输出检查停止了原定ABBA。持续服务的输出一致性仍需诊断，见[保留的失败记录](../docs/experiments/2026-10-10-1037-HTTP-warm-queue-failure.json)。

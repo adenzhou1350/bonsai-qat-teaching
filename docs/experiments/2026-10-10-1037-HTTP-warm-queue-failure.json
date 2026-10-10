@@ -1,0 +1,175 @@
+{
+  "observed_UTC": "2026-10-10T02:37:07+00:00",
+  "status": "failed_HTTP_warmed_queue_exact_ID_gate_originalA_only",
+  "model": "Qwen3.5-122B-A10B",
+  "artifact_manifest_SHA256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "public_HTTP_entry_SHA256": "c0ee15d7bf4f5755a3b34d67d5dee70333f5aadecdddf857cfbce32724a186ff",
+  "source77_SHA256": "f17ee7734c1b2b32cc9f2215aaf29edf9274d9677551e668cd80e8ab7b6a87d5",
+  "progress_SHA256": "adcce2a9430b23ac8a52e622e129dbe96ae781eca5767b0eec5f514d23af09cd",
+  "lease_SHA256": "bc6d0cd95f794a415fe1e3fe81e40a3c05fd766b8edda390227373930dadd0a4",
+  "fixture_SHA256": "9d7081c83ac4c1e10d67a1802040d24c96c226da9770d2b7c7e5fa89c282ed24",
+  "planned_ABBA_completed": false,
+  "grouped_comparison_run": false,
+  "warmup_requests": 8,
+  "measured_requests": 64,
+  "closed_loop_clients": 4,
+  "all72_HTTP_200_DONE": true,
+  "all72_SSE_downloaded_and_locally_reparsed": true,
+  "raw_NVML_samples_downloaded_and_locally_recounted": 14764,
+  "all361_retained_loaded_tensors_exact": true,
+  "same_full_input_IDs_each_repeat": true,
+  "exact_measured_output_ID_requests": 62,
+  "mismatched_measured_requests": 2,
+  "mismatch_details": [
+    {
+      "phase": "measured",
+      "request_index": 26,
+      "prompt_index": 2,
+      "first_different_output_position": 43,
+      "expected_ID_window": [
+        1590,
+        220,
+        113282,
+        101831,
+        6987,
+        262
+      ],
+      "actual_ID_window": [
+        1590,
+        220,
+        99516,
+        96330,
+        99687,
+        101831
+      ],
+      "expected_length": 64,
+      "actual_length": 64,
+      "actual_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 包含整数的列表\n    \n    返回:\n        list: 去重且升序排列的",
+      "gold_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 整数列表\n    \n    返回:\n        list: 去重且升序排列的整数列表",
+      "finish_reason": "length"
+    },
+    {
+      "phase": "measured",
+      "request_index": 29,
+      "prompt_index": 5,
+      "first_different_output_position": 43,
+      "expected_ID_window": [
+        1590,
+        220,
+        113282,
+        101831,
+        6987,
+        262
+      ],
+      "actual_ID_window": [
+        1590,
+        220,
+        99516,
+        96330,
+        99687,
+        101831
+      ],
+      "expected_length": 64,
+      "actual_length": 64,
+      "actual_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 包含整数的列表\n    \n    返回:\n        list: 去重且升序排列的",
+      "gold_text": "```python\ndef unique_sorted_list(nums):\n    \"\"\"\n    接收整数列表，返回去重后按升序排列的新列表。\n    \n    参数:\n        nums (list): 整数列表\n    \n    返回:\n        list: 去重且升序排列的整数列表",
+      "finish_reason": "length"
+    }
+  ],
+  "by_prompt": [
+    {
+      "prompt_index": 0,
+      "requests": 9,
+      "distinct_complete_outputs": 1,
+      "same_full_input_IDs_each_repeat": true,
+      "mismatches_to_original_CLI": 0
+    },
+    {
+      "prompt_index": 1,
+      "requests": 9,
+      "distinct_complete_outputs": 1,
+      "same_full_input_IDs_each_repeat": true,
+      "mismatches_to_original_CLI": 0
+    },
+    {
+      "prompt_index": 2,
+      "requests": 9,
+      "distinct_complete_outputs": 2,
+      "same_full_input_IDs_each_repeat": true,
+      "mismatches_to_original_CLI": 1
+    },
+    {
+      "prompt_index": 3,
+      "requests": 9,
+      "distinct_complete_outputs": 1,
+      "same_full_input_IDs_each_repeat": true,
+      "mismatches_to_original_CLI": 0
+    },
+    {
+      "prompt_index": 4,
+      "requests": 9,
+      "distinct_complete_outputs": 1,
+      "same_full_input_IDs_each_repeat": true,
+      "mismatches_to_original_CLI": 0
+    },
+    {
+      "prompt_index": 5,
+      "requests": 9,
+      "distinct_complete_outputs": 2,
+      "same_full_input_IDs_each_repeat": true,
+      "mismatches_to_original_CLI": 1
+    },
+    {
+      "prompt_index": 6,
+      "requests": 9,
+      "distinct_complete_outputs": 1,
+      "same_full_input_IDs_each_repeat": true,
+      "mismatches_to_original_CLI": 0
+    },
+    {
+      "prompt_index": 7,
+      "requests": 9,
+      "distinct_complete_outputs": 1,
+      "same_full_input_IDs_each_repeat": true,
+      "mismatches_to_original_CLI": 0
+    }
+  ],
+  "warmup_wall_seconds": 22.2931088199839,
+  "measured_client_wall_seconds": 177.66291821748018,
+  "observed_original_only_output_tokens_per_second": 21.163673532578816,
+  "measured_output_tokens": 3760,
+  "closed_loop_fixture_token_TTFT_seconds": {
+    "0.5": 3.214013244025409,
+    "0.95": 5.668105328828093,
+    "0.99": 5.822235411042348
+  },
+  "closed_loop_fixture_request_wall_seconds": {
+    "0.5": 10.916043100412935,
+    "0.95": 14.437526648305356,
+    "0.99": 14.823239292278885
+  },
+  "NVML_v2_profile": {
+    "samples": 14764,
+    "raw_sha256": "46803af0c87b92a7519b35dc878fbaf47eb0301842d503c0a03a720ae03b4cc2",
+    "maximum_observed_used_bytes": 32895074304,
+    "minimum_observed_free_bytes": 776273920,
+    "driver_reserved_bytes_min": 519569408,
+    "driver_reserved_bytes_max": 519569408
+  },
+  "maximum_observed_used_GiB": 30.63592529296875,
+  "minimum_observed_free_MiB": 740.3125,
+  "server_exit_code": 0,
+  "experiment_exit_code": 1,
+  "all_owned_processes_dead_and_reservation_released": true,
+  "formal_throughput_improvement_claimed": false,
+  "cause_established": false,
+  "quality_accepted": false,
+  "reserved_inputs_opened": false,
+  "limitations": [
+    "OriginalA completed warmup8 and measured64; exact-output assertion stopped the experiment before groupedB. There is no completed HTTP ABBA result.",
+    "The same eight short fixture entries were repeated; two entries share the affected code-generation prompt. Both mismatches begin at output position43 and alter Chinese docstring wording.",
+    "Small floating-point differences or dynamic batching are hypotheses, not proven causes; cache/state contamination has not been ruled out by this observation alone.",
+    "Model loading and explicit warmup excluded from measured wall; HTTP scheduling, prefill, decode and serialization included.",
+    "This result does not retract earlier small-fixture equality, nor establish equality for longer service queues."
+  ]
+}
