@@ -123,3 +123,5 @@
 - [缓存边界负结果与CUDA诊断完成](2026-10-10-0805-cache-boundary-profile.json)：768MiB容量3.75并发且两条完整输出变化，默认保留896MiB；两份原始轨迹逐事件独立核对完成。
 
 - [分组预填充16同缓存四轮对照完成](2026-10-10-0816-prefill16-deployment.json)：原部署/分组21.72/24.00 tokens/s，完整输出一致；不同输入舍入和广泛质量尚未验证，保留原默认入口。
+
+- [分组预填充独立入口复刻完成](../../experimental122/vllm-prefill-block16-engine-evidence.json)：eager32+Graph32完整输出一致，独立64文件清单，保留原默认入口。

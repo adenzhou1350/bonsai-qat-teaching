@@ -1,0 +1,65 @@
+{
+  "status": "completed_standalone_wrapper_eager32_and_graph32_independently_verified",
+  "observed_at_UTC": "2026-10-10T00:26:15.993107+00:00",
+  "model": "Qwen3.5-122B-A10B",
+  "hardware": "one RTX 5090",
+  "artifact_manifest_SHA256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "source71_policy_SHA256": "2201d64a35929ea2bd9fb72b757f89f2c579ff299181e60cfebafba454825ee1",
+  "wrapper_SHA256": "d81238ed51cf4259a2ef94edcda0b149748660b42b6240ea0c19cedd79b17810",
+  "helper_SHA256": "0c1bff3949b6d54aa6be0446c4830635761fce803a3d6236789d0c66c4263bc0",
+  "tested_manifest_SHA256": "e4461ab26c527780f27bc56629e68dce2a54b32ad51169d3378961c3ddd7093f",
+  "published_manifest_SHA256": "4ff8e3546882d527e0f2ecfaad091f426e26b751f0ca4b2a99909ecc5e8ae380",
+  "manifest_only_status_label_updated_after_GPU_test": true,
+  "all64_tested_code_identities_unchanged": true,
+  "original62_default_provenance_unchanged": true,
+  "actual_exit_code": 0,
+  "all_owned_processes_dead": true,
+  "summary_SHA256": "8c708ffacd20f3ca4b284c21fa44f1d6d10bbbdea8668da46eba5f0670df3654",
+  "lease_SHA256": "d5b35d9a604c5cbdbf82aa50b089bf50b6a79b837027c44a2ecaaf0eac055e46",
+  "all3760_output_IDs_match_original_quantized_deployment_and_inline_candidate": true,
+  "all361_retained_maps_match": true,
+  "same_mixed_prefill_counts_and_layouts": true,
+  "actual_graph_replays": 499,
+  "actual_graph_capture_sizes": [
+    1,
+    2,
+    4
+  ],
+  "request_count_per_mode": 32,
+  "four_unique_authored_prompts_repeated_and_reordered": true,
+  "input_tokens_per_prompt": [
+    27,
+    40,
+    39,
+    103
+  ],
+  "max_new_tokens": 64,
+  "max_num_seqs": 4,
+  "max_model_len": 1536,
+  "cache_MiB": 896,
+  "CPU_weight_offload": false,
+  "changes_prefill_GEMM_rounding": true,
+  "broad_quality_accepted": false,
+  "wrapper_specific_formal_ABBA_completed": false,
+  "formal_inline_provider_record": "../docs/experiments/2026-10-10-0816-prefill16-deployment.json",
+  "formal_inline_entry_SHA256": "8d4fc7a2cbb4cc37e279e3ce2fe14cf7b802889335594383fd3888ea63b02010",
+  "modes": [
+    {
+      "mode": "eager",
+      "result_sha256": "a3fa1e54f39dd39d79482f2ea4d51c345886ca32d3cd6039a86a38a5f0f5f935",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "tokens": 1880,
+      "actual_graph_replays": null,
+      "instrumented_request_seconds": 138.2635967237875
+    },
+    {
+      "mode": "graph",
+      "result_sha256": "54f7ec543e5b223cc270406cb0486f967cfc55e3cdb06a1cf9ceec1ff20711ff",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "tokens": 1880,
+      "actual_graph_replays": 499,
+      "instrumented_request_seconds": 78.366639575921
+    }
+  ],
+  "limits": "This separate wrapper is numerically verified on the short32 fixture in eager and graph modes. The prior formal same-cache ABBA measured the inline entry, not this wrapper SHA. Identical helper/core arithmetic and outputs do not by themselves prove wrapper-specific throughput, broad independent quality, long-input, HTTP or sustained-service behavior."
+}

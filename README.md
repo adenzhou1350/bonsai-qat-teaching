@@ -162,3 +162,5 @@ vLLM 适配新增可复刻的 dense/embedding GPU 检查：**691/691 组输出�
 组合入口的[缓存预算后续对照](docs/experiments/2026-10-10-0740-cache896-deployment.json)也已完成：1GiB/896MiB吞吐21.62/21.41 tokens/s，最大已采样used 30.73/30.64GiB，驱动另约0.484GiB；896MiB最低剩余740MiB。完整输出及4活动请求调度一致。已将组合入口默认及最低缓存预算改为896MiB；权重与计算代码保持相同。
 
 [分组预填充的同缓存四轮对照](docs/experiments/2026-10-10-0816-prefill16-deployment.json)已完成：原部署/候选合计吞吐21.72/24.00 tokens/s（+10.51%），候选最大已采样used 30.64GiB，驱动另约0.484GiB。7,520个输出ID及361保留张量一致。分组BF16可能改变其他输入的舍入，尚无广泛质量/长期服务结论，默认仍保留原部署。
+
+分组预填充已补齐[独立启动入口和复刻完成证明](experimental122/vllm-prefill-block16-engine-evidence.json)：`run_vllm_requests_b4_prefill.py`沿用现有参数，eager32/Graph32的完整输出及保留张量与原量化部署一致，Graph实际回放499次。此前四轮性能记录测的是内联实现，包装入口的数值验证单独留证。

@@ -27,7 +27,7 @@
 
 ## 文件与运行环境
 
-从 `infer.py` 读起；`runtime/` 只保留已验证推理路径需要的 25 个依赖模块，移除了训练、集群调度与评测入口。数值计算语句与原实验 AST 一致，来源记录在 `runtime-provenance.json`。保留这些模块是为了维持舍入、路由、缓存与内存释放顺序。
+第一版原生推理从 `infer.py` 读起，其路径保留25个依赖模块，移除了训练、集群调度与评测入口。后续vLLM及吞吐优化增加的入口和模块在本文后续章节及各自源码清单中记录。数值计算语句与原实验 AST 一致，来源记录在 `runtime-provenance.json`。保留这些模块是为了维持舍入、路由、缓存与内存释放顺序。
 
 环境为 Linux、Python 3.12、Torch 2.11.0+cu130、Transformers 5.12.1、Triton。还需使用原环境的 `causal_conv1d` CUDA 扩展；缺少或替换实际卷积后端会改变计算。本目录没有修改系统包或自动安装 CUDA 扩展。模块对部分 Transformers 源码带 SHA 校验，版本或代码不一致时会拒绝运行。
 
@@ -599,3 +599,32 @@ python experimental122/compare_engine_outputs.py --baseline combined-eager/resul
 原始汇总中原部署两轮的容量预算标签误记为1024MiB，实际冻结命令、每轮推理结果和6,912token/4.50并发容量日志均独立证实为896MiB；保留原始汇总并在完成记录中明确注明该元数据更正，未更改测速或输出数据。
 
 正式测速的原入口SHA为`3292ae82…`，候选内联入口为`8d4fc7a2…`，分组helper为`0c1bff39…`。独立启动包装会另做数值验证；不能把不同入口SHA写成同一次完整测速的代码。完整SHA、每轮测量和采样间隔见[完成记录](../docs/experiments/2026-10-10-0816-prefill16-deployment.json)。
+
+## 分组预填充独立启动入口：复刻验证完成
+
+增加`run_vllm_requests_b4_prefill.py`与一个分组helper，沿用原有B4窗口入口和参数。原默认入口及其62个代码文件清单保持原样；新入口单独核对64个代码文件。无需手动修改模型或原入口。
+
+单张5090上的eager32与Graph32两种模式都已完成，3,760个完整输出ID、输入长度和EOS与同一量化产物的原部署及之前内联候选一致。361个保留张量哈希一致，Graph启动捕获batch1/2/4并实际回放499次。这个入口的数值验证与此前内联实现的四轮性能实验分别留证；此前约+10.5%的四轮测速使用内联入口SHA，并非这次包装入口SHA。
+
+在前文相同Linux推理环境和量化产物上运行，输出目录必须是新目录：
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_b4_prefill.py \
+  --model /path/to/packed \
+  --requests experimental122/examples/shared-head-requests32.jsonl \
+  --output prefill16-eager
+
+CUDA_VISIBLE_DEVICES=0 python experimental122/run_vllm_requests_b4_prefill.py \
+  --model /path/to/packed \
+  --requests experimental122/examples/shared-head-requests32.jsonl \
+  --output prefill16-graph --decode-graph --audit-graph-replays
+
+python experimental122/compare_engine_outputs.py \
+  --baseline prefill16-eager/result.json --candidate prefill16-graph/result.json
+```
+
+两个新运行会输出分组调用计数、64文件清单和完整token ID。测速时去掉`--audit-graph-replays`，按前文相同缓存A/B/B/A方案另测原入口与新入口；不要用带回放计数的验证耗时冒充正式吞吐。
+
+范围仍为最多128输入token、cap64、最多4个活动请求、maxlen1536和默认896MiB缓存。分组BF16可能改变其他输入的舍入，当前四种提示词的换序重复不等于广泛质量评测。缓存/模型加载与生成计时的口径沿用原入口。代码是实验性可选入口；原部署仍保留。
+
+完整来源、两种模式结果SHA及与内联性能实验的关系见[独立入口完成证明](vllm-prefill-block16-engine-evidence.json)。源码清单的完成状态标签已更新，证明同时保留GPU测试时与发布时的清单SHA；64个代码文件字节未改。
