@@ -1,0 +1,11 @@
+{
+  "status": "completed_authored_short_probe_CPU_grader_and_fixture",
+  "file_sha256": {
+    "experimental122/evaluate_deployment_probes.py": "d16ae998f13c313459165d4aab48fd85e5d26f50fd3bd3ce43628469aa253efd",
+    "experimental122/examples/deployment-probes32.jsonl": "848e64891e9b1da1411f483d434035ac1678b4666ea1b74ed0d88ed673a1857e"
+  },
+  "tested_private_grader_SHA256": "740d1c181be5492d7765c1f1559eec90e31f74307996264640760cff195188e6",
+  "all_tested_grading_function_AST_bodies_unchanged": true,
+  "public_CLI_only_added_after_GPU_results": true,
+  "scope": "32 authored short deployment checks, not broad independent model quality acceptance."
+}

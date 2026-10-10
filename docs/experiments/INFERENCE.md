@@ -572,3 +572,35 @@ python experimental122/compare_engine_outputs.py \
 范围仍为最多128输入token、cap64、最多4个活动请求、maxlen1536和默认896MiB缓存。分组BF16可能改变其他输入的舍入，当前四种提示词的换序重复不等于广泛质量评测。缓存/模型加载与生成计时的口径沿用原入口。代码是实验性可选入口；原部署仍保留。
 
 完整来源、两种模式结果SHA及与内联性能实验的关系见[独立入口完成证明](../../experimental122/vllm-prefill-block16-engine-evidence.json)。源码清单的完成状态标签已更新，证明同时保留GPU测试时与发布时的清单SHA；64个代码文件字节未改。
+
+## 新增32种短请求回归：完成，保留格式失败样本
+
+使用同一量化产物，对原B4窗口入口和已发布分组入口各运行32种新编写的短请求，不重复前面的4提示词测速fixture。最长输入42token，cap64、maxseq4/maxlen1536、896MiB缓存；两边完整输出ID及EOS全部一致，分别生成258个token，361个保留张量哈希一致。下载并重新评分全部输出。
+
+| 自编检查 | 原量化部署 | 分组部署 |
+|---|---:|---:|
+| 简单数学 | 8/8 | 8/8 |
+| 中文短问答 | 8/8 | 8/8 |
+| 严格格式 | 7/8 | 7/8 |
+| 小Python函数 | 8/8 | 8/8 |
+
+共同失败样本要求只输出JSON数组`[-2, 0, 5]`，两边都返回了带`json`代码围栏的内容。数组值正确，严格JSON-only格式不符；原始失败输出已保留，没有改评分使其通过。代码题允许剥离外层代码围栏，再解释单个return表达式并运行固定输入；仅支持源码中列出的安全AST子集，不执行模型生成代码。JSON题直接解析整个输出，不剥离围栏。
+
+这组用于检查部署修改在更多短输入上是否出现退化；32条自编简单题不能替代HumanEval、CMMLU、GSM8K、原生BF16教师对照或完整质量验收。不是正式吞吐对照，也没有新显存或长输入结论。未使用训练数据或保留评测集。
+
+在前文相同环境中分别用原`run_vllm_requests_b4_window.py`和新`run_vllm_requests_b4_prefill.py`，共同传`--requests experimental122/examples/deployment-probes32.jsonl --decode-graph --kv-cache-mib 896`，使用两个新输出目录。CPU评分与完整ID比较：
+
+```bash
+python experimental122/evaluate_deployment_probes.py \
+  --requests experimental122/examples/deployment-probes32.jsonl \
+  --result probes-baseline/result.json
+
+python experimental122/evaluate_deployment_probes.py \
+  --requests experimental122/examples/deployment-probes32.jsonl \
+  --result probes-grouped/result.json
+
+python experimental122/compare_engine_outputs.py \
+  --baseline probes-baseline/result.json --candidate probes-grouped/result.json
+```
+
+题目及答案、CPU评分器均已公开，评分函数AST与实际实验一致，新增CLI后也用实际保存输出复算。完整来源、每组结果SHA及失败文本见[完成记录](2026-10-10-0838-deployment-probes32.json)。

@@ -1,0 +1,32 @@
+{"domain": "math", "prompt": "Return only the integer. What is 17 * 23?", "expected": {"kind": "text", "value": "391"}, "probe_id": "math-00"}
+{"domain": "math", "prompt": "Return only the integer. What is 144 / 12 + 7?", "expected": {"kind": "text", "value": "19"}, "probe_id": "math-01"}
+{"domain": "math", "prompt": "只输出结果数字：125减去48再乘以2。", "expected": {"kind": "text", "value": "154"}, "probe_id": "math-02"}
+{"domain": "math", "prompt": "只输出整数：从1到20的整数之和。", "expected": {"kind": "text", "value": "210"}, "probe_id": "math-03"}
+{"domain": "math", "prompt": "Return only the integer. What is the greatest common divisor of 84 and 126?", "expected": {"kind": "text", "value": "42"}, "probe_id": "math-04"}
+{"domain": "math", "prompt": "Return only the integer. Evaluate 2^10 - 1.", "expected": {"kind": "text", "value": "1023"}, "probe_id": "math-05"}
+{"domain": "math", "prompt": "只输出整数：一个矩形长13，宽7，面积是多少？", "expected": {"kind": "text", "value": "91"}, "probe_id": "math-06"}
+{"domain": "math", "prompt": "Return only the integer. If 3x+7=28, what is x?", "expected": {"kind": "text", "value": "7"}, "probe_id": "math-07"}
+{"domain": "zh", "prompt": "只回答一个汉字：中国首都北京的简称是什么？", "expected": {"kind": "text", "value": "京"}, "probe_id": "zh-08"}
+{"domain": "zh", "prompt": "把“春眠不觉晓”的下一句写出，只输出诗句，不加标点。", "expected": {"kind": "text", "value": "处处闻啼鸟"}, "probe_id": "zh-09"}
+{"domain": "zh", "prompt": "“画蛇添足”表示多此一举还是雪中送炭？只输出四字成语答案。", "expected": {"kind": "text", "value": "多此一举"}, "probe_id": "zh-10"}
+{"domain": "zh", "prompt": "把繁体字“學習”转成简体，只输出转换结果。", "expected": {"kind": "text", "value": "学习"}, "probe_id": "zh-11"}
+{"domain": "zh", "prompt": "填写成语“守株待□”缺少的汉字，只输出一个字。", "expected": {"kind": "text", "value": "兔"}, "probe_id": "zh-12"}
+{"domain": "zh", "prompt": "只输出反义词：“增加”的反义词是什么？", "expected": {"kind": "text", "value": "减少"}, "probe_id": "zh-13"}
+{"domain": "zh", "prompt": "纠正告别用语“在见”的错别字，只输出两个字。", "expected": {"kind": "text", "value": "再见"}, "probe_id": "zh-14"}
+{"domain": "zh", "prompt": "十二生肖中排在鼠之后的动物是什么？只输出一个汉字。", "expected": {"kind": "text", "value": "牛"}, "probe_id": "zh-15"}
+{"domain": "format", "prompt": "仅输出合法JSON对象：name为字符串“小明”，age为整数18，不要Markdown。", "expected": {"kind": "json", "value": {"name": "小明", "age": 18}}, "probe_id": "format-16"}
+{"domain": "format", "prompt": "Only output a JSON array. Sort the integers 3, 1, 2 in ascending order.", "expected": {"kind": "json", "value": [1, 2, 3]}, "probe_id": "format-17"}
+{"domain": "format", "prompt": "Only output JSON: object with ok set to true and count set to integer zero.", "expected": {"kind": "json", "value": {"ok": true, "count": 0}}, "probe_id": "format-18"}
+{"domain": "format", "prompt": "Only output the JSON string hello, including the required JSON quotes.", "expected": {"kind": "json", "value": "hello"}, "probe_id": "format-19"}
+{"domain": "format", "prompt": "只输出合法JSON对象：键enabled的值为布尔true。", "expected": {"kind": "json", "value": {"enabled": true}}, "probe_id": "format-20"}
+{"domain": "format", "prompt": "Only output the JSON array containing -2, then 0, then 5.", "expected": {"kind": "json", "value": [-2, 0, 5]}, "probe_id": "format-21"}
+{"domain": "format", "prompt": "Return exactly two lines: first line alpha; second line beta. No other text.", "expected": {"kind": "text", "value": "alpha\nbeta"}, "probe_id": "format-22"}
+{"domain": "format", "prompt": "仅输出逗号分隔的A,B,C，不要空格或其他内容。", "expected": {"kind": "text", "value": "A,B,C"}, "probe_id": "format-23"}
+{"domain": "code", "prompt": "Write only Python code defining add(a, b) to return a plus b. No explanation. Use one return statement and no imports.", "expected": {"kind": "python_return", "function": "add", "cases": [[[2, 3], 5], [[-4, 7], 3], [[0, 0], 0]]}, "probe_id": "code-24"}
+{"domain": "code", "prompt": "Write only Python code defining square(x) to return x squared. No explanation. Use one return statement and no imports.", "expected": {"kind": "python_return", "function": "square", "cases": [[[3], 9], [[-4], 16], [[0], 0]]}, "probe_id": "code-25"}
+{"domain": "code", "prompt": "Write only Python code defining is_even(n) to return whether integer n is even. No explanation. Use one return statement and no imports.", "expected": {"kind": "python_return", "function": "is_even", "cases": [[[4], true], [[3], false], [[-2], true]]}, "probe_id": "code-26"}
+{"domain": "code", "prompt": "Write only Python code defining negate(x) to return the negative of x. No explanation. Use one return statement and no imports.", "expected": {"kind": "python_return", "function": "negate", "cases": [[[3], -3], [[-5], 5], [[0], 0]]}, "probe_id": "code-27"}
+{"domain": "code", "prompt": "Write only Python code defining first(xs) to return the first element of nonempty list xs. No explanation. Use one return statement and no imports.", "expected": {"kind": "python_return", "function": "first", "cases": [[[[4, 8]], 4], [[["a", "b"]], "a"], [[[0]], 0]]}, "probe_id": "code-28"}
+{"domain": "code", "prompt": "Write only Python code defining last(xs) to return the last element of nonempty list xs. No explanation. Use one return statement and no imports.", "expected": {"kind": "python_return", "function": "last", "cases": [[[[4, 8]], 8], [[["a", "b"]], "b"], [[[0]], 0]]}, "probe_id": "code-29"}
+{"domain": "code", "prompt": "Write only Python code defining multiply(a, b) to return a times b. No explanation. Use one return statement and no imports.", "expected": {"kind": "python_return", "function": "multiply", "cases": [[[2, 3], 6], [[-4, 7], -28], [[0, 9], 0]]}, "probe_id": "code-30"}
+{"domain": "code", "prompt": "Write only Python code defining subtract(a, b) to return a minus b. No explanation. Use one return statement and no imports.", "expected": {"kind": "python_return", "function": "subtract", "cases": [[[2, 3], -1], [[-4, 7], -11], [[0, 0], 0]]}, "probe_id": "code-31"}

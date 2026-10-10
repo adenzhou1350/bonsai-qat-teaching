@@ -1,0 +1,127 @@
+{
+  "source73_unchanged": true,
+  "terminal0_and_owned_PIDs_dead": true,
+  "all361_retained_maps_exact": true,
+  "all64_published_grouped_code_identities_verified": true,
+  "all_saved_grades_recomputed_with_frozen_safe_grader": true,
+  "all32_complete_IDs_and_EOS_equal": true,
+  "output_difference_indices": [],
+  "probe_regression_indices": [],
+  "probe_improvement_indices": [],
+  "modes": [
+    {
+      "mode": "baseline",
+      "result_sha256": "9b2cdc789bb63d084c202cea0ed2cc5bebb0d088dafb0cf34f320e5434afdf34",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "probe_grades_sha256": "c166c3aa1924bbf40a5ba5ba625180e09a6696147ec239dc876b47a4777c49d9",
+      "domain_counts": {
+        "math": {
+          "passed": 8,
+          "total": 8
+        },
+        "zh": {
+          "passed": 8,
+          "total": 8
+        },
+        "format": {
+          "passed": 7,
+          "total": 8
+        },
+        "code": {
+          "passed": 8,
+          "total": 8
+        }
+      },
+      "output_tokens": 258
+    },
+    {
+      "mode": "grouped",
+      "result_sha256": "ba05645e3a154fdf36ce137f48b2425639ec6645f065dfe39e0baa0fddb09491",
+      "weight_proof_sha256": "595583fd0257bde3cd20065c366aac359f7baacd3bd5c67312ffce68a66e8e92",
+      "probe_grades_sha256": "c166c3aa1924bbf40a5ba5ba625180e09a6696147ec239dc876b47a4777c49d9",
+      "domain_counts": {
+        "math": {
+          "passed": 8,
+          "total": 8
+        },
+        "zh": {
+          "passed": 8,
+          "total": 8
+        },
+        "format": {
+          "passed": 7,
+          "total": 8
+        },
+        "code": {
+          "passed": 8,
+          "total": 8
+        }
+      },
+      "output_tokens": 258
+    }
+  ],
+  "summary_sha256": "5e546660b2d2e5986936624c7df15ac6927b0983605971a6557d401f9b092f5d",
+  "lease_sha256": "fbaed55fa3f99dd5d795f50db7e284bdc40b7dd85062ffda0252c5b3c1e7cb4c",
+  "fixture_sha256": "848e64891e9b1da1411f483d434035ac1678b4666ea1b74ed0d88ed673a1857e",
+  "broad_quality_accepted": false,
+  "formal_throughput_comparison_completed": false,
+  "limits": "32 newly authored short deployment probes in math/Chinese/format/small code; not broad quality acceptance. Same quantized artifact, original versus grouped prefill.",
+  "status": "completed_additional32_authored_short_probes_independently_replayed",
+  "observed_at_UTC": "2026-10-10T00:38:11.239828+00:00",
+  "all_saved_output_IDs_and_retained_maps_and_grades_recomputed_locally": true,
+  "domains": [
+    "math",
+    "zh",
+    "format",
+    "code"
+  ],
+  "per_domain_request_count": 8,
+  "maximum_input_tokens": 42,
+  "training_or_reserved_benchmark_data_used": false,
+  "grader_SHA256": "d16ae998f13c313459165d4aab48fd85e5d26f50fd3bd3ce43628469aa253efd",
+  "grading_function_AST_unchanged": true,
+  "public_CPU_grader_actual_outputs_replayed": true,
+  "failed_cases_preserved": [
+    {
+      "mode": "baseline",
+      "probe_id": "format-21",
+      "request_index": 21,
+      "prompt": "Only output the JSON array containing -2, then 0, then 5.",
+      "expected": {
+        "kind": "json",
+        "value": [
+          -2,
+          0,
+          5
+        ]
+      },
+      "actual_text": "```json\n[-2, 0, 5]\n```",
+      "eos_reached": true,
+      "status": "invalid_format_or_unsupported_safe_AST"
+    },
+    {
+      "mode": "grouped",
+      "probe_id": "format-21",
+      "request_index": 21,
+      "prompt": "Only output the JSON array containing -2, then 0, then 5.",
+      "expected": {
+        "kind": "json",
+        "value": [
+          -2,
+          0,
+          5
+        ]
+      },
+      "actual_text": "```json\n[-2, 0, 5]\n```",
+      "eos_reached": true,
+      "status": "invalid_format_or_unsupported_safe_AST"
+    }
+  ],
+  "fixture": "experimental122/examples/deployment-probes32.jsonl",
+  "grader": "experimental122/evaluate_deployment_probes.py",
+  "provenance": "experimental122/deployment-probes-provenance.json",
+  "source73_policy_SHA256": "5e004cbdaeecaa12ef9cc6d5a56597408f354d2ccf2c71768b73bdb42c819ac5",
+  "published_model_code_provenance_SHA256": "4ff8e3546882d527e0f2ecfaad091f426e26b751f0ca4b2a99909ecc5e8ae380",
+  "unquantized_BF16_teacher_not_tested_in_this_probe": true,
+  "not_a_HumanEval_CMMLU_or_GSM8K_run": true
+}

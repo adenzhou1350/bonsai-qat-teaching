@@ -125,3 +125,5 @@
 - [分组预填充16同缓存四轮对照完成](2026-10-10-0816-prefill16-deployment.json)：原部署/分组21.72/24.00 tokens/s，完整输出一致；不同输入舍入和广泛质量尚未验证，保留原默认入口。
 
 - [分组预填充独立入口复刻完成](../../experimental122/vllm-prefill-block16-engine-evidence.json)：eager32+Graph32完整输出一致，独立64文件清单，保留原默认入口。
+
+- [新增32短请求回归完成](2026-10-10-0838-deployment-probes32.json)：原部署与分组完整输出一致，两边31/32；保留JSON围栏格式失败，题目及CPU评分器可复刻。
