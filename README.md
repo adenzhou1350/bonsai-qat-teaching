@@ -2,11 +2,15 @@
 
 # Bonsai QAT Teaching
 
+[![公开文件与摘要一致性](https://github.com/adenzhou1350/bonsai-qat-teaching/actions/workflows/public-evidence.yml/badge.svg?branch=main)](https://github.com/adenzhou1350/bonsai-qat-teaching/actions/workflows/public-evidence.yml)
+
 先在[浏览器里试三值打包](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo)，无需安装；再按需进入 Linux CPU 实验，学习三值量化、蒸馏、检查点恢复和大模型压缩推理。仓库包含 PyTorch 教学代码、动手课程，以及实际实验的结果和失败记录。
 
 [浏览器零安装实验](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo) · [核对公开结果](docs/PUBLIC_EVIDENCE.md) · [Linux CPU 检查](#cpu-start) · [动手课程](docs/LABS.md) · [结果说明](docs/RESULTS.md) · [训练指南](docs/REPRODUCING.md) · [122B 推理指南](experimental122/README.md) · [网站导读](https://adenzhou1350.github.io/learn/bonsai-low-bit/)
 
 这是 Bonsai 风格的独立教学与研究实现，尚未完整复现官方训练配方。**仓库不包含模型权重。** 35B 和 122B 都是 MoE，分别指总参数量，不是同规模稠密模型。
+
+上方检查状态对应公开文件、摘要算术和损坏文件测试；模型质量与 GPU 实验结果见[结果说明](docs/RESULTS.md)。
 
 <a id="可以从这里学到什么"></a>
 <a id="再选一条进阶路线"></a>

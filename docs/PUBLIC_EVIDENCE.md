@@ -2,9 +2,11 @@
 
 如果你是看到「单张 5090 跑 122B」找来的，可以先花几秒检查这里的数字从哪来。这个入口只需 **Python 3.9+ 标准库**，Windows、Linux 都可以运行；不安装 Torch，不下载权重，也不启动训练。
 
-从仓库根目录执行：
+第一次运行，先准备 Git 和 Python，再执行下面三行。已有仓库时，在仓库根目录执行最后一行即可，不需要安装 `requirements.txt`：
 
 ```bash
+git clone https://github.com/adenzhou1350/bonsai-qat-teaching.git
+cd bonsai-qat-teaching
 python scripts/check_public_evidence.py
 ```
 
@@ -60,3 +62,5 @@ python -m unittest discover -s tests -p test_public_evidence.py -v
 ```
 
 测试会在临时目录模拟证据损坏、源码缺失、换行变化和错误的合并吞吐，不碰原始实验文件。
+
+[GitHub Actions](https://github.com/adenzhou1350/bonsai-qat-teaching/actions/workflows/public-evidence.yml) 在 `main` 更新和 pull request 时运行同一项检查与测试，也可手动触发。环境为 Linux / Python 3.9 和 Windows / Python 3.14，覆盖声明的最低 Python 版本与两种系统。工作流不安装模型依赖、不下载权重；绿色状态的范围与本页 `PASS` 相同。

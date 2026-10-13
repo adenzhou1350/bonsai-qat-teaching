@@ -1,0 +1,41 @@
+name: Public evidence consistency
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Public files and arithmetic (${{ matrix.os }}, Python ${{ matrix.python }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 5
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-22.04
+            python: '3.9'
+          - os: windows-latest
+            python: '3.14'
+    steps:
+      - name: Check out public files
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Check published identities and summary arithmetic
+        run: python -I scripts/check_public_evidence.py
+      - name: Check missing and damaged evidence handling
+        run: python -I -m unittest discover -s tests -p test_public_evidence.py -v
