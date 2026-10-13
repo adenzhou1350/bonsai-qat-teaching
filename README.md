@@ -4,7 +4,7 @@
 
 先在[浏览器里试三值打包](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo)，无需安装；再按需进入 Linux CPU 实验，学习三值量化、蒸馏、检查点恢复和大模型压缩推理。仓库包含 PyTorch 教学代码、动手课程，以及实际实验的结果和失败记录。
 
-[浏览器零安装实验](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo) · [Linux CPU 检查](#cpu-start) · [动手课程](docs/LABS.md) · [结果说明](docs/RESULTS.md) · [训练指南](docs/REPRODUCING.md) · [122B 推理指南](experimental122/README.md) · [网站导读](https://adenzhou1350.github.io/learn/bonsai-low-bit/)
+[浏览器零安装实验](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo) · [核对公开结果](docs/PUBLIC_EVIDENCE.md) · [Linux CPU 检查](#cpu-start) · [动手课程](docs/LABS.md) · [结果说明](docs/RESULTS.md) · [训练指南](docs/REPRODUCING.md) · [122B 推理指南](experimental122/README.md) · [网站导读](https://adenzhou1350.github.io/learn/bonsai-low-bit/)
 
 这是 Bonsai 风格的独立教学与研究实现，尚未完整复现官方训练配方。**仓库不包含模型权重。** 35B 和 122B 都是 MoE，分别指总参数量，不是同规模稠密模型。
 
@@ -17,6 +17,7 @@
 | 你想做什么 | 需要准备什么 | 从哪里开始 |
 |---|---|---|
 | 改五个三值，观察打包与还原 | 浏览器，零安装；只演示编码，不运行模型 | [三值编码小实验](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo) |
+| 先检查公开数字和源码是否对得上 | Python 3.9+ 标准库；Windows / Linux 均可，无需模型 | [公开证据检查](docs/PUBLIC_EVIDENCE.md)，并查看权重、数据与原始日志的发布范围 |
 | 在 CPU 检查三值量化、梯度和训练恢复 | Linux CPU、Python 与 PyTorch，无需模型 | [下方 CPU 实验](#cpu-start) → [第一课](docs/LABS.md) |
 | 用自己的文本做 35B 全专家 QAT | Linux、2×B300、原始模型、数据和足够磁盘 | [训练指南](docs/REPRODUCING.md) |
 | 运行已有 122B 压缩产物 | Linux、32GB RTX 5090、另行取得指定 packed 权重 | [推理与 HTTP 服务](experimental122/README.md) |
@@ -93,8 +94,16 @@ CUDA_VISIBLE_DEVICES='' .venv/bin/python test_equations.py
 
 更多项目与教程见 [Aden 的网站](https://adenzhou1350.github.io/)。
 
+## 许可与来源
+
+作者有权许可的原创代码与文档按 [MIT](LICENSE) 发布。第三方声明保留：随附 GEMQ dense GPTQ 代码沿用 Jianing Deng 的 MIT 声明，CodeAlpaca 数据仍受 CC BY-NC 4.0 约束；外部模型、数据和依赖按各自条款使用。仓库不分发模型权重，根目录 MIT 不替代这些外部材料的许可。具体文件与出处见[第三方说明](THIRD_PARTY_NOTICES.md)。
+
 ## English overview
 
 A PyTorch teaching repository for ternary quantization, straight-through gradients, distillation, checkpoint recovery, and compressed MoE inference. Start with the [zero-install browser demo](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo), then optionally continue with the [Linux CPU checks](#cpu-start). The browser demo only packs and unpacks five ternary values; it does not run QAT or model inference. Full-expert 35B QAT and frozen-base low-rank recovery are separate experiments.
 
 The fixed 122B MoE artifact runs on one 32GB RTX 5090, but weights are not included and the portable end-to-end training chain is incomplete. All four reported 122B development panels remain below their matched BF16 baselines. Research is paused; completed results and checkpoints are preserved. See [results and measurement scope](docs/RESULTS.md) before interpreting speed or quality numbers.
+
+For an offline check without PyTorch or model weights, run `python scripts/check_public_evidence.py`. It checks pinned public file identities and summary arithmetic, not raw logs, model quality, or GPU performance. See the [public evidence and artifact availability guide](docs/PUBLIC_EVIDENCE.md) for what is actually included.
+
+Original code and documentation the author has the right to license are available under [MIT](LICENSE). Third-party materials retain their own terms; see [third-party notices](THIRD_PARTY_NOTICES.md).

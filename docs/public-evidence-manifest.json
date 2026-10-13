@@ -1,0 +1,44 @@
+{
+  "format": "bonsai-public-evidence-v1",
+  "recorded_date": "2026-10-13",
+  "baseline_commit": "f6d90b4332e585737c593c8823516136e1618093",
+  "scope": "Public source identities and published summary arithmetic. Not raw-log verification, model execution, quality reproduction, or a complete training release. Baseline commit fixes only the pre-existing files listed here and through source_manifests; checker and this inventory are added later.",
+  "line_endings": "CRLF canonicalized to LF before SHA256; no other transformation",
+  "source_manifests": [
+    {
+      "path": "docs/reproducibility-manifest.json",
+      "file_prefix": ""
+    },
+    {
+      "path": "experimental122/vllm-http-provenance.json",
+      "file_prefix": ""
+    },
+    {
+      "path": "courses/122b/provenance.json",
+      "file_prefix": ""
+    },
+    {
+      "path": "courses/122b/seed_cpu/provenance.json",
+      "file_prefix": "courses/122b/seed_cpu"
+    }
+  ],
+  "records": {
+    "http": "docs/experiments/2026-10-10-1145-HTTP-observed-ABBA.json",
+    "r35_quality": "docs/experiments/2026-10-09-2245.json",
+    "r122_training_quality": "experimental122/native4095-training-result.json"
+  },
+  "file_sha256": {
+    "courses/122b/data/CodeAlpaca-DATA_LICENSE.txt": "3711f963c05d0be80d53e5923308a6dee31b203da23435c9cfb7c7b6e4dd5e19",
+    "courses/122b/data/approved-recipe.json": "29f698f738ae4c2d7208c029c2db43768033a9117d8d7b686bf85388de745aa9",
+    "courses/122b/provenance.json": "ca93aa64333eca67d97ea9b06df77027dfa52e7305e812f810e1cda9b8561339",
+    "courses/122b/seed_cpu/portable122-GEMQ-LICENSE.txt": "7e437d7053c98be6d6f106861846865778186a37b8be8487eb03bfa76b538d05",
+    "courses/122b/seed_cpu/provenance.json": "2e12eb71133db9b0f2453ba0c710f30d1df87608cabb11942a98922d097a2342",
+    "docs/experiments/2026-10-09-2245.json": "2487159b5e73b85a8f6f3afddd2c5cc00c5e37f8dbf40d0dc00a0ea29d039dbe",
+    "docs/experiments/2026-10-10-0217.json": "4b8b7ef9bc0d8ac795f199decdc9d1a7f4bbec4cf28d078c2a3f0605df8d5ef7",
+    "docs/experiments/2026-10-10-0218.json": "e6e5e813b9a893fd1365406406ab3ecddcdd420695670d508a434cd5bf0dd29d",
+    "docs/experiments/2026-10-10-1145-HTTP-observed-ABBA.json": "c65d5dea81e6daf59cc98deae2fbb4702cf3e60dd6bc24196ac781919777606c",
+    "docs/reproducibility-manifest.json": "9a978943613951afc52f23ed8eeb190a46a19d3783ed41d4fa378d509ec3c17c",
+    "experimental122/native4095-training-result.json": "b8145038890b845fe06367de2caed0dc6c376754b76eb7c044d55c97502131dc",
+    "experimental122/vllm-http-provenance.json": "88b246dbd763888a99e156a405a5e7c678e03c3c1bb33d20d19e8eaff09fe33b"
+  }
+}

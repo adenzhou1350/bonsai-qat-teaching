@@ -4,6 +4,8 @@
 
 [返回首页](../README.md) · [实验索引](experiments/README.md) · [122B 运行指南](../experimental122/README.md) · [历史时间线](experiments/TIMELINE.md)
 
+无需模型即可运行[公开证据检查](PUBLIC_EVIDENCE.md)：核对源码身份、重算 HTTP 合并吞吐和显存单位，并检查质量表计数。当前发布的是实验摘要，部分原始日志只有哈希，没有随仓库分发；脚本通过不代表重新执行了评测。
+
 ## 可以从现有结果得出什么
 
 | 问题 | 目前的证据 |
