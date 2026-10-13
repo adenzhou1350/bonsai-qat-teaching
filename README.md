@@ -2,9 +2,9 @@
 
 # Bonsai QAT Teaching
 
-从 CPU 小实验开始，学习三值量化、蒸馏、检查点恢复和大模型压缩推理。仓库包含 PyTorch 教学代码、动手课程，以及实际实验的结果和失败记录。
+先在[浏览器里试三值打包](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo)，无需安装；再按需进入 Linux CPU 实验，学习三值量化、蒸馏、检查点恢复和大模型压缩推理。仓库包含 PyTorch 教学代码、动手课程，以及实际实验的结果和失败记录。
 
-[CPU 起步](#cpu-start) · [动手课程](docs/LABS.md) · [结果说明](docs/RESULTS.md) · [训练指南](docs/REPRODUCING.md) · [122B 推理指南](experimental122/README.md) · [网站导读](https://adenzhou1350.github.io/learn/bonsai-low-bit/)
+[浏览器零安装实验](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo) · [Linux CPU 检查](#cpu-start) · [动手课程](docs/LABS.md) · [结果说明](docs/RESULTS.md) · [训练指南](docs/REPRODUCING.md) · [122B 推理指南](experimental122/README.md) · [网站导读](https://adenzhou1350.github.io/learn/bonsai-low-bit/)
 
 这是 Bonsai 风格的独立教学与研究实现，尚未完整复现官方训练配方。**仓库不包含模型权重。** 35B 和 122B 都是 MoE，分别指总参数量，不是同规模稠密模型。
 
@@ -16,7 +16,8 @@
 
 | 你想做什么 | 需要准备什么 | 从哪里开始 |
 |---|---|---|
-| 看懂三值编码、梯度和训练恢复 | Linux CPU、Python 与 PyTorch，无需模型 | [下方 CPU 实验](#cpu-start) → [第一课](docs/LABS.md) |
+| 改五个三值，观察打包与还原 | 浏览器，零安装；只演示编码，不运行模型 | [三值编码小实验](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo) |
+| 在 CPU 检查三值量化、梯度和训练恢复 | Linux CPU、Python 与 PyTorch，无需模型 | [下方 CPU 实验](#cpu-start) → [第一课](docs/LABS.md) |
 | 用自己的文本做 35B 全专家 QAT | Linux、2×B300、原始模型、数据和足够磁盘 | [训练指南](docs/REPRODUCING.md) |
 | 运行已有 122B 压缩产物 | Linux、32GB RTX 5090、另行取得指定 packed 权重 | [推理与 HTTP 服务](experimental122/README.md) |
 | 从原始 122B 权重学习数据校准与初始化 | 原始 BF16 模型、大内存 Linux CPU | [数据课程](courses/122b/README.md) → [初始化课程](courses/122b/seed_cpu/README.md) |
@@ -40,17 +41,18 @@
 
 <a id="cpu-start"></a>
 
-## 第一次来：从 CPU 实验开始
+## 继续动手：Linux CPU 梯度与恢复检查
 
 这一入口不下载模型，也不加载 35B/122B 权重。完整检查点测试使用 POSIX 目录同步，按 **Linux CPU 环境**准备；Windows 原生执行尚未验证。
 
-在独立 Python 环境中运行：
+创建独立 Python 环境后运行，无需激活环境：
 
 ```bash
 git clone https://github.com/adenzhou1350/bonsai-qat-teaching.git
 cd bonsai-qat-teaching
-python -m pip install -r requirements.txt
-CUDA_VISIBLE_DEVICES='' python test_equations.py
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+CUDA_VISIBLE_DEVICES='' .venv/bin/python test_equations.py
 ```
 
 成功时输出以 `PASS: ternary grid, identity STE, packing, ...` 开头，检查三值尺度与打包、STE 与蒸馏梯度，以及保存恢复后的下一次更新和 Adam 状态。损坏检查点会被拒绝。
@@ -93,6 +95,6 @@ CUDA_VISIBLE_DEVICES='' python test_equations.py
 
 ## English overview
 
-A PyTorch teaching repository for ternary quantization, straight-through gradients, distillation, checkpoint recovery, and compressed MoE inference. Start with small Linux CPU checks. Full-expert 35B QAT and frozen-base low-rank recovery are separate experiments.
+A PyTorch teaching repository for ternary quantization, straight-through gradients, distillation, checkpoint recovery, and compressed MoE inference. Start with the [zero-install browser demo](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo), then optionally continue with the [Linux CPU checks](#cpu-start). The browser demo only packs and unpacks five ternary values; it does not run QAT or model inference. Full-expert 35B QAT and frozen-base low-rank recovery are separate experiments.
 
 The fixed 122B MoE artifact runs on one 32GB RTX 5090, but weights are not included and the portable end-to-end training chain is incomplete. All four reported 122B development panels remain below their matched BF16 baselines. Research is paused; completed results and checkpoints are preserved. See [results and measurement scope](docs/RESULTS.md) before interpreting speed or quality numbers.
