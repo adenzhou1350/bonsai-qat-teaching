@@ -1,0 +1,167 @@
+{
+  "format": "qwen38-local-pilot-entered-training-v1",
+  "recorded_at_UTC": "2026-10-19T15:50:21Z",
+  "preceding_download_record": "2026-10-19-Q38-download-retry-repair.json",
+  "quality_accepted": false,
+  "original_model": {
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "verified_files": 27,
+    "verified_bytes": 55586047268,
+    "each_file_verified_against_pinned_Hub_LFS_or_Git_identity": true,
+    "training_process_independently_reverified_all_originals": true,
+    "original_proof_SHA256": "69ae3a99a4573e7b35350e8107f32c3c6c78dc959c67aabc003805d3da9b1df3",
+    "verified_file_SHA256": {
+      "LICENSE": "bbedc3fda3305820b977265f01b8619d87570a6739de3a5582c3464840f1e57a",
+      "chat_template.jinja": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+      "config.json": "191e0af232104ed8b65258cf3fb2b842e288008baca7633c11b82a1ac7203aab",
+      "generation_config.json": "e70c136c1b78ddc1fb0905bac8e733a4dc448d4f852a5dd75143fffc70be550e",
+      "merges.txt": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d",
+      "model-00001-of-00018.safetensors": "ba0ce20aae489ad196733da5064bcdf159a1fe84f53336648196e1ebb7751b1c",
+      "model-00002-of-00018.safetensors": "06a148c01bfbe3faa14a5f184a7ff29a706f7ae1c8b2705d2058e26d17a001fb",
+      "model-00003-of-00018.safetensors": "2e1bf62cbcd406eaa64b60d10353e1f0ef4039d0976e56f05cabe953454f9968",
+      "model-00004-of-00018.safetensors": "511e34063187882659753c4d93f3859f93c019fd438d8813071921c81d9a3f1a",
+      "model-00005-of-00018.safetensors": "635cb53446dc74f219740fc59e18b774f877b803b9722e289ca62575a6efa701",
+      "model-00006-of-00018.safetensors": "0bc5214fac607f0e6cc92eec3789d4b8559410ef9fce66621ba8158e8410dae0",
+      "model-00007-of-00018.safetensors": "80b0c49033e9a0d5762562aa12f4acdb7f54da586f3d0110f28c48d91cf07892",
+      "model-00008-of-00018.safetensors": "7192c5b66185d3592927daabee1cc19e6f6e0ce75988ee20e824b624765fda79",
+      "model-00009-of-00018.safetensors": "af3c48cc37af44f3db6ae0579baf019180d48d9c527caa0a1f03ff85813a56d8",
+      "model-00010-of-00018.safetensors": "163490a76f3bea3a40855b7efc04ce6d27afaf1a34f0bbde495b9491f76457c9",
+      "model-00011-of-00018.safetensors": "5f3ae1b948aeee39da77aec558e8236cd65fe4d7cb7686a76bb007acc563c6d8",
+      "model-00012-of-00018.safetensors": "a3de1c7114677a8f5ac5c4892c90e8238ea5c1e2038c80e757dfc87c3902ca55",
+      "model-00013-of-00018.safetensors": "06ab79a41f74c9c5cb734816feb0c7fc364104b227165ee7391231e1155aa02a",
+      "model-00014-of-00018.safetensors": "4138ed94603065ba884bbcadedb04d7718bb40117e85e6f5c6fc5b9c05b7a85b",
+      "model-00015-of-00018.safetensors": "69224e27b9de4e7dbf6fc936c6eaae08447bda3b80a6c31a871ab451173afd22",
+      "model-00016-of-00018.safetensors": "73cb9a1089fb6155cb648609478d6633be8a5c7d9ca5a05bc8925ce8a553cefe",
+      "model-00017-of-00018.safetensors": "beb51f01056142ac4984bd800507b0dd0fd18de57f8e9ef6ea41d1a3598983a8",
+      "model-00018-of-00018.safetensors": "1d3479509e21494658f9b64d317f5ea8e55c4025d28c702d6c4d0b356ce8ea06",
+      "model.safetensors.index.json": "77042094076611b69791a610065f28b7013b8c621795fa86ddccc8bac7d1b9df",
+      "tokenizer.json": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+      "tokenizer_config.json": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27",
+      "vocab.json": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+    }
+  },
+  "transport_outcome": {
+    "download_stage_exit_code": 0,
+    "download_stage_seconds": 19214.440189429093,
+    "HTTP_version": "1.1",
+    "transient_attempts_automatically_resumed": [
+      {
+        "file": "model-00011-of-00018.safetensors",
+        "attempt": 1,
+        "curl_exit_code": 18,
+        "prefix_before_bytes": 0,
+        "partial_bytes_after": 881807084
+      },
+      {
+        "file": "model-00008-of-00018.safetensors",
+        "attempt": 1,
+        "curl_exit_code": 18,
+        "prefix_before_bytes": 0,
+        "partial_bytes_after": 2480784468
+      },
+      {
+        "file": "model-00008-of-00018.safetensors",
+        "attempt": 2,
+        "curl_exit_code": 28,
+        "prefix_before_bytes": 2480784468,
+        "partial_bytes_after": 2480784468
+      },
+      {
+        "file": "model-00012-of-00018.safetensors",
+        "attempt": 1,
+        "curl_exit_code": 18,
+        "prefix_before_bytes": 0,
+        "partial_bytes_after": 831631543
+      },
+      {
+        "file": "model-00009-of-00018.safetensors",
+        "attempt": 1,
+        "curl_exit_code": 18,
+        "prefix_before_bytes": 0,
+        "partial_bytes_after": 1892706381
+      },
+      {
+        "file": "model-00010-of-00018.safetensors",
+        "attempt": 1,
+        "curl_exit_code": 18,
+        "prefix_before_bytes": 0,
+        "partial_bytes_after": 1719894900
+      },
+      {
+        "file": "model-00013-of-00018.safetensors",
+        "attempt": 1,
+        "curl_exit_code": 18,
+        "prefix_before_bytes": 0,
+        "partial_bytes_after": 1113154072
+      },
+      {
+        "file": "model-00012-of-00018.safetensors",
+        "attempt": 2,
+        "curl_exit_code": 56,
+        "prefix_before_bytes": 831631543,
+        "partial_bytes_after": 2807006347
+      }
+    ],
+    "all_files_complete_and_verified": true,
+    "Windows_public_download_tunnel_closed_after_completion": true,
+    "local_WSL_used": false
+  },
+  "training_entry_snapshot": {
+    "state": "training_update_1",
+    "actual_optimizer_updates": 0,
+    "requested_updates": 32,
+    "new_independent_run_not_previous_checkpoint_resume": true,
+    "teacher_rows_completed": 40,
+    "teacher_cache_SHA256": "563ad9a03ba4ff5f05eb4e3ac97ff5a05b6b168adb3400df7983688104cc9d15",
+    "prepared_batches_SHA256": "c0045ae0c85c193cd3476fbe95ca2504896f06c163d633f2a684ca2011d9b2a0",
+    "initial_eight_row_validation": {
+      "after_updates": 0,
+      "mean_loss_KL_MSE": [
+        6.335609257221222,
+        6.193710684776306,
+        1.4189857095479965
+      ]
+    },
+    "source_policy_SHA256": "9dba8048444ee4b84f8f6c9e9b93d4c3f093ff222f2072e2207da006df9610f3",
+    "all_frozen_sources_unchanged": true,
+    "public_source_SHA256": {
+      "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+      "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+      "infer_control.py": "bc39136e494640010f592c27eb45a1c4fecdafa335d89e718b2cf3a60d316629",
+      "offload.py": "e472b68378745de5e6b359d4a541d17e4f9ce146305c49eb1d4f1b07ace2b591",
+      "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+      "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+      "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+      "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+      "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+      "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+      "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+      "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+      "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
+      "buffered_staging.py": "ca603f363b197fa6c862c5eb69d59785ff106d728eedbd73d7d01d266c953fbb",
+      "test_buffered_staging.py": "724dead146f1048ef16a341e9f33e47fa5cb894292c06040e08f79e12103500a",
+      "recovery_checkpoint.py": "9e13c0e7407371155c67533595a04165bb5dbec30204fc267d7579094905b7df",
+      "test_recovery_checkpoint.py": "34ff01611b536bc2b7d0edfc36a4cc7c0096ccaec5bfa617137373aa41cb7470",
+      "recovery_pilot.py": "b2e2d2a6ffdbba4a1e2f6b3cc0fc65daf7a42c4250487d89c17ada0713ed500d",
+      "prepare_wikitext.py": "3c41accca70e68056742da234e721cb85ad7fc041ca60e9b823f61fc32787525",
+      "source-files.json": "9d60f9c046aebd93a54625c155fccdfa12a7dba0c81963b1644cf2b311dff8d3",
+      "mapped_gradients.py": "75b83b21323e8b86d0fcecdbbfcbd1457fae41757f598c1e9b505e6d268a2825",
+      "test_mapped_gradients.py": "92ddc89b72c6003de5846a6dd952d03412bf7361f06826e08db234c392c7fb88",
+      "recovery_pilot_mapped.py": "e5529dc84b1f2f4456a2fa5f26dcd6d4b90a713ac4da6ab4ea713be9fc4b6b78"
+    },
+    "same_optimizer_quantization_data_and_mapped_gradient_code_as_published": true,
+    "first_full402_matrix_gradient_update_verified": false,
+    "checkpoint_written": false,
+    "packed_preview_observed": false,
+    "resource_sample_during_first_update": {
+      "used_MiB": 23443,
+      "free_MiB": 8669,
+      "utilization": 37,
+      "CPU_anon_and_shmem_bytes": 115284377600,
+      "cgroup_limit_bytes": 242665652224,
+      "disk_free_bytes": 695540580352,
+      "seconds": 879.9548632199876
+    }
+  },
+  "interpretation": "The download bottleneck is resolved and the bounded full-model training process has entered its first update. Completed-update count is still0 at this snapshot. Initial fixed VAL KL is6.1937106848, matching the earlier machine; this is an initialization check, not a quality improvement. Final checkpoint, generation and throughput remain unverified."
+}
