@@ -205,6 +205,9 @@
     "checkpoint_restore_verified": false,
     "quality_accepted": false,
     "download_repair_record": "../../docs/experiments/2026-10-19-Q38-download-retry-repair.json",
-    "training_entry_record": "../../docs/experiments/2026-10-19-Q38-local-pilot-entered-training.json"
+    "training_entry_record": "../../docs/experiments/2026-10-19-Q38-local-pilot-entered-training.json",
+    "latest_outcome_record": "../../docs/experiments/2026-10-20-Q38-mapped32-restore-timeout.json",
+    "full27B_32_optimizer_updates_verified": true,
+    "checkpoint_saved": true
   }
 }

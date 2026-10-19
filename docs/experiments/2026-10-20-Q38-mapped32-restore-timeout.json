@@ -1,0 +1,197 @@
+{
+  "format": "qwen38-mapped32-saved-artifacts-and-restore-timeout-v1",
+  "recorded_at_UTC": "2026-10-19T19:54:33Z",
+  "recorded_at_Asia_Shanghai": "2026-10-20T03:54:33+08:00",
+  "previous_training_entry_snapshot": "2026-10-19-Q38-local-pilot-entered-training.json",
+  "quality_accepted": false,
+  "official_training_recipe_reproduced": false,
+  "training": {
+    "actual_optimizer_updates": 32,
+    "all402_matrix_gradients_finite_each_completed_update": true,
+    "FP32_CPU_master_elements": 26869760000,
+    "FP32_gradient_storage": "shared regular local-file mmap",
+    "gradient_scratch_logical_bytes": 107479040000,
+    "gradient_scratch_is_a_checkpoint": false,
+    "training_update_seconds_sum": 6635.776270360453,
+    "training_update_seconds_mean": 207.36800844876416,
+    "training_update_seconds_min_max": [
+      179.33577840821818,
+      232.16718635498546
+    ],
+    "fixed_eight_VAL": [
+      {
+        "after_updates": 0,
+        "mean_loss_KL_MSE": [
+          6.335609257221222,
+          6.193710684776306,
+          1.4189857095479965
+        ]
+      },
+      {
+        "after_updates": 8,
+        "mean_loss_KL_MSE": [
+          1.4055508524179459,
+          1.3507926389575005,
+          0.547582283616066
+        ]
+      },
+      {
+        "after_updates": 16,
+        "mean_loss_KL_MSE": [
+          1.241436593234539,
+          1.1903540715575218,
+          0.5108253322541714
+        ]
+      },
+      {
+        "after_updates": 24,
+        "mean_loss_KL_MSE": [
+          1.1312643140554428,
+          1.0816211551427841,
+          0.49643154069781303
+        ]
+      },
+      {
+        "after_updates": 32,
+        "mean_loss_KL_MSE": [
+          1.0530373007059097,
+          1.0054723247885704,
+          0.47564973309636116
+        ]
+      }
+    ],
+    "retained_tensor_hashes_unchanged": true,
+    "source_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "prepared_batches_SHA256": "c0045ae0c85c193cd3476fbe95ca2504896f06c163d633f2a684ca2011d9b2a0",
+    "teacher_cache_SHA256": "563ad9a03ba4ff5f05eb4e3ac97ff5a05b6b168adb3400df7983688104cc9d15",
+    "source_policy_SHA256": "9dba8048444ee4b84f8f6c9e9b93d4c3f093ff222f2072e2207da006df9610f3",
+    "public_source_SHA256": {
+      "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+      "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+      "infer_control.py": "bc39136e494640010f592c27eb45a1c4fecdafa335d89e718b2cf3a60d316629",
+      "offload.py": "e472b68378745de5e6b359d4a541d17e4f9ce146305c49eb1d4f1b07ace2b591",
+      "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+      "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+      "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+      "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+      "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+      "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+      "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+      "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+      "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
+      "buffered_staging.py": "ca603f363b197fa6c862c5eb69d59785ff106d728eedbd73d7d01d266c953fbb",
+      "test_buffered_staging.py": "724dead146f1048ef16a341e9f33e47fa5cb894292c06040e08f79e12103500a",
+      "recovery_checkpoint.py": "9e13c0e7407371155c67533595a04165bb5dbec30204fc267d7579094905b7df",
+      "test_recovery_checkpoint.py": "34ff01611b536bc2b7d0edfc36a4cc7c0096ccaec5bfa617137373aa41cb7470",
+      "recovery_pilot.py": "b2e2d2a6ffdbba4a1e2f6b3cc0fc65daf7a42c4250487d89c17ada0713ed500d",
+      "prepare_wikitext.py": "3c41accca70e68056742da234e721cb85ad7fc041ca60e9b823f61fc32787525",
+      "source-files.json": "9d60f9c046aebd93a54625c155fccdfa12a7dba0c81963b1644cf2b311dff8d3",
+      "mapped_gradients.py": "75b83b21323e8b86d0fcecdbbfcbd1457fae41757f598c1e9b505e6d268a2825",
+      "test_mapped_gradients.py": "92ddc89b72c6003de5846a6dd952d03412bf7361f06826e08db234c392c7fb88",
+      "recovery_pilot_mapped.py": "e5529dc84b1f2f4456a2fa5f26dcd6d4b90a713ac4da6ab4ea713be9fc4b6b78"
+    },
+    "scope": "One small English WikiText distillation pilot; not Chinese/code/agent capability evaluation"
+  },
+  "saved_artifacts": {
+    "packed_file_bytes": 5850462217,
+    "packed_manifest_SHA256": "7217d5c218e4b27317e9862224113d8bf694944329d8a70c80c9ae53742a03d4",
+    "checkpoint_complete_manifest_written": true,
+    "checkpoint_masters": 402,
+    "checkpoint_tensor_and_optimizer_RNG_bytes": 79491807747,
+    "checkpoint_raw_FP32_master_bytes": 107479040000,
+    "checkpoint_manifest_SHA256": "ddc4bcd84f2f245d6963ae3b099049bbbab4076f2727401e68232c46cb90becd",
+    "checkpoint_full_restore_verification_completed": false,
+    "next_optimizer_update_after_restore_verified": false,
+    "checkpoint_is_container_local_not_a_durable_external_backup": true
+  },
+  "independent_single_prompt_preview": {
+    "completed": true,
+    "source_control_updates": 32,
+    "packed_manifest_SHA256": "7217d5c218e4b27317e9862224113d8bf694944329d8a70c80c9ae53742a03d4",
+    "generated_token_IDs": [
+      103725,
+      105258,
+      103722,
+      96123,
+      103725,
+      101630,
+      95828,
+      110745,
+      98132,
+      99580,
+      3709,
+      104111,
+      95772,
+      99476,
+      99125,
+      98151,
+      103725,
+      98822,
+      3709,
+      98618,
+      104218,
+      100550,
+      99476,
+      96348,
+      96335,
+      103725,
+      99973,
+      1710,
+      271,
+      103725,
+      105258,
+      99151
+    ],
+    "text": "模型量化是指将模型参数以数值形式存储，以便在训练过程中记录模型状态，用于后续恢复训练或进行模型评估。\n\n模型量化通常",
+    "request_seconds_excludes_load_tokenization": 47.27304326952435,
+    "first_token_seconds": 2.542095016920939,
+    "decode_after_first_tokens_per_second": 0.6930324799943348,
+    "model_unique_CUDA_storage_bytes": 5849376000,
+    "peak_GPU_allocated_bytes": 26289948672,
+    "CPU_weight_offload_during_inference": false,
+    "fused_kernel": false,
+    "all_model_tensors_on_CUDA": true,
+    "model_tensor_count": 1657,
+    "quality_accepted": false,
+    "full_recovery_training_completed": false,
+    "limitation": "One short prompt, packed-weight expansion reference, no quality or sustained-throughput claim"
+  },
+  "manual_preview_observation": "The model now emits nonempty Chinese, but defines quantization as storing model state for later training recovery/evaluation. That confuses checkpointing with quantization. The32-token capped output is not a usable-quality acceptance result.",
+  "terminal_orchestration_failure": {
+    "stage": "restoring_all402_FP32_masters_optimizer_and_RNG_from_disk",
+    "wrapper_exit_code": 1,
+    "error_type": "AssertionError",
+    "error": "Stage timeout",
+    "total_stage_bound_seconds": 14400,
+    "last_observed_stage_seconds": 14400.565306430915,
+    "ended_at_UTC": "2026-10-19T19:35:48.129915+00:00",
+    "reason": "The private runner used one4-hour budget for initialization, all32 updates, export, preview, checkpoint compression and restore. It terminated the owned child during restore after the complete checkpoint was already saved.",
+    "checkpoint_corruption_reported": false,
+    "GPU_lease_released": true,
+    "frozen_training_sources_edited": false,
+    "training_updates_and_saved_artifacts_discarded": false,
+    "dependent_prompt_queue_aborted_before_any_GPU_use": true,
+    "public_training_entry_itself_has_this_private4hour_timeout": false
+  },
+  "independent_restore_retry_at_snapshot": {
+    "state": "running_verify_restore",
+    "worker_state": "verifying_original_basis_files",
+    "new_optimizer_updates": 0,
+    "same_checkpoint_and_packed_manifest_identities_required": true,
+    "verify_stage_bound_seconds": 7200,
+    "conditional_eight_prompt_diagnostic_bound_seconds": 1800,
+    "CPU_only_import_and_CLI_controls_passed": true,
+    "source_policy_SHA256": "a98deaa5f2c11bc0aaa4d2dd31e40cd6f14867e534b769f0c9dc256ac69a7b62",
+    "all_frozen_sources_unchanged": true,
+    "decoded_masters_optimizer_RNG_and_packed_forward_verification_passed": false,
+    "diagnostic_GPU_execution_observed": false,
+    "current_verifier_is_separately_frozen_and_not_yet_published_as_verified_code": true
+  },
+  "limits": [
+    "This completes32 bounded full-model optimizer updates; it does not complete model quality recovery.",
+    "The previous machine also completed32 updates but lost connectivity during checkpoint saving; its final outcome remains unknown and separate.",
+    "Same data/teacher cache and initial VAL do not imply bitwise replay across the two independent training runs; later gradients/losses differed.",
+    "The0.693 tokens/s preview is one packed-expansion reference request with CUDA KV cache, not a fused-kernel or serving-throughput benchmark.",
+    "Checkpoint integrity and recovery cannot be accepted from a complete manifest alone; the separate restore verifier must finish."
+  ]
+}
