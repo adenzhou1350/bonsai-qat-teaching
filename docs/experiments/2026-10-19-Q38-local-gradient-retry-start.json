@@ -1,0 +1,277 @@
+{
+  "format": "qwen38-local-file-gradient-retry-start-v1",
+  "recorded_at_UTC": "2026-10-19T09:42:06Z",
+  "purpose": "Move the authorized Qwen3.8-27B experiment to another5090 with working local storage; preserve previous results and source identities.",
+  "quality_accepted": false,
+  "official_training_recipe_reproduced": false,
+  "previous_real_data_pilot_last_confirmed": {
+    "public_code_commit": "4034c4b645c96057778996094439e173c16cfac6",
+    "source_policy_SHA256": "1943891d99f66f41a0dca55c50c5b3943a5693b9780599524dbffd42c0e166b7",
+    "actual_optimizer_updates": 32,
+    "finite_CPU_gradient_matrices_each_update": [
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402,
+      402
+    ],
+    "same_eight_VAL_rows": [
+      {
+        "after_updates": 0,
+        "mean_loss_KL_MSE": [
+          6.335609257221222,
+          6.193710684776306,
+          1.4189857095479965
+        ]
+      },
+      {
+        "after_updates": 8,
+        "mean_loss_KL_MSE": [
+          1.438795693218708,
+          1.3818053901195526,
+          0.5699029564857483
+        ]
+      },
+      {
+        "after_updates": 16,
+        "mean_loss_KL_MSE": [
+          1.1227742955088615,
+          1.0726386532187462,
+          0.5013565570116043
+        ]
+      },
+      {
+        "after_updates": 24,
+        "mean_loss_KL_MSE": [
+          1.270069845020771,
+          1.2183603644371033,
+          0.5170948542654514
+        ]
+      },
+      {
+        "after_updates": 32,
+        "mean_loss_KL_MSE": [
+          1.0710103660821915,
+          1.0221624299883842,
+          0.4884794056415558
+        ]
+      }
+    ],
+    "training_update_seconds_sum": 4054.9641303806566,
+    "retained_tensor_hashes_unchanged": true,
+    "packed_export_file_bytes": 5850462217,
+    "packed_manifest_SHA256": "b19a3f58082de0b60468a1f160f5277d5166b28523cf853712d329c8b043e9d8",
+    "checkpoint_last_confirmed_at_UTC": "2026-10-19T07:43:50Z",
+    "checkpoint_completed_compressed_masters_at_that_observation": 47,
+    "checkpoint_bytes_so_far_at_that_observation": 8524292121,
+    "final_checkpoint_manifest_confirmed": false,
+    "checkpoint_restore_verified": false,
+    "independent_generation_observed": false,
+    "current_remote_state_observable": false,
+    "limitation": "Updates and a small fixed English VAL loss improvement are confirmed; connectivity was lost during checkpoint saving. Final completion, release and answer quality are unknown. This does not supersede the historical two-update empty-reply result."
+  },
+  "replacement_run_snapshot": {
+    "GPU_type": "NVIDIA GeForce RTX5090",
+    "selected_GPU_index": 3,
+    "GPU_total_MiB": 32607,
+    "GPU_reserved_by_our_wrapper": true,
+    "reservation_tensor_bytes": 67108864,
+    "GPU_used_MiB_at_snapshot": 572,
+    "state": "running_download",
+    "actual_optimizer_updates": 0,
+    "training_started": false,
+    "requested_updates_after_verified_download": 32,
+    "new_independent_training_run_not_previous_checkpoint_resume": true,
+    "all_frozen_sources_unchanged": true,
+    "source_policy_SHA256": "ff279faa6a6352eecbe1d60467cab16955bb3ad5267af988acdc4a98eb9a954c",
+    "public_source_SHA256": {
+      "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+      "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+      "infer_control.py": "bc39136e494640010f592c27eb45a1c4fecdafa335d89e718b2cf3a60d316629",
+      "offload.py": "e472b68378745de5e6b359d4a541d17e4f9ce146305c49eb1d4f1b07ace2b591",
+      "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+      "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+      "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+      "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+      "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+      "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+      "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+      "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+      "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
+      "buffered_staging.py": "ca603f363b197fa6c862c5eb69d59785ff106d728eedbd73d7d01d266c953fbb",
+      "test_buffered_staging.py": "724dead146f1048ef16a341e9f33e47fa5cb894292c06040e08f79e12103500a",
+      "recovery_checkpoint.py": "9e13c0e7407371155c67533595a04165bb5dbec30204fc267d7579094905b7df",
+      "test_recovery_checkpoint.py": "34ff01611b536bc2b7d0edfc36a4cc7c0096ccaec5bfa617137373aa41cb7470",
+      "recovery_pilot.py": "b2e2d2a6ffdbba4a1e2f6b3cc0fc65daf7a42c4250487d89c17ada0713ed500d",
+      "prepare_wikitext.py": "3c41accca70e68056742da234e721cb85ad7fc041ca60e9b823f61fc32787525",
+      "source-files.json": "9d60f9c046aebd93a54625c155fccdfa12a7dba0c81963b1644cf2b311dff8d3",
+      "mapped_gradients.py": "75b83b21323e8b86d0fcecdbbfcbd1457fae41757f598c1e9b505e6d268a2825",
+      "test_mapped_gradients.py": "92ddc89b72c6003de5846a6dd952d03412bf7361f06826e08db234c392c7fb88",
+      "recovery_pilot_mapped.py": "e5529dc84b1f2f4456a2fa5f26dcd6d4b90a713ac4da6ab4ea713be9fc4b6b78"
+    },
+    "local_storage_only": true,
+    "local_filesystem": "container overlay backed by local storage; independent of the inaccessible NFS work directory",
+    "local_disk_free_bytes_at_snapshot": 739005984768,
+    "memory_admission": {
+      "cgroup_limit_bytes": 242665652224,
+      "existing_anon_and_shmem_bytes": 309010432,
+      "planned_anonymous_master_scratch_and_reserve_bytes": 166476120064,
+      "FP32_gradient_local_file_bytes": 107479040000,
+      "optimizer": "Adafactor_beta1None_relativeFalse_scaleFalse",
+      "gradient_storage": "shared_regular_local_file_mmap_FP32"
+    },
+    "full27B_mapped_gradient_training_verified": false,
+    "packed_preview_observed": false,
+    "checkpoint_written": false,
+    "source_code_basis": "The validated Adafactor/ternary/buffered pilot is retained; gradient storage is a separate local-file FP32 backend. An independent packed preview is attempted before final checkpoint saving."
+  },
+  "original_model_preparation_at_snapshot": {
+    "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "requested_files": 27,
+    "requested_bytes": 55586047268,
+    "verified_files": 5,
+    "verified_bytes": 3378269,
+    "complete": false,
+    "partial_files_are_not_verified_original_weights": true,
+    "transport": "Public primary Hub over a loopback-only SSH SOCKS transport, maximum6 parallel file transfers; TLS verification and final pinned Hub LFS/Git identities remain mandatory.",
+    "download_process_uses_CUDA": false,
+    "local_WSL_used": false
+  },
+  "unchanged_training_inputs": {
+    "dataset": "Salesforce/wikitext",
+    "configuration": "wikitext-2-raw-v1",
+    "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+    "prepared_batches_SHA256": "c0045ae0c85c193cd3476fbe95ca2504896f06c163d633f2a684ca2011d9b2a0",
+    "TRAIN_rows": 32,
+    "VAL_rows": 8,
+    "tokens_per_row": 128,
+    "test_split_read": false,
+    "learning_rate": 1e-05,
+    "warmup_updates": 4,
+    "optimizer": "Adafactor_beta1None_relativeFalse_scaleFalse",
+    "full_model_dimensions_and_quantization_policy_changed": false
+  },
+  "small_CPU_and_CUDA_controls": {
+    "result": {
+      "small_controls_only": true,
+      "full27B_verified": false,
+      "events": [
+        {
+          "entry": "test_buffered_staging.py",
+          "exit_code": 0,
+          "seconds": 7.024724590126425
+        },
+        {
+          "entry": "test_mapped_gradients.py",
+          "exit_code": 0,
+          "seconds": 9.529810366919264
+        }
+      ],
+      "passed": true,
+      "sources_unchanged": true
+    },
+    "source_SHA256": {
+      "buffered_staging.py": "ca603f363b197fa6c862c5eb69d59785ff106d728eedbd73d7d01d266c953fbb",
+      "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+      "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+      "infer_control.py": "bc39136e494640010f592c27eb45a1c4fecdafa335d89e718b2cf3a60d316629",
+      "offload.py": "e472b68378745de5e6b359d4a541d17e4f9ce146305c49eb1d4f1b07ace2b591",
+      "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+      "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+      "prepare_wikitext.py": "3c41accca70e68056742da234e721cb85ad7fc041ca60e9b823f61fc32787525",
+      "recovery_checkpoint.py": "9e13c0e7407371155c67533595a04165bb5dbec30204fc267d7579094905b7df",
+      "recovery_pilot.py": "b2e2d2a6ffdbba4a1e2f6b3cc0fc65daf7a42c4250487d89c17ada0713ed500d",
+      "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+      "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+      "test_buffered_staging.py": "724dead146f1048ef16a341e9f33e47fa5cb894292c06040e08f79e12103500a",
+      "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+      "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+      "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+      "test_recovery_checkpoint.py": "34ff01611b536bc2b7d0edfc36a4cc7c0096ccaec5bfa617137373aa41cb7470",
+      "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+      "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
+      "mapped_gradients.py": "75b83b21323e8b86d0fcecdbbfcbd1457fae41757f598c1e9b505e6d268a2825",
+      "test_mapped_gradients.py": "92ddc89b72c6003de5846a6dd952d03412bf7361f06826e08db234c392c7fb88"
+    },
+    "CPU_mapped_control": {
+      "steps": 4,
+      "accumulations_per_step": 2,
+      "FP32_gradients_master_updates_and_Adafactor_state_equal": true,
+      "sparse_zero_punch_released_file_blocks": true
+    },
+    "native_CUDA_mapped_control": {
+      "layers": 4,
+      "CPU_masters": 27,
+      "steps": 3,
+      "accumulations_per_step": 2,
+      "FP32_gradients_master_updates_and_Adafactor_state_equal": true,
+      "checkpoint_recomputation_enabled": true
+    },
+    "missing_backward_rejected_despite_preallocated_gradients": true,
+    "checkpoint_CPU_fixture": {
+      "passed": true,
+      "next_loss_masters_and_Adafactor_state_bitwise_equal_after_disk_restore": true,
+      "corruption_rejected_before_model_mutation": true,
+      "incomplete_over_budget_checkpoint_rejected": true,
+      "lossless_XOR_checkpoint_next_update_equal_and_wrong_base_rejected": true,
+      "scope": "small Linux CPU fixture, not full27B resume execution"
+    },
+    "full27B_checkpoint_next_update_after_restore_verified": false
+  },
+  "preparation_failures_preserved": {
+    "small_work_directory_guard": {
+      "source_policy_SHA256": "175b9a195cb9dcfbd83d471e3f5bcd22c6517abd8d8c20874a78d94732d49a22",
+      "actual_updates": 0,
+      "GPU_lease_released": true,
+      "reason": "Chosen home-volume filesystem had only about13GiB free despite a much larger root overlay. Actual-directory admission rejected it; retry moved to the verified local overlay."
+    },
+    "mirror_transport": {
+      "HTTP_429_and_TLS_timeouts_observed": true,
+      "explicit_download_query_range_206_verified": true,
+      "single_connection_about_MiB_per_second": 1,
+      "actual_updates": 0,
+      "reason": "Transfer was changed after preserving these outcomes; downloaded partials are never accepted without full original-file verification."
+    },
+    "short_transport_attempt": {
+      "source_policy_SHA256": "952c9056b1e913841f8004a05700675acac12d360a01c6a9e76df2ef06b285e9",
+      "download_exit_code": 1,
+      "actual_updates": 0,
+      "GPU_lease_released": true,
+      "reason": "The owned download tunnel was rotated while transfers were active to allow a realistic bounded transfer duration. The short attempt exited1; partial files were kept for the current retry."
+    }
+  },
+  "limits": [
+    "This is a preparation/start snapshot, not a completed replacement training run.",
+    "Disk-backed gradients are scratch state, not a resumable master checkpoint, and may still occupy reclaimable kernel file cache.",
+    "The anonymous-memory admission budget is arithmetic, not a measured full27B training peak.",
+    "The local overlay is container-local; it is not a substitute for a durable checkpoint backup.",
+    "No new model answer, deployment throughput or capability-retention result exists at this snapshot."
+  ]
+}

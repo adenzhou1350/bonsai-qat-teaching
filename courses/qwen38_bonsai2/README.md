@@ -4,7 +4,29 @@
 
 **完整27B的两步控制、压缩导出及重载一致性已通过。独立进程确认全部模型张量位于CUDA，但短问答立即输出结束符、回复为空；尚未训出可用质量模型。** 正式恢复训练、完整能力评测及部署加速仍待完成。见[2026-10-19完整控制证据](../../docs/experiments/2026-10-19-Q38-full27-control.json)。
 
-后续原始BF16同提示对照能正常输出中文。目前已启动最多32步的真实数据Adafactor试验：32段WikiText训练、8段验证，每段128token，使用固定版本数据和64MiB固定页缓冲，计划写入无损主权重检查点。**当前公开快照仍为初始化阶段，不能将计划中的32步或检查点写成已完成。** 见[数据、前置检查和启动记录](../../docs/experiments/2026-10-19-Q38-recovery-pilot-start.json)。
+后续原始BF16同提示对照能正常输出中文。真实数据Adafactor小试验已完成32步更新和压缩导出；同一8段WikiText验证的平均KL为 **6.1937→1.0222**。但保存完整检查点时机器失联，尚未确认最终检查点、恢复一致性或生成结果。原[启动记录](../../docs/experiments/2026-10-19-Q38-recovery-pilot-start.json)保留初始化状态；[后续观测与换机记录](../../docs/experiments/2026-10-19-Q38-local-gradient-retry-start.json)补充已确认的32步和仍未知的结果。新的本地盘重做尚在下载阶段，不能把上一台的32步计入新运行。
+
+## 换机：用本地文件保存FP32梯度
+
+另一台5090有空闲卡，但容器内存配额为226GiB，原入口的主权重、梯度及36GiB余量预算放不下。新增的 `mapped_gradients.py` 保留FP32主权重、FP32梯度和同一Adafactor，把梯度放入Linux共享文件映射。梯度逻辑文件约100.10GiB；它是临时工作区，仍可能占用内核文件缓存，不是训练检查点。
+
+每次反传前预分配梯度，反传后核对所有主权重确实收到梯度，优化器更新完成后才清零。清零通过 `MADV_REMOVE` 回收本次创建的稀疏梯度文件块；不会在反传中更新参数。使用本地文件系统，避免将这类临时梯度放在NFS目录。映射与共享缓冲的语义见[Python mmap](https://docs.python.org/3/library/mmap.html)和[PyTorch frombuffer](https://docs.pytorch.org/docs/stable/generated/torch.frombuffer.html)。
+
+CPU累计梯度、四层原生CUDA检查点重算图的3次Adafactor更新已与普通内存方案对照：梯度、主权重和优化器状态一致；缺失反传会被拒绝。小规模无损检查点测试也通过。**这些结果尚不能代替完整27B的磁盘梯度训练验证。**
+
+```bash
+# 先确认所选GPU空闲；测试使用Linux本地临时目录。
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/test_mapped_gradients.py
+
+# 沿用前面准备的原始模型和32/8段WikiText输入，输出选择本地工作盘。
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/recovery_pilot_mapped.py \
+  --model /path/to/Qwen3.8-27B --data /path/to/batches.json \
+  --output /path/on/local-disk/qwen38-mapped --steps 32 --lr 0.00001
+```
+
+新入口另计约155.04GiB的主权重、最大工作张量及匿名内存余量预算，再计入容器已有匿名/共享内存；这是准入计算，尚非实测训练峰值。原始模型下载后，磁盘准入还要求约200.19GiB，用于梯度文件、压缩导出、检查点上限和余量。实际部署显存及吞吐另测。
+
+它会在压缩导出后先用独立进程尝试生成，再保存和恢复最终无损检查点；生成内容与恢复检查分别记录。该入口没有从上一轮检查点继续训练的CLI，也不意味着上一轮检查点已可用。换机运行重新核验同一固定版本的全部原始文件，保持数据、学习率和量化范围不变。当前新运行仍为0步，下载校验后自动开始。
 
 ## 与原35B/122B路线的区别
 
