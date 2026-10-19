@@ -1,0 +1,640 @@
+{
+  "status": "completed_prerequisites_and_dispatched_full27_real_data_pilot_not_completed",
+  "snapshot_at_UTC": "2026-10-19T06:14:52Z",
+  "historical_two_update_control_code_commit": "7157b96",
+  "preparation_environment": {
+    "Python": "3.12",
+    "torch": "2.11.0+cu130",
+    "transformers": "5.12.1",
+    "pyarrow": "22.0.0",
+    "PyPI_cp312_linux_wheel_SHA256": "c6c791b09c57ed76a18b03f2631753a4960eefbbca80f846da8baefc6491fcfe",
+    "dependency_installation_scope": "isolated experiment dependency directory; system packages unchanged"
+  },
+  "public_checker_validation": {
+    "Linux_standard_library_tests_passed": 5,
+    "model_or_GPU_executed_by_checker": false,
+    "isolated_source_policy_SHA256": "090d714db5f78af8b2208a1766c334f9b4ec5c4d6d5936480364236d50c7c03e",
+    "Windows_limitation": "Intermittent WinError145 during temporary-directory cleanup; the unchanged test suite passed on authorized remote Linux."
+  },
+  "original_BF16_same_prompt_reference": {
+    "completed": true,
+    "original_BF16_source_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "same_prompt_and_greedy_cache_protocol_as_packed_control": true,
+    "prompt": "<|im_start|>user\n用一句话解释模型量化。<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+    "prompt_input_IDs": [
+      [
+        248045,
+        846,
+        198,
+        95826,
+        110827,
+        98682,
+        103725,
+        105258,
+        1710,
+        248046,
+        198,
+        248045,
+        74455,
+        198,
+        248068,
+        271,
+        248069,
+        271
+      ]
+    ],
+    "generated_token_IDs": [
+      103725,
+      105258,
+      110869,
+      98846,
+      103725,
+      101630,
+      95793,
+      109719,
+      110197,
+      110745,
+      102227,
+      9616,
+      96031,
+      96200,
+      18,
+      17
+    ],
+    "text": "模型量化是通过降低模型参数和激活值的数值精度（如从32",
+    "first_position_top5": [
+      {
+        "ID": 103725,
+        "probability": 0.9994112253189087,
+        "decoded": "模型"
+      },
+      {
+        "ID": 95779,
+        "probability": 0.00017945448053069413,
+        "decoded": "大"
+      },
+      {
+        "ID": 105258,
+        "probability": 0.0001583680132171139,
+        "decoded": "量化"
+      },
+      {
+        "ID": 96123,
+        "probability": 9.605506056686863e-05,
+        "decoded": "将"
+      },
+      {
+        "ID": 96580,
+        "probability": 2.0134235455770977e-05,
+        "decoded": "通过"
+      }
+    ],
+    "CPU_weight_offload_during_inference": true,
+    "wall_seconds_for_generation": 99.23871064791456,
+    "apples_to_apples_speed_comparison_claimed": false,
+    "limitation": "One short prompt diagnoses template/generation behavior; it is not a capability evaluation."
+  },
+  "original_BF16_reference_lease_exit0_released": true,
+  "original_BF16_reference_entry_SHA256": "9056b75cf8eb04818067806bb509eb8b35070c45a3155f0dfba713a244a47faa",
+  "data": {
+    "dataset": "Salesforce/wikitext",
+    "config": "wikitext-2-raw-v1",
+    "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+    "source_files": {
+      "train": {
+        "bytes": 6357543,
+        "SHA256": "e83889baabc497075506f91975be5fac0d45c5290b6b20582c8cd1e853d0c9f7"
+      },
+      "validation": {
+        "bytes": 657209,
+        "SHA256": "204929b7ff9d6184953f867dedb860e40aa69c078fc1e54b3baaa8fb28511c4c"
+      }
+    },
+    "source_card": "https://huggingface.co/datasets/Salesforce/wikitext/blob/b08601e04326c79dfdd32d625aee71d232d685c3/README.md",
+    "selection": "seed-shuffled source paragraph rows; first full token window; exact input-ID dedup across TRAIN and VAL",
+    "seed": 381027,
+    "seq_len": 128,
+    "test_split_read": false,
+    "tokenizer_original_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "tokenizer_files_SHA256": {
+      "tokenizer.json": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+      "tokenizer_config.json": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27"
+    },
+    "quality_scope": "small English language-modeling pilot, not Chinese/code/agent capability evaluation"
+  },
+  "prepared_data_SHA256": "c0045ae0c85c193cd3476fbe95ca2504896f06c163d633f2a684ca2011d9b2a0",
+  "prepared_data_row_identities": {
+    "train": [
+      {
+        "source_row": 33074,
+        "input_IDs_SHA256": "d79b2f92a65332fa74287fb21eb78b0556126a1f658593040111594e01829a11"
+      },
+      {
+        "source_row": 8746,
+        "input_IDs_SHA256": "837fd2a6dca20702991acb8a0c2ea7c8198602302b521c3a28c57155fcc895ba"
+      },
+      {
+        "source_row": 23002,
+        "input_IDs_SHA256": "556f3bb73edcb623ae038cc680bc401c6efa5e8597770d40fbc430e3758bc6dc"
+      },
+      {
+        "source_row": 24787,
+        "input_IDs_SHA256": "2d38285ad93246ec1f55c86072d54d128b9659bd8f398df6118fe88a2ab783b1"
+      },
+      {
+        "source_row": 2779,
+        "input_IDs_SHA256": "ded4b70824421129229ea0c512725f6ac40c829b1b7f36eec9fd4688ae5a2af5"
+      },
+      {
+        "source_row": 34913,
+        "input_IDs_SHA256": "7b842230ec69607380e40fbc06c65cf48f6eb3eae404e93b1c579fecbddfd3c7"
+      },
+      {
+        "source_row": 5556,
+        "input_IDs_SHA256": "1b3b920442eb51c99755df5e11c743cf8d91fc4184110c3477aeee09619fefdd"
+      },
+      {
+        "source_row": 2751,
+        "input_IDs_SHA256": "5c8f67d70ba65cfaa0c9b783f1adbbbc76660c71a0c59b32f08107013e660290"
+      },
+      {
+        "source_row": 34227,
+        "input_IDs_SHA256": "92625b8e054d864df4eb62785512ea8d3ee74a9302c6915c672f896338f43043"
+      },
+      {
+        "source_row": 25693,
+        "input_IDs_SHA256": "78280428ae01ea2295cd3e0dbb8b9f9dc0d03e2e5d1e902900e3be886e456f08"
+      },
+      {
+        "source_row": 7765,
+        "input_IDs_SHA256": "cafe94301b1f6fb0fee32b889c40d52d970438f2a004b1e740b68336ebbe7e6c"
+      },
+      {
+        "source_row": 8411,
+        "input_IDs_SHA256": "5144581d2ff8113154a7b70430bb52f1ab17335b65522df91d3299379115d6b7"
+      },
+      {
+        "source_row": 16560,
+        "input_IDs_SHA256": "4d0c4c7baaf3d28b8f8b7d4ae6623048969b78d6f5e706fa680e1dea3c98a0e7"
+      },
+      {
+        "source_row": 12056,
+        "input_IDs_SHA256": "6ffe566138bf20ee9eedd80632ac1c83b71f133b7a5896ea73b845fb12ae8d9c"
+      },
+      {
+        "source_row": 19589,
+        "input_IDs_SHA256": "87ff80b42e3a473fef644c5113ea47ae5c06dfc841ff9377b40df8a49d10bc8c"
+      },
+      {
+        "source_row": 14899,
+        "input_IDs_SHA256": "bb6d0ac5b0d95e4ba6c27ae3d067afeda7d52ecd2f9b351ce475ee5acd834dd0"
+      },
+      {
+        "source_row": 20806,
+        "input_IDs_SHA256": "24a87c9b31c1f57031996be7bcf96ad88cd8dff48a08c4f34c8d9a1b59a20940"
+      },
+      {
+        "source_row": 34728,
+        "input_IDs_SHA256": "aaf4da04813f8c36bf921e76711def736273a1118d9f3b4efde1970d496233d3"
+      },
+      {
+        "source_row": 11544,
+        "input_IDs_SHA256": "cc9181d140fdc36fa7f5eb2ca91e7e11fa3cef452959bd199dab41a20cb0f085"
+      },
+      {
+        "source_row": 15544,
+        "input_IDs_SHA256": "f5a8ea0470a97cc43a3897d777453c4b53f12af216bd17edb0e1d76141d6b9ac"
+      },
+      {
+        "source_row": 33382,
+        "input_IDs_SHA256": "6a0eeb030016deb43f5215a9bccfb3b785b35eb615d7d04587db98c60d835676"
+      },
+      {
+        "source_row": 30091,
+        "input_IDs_SHA256": "2d894576b940b32de4787a72d5709f89be4edf28969625655c5c825a40407853"
+      },
+      {
+        "source_row": 15363,
+        "input_IDs_SHA256": "7550f8c27d7361f484fdf9e1f9997beaad629e70f63782d49612e2ac737b99e6"
+      },
+      {
+        "source_row": 33649,
+        "input_IDs_SHA256": "c3160ecaf998f3c5f59ef09ba34e1c387896a7d49dff723d7e24734ff437844e"
+      },
+      {
+        "source_row": 32951,
+        "input_IDs_SHA256": "6b6b60fc7b77af1d71b7868f26e49c33260479ba1c901dd842a8939a56521d45"
+      },
+      {
+        "source_row": 23711,
+        "input_IDs_SHA256": "1c92d1ec9422722c004fd551a84072517d7ee7c4e4d8df34b170fec96c1ad4ae"
+      },
+      {
+        "source_row": 22952,
+        "input_IDs_SHA256": "506c12e94fb5036b7c0bf0cd33d2040bf70455c8756d044890b6f5ca3f6a5b9f"
+      },
+      {
+        "source_row": 1875,
+        "input_IDs_SHA256": "3db19d168c8d2129cd2a533b694d9b22c017954beafd4153a4aba45452b95d2c"
+      },
+      {
+        "source_row": 18784,
+        "input_IDs_SHA256": "44953c570e8e954b532c6437e036d3657bfe47db7c5393eec806caa1585df32c"
+      },
+      {
+        "source_row": 33553,
+        "input_IDs_SHA256": "f3cb2207c99f9534ce27d7359ed7af6141472cc45fac85cbe4722bc80b1692db"
+      },
+      {
+        "source_row": 30025,
+        "input_IDs_SHA256": "0244a029041497dac2e08a526dbedd4047d8bdf4731e337ee37d4fd8582020e0"
+      },
+      {
+        "source_row": 24282,
+        "input_IDs_SHA256": "ddf682b5b555f9509d5af3d9b458194bfea57a8c50e0d171596e63a7895a54cb"
+      }
+    ],
+    "validation": [
+      {
+        "source_row": 3040,
+        "input_IDs_SHA256": "01a560a0cc54195904ae9975a2260e70a89082adab7abf75b232ebb3d2198c20"
+      },
+      {
+        "source_row": 225,
+        "input_IDs_SHA256": "62f4881014ac395a2cad550b707a0dd81c771b876d6521be7f430d4de7a7f7ab"
+      },
+      {
+        "source_row": 1540,
+        "input_IDs_SHA256": "effb468d4b8fa6271226b604abde54633bcddf0c85d265d1ef9741a3db0e8993"
+      },
+      {
+        "source_row": 2507,
+        "input_IDs_SHA256": "92d8da5fa7952d8c69f6150a389e4577cdbe7af4599851cbad26b38e9a6fb9dc"
+      },
+      {
+        "source_row": 36,
+        "input_IDs_SHA256": "46c54028ec0741f9b45b0901c62cfde159a696ab3cd8d4bec82f4d6ffd228a8a"
+      },
+      {
+        "source_row": 1911,
+        "input_IDs_SHA256": "0dd9a3aa46fdd0b586df07110311f58f51fbfa4031c42749ed4fc53f24ddeddc"
+      },
+      {
+        "source_row": 2604,
+        "input_IDs_SHA256": "2de25edeb4ab6692f5cb6aa73969d945059a7845caf74797e6106395293e1ceb"
+      },
+      {
+        "source_row": 271,
+        "input_IDs_SHA256": "9070a9af24bec89f7f65fc3a3ee5fb27169ff13abdcc630e5a0f4f81ae769ef2"
+      }
+    ]
+  },
+  "data_counts": {
+    "TRAIN_rows": 32,
+    "VAL_rows": 8,
+    "tokens_per_row": 128,
+    "total_TRAIN_tokens_for_one_pass": 4096
+  },
+  "small_fully_pinned_transfer_control": {
+    "passed": true,
+    "cases": [
+      {
+        "embedding": false,
+        "steps": 2,
+        "backwards_accumulated_per_step": 2,
+        "outputs_gradients_next_master_bitwise_equal": true,
+        "host_gradients_pinned": true
+      },
+      {
+        "embedding": true,
+        "steps": 2,
+        "backwards_accumulated_per_step": 2,
+        "outputs_gradients_next_master_bitwise_equal": true,
+        "host_gradients_pinned": true
+      }
+    ],
+    "transfer_sample": {
+      "pageable": {
+        "bytes": 268435456,
+        "seconds_after_one_warmup": [
+          0.023704039864242077,
+          0.0206802929751575,
+          0.018667778931558132
+        ]
+      },
+      "pinned": {
+        "bytes": 268435456,
+        "seconds_after_one_warmup": [
+          0.004846986848860979,
+          0.004852171055972576,
+          0.004855399951338768
+        ]
+      }
+    },
+    "full_model_training_tested": false,
+    "limitation": "Small staging equivalence and256MiB transfers only."
+  },
+  "fully_pinned_model_not_used": {
+    "reason": "Power-of-two host allocator block rounding would exceed the container budget with existing workloads.",
+    "rounded_all_matrix_master_and_gradient_bytes": 307090161664,
+    "raw_master_and_gradient_bytes": 214958080000,
+    "actual_pilot_pinned_buffer_bytes": 67108864,
+    "reference": "https://docs.pytorch.org/docs/main/generated/torch.cuda.memory.host_memory_stats.html"
+  },
+  "real_Adafactor_block_controls": {
+    "passed": true,
+    "arms": [
+      {
+        "passed": true,
+        "source_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+        "optimizer": "adafactor",
+        "learning_rate": 1e-06,
+        "steps_per_block": 4,
+        "consumed_original_shard_SHA256": {
+          "model-00001-of-00018.safetensors": "ba0ce20aae489ad196733da5064bcdf159a1fe84f53336648196e1ebb7751b1c",
+          "model-00003-of-00018.safetensors": "2e1bf62cbcd406eaa64b60d10353e1f0ef4039d0976e56f05cabe953454f9968"
+        },
+        "results": [
+          {
+            "layer": 0,
+            "layer_type": "linear_attention",
+            "selected_matrices": 6,
+            "trainable_elements": 382730240,
+            "updates": 4,
+            "all_selected_gradients_finite": true,
+            "retained_parameters_unchanged": true,
+            "normalized_block_output_MSE_losses": [
+              0.19908057153224945,
+              0.1884176880121231,
+              0.1771436631679535,
+              0.1652069389820099
+            ],
+            "packed_output_bitwise_equal": true,
+            "post_final_update_normalized_block_output_MSE": 0.15488596260547638,
+            "gradient_norms_before_optimizer": [
+              9.219874382019043,
+              9.170398712158203,
+              9.016969680786133,
+              8.797171592712402
+            ],
+            "CPU_master_and_gradient_pinned": true,
+            "external_global_gradient_clipping": false,
+            "optimizer_state_tensor_bytes": 421912,
+            "peak_GPU_allocated_bytes": 2758872576
+          },
+          {
+            "layer": 3,
+            "layer_type": "full_attention",
+            "selected_matrices": 7,
+            "trainable_elements": 372244480,
+            "updates": 4,
+            "all_selected_gradients_finite": true,
+            "retained_parameters_unchanged": true,
+            "normalized_block_output_MSE_losses": [
+              0.4397125244140625,
+              0.4295647144317627,
+              0.41989821195602417,
+              0.4104706346988678
+            ],
+            "packed_output_bitwise_equal": true,
+            "post_final_update_normalized_block_output_MSE": 0.40161553025245667,
+            "gradient_norms_before_optimizer": [
+              3.2321274280548096,
+              3.0574774742126465,
+              2.920663595199585,
+              2.801244020462036
+            ],
+            "CPU_master_and_gradient_pinned": true,
+            "external_global_gradient_clipping": false,
+            "optimizer_state_tensor_bytes": 434204,
+            "peak_GPU_allocated_bytes": 2659727360
+          }
+        ],
+        "full27_model_loaded": false,
+        "full27_recovery_training_completed": false,
+        "quality_accepted": false,
+        "scope": "two individual real-weight blocks, synthetic embedding-index input, block-output MSE"
+      },
+      {
+        "passed": true,
+        "source_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+        "optimizer": "adafactor",
+        "learning_rate": 1e-05,
+        "steps_per_block": 4,
+        "consumed_original_shard_SHA256": {
+          "model-00001-of-00018.safetensors": "ba0ce20aae489ad196733da5064bcdf159a1fe84f53336648196e1ebb7751b1c",
+          "model-00003-of-00018.safetensors": "2e1bf62cbcd406eaa64b60d10353e1f0ef4039d0976e56f05cabe953454f9968"
+        },
+        "results": [
+          {
+            "layer": 0,
+            "layer_type": "linear_attention",
+            "selected_matrices": 6,
+            "trainable_elements": 382730240,
+            "updates": 4,
+            "all_selected_gradients_finite": true,
+            "retained_parameters_unchanged": true,
+            "normalized_block_output_MSE_losses": [
+              0.19908057153224945,
+              0.10337258875370026,
+              0.06537558138370514,
+              0.057418033480644226
+            ],
+            "packed_output_bitwise_equal": true,
+            "post_final_update_normalized_block_output_MSE": 0.052138712257146835,
+            "gradient_norms_before_optimizer": [
+              9.219874382019043,
+              6.5003252029418945,
+              2.210829734802246,
+              2.039271116256714
+            ],
+            "CPU_master_and_gradient_pinned": true,
+            "external_global_gradient_clipping": false,
+            "optimizer_state_tensor_bytes": 421912,
+            "peak_GPU_allocated_bytes": 2758872576
+          },
+          {
+            "layer": 3,
+            "layer_type": "full_attention",
+            "selected_matrices": 7,
+            "trainable_elements": 372244480,
+            "updates": 4,
+            "all_selected_gradients_finite": true,
+            "retained_parameters_unchanged": true,
+            "normalized_block_output_MSE_losses": [
+              0.4397125244140625,
+              0.35452792048454285,
+              0.2914681136608124,
+              0.24641095101833344
+            ],
+            "packed_output_bitwise_equal": true,
+            "post_final_update_normalized_block_output_MSE": 0.2158111184835434,
+            "gradient_norms_before_optimizer": [
+              3.2321274280548096,
+              2.1167125701904297,
+              1.5513243675231934,
+              1.1070399284362793
+            ],
+            "CPU_master_and_gradient_pinned": true,
+            "external_global_gradient_clipping": false,
+            "optimizer_state_tensor_bytes": 434204,
+            "peak_GPU_allocated_bytes": 2659727360
+          }
+        ],
+        "full27_model_loaded": false,
+        "full27_recovery_training_completed": false,
+        "quality_accepted": false,
+        "scope": "two individual real-weight blocks, synthetic embedding-index input, block-output MSE"
+      }
+    ],
+    "full27_recovery_training_completed": false,
+    "scope": "Two real blocks and synthetic embedding-index input; optimizer settings controls, not model quality."
+  },
+  "Linux_CPU_checkpoint_control": {
+    "passed": true,
+    "next_loss_masters_and_Adafactor_state_bitwise_equal_after_disk_restore": true,
+    "corruption_rejected_before_model_mutation": true,
+    "incomplete_over_budget_checkpoint_rejected": true,
+    "lossless_XOR_checkpoint_next_update_equal_and_wrong_base_rejected": true,
+    "scope": "small Linux CPU fixture, not full27B resume execution"
+  },
+  "buffered_native_CUDA_control": {
+    "passed": true,
+    "tests": 3,
+    "layers": 4,
+    "trainable_matrices": 27,
+    "scope": "small native graph and cache/gradient/packed controls; full27B pilot has not completed",
+    "prior_failure": "A shared buffer allocated under inference_mode was later mutated by training; fixed by allocating the reusable buffer under inference_mode(False).",
+    "prior_failure_source_policy_SHA256": "384eabe03060c6fd4f44012b431130b487a3635e83fa57efb6070901df085e8f",
+    "corrected_source_policy_SHA256": "2c949dcb4c852c87dcd794cfdb48fbb4631a3177c9eeb4247ced3a9d35264dcf"
+  },
+  "pilot": {
+    "private_source_policy_SHA256": "1943891d99f66f41a0dca55c50c5b3943a5693b9780599524dbffd42c0e166b7",
+    "public_source_SHA256": {
+      "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+      "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+      "infer_control.py": "bc39136e494640010f592c27eb45a1c4fecdafa335d89e718b2cf3a60d316629",
+      "offload.py": "e472b68378745de5e6b359d4a541d17e4f9ce146305c49eb1d4f1b07ace2b591",
+      "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+      "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+      "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+      "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+      "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+      "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+      "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+      "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+      "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
+      "buffered_staging.py": "ca603f363b197fa6c862c5eb69d59785ff106d728eedbd73d7d01d266c953fbb",
+      "test_buffered_staging.py": "724dead146f1048ef16a341e9f33e47fa5cb894292c06040e08f79e12103500a",
+      "recovery_checkpoint.py": "9e13c0e7407371155c67533595a04165bb5dbec30204fc267d7579094905b7df",
+      "test_recovery_checkpoint.py": "34ff01611b536bc2b7d0edfc36a4cc7c0096ccaec5bfa617137373aa41cb7470",
+      "recovery_pilot.py": "b2e2d2a6ffdbba4a1e2f6b3cc0fc65daf7a42c4250487d89c17ada0713ed500d",
+      "prepare_wikitext.py": "3c41accca70e68056742da234e721cb85ad7fc041ca60e9b823f61fc32787525",
+      "source-files.json": "9d60f9c046aebd93a54625c155fccdfa12a7dba0c81963b1644cf2b311dff8d3"
+    },
+    "stage_at_snapshot": "loading_rotated_CPU_masters",
+    "actual_optimizer_updates_at_snapshot": 0,
+    "requested_optimizer_updates": 32,
+    "teacher_rows_completed": 40,
+    "matrices_loaded_at_snapshot": 176,
+    "optimizer": "CPU Adafactor, no first moment, relative_step=False, scale_parameter=False, RMS clip1, no external global gradient clipping",
+    "learning_rate": 1e-05,
+    "warmup_updates": 4,
+    "VAL_interval_updates": 8,
+    "predeclared_early_stop": "mean VAL KL greater than1.5 times its initial mean",
+    "teacher_head_resident_on_CUDA": true,
+    "head_KL_tokens_per_call": 128,
+    "pinned_transfer_buffer_bytes": 67108864,
+    "raw_memory_admission": {
+      "cgroup_limit_bytes": 361850994688,
+      "existing_anon_and_shmem_bytes": 99929653248,
+      "planned_master_gradient_scratch_and_reserve_bytes": 253612785664,
+      "optimizer": "SGD_without_momentum_control_only"
+    },
+    "memory_admission_label_correction": "The reused budget helper returns a stale SGD label; the executed pilot instantiates Adafactor. The raw FP32 master/gradient budget is unchanged; factor state is29,224,960 bytes and the transfer pool64MiB.",
+    "checkpoint_written_at_snapshot": false,
+    "checkpoint_cap_bytes": 80000000000,
+    "completed": false,
+    "quality_accepted": false,
+    "full_recovery_training_complete": false
+  },
+  "prerequisite_source_policies": {
+    "BF16": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "8ee6cf340d93cd7fe2869c71a8a1df8e94bf4be5bc5f81635e5e031decb4830c"
+    },
+    "data": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "5ff85236196f73b328f59e66e796c73775dc6637dadddb3b85130a30fe7531a5"
+    },
+    "pinned": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "2db97224a22edf41ddffda71bdb38fdea2b12bb6bee8b0a1ced762758e345511"
+    },
+    "Adafactor_blocks": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "f8c795fe525a3b959382b8fcc1da656cc985c86d39ce10b19d2e5f28ee265408"
+    },
+    "checkpoint_CPU": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "47f9dec80dd70db734512af0a7faab9e3a5115b1e0e62fd1634e7c064d1ea226"
+    },
+    "buffered_failed": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "384eabe03060c6fd4f44012b431130b487a3635e83fa57efb6070901df085e8f"
+    },
+    "buffered": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "2c949dcb4c852c87dcd794cfdb48fbb4631a3177c9eeb4247ced3a9d35264dcf"
+    },
+    "pilot": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "1943891d99f66f41a0dca55c50c5b3943a5693b9780599524dbffd42c0e166b7"
+    }
+  },
+  "raw_private_evidence_SHA256": {
+    "BF16/source-policy.json": "8ee6cf340d93cd7fe2869c71a8a1df8e94bf4be5bc5f81635e5e031decb4830c",
+    "BF16/launch.log": "8be4a11dbf6701fbce5f9b0c2c8e17bef53b35e9d9c950282cfec065e600a345",
+    "BF16/GPU.stdout.log": "a258284d1587058ac64f6a01e240808f8ab4ffc27fe08ee0753c93dce8bf56d4",
+    "BF16/GPU.stderr.log": "168d851032463f13f4305873c19282be7d284747670f7f56b9d9b993daa85731",
+    "BF16/result.json": "b18fef25d70f97e0608ed828f6d038c2b8d16dfe8967d1ae47ac92a123fd019c",
+    "data/source-policy.json": "5ff85236196f73b328f59e66e796c73775dc6637dadddb3b85130a30fe7531a5",
+    "data/CPU.log": "36686ceb8fc9f5a62f72a1ba1f10c14d807711d2c10153f374a8d3c1a2faf081",
+    "pinned/source-policy.json": "2db97224a22edf41ddffda71bdb38fdea2b12bb6bee8b0a1ced762758e345511",
+    "pinned/launch.log": "7d3942f3d20da87e88efcc481a7b445b17abf62a4c671e62d5c93de89f90d3a0",
+    "pinned/GPU.stdout.log": "c99bc621f7d9b9f1479c69b0eb8c82107b6c7b0898a8b04e313ff2c1d3432cfe",
+    "pinned/GPU.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "Adafactor_blocks/source-policy.json": "f8c795fe525a3b959382b8fcc1da656cc985c86d39ce10b19d2e5f28ee265408",
+    "Adafactor_blocks/launch.log": "2c3d0a5b149b3603207ef6975b565b8147dccae41d8ef5b3ffa75d95f07236e6",
+    "Adafactor_blocks/GPU.stdout.log": "e5aa2136e07b41df427fbb52735d114a0133996157b9fe6d866372ff044ff22f",
+    "Adafactor_blocks/GPU.stderr.log": "682cd3abaab8b3b0d7e1c49460e0d8228500161809cc70bf8ef5b6277ac4b8f4",
+    "Adafactor_blocks/result.json": "7683a4139dbd6bc765c23b94bc9a708d642e8ccb25921cecfff04a81e45e682a",
+    "checkpoint_CPU/source-policy.json": "47f9dec80dd70db734512af0a7faab9e3a5115b1e0e62fd1634e7c064d1ea226",
+    "checkpoint_CPU/stdout.log": "814ced61148df0aec4fba92a86649a289b463861e629579930397241d3d374e0",
+    "checkpoint_CPU/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "checkpoint_CPU/result.json": "26a83457495f9865e51bf32f441b2519bc23a860c0d1037ef8309afccce96131",
+    "buffered_failed/source-policy.json": "384eabe03060c6fd4f44012b431130b487a3635e83fa57efb6070901df085e8f",
+    "buffered_failed/launch.log": "a75774646ac3416b3d2709a6a84a4bd2ae36a8611badedf2790607fa264dad72",
+    "buffered_failed/GPU.stdout.log": "efeef7f11825dea6bb662481d0ebc2612b9ce8aaa04f4480f226918b1096fcf0",
+    "buffered_failed/GPU.stderr.log": "ad35dd1ef3f1a737df812301add220b4052b2ae78af95d337a21df1149e052ad",
+    "buffered/source-policy.json": "2c949dcb4c852c87dcd794cfdb48fbb4631a3177c9eeb4247ced3a9d35264dcf",
+    "buffered/launch.log": "3ce489e52e0c723d12f9d476dd1fb1376d0c3efdf01dfd6f0022a64d6fc3858e",
+    "buffered/GPU.stdout.log": "d803bc1b3ab0d4ee6a5b64f8c848bbe61b72a733fa7447f7a4426f3627ccfe85",
+    "buffered/GPU.stderr.log": "cb7497ca9d7d27556b77666268baa1e5ed3c7ae918e394527e28e228fdd28f84",
+    "pilot/source-policy.json": "1943891d99f66f41a0dca55c50c5b3943a5693b9780599524dbffd42c0e166b7",
+    "pilot/queue.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot/CPU-preflight.stdout.log": "a3422e54c1a18f05fec226b4ba4d57b083399d2e4c657f8eec45034c1ff93298",
+    "pilot/CPU-preflight.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot/recovery_pilot.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot/recovery_pilot.stderr.log": "168d851032463f13f4305873c19282be7d284747670f7f56b9d9b993daa85731"
+  },
+  "limitations": [
+    "Real block controls use synthetic embedding indices and do not establish whole-model capability.",
+    "The32-row English pilot is not a complete quality-recovery run or a Chinese/code/agent evaluation.",
+    "Pinned transfer timing is a256MiB microbenchmark, not model training speed; actual pilot uses a bounded buffer instead of pinning all state.",
+    "The checkpoint next-update proof is a small Linux CPU test. Full27B checkpoint save/restore and fresh generation are pending at this snapshot.",
+    "Only a final checkpoint is planned; the pilot CLI has no continuation option yet. Generic checkpoint loading is provided.",
+    "New loader optional staged_type and generic inference docstring differ from the historical two-update code; all exact snapshots are identified.",
+    "No official Bonsai recipe, capability retention, production throughput, vision or MTP result is claimed."
+  ]
+}

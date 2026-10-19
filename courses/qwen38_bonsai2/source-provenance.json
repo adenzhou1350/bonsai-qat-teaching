@@ -5,8 +5,8 @@
   "file_sha256": {
     "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
     "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
-    "infer_control.py": "8474691f92ebf892841a98887a2eac074bf5ed9d3043d4857db6c671da2a1a65",
-    "offload.py": "e6fb34ab9323a11b590adc80a86fcce080c1a6a248ef75388e04293ae7040f93",
+    "infer_control.py": "bc39136e494640010f592c27eb45a1c4fecdafa335d89e718b2cf3a60d316629",
+    "offload.py": "e472b68378745de5e6b359d4a541d17e4f9ce146305c49eb1d4f1b07ace2b591",
     "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
     "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
     "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
@@ -16,22 +16,13 @@
     "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
     "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
     "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
+    "buffered_staging.py": "ca603f363b197fa6c862c5eb69d59785ff106d728eedbd73d7d01d266c953fbb",
+    "test_buffered_staging.py": "724dead146f1048ef16a341e9f33e47fa5cb894292c06040e08f79e12103500a",
+    "recovery_checkpoint.py": "9e13c0e7407371155c67533595a04165bb5dbec30204fc267d7579094905b7df",
+    "test_recovery_checkpoint.py": "34ff01611b536bc2b7d0edfc36a4cc7c0096ccaec5bfa617137373aa41cb7470",
+    "recovery_pilot.py": "b2e2d2a6ffdbba4a1e2f6b3cc0fc65daf7a42c4250487d89c17ada0713ed500d",
+    "prepare_wikitext.py": "3c41accca70e68056742da234e721cb85ad7fc041ca60e9b823f61fc32787525",
     "source-files.json": "9d60f9c046aebd93a54625c155fccdfa12a7dba0c81963b1644cf2b311dff8d3"
-  },
-  "GPU_tested_source_files": {
-    "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
-    "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
-    "infer_control.py": "8474691f92ebf892841a98887a2eac074bf5ed9d3043d4857db6c671da2a1a65",
-    "offload.py": "e6fb34ab9323a11b590adc80a86fcce080c1a6a248ef75388e04293ae7040f93",
-    "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
-    "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
-    "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
-    "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
-    "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
-    "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
-    "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
-    "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
-    "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d"
   },
   "CPU_tested_mechanism_source_files": {
     "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
@@ -51,7 +42,8 @@
     "CPU/GPU tests use small tensors and a four-layer synthetic Qwen configuration.",
     "The402-matrix audit uses the real configuration on meta; original27B weights were not loaded by that audit.",
     "verify_source.py/test_source.py additionally passed a Windows standard-library corruption check; they do not execute a model.",
-    "The full-size control completed only two short SGD updates and one fresh-process generation; formal recovery training and independent capability evaluation remain incomplete."
+    "The full-size control completed only two short SGD updates and one fresh-process generation; formal recovery training and independent capability evaluation remain incomplete.",
+    "The new real-data Adafactor/buffered/checkpoint entry is dispatched but not yet validated as a completed full27B recovery run. Historical two-update sources are pinned separately."
   ],
   "real_weight_block_control_entry_SHA256": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
   "real_weight_block_controls_completed": true,
@@ -95,5 +87,89 @@
     "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d"
   },
   "full_size_control_evidence": "../../docs/experiments/2026-10-19-Q38-full27-control.json",
-  "full_recovery_training_complete": false
+  "full_recovery_training_complete": false,
+  "historical_completed_full27_control": {
+    "public_code_commit": "7157b96",
+    "public_source_files": {
+      "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+      "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+      "infer_control.py": "8474691f92ebf892841a98887a2eac074bf5ed9d3043d4857db6c671da2a1a65",
+      "offload.py": "e6fb34ab9323a11b590adc80a86fcce080c1a6a248ef75388e04293ae7040f93",
+      "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+      "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+      "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+      "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+      "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+      "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+      "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+      "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+      "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d"
+    },
+    "evidence": "../../docs/experiments/2026-10-19-Q38-full27-control.json",
+    "optimizer_updates": 2,
+    "empty_chat_reply_observed": true,
+    "quality_accepted": false
+  },
+  "historical_small_CUDA_source_files": {
+    "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+    "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+    "infer_control.py": "8474691f92ebf892841a98887a2eac074bf5ed9d3043d4857db6c671da2a1a65",
+    "offload.py": "e6fb34ab9323a11b590adc80a86fcce080c1a6a248ef75388e04293ae7040f93",
+    "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+    "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+    "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+    "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+    "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+    "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+    "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+    "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+    "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d"
+  },
+  "recovery_component_tests": {
+    "data": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "5ff85236196f73b328f59e66e796c73775dc6637dadddb3b85130a30fe7531a5"
+    },
+    "checkpoint_CPU": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "47f9dec80dd70db734512af0a7faab9e3a5115b1e0e62fd1634e7c064d1ea226"
+    },
+    "buffered": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "2c949dcb4c852c87dcd794cfdb48fbb4631a3177c9eeb4247ced3a9d35264dcf"
+    },
+    "Adafactor_blocks": {
+      "all_frozen_sources_unchanged": true,
+      "source_policy_SHA256": "f8c795fe525a3b959382b8fcc1da656cc985c86d39ce10b19d2e5f28ee265408"
+    }
+  },
+  "full_size_recovery_pilot": {
+    "source_policy_SHA256": "1943891d99f66f41a0dca55c50c5b3943a5693b9780599524dbffd42c0e166b7",
+    "public_source_files": {
+      "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+      "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+      "infer_control.py": "bc39136e494640010f592c27eb45a1c4fecdafa335d89e718b2cf3a60d316629",
+      "offload.py": "e472b68378745de5e6b359d4a541d17e4f9ce146305c49eb1d4f1b07ace2b591",
+      "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+      "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+      "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+      "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+      "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+      "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+      "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+      "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+      "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
+      "buffered_staging.py": "ca603f363b197fa6c862c5eb69d59785ff106d728eedbd73d7d01d266c953fbb",
+      "test_buffered_staging.py": "724dead146f1048ef16a341e9f33e47fa5cb894292c06040e08f79e12103500a",
+      "recovery_checkpoint.py": "9e13c0e7407371155c67533595a04165bb5dbec30204fc267d7579094905b7df",
+      "test_recovery_checkpoint.py": "34ff01611b536bc2b7d0edfc36a4cc7c0096ccaec5bfa617137373aa41cb7470",
+      "recovery_pilot.py": "b2e2d2a6ffdbba4a1e2f6b3cc0fc65daf7a42c4250487d89c17ada0713ed500d",
+      "prepare_wikitext.py": "3c41accca70e68056742da234e721cb85ad7fc041ca60e9b823f61fc32787525",
+      "source-files.json": "9d60f9c046aebd93a54625c155fccdfa12a7dba0c81963b1644cf2b311dff8d3"
+    },
+    "actual_optimizer_updates_at_snapshot": 0,
+    "completed": false,
+    "checkpoint_written": false,
+    "evidence": "../../docs/experiments/2026-10-19-Q38-recovery-pilot-start.json"
+  }
 }

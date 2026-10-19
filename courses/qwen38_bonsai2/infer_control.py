@@ -1,4 +1,4 @@
-"""Fresh-process inference of the two-update control, not official Bonsai GGUF."""
+"""Fresh-process inference of teaching packed exports, not official Bonsai GGUF."""
 import argparse
 import json
 import time

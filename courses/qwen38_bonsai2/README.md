@@ -4,6 +4,8 @@
 
 **完整27B的两步控制、压缩导出及重载一致性已通过。独立进程确认全部模型张量位于CUDA，但短问答立即输出结束符、回复为空；尚未训出可用质量模型。** 正式恢复训练、完整能力评测及部署加速仍待完成。见[2026-10-19完整控制证据](../../docs/experiments/2026-10-19-Q38-full27-control.json)。
 
+后续原始BF16同提示对照能正常输出中文。目前已启动最多32步的真实数据Adafactor试验：32段WikiText训练、8段验证，每段128token，使用固定版本数据和64MiB固定页缓冲，计划写入无损主权重检查点。**当前公开快照仍为初始化阶段，不能将计划中的32步或检查点写成已完成。** 见[数据、前置检查和启动记录](../../docs/experiments/2026-10-19-Q38-recovery-pilot-start.json)。
+
 ## 与原35B/122B路线的区别
 
 | 项目 | 本实验 |
@@ -132,10 +134,52 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/infer_control.py \
 | 生成 | 首token即结束符，解码文本为空 |
 | 首token后的解码速度 | 未测得；没有后续token |
 
-**这次证明完整架构能够更新、压缩和执行，尚未证明模型可用。** 空回复是需要继续处理的实际结果，不将正常进程退出写成质量成功。原始BF16同提示对照、真实数据恢复训练、可恢复检查点及独立能力评测仍需继续；正式部署还需要真正执行压缩格式的推理内核。完整文件已逐个重新核对哈希，GPU锁与进程组已释放，见[原始测量摘要与限制](../../docs/experiments/2026-10-19-Q38-full27-control.json)。
+**这次证明完整架构能够更新、压缩和执行，尚未证明模型可用。** 空回复是需要继续处理的实际结果，不将正常进程退出写成质量成功。原始BF16同提示对照随后正常输出了“模型量化是通过降低模型参数和激活值的数值精度……”的前16token；原模型使用CPU卸载，其耗时不作为单卡纯GPU速度对照。真实数据恢复训练、可恢复检查点及独立能力评测仍需继续；正式部署还需要真正执行压缩格式的推理内核。完整文件已逐个重新核对哈希，两步控制的GPU锁与进程组已释放，见[原始测量摘要与限制](../../docs/experiments/2026-10-19-Q38-full27-control.json)。
 
 实际运行加入了真实块SGD对照通过的前置条件，以及新进程推理时所有模型张量必须位于CUDA的显式断言。[排队快照](../../docs/experiments/2026-10-19-Q38-full-control-queued.json)保留下载期间的状态；下载期间不占GPU，开始前重新检查空闲并持有UUID协作锁。私有调度器曾因文件命名遮蔽标准库而在CPU预检阶段失败，已清理自有进程并改名修复，未改变13个公开Python文件或中断其他任务；该失败也保留在完整控制记录中。
 
+## 继续用真实数据：32步小试验，正在运行
+
+新入口保留402个FP32主权重，改用无一阶动量的CPU Adafactor，其行/列二阶状态按形状约27.9MiB。主权重和梯度本身仍约200.20GiB，并非全部训练内存；还需保留参数、临时空间和已有任务的余量。该设置依据低内存优化器思路自行选择，不是官方Bonsai训练配方。[Adafactor原论文](https://arxiv.org/abs/1804.04235)
+
+全量固定页内存的分配器取整预算约286GiB，无法和本容器已有任务一起放下；因此实际入口只复用一个64MiB固定页缓冲，CPU主权重和累计梯度仍使用普通内存。教师LM head放在CUDA，128token的KL在一次head调用中计算。小规模梯度、原生四层Adafactor更新和缓存检查已通过；完整27B的运行成本与效果仍要等本轮结果。[PyTorch固定页分配器说明](https://docs.pytorch.org/docs/main/generated/torch.cuda.memory.host_memory_stats.html)
+
+在已有根目录依赖的Linux环境中，先准备数据依赖和固定输入：
+
+```bash
+python -m pip install -r courses/qwen38_bonsai2/requirements-data.txt
+CUDA_VISIBLE_DEVICES='' python courses/qwen38_bonsai2/prepare_wikitext.py \
+  --model /path/to/Qwen3.8-27B --data-root /path/to/qwen38-data \
+  --output /path/to/qwen38-batches.json
+```
+
+数据来自[固定修订的Salesforce/WikiText](https://huggingface.co/datasets/Salesforce/wikitext/tree/b08601e04326c79dfdd32d625aee71d232d685c3/wikitext-2-raw-v1)，只读取train和validation，分别选择32/8个非重复段落；test不读取。原始Parquet按官方SHA256核对，输出记录段落索引、输入ID身份、tokenizer文件哈希和种子。本次准备结果的SHA256为`c0045ae0c85c193cd3476fbe95ca2504896f06c163d633f2a684ca2011d9b2a0`。数据不随仓库分发；数据卡保留其许可说明。
+
+默认从主站下载，也可用`--endpoint https://hf-mirror.com`。若下载受限，可从同一固定修订取得两个文件，分别命名为`train.parquet`、`validation.parquet`放入数据目录，再用`--local-only`；仍须通过同一哈希检查。
+
+先在Linux CPU检查主权重、Adafactor、随机状态的磁盘恢复、错误基底和损坏文件拒绝；再确认GPU空闲，检查缓冲后端：
+
+```bash
+CUDA_VISIBLE_DEVICES='' python courses/qwen38_bonsai2/test_recovery_checkpoint.py
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/test_buffered_staging.py
+```
+
+实际32步试验使用下面的入口。**它已经启动，尚未作为完成的整模运行配方验收。**
+
+```bash
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/recovery_pilot.py \
+  --model /path/to/Qwen3.8-27B --data /path/to/qwen38-batches.json \
+  --output /path/to/qwen38-recovery-pilot --steps 32 --lr 0.00001
+```
+
+学习率用4步预热至1e-5，采用优化器内部RMS裁剪，每8步检查8段VAL；若平均KL超过初始值的1.5倍，提前结束更新。32段只提供4096个训练token，是很小的英文蒸馏试验，不代表中文、代码或智能体能力恢复。两个真实块上的Adafactor对照已有损失下降，但不能替代整模结果。
+
+训练结束后，入口计划先导出压缩权重，再以“原始旋转FP32主权重与当前主权重逐位异或→gzip”保存无损差分、Adafactor和随机状态。恢复时必须重建完全相同的原始基底，并核对基底和恢复后字节身份；这是存储压缩，不是降低检查点精度。小CPU样例的下一次更新已逐位一致，**完整27B检查点仍待本轮实际保存和恢复，整模恢复后的下一次优化器更新未验证。** 当前入口只在结束时保存检查点，尚无命令行续训选项；通用`load_checkpoint`函数单独提供。
+
+模型已在本地后，程序还要求约100GB空闲磁盘，包含80GB检查点上限、新压缩产物和12GiB余量。实际差分若触及上限会停止并保留部分文件。原始权重、数据和输出应放在仓库外。预算日志复用了旧控制的SGD标签，实际执行类是代码中的Adafactor；记录已明确校正该标签，不将其误写成SGD试验。
+
+当前代码与旧两步控制的`offload.py`可选构造类型、推理入口说明不同；确切源码身份和历史版本分开保存在[source-provenance.json](source-provenance.json)。本轮完成或失败后添加新的结果记录，不改写启动快照。
+
 ## 文件阅读顺序
 
-`rotation.py` → `ternary.py` → `policy.py` → `plan.py` → `offload.py` → `control.py` → `infer_control.py`。源码身份和已经验证的范围见[source-provenance.json](source-provenance.json)。权重、凭证、机器入口与私有日志不在仓库中。
+`rotation.py` → `ternary.py` → `policy.py` → `plan.py` → `offload.py` → `control.py` → `infer_control.py`。继续真实数据路线时再读`prepare_wikitext.py` → `buffered_staging.py` → `recovery_checkpoint.py` → `recovery_pilot.py`。源码身份和已经验证的范围见[source-provenance.json](source-provenance.json)。权重、凭证、机器入口与私有日志不在仓库中。

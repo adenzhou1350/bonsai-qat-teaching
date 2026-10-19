@@ -66,7 +66,7 @@ def backend():
     qwen.chunk_gated_delta_rule = qwen.fused_recurrent_gated_delta_rule = None
 
 
-def load_model(path, device, quantized=False, on_loaded=None):
+def load_model(path, device, quantized=False, on_loaded=None, staged_type=StagedTernary):
     """Load text matrices one at a time. Vision and MTP are explicitly excluded."""
     backend()
     path = Path(path)
@@ -94,7 +94,7 @@ def load_model(path, device, quantized=False, on_loaded=None):
         if quantized_matrix(key):
             assert parameter == "weight"
             if quantized:
-                replacement = StagedTernary(value, embedding=module_name.endswith("embed_tokens"))
+                replacement = staged_type(value, embedding=module_name.endswith("embed_tokens"))
             else:
                 replacement = (StagedEmbedding if module_name.endswith("embed_tokens") else StagedLinear)(value)
             setattr(parent, leaf, replacement)
