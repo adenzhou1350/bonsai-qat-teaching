@@ -1,0 +1,39 @@
+{
+  "status": "full27_two_update_control_queued_after_completed_prerequisites",
+  "recorded_at_UTC": "2026-10-19T04:50:37Z",
+  "candidate_source_policy_SHA256": "d27935400b72342e7c0b4179eed920bf1a2f89bba2453af6278adaf51e2b6094",
+  "matched_public_Python_sources": 13,
+  "CUDA_small_controls_completed_exit0": true,
+  "SGD_real_block_prerequisite_result_SHA256": "0eb9c25219409b0a54d08d2a1b547a8332967b33746349e27ea4b68f0afed6a7",
+  "old_CPU_waiter_replaced_before_GPU_allocation": true,
+  "reason_for_new_source_snapshot": "Add empiricalSGD prerequisite and explicit fresh-inference all-CUDA assertion; original download unchanged.",
+  "stage": "waiting_verified_original_model_download_no_GPU",
+  "verified_original_bytes_at_snapshot": 33909238237,
+  "requested_original_bytes": 55586047268,
+  "actual_full27_optimizer_updates": 0,
+  "GPU_held_while_waiting_download": false,
+  "planned_stages": [
+    "verify pinned original files",
+    "admit freshly idle single5090 with UUID lease",
+    "prepare CPU-offloaded original teacher states",
+    "all64 layers/402 CPU masters, two short SGD updates",
+    "export same-GPU quantization grids and reconstruct packed model",
+    "fresh-process packed inference with every model tensor asserted CUDA",
+    "release owned process group and GPU lease"
+  ],
+  "control_optimizer": "SGD_without_momentum",
+  "control_learning_rate": 0.001,
+  "TRAIN_texts": 2,
+  "separate_VAL_texts": 1,
+  "tokens_per_text": 128,
+  "full_recovery_training_complete": false,
+  "full27_control_completed": false,
+  "quality_accepted": false,
+  "fused_deployment_kernel": false,
+  "limitations": [
+    "The queued job is a two-update infrastructure control, not a completed Bonsai recovery training run.",
+    "Full27B model loading/training/inference have not yet executed in this snapshot.",
+    "GPU is not occupied while waiting for original weights; it will be rechecked for fresh idleness.",
+    "Formal optimizer/data/checkpoint design and capability evaluation remain outstanding."
+  ]
+}

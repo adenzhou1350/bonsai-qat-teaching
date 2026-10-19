@@ -21,6 +21,9 @@ def main():
         raise ValueError("Expose one admitted CUDA GPU")
     torch.set_num_threads(4)
     model, manifest = packed_reload(a.packed, torch.device("cuda", 0))
+    model_tensors = [*model.parameters(), *model.buffers()]
+    if not model_tensors or not all(value.is_cuda for value in model_tensors):
+        raise ValueError("The inference control requires every model tensor on CUDA")
     tokenizer = AutoTokenizer.from_pretrained(a.tokenizer, local_files_only=True)
     prompt = tokenizer.apply_chat_template([{"role": "user", "content": "用一句话解释模型量化。"}],
                                            tokenize=False, add_generation_prompt=True, enable_thinking=False)
@@ -57,6 +60,7 @@ def main():
               "model_unique_CUDA_storage_bytes": sum(stores.values()),
               "peak_GPU_allocated_bytes": torch.cuda.max_memory_allocated(),
               "CPU_weight_offload_during_inference": False, "fused_kernel": False,
+              "all_model_tensors_on_CUDA": True, "model_tensor_count": len(model_tensors),
               "quality_accepted": False, "full_recovery_training_completed": False,
               "limitation": "One short prompt, packed-weight expansion reference, no quality or sustained-throughput claim"}
     a.output.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")

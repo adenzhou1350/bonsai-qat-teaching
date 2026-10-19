@@ -102,6 +102,8 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/infer_control.py \
 
 完整27B入口目前已经排队，但尚未加载真实模型或产生优化器更新；这些命令保留为实验代码，不能视为已经验证的27B运行配方。后续完成和失败都写入新日期记录，不覆盖现有控制证据。正式训练还需要合适的数据、优化器/检查点方案、独立质量评测，以及真正执行压缩格式的推理内核。
 
+排队版本已加入真实块SGD对照通过的前置条件，以及新进程推理时所有模型张量必须位于CUDA的显式断言，见[最新队列快照](../../docs/experiments/2026-10-19-Q38-full-control-queued.json)。下载期间不占GPU，开始前会重新检查空闲并持有UUID协作锁；其他任务先占用时不会被中断。
+
 ## 文件阅读顺序
 
 `rotation.py` → `ternary.py` → `policy.py` → `plan.py` → `offload.py` → `control.py` → `infer_control.py`。源码身份和已经验证的范围见[source-provenance.json](source-provenance.json)。权重、凭证、机器入口与私有日志不在仓库中。
