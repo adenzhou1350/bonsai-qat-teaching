@@ -1,0 +1,52 @@
+{
+  "format": "qwen38-bonsai2-teaching-control-sources-v1",
+  "recorded_date": "2026-10-19",
+  "line_endings": "CRLF canonicalized to LF",
+  "file_sha256": {
+    "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+    "infer_control.py": "3954f923c58714641a3a529545f5668fafc08716777abb5ec3e7648c1a420a2b",
+    "offload.py": "e6fb34ab9323a11b590adc80a86fcce080c1a6a248ef75388e04293ae7040f93",
+    "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+    "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+    "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+    "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+    "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+    "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+    "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+    "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+    "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
+    "source-files.json": "9d60f9c046aebd93a54625c155fccdfa12a7dba0c81963b1644cf2b311dff8d3"
+  },
+  "GPU_tested_source_files": {
+    "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+    "infer_control.py": "3954f923c58714641a3a529545f5668fafc08716777abb5ec3e7648c1a420a2b",
+    "offload.py": "e6fb34ab9323a11b590adc80a86fcce080c1a6a248ef75388e04293ae7040f93",
+    "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+    "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+    "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+    "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+    "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+    "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+    "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e"
+  },
+  "CPU_tested_mechanism_source_files": {
+    "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+    "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+    "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+    "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+    "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+    "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849"
+  },
+  "original_model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "official_reference_MLX_revision": "fcba37d2117a7077eac6b613b2668d14d9779edd",
+  "matrix_policy_matches_all402_published_reference_modules": true,
+  "full_size_control_and_inference_entries_executed": false,
+  "official_training_recipe_reproduced": false,
+  "quality_accepted": false,
+  "limitations": [
+    "CPU/GPU tests use small tensors and a four-layer synthetic Qwen configuration.",
+    "The402-matrix audit uses the real configuration on meta; original27B weights were not loaded by that audit.",
+    "The full-size two-step SGD/offload entry is experimental and has not completed a model run.",
+    "verify_source.py/test_source.py additionally passed a Windows standard-library corruption check; they do not execute a model."
+  ]
+}

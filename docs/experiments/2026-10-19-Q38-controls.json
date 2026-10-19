@@ -1,0 +1,123 @@
+{
+  "status": "CPU_CUDA_small_controls_and_real_shape_audit_completed_full27_pending",
+  "recorded_at_UTC": "2026-10-19T04:32:13Z",
+  "original_model": "Qwen/Qwen3.8-27B",
+  "original_model_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "official_Bonsai2_already_uses_this_base": true,
+  "official_training_recipe_reproduced": false,
+  "matrix_policy_matches_all402_reference_modules": true,
+  "real_shape_audit": {
+    "status": "meta_shape_and_resource_audit_only",
+    "selected_matrix_count": 402,
+    "trainable_master_elements": 26869760000,
+    "retained_text_elements": 26238464,
+    "FP32_master_gradient_Adam_bytes": 429916160000,
+    "FP32_master_gradient_Adam_GiB": 400.390625,
+    "checkpoint_master_Adam_bytes_excludes_metadata": 322437120000,
+    "source_config_SHA256": "191e0af232104ed8b65258cf3fb2b842e288008baca7633c11b82a1ac7203aab",
+    "source_index_SHA256": "77042094076611b69791a610065f28b7013b8c621795fa86ddccc8bac7d1b9df",
+    "model_weights_loaded": false,
+    "optimizer_updates": 0,
+    "CUDA_initialized": false,
+    "excluded_components": [
+      "vision tower",
+      "MTP"
+    ],
+    "packed_reference_is_fused_inference_kernel": false
+  },
+  "CPU_control_results": [
+    {
+      "name": "core",
+      "exit_code": 0,
+      "reported_scalar_result": {
+        "small_control_loss_first": 991.6188354492188,
+        "small_control_loss_third": 714.9705200195312,
+        "27B_training_completed": false,
+        "GPU_test_completed": false
+      }
+    },
+    {
+      "name": "native",
+      "exit_code": 0,
+      "reported_scalar_result": {
+        "native_layers": 4,
+        "selected_matrices": 27,
+        "actual_updates": 2,
+        "full_vocab_KL_losses": [
+          0.017979634925723076,
+          0.011327655985951424
+        ],
+        "packed_reload_logits_bitwise_equal": true,
+        "retained_state_path_unchanged": true,
+        "27B_training_completed": false
+      }
+    }
+  ],
+  "CUDA_small_controls": {
+    "test_cases": 3,
+    "exit_code": 0,
+    "reported_results": [
+      {
+        "BF16_native_cached_last_position_max_abs_difference": 0.0,
+        "comparison_is_tolerance_based": true,
+        "full_27B_cache_verified": false
+      },
+      {
+        "small_native_layers": 4,
+        "CPU_masters_updated_through_CUDA": 27,
+        "CUDA_peak_allocated_bytes": 23643136,
+        "27B_model_training_completed": false
+      }
+    ],
+    "maximum_observed_NVML_used_MiB": 640,
+    "NVML_samples": 16,
+    "driver_reserved_measured_in_this_control": false,
+    "process_group_released": true,
+    "CPU_master_CUDA_gradients_checked": true,
+    "BF16_and_gradient_recomputation_checked": true,
+    "native_cache_comparison_is_tolerance_based": true
+  },
+  "all_raw_control_outputs_downloaded_and_SHA_checked": true,
+  "GPU_source_identities_locally_matched": true,
+  "original_model_download_at_snapshot": {
+    "completed_verified_bytes": 13544959253,
+    "requested_bytes": 55586047268,
+    "GPU_held": false,
+    "mirror_bytes_verified_against_primary_Hub_objects": true,
+    "direct_Hub_timeout_attempt_preserved": true
+  },
+  "full27_control": {
+    "state": "waiting_verified_original_model_download_no_GPU",
+    "actual_optimizer_updates": 0,
+    "planned_updates": 2,
+    "TRAIN_texts": 2,
+    "separate_VAL_texts": 1,
+    "tokens_per_text": 128,
+    "optimizer": "plain SGD without momentum, control only",
+    "standard_Adam_training_fit_claimed": false,
+    "resumable_full_checkpoint_saved": false,
+    "planned_followup": "fresh process packed inference on the same admitted5090",
+    "CPU_queue_holds_GPU_while_waiting_for_download": false
+  },
+  "resources": {
+    "four_B300_SSH_entries_deduplicate_to_one_physical8_GPU_host": true,
+    "idle_B300_cards_observed": 0,
+    "two_new5090_hosts_deduplicate_to_two_physical_hosts": true,
+    "idle5090_cards_observed_per_host": [
+      1,
+      1
+    ],
+    "selected_container_memory_limit_GiB": 337.0,
+    "standard_FP32_Adam_matrix_state_GiB": 400.390625,
+    "other_work_stopped": false
+  },
+  "full_recovery_training_complete": false,
+  "quality_accepted": false,
+  "reserved_evaluation_inputs_opened": false,
+  "limitations": [
+    "The next job is a full-size infrastructure control, not completed quality recovery training.",
+    "SGD CPU offload avoids Adam moments for two short updates; it is not the official recipe.",
+    "The reference inference expands individual matrices; official fused-kernel speed is not claimed.",
+    "No measured27B quality, deployment memory, or speed result exists at this snapshot."
+  ]
+}
