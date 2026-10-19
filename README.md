@@ -16,7 +16,7 @@
 
 **训练链路通过，质量恢复尚未完成。** 八条短提示中，两道算术、短翻译和仅输出OK正确；中文量化定义仍混淆检查点，首都回答未遵守只答城市名。它们是开发诊断，不是完整能力分数。全部模型张量约5.45GiB位于CUDA，但逐层展开权重的参考实现仍约0.69 tokens/s，运行峰值远大于常驻权重；尚无融合部署加速结论。[原始BF16同题对照](docs/experiments/2026-10-20-Q38-matched-BF16-eight-prompts.json)已确认这两项退化；原模型也会在长解释题触及32 token上限，不能把所有截断归因于量化。此前35B/122B实验保持归档。
 
-[混合上下文续训](docs/experiments/2026-10-20-Q38-first-resumed-updates.json)已从旧32步检查点实际新增3步、累计35步，全部402个矩阵梯度有限；新导出、检查点、更新后验证和质量结果仍待完成。完整已保存检查点仍是32步。
+[混合上下文续训](docs/experiments/2026-10-20-Q38-first-mixed-validation.json)已新增10步、累计42步。新第8步固定验证中，对话组KL为2.8565→2.5240，WikiText为1.0055→1.0710；这是有取舍的开发验证结果，尚未确认生成质量改善。新导出与检查点仍待完成，完整已保存检查点仍是32步。
 
 原[32步结果与私有调度超时](docs/experiments/2026-10-20-Q38-mapped32-restore-timeout.json)、[换机记录](docs/experiments/2026-10-19-Q38-local-gradient-retry-start.json)及[0步启动快照](docs/experiments/2026-10-19-Q38-local-pilot-entered-training.json)保留各自当时状态。独立恢复使用已保存产物，没有重新训练或合并两台机器的步数。
 
