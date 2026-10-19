@@ -203,6 +203,7 @@
     "small_CPU_and_native_CUDA_controls_passed": true,
     "full27B_training_verified": false,
     "checkpoint_restore_verified": false,
-    "quality_accepted": false
+    "quality_accepted": false,
+    "download_repair_record": "../../docs/experiments/2026-10-19-Q38-download-retry-repair.json"
   }
 }

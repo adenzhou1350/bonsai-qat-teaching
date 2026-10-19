@@ -1,0 +1,132 @@
+{
+  "format": "qwen38-download-only-repair-v1",
+  "recorded_at_UTC": "2026-10-19T10:15:34Z",
+  "prior_start_record": "2026-10-19-Q38-local-gradient-retry-start.json",
+  "quality_accepted": false,
+  "failure": {
+    "stage": "original_model_download",
+    "curl_exit_code": 92,
+    "error": "HTTP/2 stream 0 was not closed cleanly: CANCEL (err 8)",
+    "HTTP_status_before_disconnect": 206,
+    "failed_file": "model-00002-of-00018.safetensors",
+    "exception_observation_bug": "Ordered executor.map result consumption delayed observation of an earlier file failure behind unfinished transfers. Active-file cleanup was also missing on failure.",
+    "actual_optimizer_updates": 0,
+    "controlled_stop_exit_code": 130,
+    "owned_GPU_lease_released_before_replacement": true,
+    "frozen_sources_edited_in_place": false,
+    "partial_prefixes_preserved": true
+  },
+  "private_download_orchestration_repair": {
+    "source_SHA256": "7ed941b3ae1ad406f3dbee80b00b0e209546d16659c5fc3305b5d33fc0983991",
+    "HTTP_version": "1.1",
+    "maximum_connections": 6,
+    "maximum_resumable_attempts_per_file": 6,
+    "retry_policy": "A fresh curl process resumes from the actual partial-file length. Each completed file must pass the same pinned full-file LFS/Git identity check before acceptance.",
+    "terminal_failure_policy": "Consume futures with as_completed; record the first terminal failure immediately, cancel only owned transfer subprocesses, and remove active names in finally.",
+    "TLS_and_official_identity_verification_weakened": false,
+    "CPU_fixtures": [
+      {
+        "scenario": "retry",
+        "passed": true,
+        "attempts": [
+          [
+            "file.bin",
+            0
+          ],
+          [
+            "file.bin",
+            137
+          ]
+        ],
+        "cancelled_own_children": []
+      },
+      {
+        "scenario": "corruption",
+        "passed": true,
+        "attempts": [
+          [
+            "file.bin",
+            0
+          ]
+        ],
+        "cancelled_own_children": []
+      },
+      {
+        "scenario": "cancel",
+        "passed": true,
+        "attempts": [
+          [
+            "slow.bin",
+            0
+          ],
+          [
+            "bad.bin",
+            0
+          ],
+          [
+            "queued.bin",
+            0
+          ]
+        ],
+        "cancelled_own_children": [
+          "slow.bin"
+        ]
+      }
+    ],
+    "full_model_network_reliability_proven": false
+  },
+  "replacement_snapshot": {
+    "state": "running_download",
+    "actual_optimizer_updates": 0,
+    "requested_updates_after_complete_verified_download": 32,
+    "source_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "requested_files": 27,
+    "requested_bytes": 55586047268,
+    "verified_files": 5,
+    "verified_bytes": 3378269,
+    "all_original_files_verified": false,
+    "source_policy_SHA256": "9dba8048444ee4b84f8f6c9e9b93d4c3f093ff222f2072e2207da006df9610f3",
+    "all_frozen_sources_unchanged": true,
+    "generic_public_training_files_unchanged": 23,
+    "public_source_SHA256": {
+      "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+      "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+      "infer_control.py": "bc39136e494640010f592c27eb45a1c4fecdafa335d89e718b2cf3a60d316629",
+      "offload.py": "e472b68378745de5e6b359d4a541d17e4f9ce146305c49eb1d4f1b07ace2b591",
+      "plan.py": "2b364073b374a944549838414a9fdb0f0d5af08e11a0a750c8e64d85b8ef18a3",
+      "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+      "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+      "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+      "test_core.py": "c6bee02a5dba7f4afa225d39b75b2e18a4030d915fb4eb40e164673921047a06",
+      "test_native.py": "a5ba3f45ddb9ccbad1064a29c9bdb84b4a1620fc5167e1d9fda5beacb8591849",
+      "test_offload.py": "a14ae1ed2b378d19d732f9eaba85d0220a329f51bb0c85f6de5e399830a9501e",
+      "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
+      "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
+      "buffered_staging.py": "ca603f363b197fa6c862c5eb69d59785ff106d728eedbd73d7d01d266c953fbb",
+      "test_buffered_staging.py": "724dead146f1048ef16a341e9f33e47fa5cb894292c06040e08f79e12103500a",
+      "recovery_checkpoint.py": "9e13c0e7407371155c67533595a04165bb5dbec30204fc267d7579094905b7df",
+      "test_recovery_checkpoint.py": "34ff01611b536bc2b7d0edfc36a4cc7c0096ccaec5bfa617137373aa41cb7470",
+      "recovery_pilot.py": "b2e2d2a6ffdbba4a1e2f6b3cc0fc65daf7a42c4250487d89c17ada0713ed500d",
+      "prepare_wikitext.py": "3c41accca70e68056742da234e721cb85ad7fc041ca60e9b823f61fc32787525",
+      "source-files.json": "9d60f9c046aebd93a54625c155fccdfa12a7dba0c81963b1644cf2b311dff8d3",
+      "mapped_gradients.py": "75b83b21323e8b86d0fcecdbbfcbd1457fae41757f598c1e9b505e6d268a2825",
+      "test_mapped_gradients.py": "92ddc89b72c6003de5846a6dd952d03412bf7361f06826e08db234c392c7fb88",
+      "recovery_pilot_mapped.py": "e5529dc84b1f2f4456a2fa5f26dcd6d4b90a713ac4da6ab4ea713be9fc4b6b78"
+    },
+    "same_data_optimizer_quantization_and_memory_mapped_gradient_code": true,
+    "cooperative_GPU_lease_active": true,
+    "GPU_reservation_bytes": 67108864,
+    "resource_sample": {
+      "used_MiB": 572,
+      "free_MiB": 31540,
+      "utilization": 0,
+      "CPU_anon_and_shmem_bytes": 385056768,
+      "cgroup_limit_bytes": 242665652224,
+      "disk_free_bytes": 721993805824,
+      "seconds": 7.192066723946482
+    },
+    "independent_generation_observed": false,
+    "full27B_checkpoint_restore_verified": false
+  },
+  "interpretation": "This fixes a download failure, not model quality. The older machine completed32 updates but its final checkpoint and generation remain unknown. The replacement still has0 updates; partial bytes are not verified weights. Public generic training sources remain identical to commit5a920a43fafe67260e8d9987931c83dcc4eb47be."
+}

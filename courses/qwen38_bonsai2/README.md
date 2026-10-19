@@ -28,6 +28,8 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/recovery_pilot_mapped.py \
 
 它会在压缩导出后先用独立进程尝试生成，再保存和恢复最终无损检查点；生成内容与恢复检查分别记录。该入口没有从上一轮检查点继续训练的CLI，也不意味着上一轮检查点已可用。换机运行重新核验同一固定版本的全部原始文件，保持数据、学习率和量化范围不变。当前新运行仍为0步，下载校验后自动开始。
 
+下载期间曾有一个HTTP/2分片断流；旧下载器按提交顺序取线程结果，未及时汇总该错误。已保留分片并以新任务改用HTTP/1.1、断点重试和及时失败处理，小型重试、损坏拒收及取消测试通过。**这次只改私有下载调度，23个公开训练与元数据文件保持一致**；全部原始文件校验前仍不启动训练。见[下载修复记录](../../docs/experiments/2026-10-19-Q38-download-retry-repair.json)。
+
 ## 与原35B/122B路线的区别
 
 | 项目 | 本实验 |
@@ -160,7 +162,7 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/infer_control.py \
 
 实际运行加入了真实块SGD对照通过的前置条件，以及新进程推理时所有模型张量必须位于CUDA的显式断言。[排队快照](../../docs/experiments/2026-10-19-Q38-full-control-queued.json)保留下载期间的状态；下载期间不占GPU，开始前重新检查空闲并持有UUID协作锁。私有调度器曾因文件命名遮蔽标准库而在CPU预检阶段失败，已清理自有进程并改名修复，未改变13个公开Python文件或中断其他任务；该失败也保留在完整控制记录中。
 
-## 继续用真实数据：32步小试验，正在运行
+## 继续用真实数据：32步小试验与换机重做
 
 新入口保留402个FP32主权重，改用无一阶动量的CPU Adafactor，其行/列二阶状态按形状约27.9MiB。主权重和梯度本身仍约200.20GiB，并非全部训练内存；还需保留参数、临时空间和已有任务的余量。该设置依据低内存优化器思路自行选择，不是官方Bonsai训练配方。[Adafactor原论文](https://arxiv.org/abs/1804.04235)
 
@@ -186,7 +188,7 @@ CUDA_VISIBLE_DEVICES='' python courses/qwen38_bonsai2/test_recovery_checkpoint.p
 CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/test_buffered_staging.py
 ```
 
-实际32步试验使用下面的入口。**它已经启动，尚未作为完成的整模运行配方验收。**
+原机器32步试验使用下面的入口；更新已完成，最终检查点与生成结果仍未知。换机重做使用前述独立的`recovery_pilot_mapped.py`入口。**两者均未作为完成质量恢复的整模配方验收。**
 
 ```bash
 CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/recovery_pilot.py \
