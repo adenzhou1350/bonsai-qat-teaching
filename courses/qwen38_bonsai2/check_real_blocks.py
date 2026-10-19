@@ -20,8 +20,11 @@ def main():
     p.add_argument("--index", required=True, type=Path)
     p.add_argument("--source-proof", required=True, type=Path)
     p.add_argument("--output", required=True, type=Path)
+    p.add_argument("--optimizer", choices=("adamw", "sgd"), required=True)
+    p.add_argument("--lr", required=True, type=float)
+    p.add_argument("--steps", type=int, default=2, choices=range(1, 9))
     a = p.parse_args()
-    if a.output.exists():
+    if a.output.exists() or not 0 < a.lr <= 1e-3:
         raise FileExistsError("Preserve prior block-control evidence")
     if sha(a.index) != "77042094076611b69791a610065f28b7013b8c621795fa86ddccc8bac7d1b9df":
         raise ValueError("Expected pinned original27B source index")
@@ -78,10 +81,12 @@ def main():
                          past_key_values=None, attention_mask=None)
         with torch.no_grad():
             target = forward(teacher)
-        optimizer = torch.optim.AdamW([p for _, p in named], lr=1e-4, weight_decay=0, foreach=False)
+        optimizer_type = torch.optim.AdamW if a.optimizer == "adamw" else torch.optim.SGD
+        optimizer = optimizer_type([p for _, p in named], lr=a.lr, weight_decay=0, foreach=False)
         losses = []
+        norms = []
         torch.cuda.reset_peak_memory_stats()
-        for _ in range(2):
+        for _ in range(a.steps):
             optimizer.zero_grad(set_to_none=True)
             output = forward(student)
             loss = (output.float() - target.float()).square().mean() / target.float().square().mean().clamp_min(1e-12)
@@ -93,9 +98,12 @@ def main():
                 raise ValueError("Non-finite real-block norm")
             optimizer.step()
             losses.append(float(loss.detach()))
+            norms.append(float(norm))
         optimizer.zero_grad(set_to_none=True)
         with torch.no_grad():
             expected = forward(student)
+            final_loss = float((expected.float() - target.float()).square().mean() /
+                               target.float().square().mean().clamp_min(1e-12))
         if retained != {n: tensor_sha(p) for n, p in student.named_parameters() if n in retained}:
             raise ValueError("A retained state-path parameter changed")
         for name, module in list(student.named_modules()):
@@ -108,8 +116,10 @@ def main():
             raise ValueError("Real-block packed reconstruction differs")
         result = {"layer": layer_index, "layer_type": cfg.layer_types[layer_index],
                   "selected_matrices": len(named), "trainable_elements": sum(p.numel() for _, p in named),
-                  "updates": 2, "all_selected_gradients_finite": True, "retained_parameters_unchanged": True,
+                  "updates": a.steps, "all_selected_gradients_finite": True, "retained_parameters_unchanged": True,
                   "normalized_block_output_MSE_losses": losses, "packed_output_bitwise_equal": True,
+                  "post_final_update_normalized_block_output_MSE": final_loss,
+                  "pre_clip_gradient_norms": norms,
                   "peak_GPU_allocated_bytes": torch.cuda.max_memory_allocated()}
         results.append(result)
         print(json.dumps(result), flush=True)
@@ -117,6 +127,7 @@ def main():
         gc.collect()
         torch.cuda.empty_cache()
     record = {"passed": True, "source_revision": proof["revision"],
+              "optimizer": a.optimizer, "learning_rate": a.lr, "steps_per_block": a.steps,
               "consumed_original_shard_SHA256": {n: known[n]["SHA256"] for n in consumed}, "results": results,
               "full27_model_loaded": False, "full27_recovery_training_completed": False,
               "quality_accepted": False, "scope": "two individual real-weight blocks, synthetic embedding-index input, block-output MSE"}

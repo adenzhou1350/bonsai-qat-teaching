@@ -16,7 +16,7 @@
     "test_source.py": "34d69331a79b67ee4009092d599977e9bc60f0f345cb15de4367539ea3be471e",
     "verify_source.py": "d717b67fba9aa522e91d0c48de5c60b8c7a5abbbe7336cb2c1a0a340ef96e16d",
     "source-files.json": "9d60f9c046aebd93a54625c155fccdfa12a7dba0c81963b1644cf2b311dff8d3",
-    "check_real_blocks.py": "4a5f297a0f890f8e8941e746867255beabaa7cd284b2760bb2ddb53b3e51add1"
+    "check_real_blocks.py": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c"
   },
   "GPU_tested_source_files": {
     "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
@@ -50,7 +50,13 @@
     "The full-size two-step SGD/offload entry is experimental and has not completed a model run.",
     "verify_source.py/test_source.py additionally passed a Windows standard-library corruption check; they do not execute a model."
   ],
-  "real_weight_block_control_entry_SHA256": "4a5f297a0f890f8e8941e746867255beabaa7cd284b2760bb2ddb53b3e51add1",
+  "real_weight_block_control_entry_SHA256": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
   "real_weight_block_controls_completed": true,
-  "real_weight_block_loss_improvement_established": false
+  "real_weight_block_loss_improvement_established": false,
+  "historical_first_block_control": {
+    "entry_SHA256": "4a5f297a0f890f8e8941e746867255beabaa7cd284b2760bb2ddb53b3e51add1",
+    "public_code_commit": "0b49a2a"
+  },
+  "real_weight_block_same_input_loss_improvement_established": true,
+  "whole_model_quality_improvement_established": false
 }

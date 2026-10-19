@@ -51,10 +51,15 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/test_offload.py
 CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/check_real_blocks.py \
   --model /path/to/Qwen3.8-27B \
   --index /path/to/Qwen3.8-27B/model.safetensors.index.json \
-  --source-proof original-source-proof.json --output real-block-control.json
+  --source-proof original-source-proof.json --output real-block-control.json \
+  --optimizer adamw --lr 0.000001 --steps 2
 ```
 
 这是单独两块的基础控制，不能计为整个27B模型完成了训练。显存也属于块训练，不是完整模型部署占用。
+
+后续同权重/同输入控制已补齐两步后的最终MSE：AdamW1e-6下，第0/3层分别为 **0.1991→0.1687**、**0.4397→0.4160**；SGD1e-3下为 **0.1991→0.1885**、**0.4397→0.4356**。所有打包输出仍一致，初始前向损失和梯度范数相同。改用`--optimizer sgd --lr 0.001`可运行SGD对照。它们只证明该固定输入上的块损失下降，见[完整对照](../../docs/experiments/2026-10-19-Q38-block-lr-controls.json)。
+
+官方公开的是高精度保留边界，并不等于宣布这些参数在训练时冻结。本目录冻结它们是基础控制选择；正式训练需另行研究。
 
 ## 核对原始模型和资源
 

@@ -1,0 +1,142 @@
+{
+  "status": "completed_two_real_blocks_two_optimizer_controls",
+  "recorded_at_UTC": "2026-10-19T04:46:43Z",
+  "source_policy_SHA256": "a96342f20f80872fd19db9469768aece64e2df739aff24dfcd271a3eaa0b6ff2",
+  "entry_source_SHA256": "4df19e0e64b839f4ccfe0920f3500f62cb9fff043d80e4ebb7e8260ddae3fd5c",
+  "result_SHA256": "0eb9c25219409b0a54d08d2a1b547a8332967b33746349e27ea4b68f0afed6a7",
+  "NVML_raw_SHA256": "e54e252a4160237cdb837f6293fd952970817863b560eaa4fdf056a334c5bee5",
+  "completed_arms": [
+    {
+      "passed": true,
+      "source_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "optimizer": "adamw",
+      "learning_rate": 1e-06,
+      "steps_per_block": 2,
+      "consumed_original_shard_SHA256": {
+        "model-00001-of-00018.safetensors": "ba0ce20aae489ad196733da5064bcdf159a1fe84f53336648196e1ebb7751b1c",
+        "model-00003-of-00018.safetensors": "2e1bf62cbcd406eaa64b60d10353e1f0ef4039d0976e56f05cabe953454f9968"
+      },
+      "results": [
+        {
+          "layer": 0,
+          "layer_type": "linear_attention",
+          "selected_matrices": 6,
+          "trainable_elements": 382730240,
+          "updates": 2,
+          "all_selected_gradients_finite": true,
+          "retained_parameters_unchanged": true,
+          "normalized_block_output_MSE_losses": [
+            0.19908057153224945,
+            0.18572796881198883
+          ],
+          "packed_output_bitwise_equal": true,
+          "post_final_update_normalized_block_output_MSE": 0.16865745186805725,
+          "pre_clip_gradient_norms": [
+            9.22429370880127,
+            9.115917205810547
+          ],
+          "peak_GPU_allocated_bytes": 7982542848
+        },
+        {
+          "layer": 3,
+          "layer_type": "full_attention",
+          "selected_matrices": 7,
+          "trainable_elements": 372244480,
+          "updates": 2,
+          "all_selected_gradients_finite": true,
+          "retained_parameters_unchanged": true,
+          "normalized_block_output_MSE_losses": [
+            0.4397125244140625,
+            0.4274948239326477
+          ],
+          "packed_output_bitwise_equal": true,
+          "post_final_update_normalized_block_output_MSE": 0.4159708321094513,
+          "pre_clip_gradient_norms": [
+            3.236268997192383,
+            3.0320751667022705
+          ],
+          "peak_GPU_allocated_bytes": 7792456704
+        }
+      ],
+      "full27_model_loaded": false,
+      "full27_recovery_training_completed": false,
+      "quality_accepted": false,
+      "scope": "two individual real-weight blocks, synthetic embedding-index input, block-output MSE"
+    },
+    {
+      "passed": true,
+      "source_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "optimizer": "sgd",
+      "learning_rate": 0.001,
+      "steps_per_block": 2,
+      "consumed_original_shard_SHA256": {
+        "model-00001-of-00018.safetensors": "ba0ce20aae489ad196733da5064bcdf159a1fe84f53336648196e1ebb7751b1c",
+        "model-00003-of-00018.safetensors": "2e1bf62cbcd406eaa64b60d10353e1f0ef4039d0976e56f05cabe953454f9968"
+      },
+      "results": [
+        {
+          "layer": 0,
+          "layer_type": "linear_attention",
+          "selected_matrices": 6,
+          "trainable_elements": 382730240,
+          "updates": 2,
+          "all_selected_gradients_finite": true,
+          "retained_parameters_unchanged": true,
+          "normalized_block_output_MSE_losses": [
+            0.19908057153224945,
+            0.19164212048053741
+          ],
+          "packed_output_bitwise_equal": true,
+          "post_final_update_normalized_block_output_MSE": 0.1884899139404297,
+          "pre_clip_gradient_norms": [
+            9.22429370880127,
+            9.060220718383789
+          ],
+          "peak_GPU_allocated_bytes": 4475055616
+        },
+        {
+          "layer": 3,
+          "layer_type": "full_attention",
+          "selected_matrices": 7,
+          "trainable_elements": 372244480,
+          "updates": 2,
+          "all_selected_gradients_finite": true,
+          "retained_parameters_unchanged": true,
+          "normalized_block_output_MSE_losses": [
+            0.4397125244140625,
+            0.43719106912612915
+          ],
+          "packed_output_bitwise_equal": true,
+          "post_final_update_normalized_block_output_MSE": 0.4355505406856537,
+          "pre_clip_gradient_norms": [
+            3.236268997192383,
+            3.1636836528778076
+          ],
+          "peak_GPU_allocated_bytes": 4369118208
+        }
+      ],
+      "full27_model_loaded": false,
+      "full27_recovery_training_completed": false,
+      "quality_accepted": false,
+      "scope": "two individual real-weight blocks, synthetic embedding-index input, block-output MSE"
+    }
+  ],
+  "same_initial_forward_losses_and_gradient_norms": true,
+  "all_post_final_update_same_input_MSEs_lower": true,
+  "all_packed_outputs_bitwise_equal": true,
+  "all_raw_JSON_logs_and_NVML_downloaded_SHA_verified": true,
+  "all13_public_staged_source_files_locally_matched": true,
+  "maximum_observed_NVML_used_MiB": 11624,
+  "NVML_samples": 103,
+  "wrapper_exit_code": 0,
+  "owned_process_group_released": true,
+  "full27_model_loaded": false,
+  "full27_training_completed": false,
+  "quality_accepted": false,
+  "limitations": [
+    "This is same-input block-output MSE on synthetic embedding indices, not held-out capability.",
+    "Two real blocks only; do not transfer the measured improvement percentages to whole-model quality.",
+    "Earlier AdamW1e-4 adverse result is preserved in a separate immutable record.",
+    "SGD1e-3 is being used only for the full-model two-update infrastructure control; formal recovery training is not established."
+  ]
+}
