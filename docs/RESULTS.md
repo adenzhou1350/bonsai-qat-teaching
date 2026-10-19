@@ -2,7 +2,7 @@
 
 这里汇总截至 **2026-10-10** 的主要结果。研究已暂停，代码、检查点和原始证据保留。先分清模型、训练路线与测试协议，再比较数字；按日期保存的 JSON 仍是对应实验的记录。
 
-2026-10-19启动了独立的[Qwen3.8-27B Bonsai 2机制实验](../courses/qwen38_bonsai2/README.md)。当前只有小规模控制与真实形状审计结果，完整27B两步控制尚待权重下载；没有新的27B质量或速度成绩。下表与既有质量数字仍属于此前的35B/122B实验。
+2026-10-19启动了独立的[Qwen3.8-27B Bonsai 2机制实验](../courses/qwen38_bonsai2/README.md)。完整27B两步更新、导出及重载一致性已通过；独立进程的模型张量全部位于CUDA，但短问答立即生成结束符、回复为空，尚无可用质量或解码速度结论。常驻张量约5.45GiB，参考实现的PyTorch计算峰值约24.48GiB，见[实际控制证据](experiments/2026-10-19-Q38-full27-control.json)。下表与既有质量数字仍属于此前的35B/122B实验。
 
 [返回首页](../README.md) · [实验索引](experiments/README.md) · [122B 运行指南](../experimental122/README.md) · [历史时间线](experiments/TIMELINE.md)
 
