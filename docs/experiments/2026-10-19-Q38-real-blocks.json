@@ -1,0 +1,74 @@
+{
+  "status": "real_weight_two_block_infrastructure_controls_completed_adverse_loss_trend",
+  "recorded_at_UTC": "2026-10-19T04:41:09Z",
+  "source_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+  "source_policy_SHA256": "112aa8eea8d9203835a98f5a50fa65e9b2226ed2f92af46fd2724ff757884b64",
+  "entry_source_SHA256": "4a5f297a0f890f8e8941e746867255beabaa7cd284b2760bb2ddb53b3e51add1",
+  "result_SHA256": "0d2ecf075bef842e96f39e6ae4e875a12626b5dbc7141d8e6965bdb7cc556b97",
+  "NVML_raw_SHA256": "bcedbc5fa6d9b1e4c9ca66632a35a7c49c5e99b1f576106e61c268bdba6cd4e0",
+  "source_original_shard_SHA256": {
+    "model-00001-of-00018.safetensors": "ba0ce20aae489ad196733da5064bcdf159a1fe84f53336648196e1ebb7751b1c",
+    "model-00003-of-00018.safetensors": "2e1bf62cbcd406eaa64b60d10353e1f0ef4039d0976e56f05cabe953454f9968"
+  },
+  "actual_results": [
+    {
+      "layer": 0,
+      "layer_type": "linear_attention",
+      "selected_matrices": 6,
+      "trainable_elements": 382730240,
+      "updates": 2,
+      "all_selected_gradients_finite": true,
+      "retained_parameters_unchanged": true,
+      "normalized_block_output_MSE_losses": [
+        0.19908057153224945,
+        4.209910869598389
+      ],
+      "packed_output_bitwise_equal": true,
+      "peak_GPU_allocated_bytes": 7982542848
+    },
+    {
+      "layer": 3,
+      "layer_type": "full_attention",
+      "selected_matrices": 7,
+      "trainable_elements": 372244480,
+      "updates": 2,
+      "all_selected_gradients_finite": true,
+      "retained_parameters_unchanged": true,
+      "normalized_block_output_MSE_losses": [
+        0.4397125244140625,
+        0.6641523838043213
+      ],
+      "packed_output_bitwise_equal": true,
+      "peak_GPU_allocated_bytes": 7792456704
+    }
+  ],
+  "optimizer": {
+    "name": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0,
+    "global_gradient_norm_clip": 1
+  },
+  "input": {
+    "type": "synthetic indices0..127 passed through the real original embedding",
+    "sequence_tokens": 128,
+    "not_actual_upstream_hidden_states_for_layer3": true
+  },
+  "loss_observation": "Both recorded values are before their corresponding update; the second is higher than the first in both blocks. Final post-update loss was not reported by this version.",
+  "adverse_training_trend_preserved": true,
+  "quality_improvement_claimed": false,
+  "maximum_observed_NVML_used_MiB": 11906,
+  "NVML_samples": 52,
+  "all_raw_outputs_downloaded_and_SHA_verified": true,
+  "all13_staged_source_files_match_public_files": true,
+  "wrapper_exit_code": 0,
+  "owned_process_group_released": true,
+  "full27_model_loaded": false,
+  "full27_training_completed": false,
+  "quality_accepted": false,
+  "limitations": [
+    "Two real-weight blocks only, not end-to-end27B training or a quality panel.",
+    "Arithmetic/gradient/export checks passed; this does not mean training improved the model.",
+    "Block0 and block3 use the same real-embedding index fixture, not actual layer3 inputs produced by the preceding layers.",
+    "The1e-4 AdamW setting must not be promoted to a long-training default on this evidence."
+  ]
+}
