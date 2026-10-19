@@ -1,0 +1,10 @@
+[
+  {"id":"quantization_zh","prompt":"用一句话解释模型量化。","max_new_tokens":32},
+  {"id":"quantization_memory_zh","prompt":"请用一句话说明为什么量化模型可以降低显存占用。","max_new_tokens":32},
+  {"id":"capital_zh","prompt":"中国的首都是哪里？只回答城市名。","max_new_tokens":32,"accepted_exact_texts":["北京"]},
+  {"id":"arithmetic_zh","prompt":"17+25等于多少？只回答数字。","max_new_tokens":32,"accepted_exact_texts":["42"]},
+  {"id":"exact_instruction","prompt":"只输出 OK 两个英文字母，不要解释。","max_new_tokens":32,"accepted_exact_texts":["OK"]},
+  {"id":"quantization_en","prompt":"In one sentence, explain model quantization.","max_new_tokens":32},
+  {"id":"arithmetic_en","prompt":"What is 9 times 7? Reply with just the number.","max_new_tokens":32,"accepted_exact_texts":["63"]},
+  {"id":"translation_zh","prompt":"把‘Good morning’翻译成中文，只输出译文。","max_new_tokens":32,"accepted_exact_texts":["早上好","早安"]}
+]

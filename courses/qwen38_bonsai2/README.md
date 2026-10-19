@@ -2,11 +2,39 @@
 
 这条新实验从原始 **Qwen3.8-27B** 出发，实现带固定旋转的三值量化训练。官方 Bonsai 2 27B 本身已经以 Qwen3.8-27B 为底座，可以作为最终参照；本目录不是官方训练代码，也没有复现其98.2%能力保持率。[官方发布说明](https://prismml.com/news/bonsai-2-27b)
 
-**完整27B的两步控制、压缩导出及重载一致性已通过。独立进程确认全部模型张量位于CUDA，但短问答立即输出结束符、回复为空；尚未训出可用质量模型。** 正式恢复训练、完整能力评测及部署加速仍待完成。见[2026-10-19完整控制证据](../../docs/experiments/2026-10-19-Q38-full27-control.json)。
+**当前已跑通32步全矩阵QAT、压缩导出、完整检查点保存、独立无损恢复和单卡推理；尚未恢复可用的整体质量。** 402个FP32主权重的原始字节哈希、优化器和Torch/Python/CUDA随机状态恢复通过；恢复模型与对应压缩产物在同一固定验证行的最后位置logits逐位相同。约5.85GB压缩产物与约79.5GB检查点保留，见[恢复及八提示结果](../../docs/experiments/2026-10-20-Q38-checkpoint-verified-eight-prompts.json)。
 
-后续原始BF16同提示对照能正常输出中文。真实数据Adafactor小试验已完成32步更新和压缩导出；同一8段WikiText验证的平均KL为 **6.1937→1.0222**。但保存完整检查点时机器失联，尚未确认最终检查点、恢复一致性或生成结果。原[启动记录](../../docs/experiments/2026-10-19-Q38-recovery-pilot-start.json)保留初始化状态；[后续观测与换机记录](../../docs/experiments/2026-10-19-Q38-local-gradient-retry-start.json)补充已确认的32步和仍未知的结果。换机后的独立重做也完成了32步：同一固定验证KL为 **6.1937→1.0055**，压缩导出约5.85GB，完整无损检查点约79.5GB。独立生成已非空，但把量化与保存检查点混淆；随后私有调度器的4小时总上限终止了恢复检查。现从已有产物独立验证，未重训或宣称恢复通过。见[新32步结果与超时记录](../../docs/experiments/2026-10-20-Q38-mapped32-restore-timeout.json)；[启动快照](../../docs/experiments/2026-10-19-Q38-local-pilot-entered-training.json)仍保留当时0步状态。两台机器的32步分别计算。
+这是独立重做的32步，固定8段WikiText验证KL为 **6.1937→1.0055**。原始训练进程因私有调度器4小时总上限在恢复阶段终止；随后单独读取保存产物完成验证，没有再更新参数。[超时记录](../../docs/experiments/2026-10-20-Q38-mapped32-restore-timeout.json)保留当时未恢复的状态。此前另一台机器也完成32步，但保存时失联，最终结果未知；两次步数不能相加。两步控制时的空回答同样保留在[历史记录](../../docs/experiments/2026-10-19-Q38-full27-control.json)。
 
-单提示参考推理测得约0.69 tokens/s（首token之后），模型张量约5.45GiB全部在CUDA；它逐层展开压缩权重，尚无融合推理内核。这是短请求观察，不能作为部署吞吐成绩。公开训练入口自身没有上述私有4小时限制。
+八提示采用相同聊天模板、关闭thinking、greedy、KV缓存、最多32个新token。两道算术、短翻译和仅输出OK正确；中文量化定义把量化混同保存检查点，首都回答有正确城市名但违反只答城市名的指令。五个小型严格文本检查通过四个，**不能当作能力保持率**；另三条概念回答还需语义审阅，部分达到长度上限。下一步是原始BF16同提示对照，先定位差距再决定训练调整。
+
+全部1657个模型张量在CUDA，唯一存储约5.45GiB；八条短请求首token之后约0.665–0.696 tokens/s。这里逐层展开压缩权重，计算峰值约24.49GiB，尚无融合内核或服务吞吐结论。CPU卸载BF16对照的耗时不能拿来推导全CUDA速度提升。
+
+## 独立核对已保存产物
+
+下面三个新文件就是本次完整27B实际执行并核对哈希的源码：[恢复验证](verify_saved_checkpoint.py)、[八提示诊断](diagnose_prompts.py)、[固定提示](diagnostic-prompts.json)。其余23个训练与元数据文件保持原版本，身份见[source-provenance.json](source-provenance.json)。仓库不提供权重；路径需替换为自己运行的产物。
+
+```bash
+# 先确认所选卡空闲，环境与训练一致。选择新的输出目录。
+# 以下哈希由你自己的训练记录取得；不要用教学记录的哈希代替本地产物身份。
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/verify_saved_checkpoint.py \
+  --model /path/to/Qwen3.8-27B --data /path/to/batches.json \
+  --checkpoint /path/to/run/checkpoint-final --packed /path/to/run/packed \
+  --output /path/to/new-restore-check --expected-step 32 \
+  --checkpoint-manifest-sha256 "$CHECKPOINT_MANIFEST_SHA256" \
+  --packed-manifest-sha256 "$PACKED_MANIFEST_SHA256" \
+  --teacher-cache-sha256 "$TEACHER_CACHE_SHA256"
+
+# 恢复检查通过后，启动独立进程生成。也可对自己的压缩产物单独诊断。
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/diagnose_prompts.py \
+  --packed /path/to/run/packed --tokenizer /path/to/Qwen3.8-27B \
+  --prompts courses/qwen38_bonsai2/diagnostic-prompts.json \
+  --output /path/to/new-eight-prompt-check
+```
+
+恢复器针对本课程的固定模型版本、g128/1024旋转、Adafactor无一阶动量、lr1e-5/4步warmup和最多32步的映射梯度试验。它重新核验全部27个原始文件，重建旋转基底并恢复402个FP32主权重、优化器和随机状态；不分配训练梯度工作区，也不继续训练。需要约155.04GiB匿名内存预算及额外容器已有内存，验证过程中显存/磁盘仍需余量。
+
+本次验证的前向参照是保存产物对应的packed模型；原训练进程保存前的live logits已经不可取得，不能声称与其比较。完整27B恢复后的下一次优化器更新仍未验证，当前入口也没有续训CLI。检查点恢复通过与生成质量通过分别记录。
 
 ## 换机：用本地文件保存FP32梯度
 
@@ -14,7 +42,7 @@
 
 每次反传前预分配梯度，反传后核对所有主权重确实收到梯度，优化器更新完成后才清零。清零通过 `MADV_REMOVE` 回收本次创建的稀疏梯度文件块；不会在反传中更新参数。使用本地文件系统，避免将这类临时梯度放在NFS目录。映射与共享缓冲的语义见[Python mmap](https://docs.python.org/3/library/mmap.html)和[PyTorch frombuffer](https://docs.pytorch.org/docs/stable/generated/torch.frombuffer.html)。
 
-CPU累计梯度、四层原生CUDA检查点重算图的3次Adafactor更新已与普通内存方案对照：梯度、主权重和优化器状态一致；缺失反传会被拒绝。小规模无损检查点测试也通过。**这些结果尚不能代替完整27B的磁盘梯度训练验证。**
+CPU累计梯度、四层原生CUDA检查点重算图的3次Adafactor更新已与普通内存方案对照：梯度、主权重和优化器状态一致；缺失反传会被拒绝。小规模无损检查点测试也通过。后续完整27B已完成32步映射梯度更新、导出和独立恢复；质量边界见上面的最新记录。
 
 ```bash
 # 先确认所选GPU空闲；测试使用Linux本地临时目录。

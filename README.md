@@ -12,9 +12,11 @@
 
 上方检查状态对应公开文件、摘要算术和损坏文件测试；模型质量与 GPU 实验结果见[结果说明](docs/RESULTS.md)。
 
-**2026-10-19新增实验：[Qwen3.8-27B 的 Bonsai 2 机制与训练控制](courses/qwen38_bonsai2/README.md)。** 单张5090配合CPU卸载已完成全部402个矩阵的两次更新、压缩导出和重载一致性检查。独立进程确认约5.45GiB模型张量全部位于CUDA，但短问答立即输出结束符、回复为空；尚未完成质量恢复，也没有解码速度成绩。见[完整控制记录](docs/experiments/2026-10-19-Q38-full27-control.json)。此前35B/122B实验仍保持归档状态。
+**2026-10-20更新：[Qwen3.8-27B 的 Bonsai 2 训练课程](courses/qwen38_bonsai2/README.md)。** 单张5090配合CPU主权重和本地磁盘梯度，已跑通全部402个矩阵的32步QAT、约5.85GB压缩导出、约79.5GB完整检查点与独立恢复。402个FP32主权重、优化器和随机状态恢复通过；恢复权重与对应压缩产物在固定验证行的最后位置logits逐位相同。见[恢复与八提示记录](docs/experiments/2026-10-20-Q38-checkpoint-verified-eight-prompts.json)。
 
-原始BF16同提示对照随后正常输出中文。后续真实数据小试验已完成32步更新和压缩导出，固定8段验证平均KL从6.1937降到1.0222；机器在保存检查点时失联，最终恢复与生成结果仍未知。[换机记录](docs/experiments/2026-10-19-Q38-local-gradient-retry-start.json)及课程补充了通过小规模CPU/CUDA对照的本地磁盘FP32梯度入口；换机重做也已完成32步，固定验证KL降到1.0055，并保存压缩产物和约79.5GB检查点。独立生成已非空，但量化解释仍有语义错误；私有调度器在恢复时触发4小时上限，正在独立核对保存产物。见[32步结果与超时记录](docs/experiments/2026-10-20-Q38-mapped32-restore-timeout.json)；[启动快照](docs/experiments/2026-10-19-Q38-local-pilot-entered-training.json)保留当时的0步状态。
+**训练链路通过，质量恢复尚未完成。** 八条短提示中，两道算术、短翻译和仅输出OK正确；中文量化定义仍混淆检查点，首都回答未遵守只答城市名。它们是开发诊断，不是完整能力分数。全部模型张量约5.45GiB位于CUDA，但逐层展开权重的参考实现仍约0.69 tokens/s，运行峰值远大于常驻权重；尚无融合部署加速结论。原始BF16的同八提示对照在继续核对。此前35B/122B实验保持归档。
+
+原[32步结果与私有调度超时](docs/experiments/2026-10-20-Q38-mapped32-restore-timeout.json)、[换机记录](docs/experiments/2026-10-19-Q38-local-gradient-retry-start.json)及[0步启动快照](docs/experiments/2026-10-19-Q38-local-pilot-entered-training.json)保留各自当时状态。独立恢复使用已保存产物，没有重新训练或合并两台机器的步数。
 
 <a id="可以从这里学到什么"></a>
 <a id="再选一条进阶路线"></a>
