@@ -247,5 +247,31 @@
     "next_optimizer_update_after_restore_verified": false,
     "eight_prompts_completed": true,
     "quality_accepted": false
+  },
+  "matched_original_prompt_reference": {
+    "record": "../../docs/experiments/2026-10-20-Q38-matched-BF16-eight-prompts.json",
+    "public_source_files": {
+      "diagnose_original_prompts.py": "59048ff9f61eaef89e831d4ebb4a3b7782757879c2c4868f2e7663f328c2c3e0"
+    },
+    "source_policy_SHA256": "9fa2ec44df9b3faa7f2c63ba2634ed9af8841147d5fb05eee61ed85b7620fc9a",
+    "all_eight_input_token_IDs_matched": true,
+    "completed": true,
+    "GPU_only_speed_comparison_claimed": false,
+    "quality_accepted": false
+  },
+  "mixed_checkpoint_continuation": {
+    "record": "../../docs/experiments/2026-10-20-Q38-mixed-continuation-queued.json",
+    "public_new_source_files": {
+      "prepare_mixed_contexts.py": "91fb4dae296f6003ee090fc04ddeb54a48e3ea5862e54a121960a54d818bbcfb",
+      "prepare_mixed_teacher.py": "9d5428d2064b83505b5b15b7f07f4ad863de8ed2b1738f29e55f1cc921b002ed",
+      "mixed-contexts.json": "75f24e139a7b540dbc6fb2b2f09cf3f53208366dd72dde61d1c16194721b36d7",
+      "continue_mixed.py": "feb556d335f5925611a9d30cb174522dbf4ee6a0e194289de238d7462bd398d5",
+      "test_mixed_objective.py": "d002c9bd8384cd71b7b90d42f4c2be37345a9b4a54962cf8766de47fd34ae267"
+    },
+    "teacher_source_policy_SHA256": "14fe0c9bbf659e1bb1aed5dd9f71964fe655caab0e17c30b2955e7d5b2ff9ea7",
+    "continuation_source_policy_SHA256": "4f3c5e6acceff6621cc557c110f26c3676817fd5b9cb65ef96a6e072672d2c51",
+    "CPU_variable_length_objective_and_checkpoint_controls_passed": true,
+    "full27B_mixed_continuation_verified": false,
+    "quality_accepted": false
   }
 }

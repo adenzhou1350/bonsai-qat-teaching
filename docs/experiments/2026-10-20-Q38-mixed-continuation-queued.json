@@ -1,0 +1,92 @@
+{
+  "format": "qwen38-mixed-context-checkpoint-continuation-queued-v1",
+  "recorded_at_UTC": "2026-10-19T21:27:13Z",
+  "previous_diagnosis": "2026-10-20-Q38-matched-BF16-eight-prompts.json",
+  "source_checkpoint_steps": 32,
+  "actual_new_optimizer_updates_at_snapshot": 0,
+  "planned_additional_updates_maximum": 64,
+  "planned_cumulative_updates_maximum": 96,
+  "quality_accepted": false,
+  "full27B_mixed_continuation_executed_and_verified": false,
+  "state_at_snapshot": "waiting_for_teacher_cache_without_GPU",
+  "continuation_holds_GPU_at_snapshot": false,
+  "teacher_state_at_snapshot": "caching_original_BF16_hidden_states",
+  "teacher_rows_completed_at_snapshot": 19,
+  "teacher_total_rows": 80,
+  "CPU_controls": {
+    "variable-objective": {
+      "passed": true,
+      "variable_sequence_lengths": [
+        28,
+        71,
+        128
+      ],
+      "KL_normalization_and_checkpointed_gradients_match_direct_math": true,
+      "scope": "tiny CPU fixture; not full27B continuation"
+    },
+    "checkpoint-continuation": {
+      "passed": true,
+      "next_loss_masters_and_Adafactor_state_bitwise_equal_after_disk_restore": true,
+      "corruption_rejected_before_model_mutation": true,
+      "incomplete_over_budget_checkpoint_rejected": true,
+      "lossless_XOR_checkpoint_next_update_equal_and_wrong_base_rejected": true,
+      "scope": "small Linux CPU fixture, not full27B resume execution"
+    }
+  },
+  "public_new_source_SHA256": {
+    "prepare_mixed_contexts.py": "91fb4dae296f6003ee090fc04ddeb54a48e3ea5862e54a121960a54d818bbcfb",
+    "prepare_mixed_teacher.py": "9d5428d2064b83505b5b15b7f07f4ad863de8ed2b1738f29e55f1cc921b002ed",
+    "mixed-contexts.json": "75f24e139a7b540dbc6fb2b2f09cf3f53208366dd72dde61d1c16194721b36d7",
+    "continue_mixed.py": "feb556d335f5925611a9d30cb174522dbf4ee6a0e194289de238d7462bd398d5",
+    "test_mixed_objective.py": "d002c9bd8384cd71b7b90d42f4c2be37345a9b4a54962cf8766de47fd34ae267"
+  },
+  "continuation_source_policy_SHA256": "4f3c5e6acceff6621cc557c110f26c3676817fd5b9cb65ef96a6e072672d2c51",
+  "teacher_source_policy_SHA256": "14fe0c9bbf659e1bb1aed5dd9f71964fe655caab0e17c30b2955e7d5b2ff9ea7",
+  "all_frozen_sources_unchanged": true,
+  "source_checkpoint_manifest_SHA256": "ddc4bcd84f2f245d6963ae3b099049bbbab4076f2727401e68232c46cb90becd",
+  "data": {
+    "format": "qwen38-mixed-context-pilot-v1",
+    "SHA256": "3ba6dfda4e426b5fdf674ecc94f9dbdd0bb787f716c53073139f8358dc6c61fe",
+    "TRAIN_rows": 64,
+    "VAL_rows": 16,
+    "TRAIN_tokens": 5687,
+    "VAL_tokens": 1384,
+    "row_token_range": [
+      28,
+      128
+    ],
+    "training_sources": "32 project-authored synthetic bilingual chat contexts interleaved with the original32 pinned WikiText train rows",
+    "validation_sources": "8 separate project-authored chat contexts interleaved with the original8 pinned WikiText validation rows",
+    "exact_prompt_overlap_with_eight_diagnostics": false,
+    "development_diagnostics_informed_data_design": true,
+    "formal_quality_benchmark": false,
+    "test_split_read": false
+  },
+  "planned_training": {
+    "optimizer": "Continue restored Adafactor, beta1None, relative_stepFalse, scale_parameterFalse",
+    "learning_rate": 1e-05,
+    "new_warmup_steps": 0,
+    "retained_tensors_frozen": true,
+    "loss": "Same KL+0.1 normalized hidden-stateMSE; KL divided by actual sequence length. All actual positions; no padding.",
+    "validation_every_new_updates": 8,
+    "stop_guard": "Either fixed VAL-source mean KL exceeds1.5x its own initial value",
+    "gradient_scratch_logical_bytes": 107479040000,
+    "new_checkpoint_budget_bytes": 120000000000,
+    "training_export_save_restore_stage_bound_seconds": 28800,
+    "following_short_diagnostic_bound_seconds": 1800
+  },
+  "execution_guards": [
+    "Wait for existing teacher completion and cache reread before any continuation GPU admission.",
+    "Acquire the same cooperative GPU lock only after actual idle checks; do not interrupt other workloads.",
+    "Reverify source checkpoint identity and the exact prior restored validation-logit hash before updates.",
+    "All402 optimizer step counters must start at32 and advance with every new update.",
+    "Save to a new output; never overwrite the original checkpoint or frozen sources."
+  ],
+  "limits": [
+    "Queued source is public for inspection; full27B mixed training and its quality have not yet been verified.",
+    "New data is still a tiny teaching pilot, designed after development diagnostics; it is not an official recipe or an unseen evaluation set.",
+    "A new checkpoint can exceed the prior80GB cap as more masters change, so this separate run reserves120GB. The original79.5GB checkpoint is retained.",
+    "CPU next-step equivalence tests do not prove full27B resumed-step equivalence to the unavailable original live process.",
+    "CPU weights, teacher cache, checkpoint binaries, private wrappers and logs are not published."
+  ]
+}

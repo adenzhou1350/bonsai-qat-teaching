@@ -6,9 +6,9 @@
 
 这是独立重做的32步，固定8段WikiText验证KL为 **6.1937→1.0055**。原始训练进程因私有调度器4小时总上限在恢复阶段终止；随后单独读取保存产物完成验证，没有再更新参数。[超时记录](../../docs/experiments/2026-10-20-Q38-mapped32-restore-timeout.json)保留当时未恢复的状态。此前另一台机器也完成32步，但保存时失联，最终结果未知；两次步数不能相加。两步控制时的空回答同样保留在[历史记录](../../docs/experiments/2026-10-19-Q38-full27-control.json)。
 
-八提示采用相同聊天模板、关闭thinking、greedy、KV缓存、最多32个新token。两道算术、短翻译和仅输出OK正确；中文量化定义把量化混同保存检查点，首都回答有正确城市名但违反只答城市名的指令。五个小型严格文本检查通过四个，**不能当作能力保持率**；另三条概念回答还需语义审阅，部分达到长度上限。下一步是原始BF16同提示对照，先定位差距再决定训练调整。
+八提示采用相同聊天模板、关闭thinking、greedy、KV缓存、最多32个新token。两道算术、短翻译和仅输出OK正确；中文量化定义把量化混同保存检查点，首都回答有正确城市名但违反只答城市名的指令。五个小型严格文本检查通过四个，**不能当作能力保持率**；另三条概念回答还需语义审阅，部分达到长度上限。[原始BF16同题对照](../../docs/experiments/2026-10-20-Q38-matched-BF16-eight-prompts.json)已完成：同一输入token下，原模型正确说明降低数值精度，也只回答“北京”并结束；量化模型在这两项退化。原始BF16的三条概念回答同样达到32 token上限，截断本身不能归因于量化。这些开发题不能用于证明未来训练的独立泛化。下一步准备更广的中英文指令上下文，再验证从已保存检查点继续更新。
 
-全部1657个模型张量在CUDA，唯一存储约5.45GiB；八条短请求首token之后约0.665–0.696 tokens/s。这里逐层展开压缩权重，计算峰值约24.49GiB，尚无融合内核或服务吞吐结论。CPU卸载BF16对照的耗时不能拿来推导全CUDA速度提升。
+全部1657个模型张量在CUDA，唯一存储约5.45GiB；八条短请求首token之后约0.665–0.696 tokens/s。这里逐层展开压缩权重，计算峰值约24.49GiB，尚无融合内核或服务吞吐结论。CPU卸载BF16对照的耗时不能拿来推导全CUDA速度提升。已验证的[同题BF16入口](diagnose_original_prompts.py)要求指定量化诊断文件及其SHA256，检查八条输入token完全一致。
 
 ## 独立核对已保存产物
 
@@ -237,3 +237,58 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/recovery_pilot.py \
 ## 文件阅读顺序
 
 `rotation.py` → `ternary.py` → `policy.py` → `plan.py` → `offload.py` → `control.py` → `infer_control.py`。继续真实数据路线时再读`prepare_wikitext.py` → `buffered_staging.py` → `recovery_checkpoint.py` → `recovery_pilot.py`。源码身份和已经验证的范围见[source-provenance.json](source-provenance.json)。权重、凭证、机器入口与私有日志不在仓库中。
+
+## 同题原始BF16对照
+
+```bash
+# 一张已协调空闲的卡，并为原始权重准备CPU内存；选择新输出目录。
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/diagnose_original_prompts.py \
+  --model /path/to/Qwen3.8-27B \
+  --prompts courses/qwen38_bonsai2/diagnostic-prompts.json \
+  --quantized-diagnostics /path/to/new-eight-prompt-check/summary.json \
+  --quantized-diagnostic-sha256 "$QUANTIZED_DIAGNOSTIC_SHA256" \
+  --output /path/to/new-original-reference
+```
+
+它只运行推理，重新核验原始文件与量化对照身份，拒绝不同输入token。实际原始文本权重约53.74GB存于CPU、保留张量约52.48MB在CUDA，矩阵按需复制；这是质量对照，不能据此计算全CUDA推理加速比。
+
+## 中英文上下文续训实验：已排队，整模结果待验证
+
+[新队列快照](../../docs/experiments/2026-10-20-Q38-mixed-continuation-queued.json)对应这里的新增源码，与旧32步入口分开。变长序列的KL归一化、检查点重算梯度和小型Adafactor恢复后下一步对照已在CPU通过；**新整模续训及质量结果尚未通过**。教师缓存正在准备，续训须等其成功并释放卡后，重新检查空闲、占锁才开始。
+
+[教学对话](mixed-contexts.json)是为本实验合成编写的32条中英文训练上下文和8条验证上下文，涉及解释、改写、摘要、简单代码等；不复制八提示的题目与答案。它与原32/8段WikiText交错，得到64条训练序列（5687 token）和16条验证序列（1384 token），长度28–128，不填充。数据设计受到已看过的开发题影响，后续不能拿这些题宣称独立泛化。
+
+```bash
+CUDA_VISIBLE_DEVICES='' python courses/qwen38_bonsai2/prepare_mixed_contexts.py \
+  --model /path/to/Qwen3.8-27B --wikitext /path/to/original-batches.json \
+  --contexts courses/qwen38_bonsai2/mixed-contexts.json \
+  --diagnostic-prompts courses/qwen38_bonsai2/diagnostic-prompts.json \
+  --output /path/to/new-mixed-batches.json
+
+# 先检查GPU空闲并协调占卡。所有输出必须使用新目录。
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/prepare_mixed_teacher.py \
+  --model /path/to/Qwen3.8-27B --data /path/to/new-mixed-batches.json \
+  --data-sha256 "$MIXED_DATA_SHA256" --output /path/to/new-mixed-teacher
+
+CUDA_VISIBLE_DEVICES='' python courses/qwen38_bonsai2/test_mixed_objective.py
+CUDA_VISIBLE_DEVICES='' python courses/qwen38_bonsai2/test_recovery_checkpoint.py
+
+# 此入口目前是待完成的整模实验，要求前面的原32步恢复证明和教师缓存。
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/continue_mixed.py \
+  --model /path/to/Qwen3.8-27B --data /path/to/new-mixed-batches.json \
+  --data-sha256 "$MIXED_DATA_SHA256" \
+  --teacher-cache /path/to/new-mixed-teacher/teacher_states.pt \
+  --teacher-cache-sha256 "$MIXED_TEACHER_CACHE_SHA256" \
+  --resume-checkpoint /path/to/original-run/checkpoint-final \
+  --resume-manifest-sha256 "$ORIGINAL_CHECKPOINT_MANIFEST_SHA256" \
+  --resume-data /path/to/original-batches.json --resume-packed /path/to/original-run/packed \
+  --resume-proof /path/to/original-restore-check/summary.json \
+  --resume-proof-sha256 "$ORIGINAL_RESTORE_PROOF_SHA256" \
+  --output /path/on/local-disk/new-mixed-run --steps 64
+```
+
+续训保留原Adafactor状态，以lr1e-5继续，不重新warmup。它要求原检查点为本课程固定版本、旧32步及同一旧数据/教师身份（这一冻结入口还固定旧教师缓存SHA256为记录中的563ad9a…，其他身份的检查点需另行适配与验证）；先逐位核对原固定验证行的最后位置logits与独立恢复证明，再更新。402个优化器计数必须从32继续递增；新更新数和累计数分别记录。最多追加64步，完整跑完才累计96步。
+
+每8次新更新分别检查对话和WikiText验证KL，任一来源超过各自初值1.5倍即提前停止更新。每个序列的KL除以实际长度，状态MSE保持原定义；这仍是全部实际位置的蒸馏，没有掩码或硬标签损失。
+
+新检查点上限单独设为120GB，因为更多FP32权重变化后，原80GB压缩上限可能不足；原检查点保留。原始模型以外，新工作盘准入约237.44GiB，含107.48GB临时梯度、120GB检查点预算、6GB导出及20GiB余量；匿名内存准入仍约155.04GiB加容器已有内存。私有队列为初始化、续训、导出及恢复合计留8小时，裸命令不提供GPU预约或这个时间限制。
