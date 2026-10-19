@@ -1,0 +1,216 @@
+{
+  "format": "qwen38-full27B-first-resumed-updates-v1",
+  "recorded_at_UTC": "2026-10-19T22:19:54Z",
+  "previous_queue_record": "2026-10-20-Q38-mixed-continuation-queued.json",
+  "quality_accepted": false,
+  "continuation_completed": false,
+  "source_checkpoint_updates": 32,
+  "actual_new_optimizer_updates_at_snapshot": 3,
+  "live_cumulative_updates_at_snapshot": 35,
+  "last_complete_saved_checkpoint_cumulative_updates": 32,
+  "new_checkpoint_written": false,
+  "state_at_snapshot": "training_new_update_4",
+  "full402_matrix_update_scope_unchanged": true,
+  "source_checkpoint_forward_equal_prior_independent_proof": true,
+  "restored_optimizer_all402_initial_step_counters": 32,
+  "all402_step_counters_advanced_with_each_actual_update": true,
+  "bitwise_next_update_comparison_to_unavailable_original_live_process": false,
+  "new_update_events": [
+    {
+      "new_step": 1,
+      "cumulative_step": 33,
+      "TRAIN_row": 0,
+      "source": "project_authored_chat",
+      "tokens": 56,
+      "lr": 1e-05,
+      "loss": 2.5022389888763428,
+      "KL": 2.440305471420288,
+      "state_MSE": 0.6193346977233887,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 70.7104263305664,
+      "seconds": 232.97054598503746
+    },
+    {
+      "new_step": 2,
+      "cumulative_step": 34,
+      "TRAIN_row": 1,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 1.0283077955245972,
+      "KL": 0.9786481857299805,
+      "state_MSE": 0.4965963661670685,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 20.253747940063477,
+      "seconds": 226.8791990338359
+    },
+    {
+      "new_step": 3,
+      "cumulative_step": 35,
+      "TRAIN_row": 2,
+      "source": "project_authored_chat",
+      "tokens": 38,
+      "lr": 1e-05,
+      "loss": 2.1824724674224854,
+      "KL": 2.110652446746826,
+      "state_MSE": 0.7181993126869202,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 140.81011962890625,
+      "seconds": 196.20105111110024
+    }
+  ],
+  "validation": [
+    {
+      "after_new_updates": 0,
+      "cumulative_updates": 32,
+      "mean_loss_KL_MSE": [
+        1.9880460277199745,
+        1.9309844933450222,
+        0.5706151816993952
+      ],
+      "by_source_mean_loss_KL_MSE": {
+        "project_authored_chat": [
+          2.9230547547340393,
+          2.856496661901474,
+          0.6655806303024292
+        ],
+        "pinned_wikitext": [
+          1.0530373007059097,
+          1.0054723247885704,
+          0.47564973309636116
+        ]
+      },
+      "rows_loss_KL_MSE": [
+        [
+          2.5959248542785645,
+          2.537667989730835,
+          0.5825690627098083
+        ],
+        [
+          1.1372467279434204,
+          1.0845577716827393,
+          0.5268896818161011
+        ],
+        [
+          4.423336982727051,
+          4.355458736419678,
+          0.6787810325622559
+        ],
+        [
+          0.9231892228126526,
+          0.8795362710952759,
+          0.4365295469760895
+        ],
+        [
+          2.749497175216675,
+          2.681262969970703,
+          0.6823412179946899
+        ],
+        [
+          1.9391857385635376,
+          1.8763747215270996,
+          0.6281101107597351
+        ],
+        [
+          2.8328123092651367,
+          2.7672078609466553,
+          0.6560434103012085
+        ],
+        [
+          0.8890381455421448,
+          0.8421478867530823,
+          0.4689024090766907
+        ],
+        [
+          2.1050729751586914,
+          2.0474445819854736,
+          0.5762828588485718
+        ],
+        [
+          0.9498893022537231,
+          0.8992271423339844,
+          0.5066216588020325
+        ],
+        [
+          2.181874990463257,
+          2.1097617149353027,
+          0.721133828163147
+        ],
+        [
+          1.0391026735305786,
+          0.9949949383735657,
+          0.44107720255851746
+        ],
+        [
+          2.7352805137634277,
+          2.6652956008911133,
+          0.699849545955658
+        ],
+        [
+          0.7191105484962463,
+          0.6810895204544067,
+          0.3802103102207184
+        ],
+        [
+          3.7606382369995117,
+          3.6878738403320312,
+          0.7276440858840942
+        ],
+        [
+          0.8275360465049744,
+          0.7858503460884094,
+          0.41685694456100464
+        ]
+      ]
+    }
+  ],
+  "post_update_validation_available_at_snapshot": false,
+  "teacher": {
+    "format": "qwen38-mixed-context-teacher-cache-v1",
+    "passed": true,
+    "actual_optimizer_updates": 0,
+    "quality_accepted": false,
+    "data_SHA256": "3ba6dfda4e426b5fdf674ecc94f9dbdd0bb787f716c53073139f8358dc6c61fe",
+    "teacher_rows_completed": 80,
+    "teacher_row_count": 80,
+    "TRAIN_rows": 64,
+    "VAL_rows": 16,
+    "model_weights_modified": false,
+    "state": "mixed_teacher_cache_saved_and_reread",
+    "seconds": 558.3942729148548,
+    "verified_original_files": 27,
+    "teacher_cache_SHA256": "c7b810d02bde6565e642d85e583dc4f077b3bec7ba27cb95bf12c4f910d02324",
+    "teacher_cache_bytes": 72436493,
+    "cache_reload_all_targets_bitwise_equal": true,
+    "source_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+    "original_BF16_CPU_weight_offload": true
+  },
+  "public_new_source_SHA256": {
+    "continue_mixed.py": "feb556d335f5925611a9d30cb174522dbf4ee6a0e194289de238d7462bd398d5",
+    "test_mixed_objective.py": "d002c9bd8384cd71b7b90d42f4c2be37345a9b4a54962cf8766de47fd34ae267",
+    "prepare_mixed_contexts.py": "91fb4dae296f6003ee090fc04ddeb54a48e3ea5862e54a121960a54d818bbcfb",
+    "prepare_mixed_teacher.py": "9d5428d2064b83505b5b15b7f07f4ad863de8ed2b1738f29e55f1cc921b002ed",
+    "mixed-contexts.json": "75f24e139a7b540dbc6fb2b2f09cf3f53208366dd72dde61d1c16194721b36d7"
+  },
+  "continuation_source_policy_SHA256": "4f3c5e6acceff6621cc557c110f26c3676817fd5b9cb65ef96a6e072672d2c51",
+  "teacher_source_policy_SHA256": "14fe0c9bbf659e1bb1aed5dd9f71964fe655caab0e17c30b2955e7d5b2ff9ea7",
+  "all_frozen_sources_unchanged": true,
+  "single_resource_sample_not_peak": {
+    "used_MiB": 28123,
+    "free_MiB": 3989,
+    "utilization": 0,
+    "CPU_anon_and_shmem_bytes": 109860982784,
+    "cgroup_limit_bytes": 242665652224,
+    "disk_free_bytes": 526196944896,
+    "seconds": 2802.9460575419944
+  },
+  "limits": [
+    "This proves full27B resumed-update execution after the verified checkpoint, not completion of the64 planned additional updates.",
+    "The source checkpoint forward and all402 optimizer counters were checked before updating; no original uninterrupted next-step reference exists for a bitwise replay comparison.",
+    "Only the pre-update16-row validation baseline is available; do not claim validation improvement from the three training losses.",
+    "New mixed validation averages cannot be directly compared to the old WikiText-only average. The unchanged WikiText subgroup exactly reproduces the old initial validation result.",
+    "Cumulative35 is live progress; the latest complete saved checkpoint is still32. New export, checkpoint readback and generation are pending.",
+    "GPU/cgroup/disk values are a single sample, not peaks. CPU anonymous/shared memory differs from process RSS including file-mapped gradient pages.",
+    "Development contexts and observed prompts do not establish independent capability recovery."
+  ]
+}

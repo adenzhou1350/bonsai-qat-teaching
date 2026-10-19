@@ -272,6 +272,13 @@
     "continuation_source_policy_SHA256": "4f3c5e6acceff6621cc557c110f26c3676817fd5b9cb65ef96a6e072672d2c51",
     "CPU_variable_length_objective_and_checkpoint_controls_passed": true,
     "full27B_mixed_continuation_verified": false,
-    "quality_accepted": false
+    "quality_accepted": false,
+    "latest_progress_record": "../../docs/experiments/2026-10-20-Q38-first-resumed-updates.json",
+    "full27B_resumed_optimizer_update_executed": true,
+    "actual_new_updates_at_snapshot": 3,
+    "live_cumulative_updates_at_snapshot": 35,
+    "last_saved_cumulative_updates_at_snapshot": 32,
+    "original_checkpoint_forward_equal_prior_independent_proof": true,
+    "teacher_all80_targets_cached_and_bitwise_reread": true
   }
 }
