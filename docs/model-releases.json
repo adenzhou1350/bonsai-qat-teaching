@@ -25,15 +25,27 @@
       "label": "r122-native4095",
       "repo_id": "aden1350/Qwen3.5-122B-A10B-Ternary-Rank8-Experimental",
       "expected_weight_tag": "native4095-step4096",
-      "public_and_anonymously_verified": false,
+      "public_and_anonymously_verified": true,
       "quality_accepted": false,
-      "state": "publication_pending",
+      "url": "https://huggingface.co/aden1350/Qwen3.5-122B-A10B-Ternary-Rank8-Experimental",
+      "revision": "e1c80980027811fd93fe7a95b00392fe48e3dc60",
+      "tag": "native4095-step4096",
+      "verified_uploaded_files": 554,
+      "verified_uploaded_bytes": 30200773439,
+      "anonymous_read_verified": true,
       "CPU_release_entry_verification": {
         "release_manifest_and_all_tensor_file_SHA256_verified": true,
         "tensor_files": 471,
         "cumulative_optimizer_updates": 4096,
         "GPU_used": false,
         "new_GPU_inference_or_quality_acceptance_claimed": false
+      },
+      "model_card_update": {
+        "model_card_commit": "1cfe948ef05912f1f9802b36a6c1818ca099572d",
+        "README_SHA256": "655ee648ecab8325feb5e705d3bc2fd18ff3c4c6440ccb29577f7755c8d3ba1b",
+        "teaching_commit": "0664e61bcf41f46d88a5d3fe5f6e07af125853e0",
+        "original_weight_tag_unchanged": true,
+        "anonymous_read_verified": true
       }
     },
     {
@@ -73,5 +85,5 @@
     "R35-8192 is INT2/rank16 compensation, not T35full-expertQAT. Q38 released32steps are distinct from the unpublished96step candidate.",
     "New R35 portable CLI and Q38 arbitrary-prompt CLI are not yet GPU rerun verified; historical runtime results and CPU checks are separate."
   ],
-  "recorded_at_UTC": "2026-10-20T11:17:55.138145+00:00"
+  "recorded_at_UTC": "2026-10-20T11:47:50.677580+00:00"
 }

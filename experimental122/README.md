@@ -4,7 +4,7 @@ Qwen3.5-122B-A10B MoE，三值专家 + 4bit稠密层/embedding + rank8补偿，�
 
 **[安装环境与部署](../docs/DEPLOYMENT.md#122b)** · [显存与测速](../docs/DEPLOYMENT_REFERENCE.md) · [评测结果](../docs/RESULTS.md)
 
-当前公开包上传中，标签完成公开后再下载。安装环境后，在仓库根目录执行：
+权重已在 [Hugging Face](https://huggingface.co/aden1350/Qwen3.5-122B-A10B-Ternary-Rank8-Experimental) 公开，固定标签 `native4095-step4096` 已通过匿名核验。安装环境后，在仓库根目录执行：
 
 ```bash
 hf download aden1350/Qwen3.5-122B-A10B-Ternary-Rank8-Experimental \

@@ -31,10 +31,10 @@ python scripts/check_deployment_environment.py --model 35b
 | 产物 | 适合用途 | 下载体积 | 当前状态 |
 |---|---|---:|---|
 | R35-8192 | 终端聊天；INT2 + rank16 补偿 | 15.86 GB | 已公开，见[固定版本](model-releases.json) |
-| 122B | 大 MoE 压缩实验；三值 + 4bit + rank8 | 30.20 GB | 发布中，尚未公开验证 |
+| 122B | 大 MoE 压缩实验；三值 + 4bit + rank8 | 30.20 GB | 已公开，见[固定版本](model-releases.json) |
 | 27B旧32步 | QAT教学验证；当前不适合聊天 | 5.85 GB | 已公开，见[固定版本](model-releases.json) |
 
-**122B完成公开后才能下载**，当前私有阶段返回404属于预期。固定提交与发布状态见[发布目录](model-releases.json)。
+**三款产物均已公开并完成匿名验证。** 固定提交与发布状态见[发布目录](model-releases.json)。
 
 全部为自定义文本量化格式，不能直接用标准 `AutoModel`、llama.cpp 或 `vllm serve`。量化质量尚未全面达到原模型；27B的96步候选不在本次发布中。
 
