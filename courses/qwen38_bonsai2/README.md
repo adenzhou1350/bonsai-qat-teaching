@@ -13,7 +13,7 @@
 | [32步公开版](https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental/tree/qat-step32) | 导出与恢复；便携benchmark四轮八题一致，加速解码约9.37 token/s | 整体质量恢复；单独交互CLI尚未直接GPU调用 |
 | 96步候选版 | 追加64步、完整恢复、压缩重载；四轮各八题生成与每步logits一致，加速解码约9.74 token/s | 整体质量恢复；候选权重尚未发布 |
 
-**两版都未通过整体质量验收。** 32步仍有概念和指令遵循错误，96步也未修复中文量化定义。新路径在公开32步版短提示上从约0.69提升到9.37 token/s，峰值allocated从24.69降至8.12GiB；交互入口共用的加载与生成代码已由benchmark覆盖，性能优化仍在继续。见[原理、计时口径与命令](inference/README.md)。
+**两版都未通过整体质量验收，本轮优化已停止。** 32步仍有概念和指令遵循错误，96步也未修复中文量化定义。公开32步路径约9.37 token/s、峰值allocated约8.12GiB；共用加载/生成代码已由benchmark覆盖。后续私有Graph实验约13.02 token/s，便携Graph入口未GPU验证，未发布。见[部署与自测](inference/README.md) · [收尾记录](../../docs/experiments/2026-10-20-q38-inference-closeout.md)。
 
 [32步加速证据](../../docs/experiments/2026-10-20-Q38-step32-fast-portable.json) · [96步候选证据](../../docs/experiments/2026-10-20-Q38-inference-v1.json) · [历史实验与失败](HISTORY.md)
 

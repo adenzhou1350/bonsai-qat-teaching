@@ -36,6 +36,8 @@ python scripts/check_deployment_environment.py --model 35b
 
 **三款产物均已公开并完成匿名验证。** 固定提交与发布状态见[发布目录](model-releases.json)。
 
+速度记录：35B短上下文/4K热解码约59.33/49.85 token/s，122B历史短请求CLI约21.72–24.00，27B公开路径热解码约9.37。它们使用不同测试协议，边界与显存见[参数参考](DEPLOYMENT_REFERENCE.md)；27B实验性13.02路径未完成便携GPU验证，本页命令使用已公开路径。
+
 全部为自定义文本量化格式，不能直接用标准 `AutoModel`、llama.cpp 或 `vllm serve`。量化质量尚未全面达到原模型；27B的96步候选不在本次发布中。
 
 ## 3. 展开对应命令
@@ -95,6 +97,8 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/inference/infer.py \
 ```
 
 含模板的输入最多128 token，输出最多64 token。公开32步版已完成四轮八题GPU对照：短提示热解码约9.37 token/s，峰值allocated约8.12GiB，输出与参考一致。benchmark覆盖了共用加载/生成代码；单独交互CLI未直接GPU调用，质量仍未通过。可用`--mode reference`[回退参考路径](../courses/qwen38_bonsai2/inference/README.md#reference)；[完整计时与复测](../courses/qwen38_bonsai2/inference/README.md)。
+
+本轮已停止继续优化。无需重新训练或下载权重；13.02 token/s的私有Graph实验另见[收尾记录](experiments/2026-10-20-q38-inference-closeout.md)，没有对应的已验证便携部署命令。
 
 </details>
 

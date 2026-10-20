@@ -10,7 +10,9 @@
 
 这是batch=1、greedy、动态KV缓存、每题最多32个新token的热计算计时：每题预热最多两个token，首token含预填充；解码计时含forward、argmax和CUDA同步，不含加载、tokenization、logits回传/哈希、EOS处理或输出。速度按八题共130个首token后token除以总计算时间得出，不是端到端聊天吞吐。显存为PyTorch峰值allocated，并非整卡占用。
 
-**质量尚未通过，性能优化继续进行。** 32步版仍混淆量化与检查点，首都题不遵守“只答城市名”；四题达到32-token上限而未EOS。[32步完整证据](../../../docs/experiments/2026-10-20-Q38-step32-fast-portable.json)。未发布96步候选另测为9.738 token/s，质量同样未通过；[96步及算子证据](../../../docs/experiments/2026-10-20-Q38-inference-v1.json)。
+**质量尚未通过，本轮优化已停止。** 32步版仍混淆量化与检查点，首都题不遵守“只答城市名”；四题达到32-token上限而未EOS。[32步完整证据](../../../docs/experiments/2026-10-20-Q38-step32-fast-portable.json)。未发布96步候选另测为9.738 token/s，质量同样未通过；[96步及算子证据](../../../docs/experiments/2026-10-20-Q38-inference-v1.json)。
+
+后续同32步权重的私有GDN Graph四轮八题对照约 **9.40→13.02 token/s（+38.6%）**，输出/logits/cache一致。便携Graph入口尚未GPU验证，本页命令继续使用公开的9.37路径；[收尾记录](../../../docs/experiments/2026-10-20-q38-inference-closeout.md)列出显存、计时和未采用方案。
 
 ## 改了三个地方
 
@@ -18,7 +20,7 @@
 2. **按行读取embedding**：只解输入token需要的行，避免展开整个词表。
 3. **融合旋转**：单个kernel完成带符号的1024块Hadamard，阶段内保持FP32运算。
 
-代码见[kernels.py](kernels.py)与[runtime.py](runtime.py)。线性层仍先解到BF16再调用`F.linear`；直接对压缩权重做GEMV尚未完成。
+代码见[kernels.py](kernels.py)与[runtime.py](runtime.py)。线性层仍先解到BF16再调用`F.linear`；后续直接压缩GEMV候选未通过整模型数值检查，未采用。
 
 ## 下载后自测
 

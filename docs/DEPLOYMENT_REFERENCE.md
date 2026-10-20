@@ -11,7 +11,9 @@
 
 以上是历史固定64步Graph热解码，即使遇EOS也继续；不含加载、编译、预填充或Graph录制，不能当作端到端聊天速度、首token延迟或并发吞吐。显存列是PyTorch allocated，并非整卡NVML占用。35B新便携入口尚未GPU复验，不能把历史结果当成新入口已测。
 
-27B公开32步版已完成便携benchmark四轮八题对照：参考约0.69、仅直接解包3.46、加入融合旋转 **9.37 token/s**，首token计算时间中位数0.305秒，峰值allocated从24.69降至8.12GiB；输出与每步logits一致。未发布96步候选另测为9.74 token/s。两者都是短提示热计算计时，质量仍未通过，优化继续进行；[详细口径与复测](../courses/qwen38_bonsai2/inference/README.md)。
+122B另有短请求CLI四轮匹配对照：原预填充约21.72、`grouped-prefill16`候选约24.00输出token/s，全部7520个输出ID一致，见[原始记录](experiments/2026-10-10-0816-prefill16-deployment.json)。它包含请求预填充，与上表固定64步热解码口径不同；不是当前`infer_hf.py`的新增实测，公开清单仍使用下面的专用入口。
+
+27B公开32步版已完成便携benchmark四轮八题对照：参考约0.69、仅直接解包3.46、加入融合旋转 **9.37 token/s**，首token计算时间中位数0.305秒，峰值allocated从24.69降至8.12GiB；输出与每步logits一致。后续同权重私有GDN Graph对照约9.40→13.02 token/s；便携Graph入口未GPU验证，当前部署仍使用9.37路径。两者是短提示热计算计时，质量仍未通过，本轮优化已停止。[详细口径与复测](../courses/qwen38_bonsai2/inference/README.md) · [收尾记录](experiments/2026-10-20-q38-inference-closeout.md)。
 
 原始结果：[35B五档测量](experiments/2026-10-09-2156.json) · [推理记录](experiments/INFERENCE.md) · [质量与速度口径](RESULTS.md)。
 

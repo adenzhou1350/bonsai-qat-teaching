@@ -14,8 +14,8 @@
       "verified_uploaded_bytes": 5873576117,
       "anonymous_read_verified": true,
       "model_card_update": {
-        "model_card_commit": "e65c2faaa59bcbb241deab6e18360b7723f0b0ba",
-        "README_SHA256": "3bae274da4f8d6b04b58714adfa124db1454a38013b1d796c182260c8d37abc3",
+        "model_card_commit": "8d63ec0159f7ac6a123f771f041b2834f9a134ea",
+        "README_SHA256": "bf2ea807deeda6766778917e7e9bd78391cf102545376335c3853e6995b20cfb",
         "teaching_commit": "ed7267283fe5a0e70a5c997d534bc2113f31ec7a",
         "original_weight_tag_unchanged": true,
         "anonymous_read_verified": true
@@ -41,8 +41,8 @@
         "new_GPU_inference_or_quality_acceptance_claimed": false
       },
       "model_card_update": {
-        "model_card_commit": "1cfe948ef05912f1f9802b36a6c1818ca099572d",
-        "README_SHA256": "655ee648ecab8325feb5e705d3bc2fd18ff3c4c6440ccb29577f7755c8d3ba1b",
+        "model_card_commit": "5d570e45ecd3b79a7d3ebfda623a53c51cd7f587",
+        "README_SHA256": "0327310a1892adba7851e91d2b7e5ca621558200730e1ff81e688e6fa26b2a35",
         "teaching_commit": "0664e61bcf41f46d88a5d3fe5f6e07af125853e0",
         "original_weight_tag_unchanged": true,
         "anonymous_read_verified": true
@@ -68,8 +68,8 @@
         "new_GPU_inference_or_quality_acceptance_claimed": false
       },
       "model_card_update": {
-        "model_card_commit": "23e56a3c47a4de8a55db2fd987d7d936288237bb",
-        "README_SHA256": "ea5cc6054c3a26738c89e4ea08d04bca1b95600fbe4ea4a14eefcc05cf83f2ce",
+        "model_card_commit": "4819f6733b0ca0d1193b2f139143fa0d4d2e8800",
+        "README_SHA256": "414abf6ea9107ab3b7015aead3614a804dca71c8c1c3d6c3e1c2681127024361",
         "teaching_commit": "0664e61bcf41f46d88a5d3fe5f6e07af125853e0",
         "original_weight_tag_unchanged": true,
         "anonymous_read_verified": true
@@ -85,5 +85,5 @@
     "R35-8192 is INT2/rank16 compensation, not T35full-expertQAT. Q38 released32steps are distinct from the unpublished96step candidate.",
     "New R35 portable CLI and Q38 arbitrary-prompt CLI are not yet GPU rerun verified; historical runtime results and CPU checks are separate."
   ],
-  "recorded_at_UTC": "2026-10-20T13:51:56.145931+00:00"
+  "recorded_at_UTC": "2026-10-20T16:05:17.826205+00:00"
 }

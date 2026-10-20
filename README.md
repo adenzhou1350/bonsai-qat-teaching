@@ -8,15 +8,15 @@
 
 ## 选一个模型
 
-| 模型 | 方法 | 下载体积 | 当前状态 |
+| 模型 | 方法 | 下载体积 | 单卡5090速度记录 |
 |---|---|---:|---|
-| [35B · 8192步](experimental35/README.md) | INT2 专家 + rank16 补偿 | 15.86 GB | 已公开；提供终端聊天入口，便携入口 GPU 复验待完成 |
-| [122B · 4096步](experimental122/README.md) | 三值专家 + 4bit 稠密层 + rank8 补偿 | 30.20 GB | 已公开；使用专用单请求入口 |
-| [27B · 32步](courses/qwen38_bonsai2/README.md) | 旋转三值 QAT | 5.85 GB | [权重已公开](https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental)；短提示解码约9.37 token/s，教学验证用 |
+| [35B · 8192步](experimental35/README.md) | INT2 专家 + rank16 补偿 | 15.86 GB | 历史热解码：短上下文59.33、4K约49.85 token/s |
+| [122B · 4096步](experimental122/README.md) | 三值专家 + 4bit 稠密层 + rank8 补偿 | 30.20 GB | 历史短请求CLI约21.72–24.00 token/s |
+| [27B · 32步](courses/qwen38_bonsai2/README.md) | 旋转三值 QAT | 5.85 GB | 公开路径短提示热解码约9.37 token/s |
 
-35B/122B 是 MoE。三条路线使用不同的自定义格式，须按[部署指南](docs/DEPLOYMENT.md)选择加载器；不能直接使用标准 vLLM 或 llama.cpp。
+三款权重均已公开。上表测试口径不同，不能直接计算模型间加速比；35B新便携入口GPU复验未完成。35B/122B 是 MoE，每token约启用3B/10B参数；27B是稠密模型。按[部署指南](docs/DEPLOYMENT.md)选择加载器，不能直接使用标准 vLLM 或 llama.cpp。
 
-这是独立的 Bonsai 风格教学实现。27B公开32步版已完成四轮八题对照，加速后短提示解码约 **9.37 token/s**、峰值allocated **8.12GiB**；质量仍未通过，进一步优化继续进行。[加速方法与复测](courses/qwen38_bonsai2/inference/README.md) · [模型区别](docs/RESULTS.md) · [固定下载版本](docs/model-releases.json)。
+这是独立的 Bonsai 风格教学实现，质量尚未全面达到原模型。27B额外Graph实验测得 **13.02 token/s**，便携入口尚未GPU验证；当前部署仍用9.37路径。本轮优化已停止，详见[收尾记录](docs/experiments/2026-10-20-q38-inference-closeout.md) · [测速口径](docs/DEPLOYMENT_REFERENCE.md) · [固定下载版本](docs/model-releases.json)。
 
 <a id="cpu-start"></a>
 

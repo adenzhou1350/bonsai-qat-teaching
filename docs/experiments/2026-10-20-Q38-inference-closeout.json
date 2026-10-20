@@ -1,0 +1,191 @@
+{
+  "date": "2026-10-20",
+  "state": "optimization_stopped_at_user_request",
+  "model": "Qwen3.8-27B",
+  "hardware": "single RTX 5090",
+  "artifact_updates": 32,
+  "packed_manifest_SHA256": "7217d5c218e4b27317e9862224113d8bf694944329d8a70c80c9ae53742a03d4",
+  "prompt_SHA256": "62a7f9bc8a2627013b6553d97628c9018df2f07e983a0648e6250dc421548ba3",
+  "scope": "Completed private frozen eight-prompt benchmark; not the unvalidated portable Graph entry.",
+  "stable_public_runtime_tokens_per_second": 9.370636,
+  "portable_Graph_GPU_verified": false,
+  "portable_Graph_published": false,
+  "weights_changed": false,
+  "retrained": false,
+  "quality_accepted": false,
+  "rounds": [
+    {
+      "round": 1,
+      "mode": "eager",
+      "prompts": 8,
+      "generated_tokens": 138,
+      "decode_after_first_tokens": 130,
+      "decode_after_first_seconds": 14.116922453278676,
+      "decode_tokens_per_second": 9.208805986591456,
+      "first_token_compute_median_seconds": 0.29806870652828366,
+      "peak_allocated_bytes": 8887543808,
+      "peak_reserved_bytes": 14352908288
+    },
+    {
+      "round": 2,
+      "mode": "graph",
+      "prompts": 8,
+      "generated_tokens": 138,
+      "decode_after_first_tokens": 130,
+      "decode_after_first_seconds": 9.832231113221496,
+      "decode_tokens_per_second": 13.22182101936027,
+      "first_token_compute_median_seconds": 0.3543822196079418,
+      "peak_allocated_bytes": 8887543808,
+      "peak_reserved_bytes": 14352908288
+    },
+    {
+      "round": 3,
+      "mode": "graph_repeat",
+      "prompts": 8,
+      "generated_tokens": 138,
+      "decode_after_first_tokens": 130,
+      "decode_after_first_seconds": 10.136153714032844,
+      "decode_tokens_per_second": 12.82537771896883,
+      "first_token_compute_median_seconds": 0.3330767940497026,
+      "peak_allocated_bytes": 8887543808,
+      "peak_reserved_bytes": 14352908288
+    },
+    {
+      "round": 4,
+      "mode": "eager",
+      "prompts": 8,
+      "generated_tokens": 138,
+      "decode_after_first_tokens": 130,
+      "decode_after_first_seconds": 13.554926469689235,
+      "decode_tokens_per_second": 9.590609015157604,
+      "first_token_compute_median_seconds": 0.3025056964252144,
+      "peak_allocated_bytes": 8887543808,
+      "peak_reserved_bytes": 14352908288
+    }
+  ],
+  "pooled": {
+    "eager": {
+      "tokens": 260,
+      "seconds": 27.67184892296791,
+      "tokens_per_second": 9.395830424045045
+    },
+    "graph": {
+      "tokens": 260,
+      "seconds": 19.96838482725434,
+      "tokens_per_second": 13.020582398088234
+    },
+    "speed_change_percent": 38.57830346498186
+  },
+  "graph_setup_seconds": 7.407167308032513,
+  "phase_seconds_including_identity_and_load": 375.7175780730322,
+  "all_rounds_keep_graph_pools_resident": true,
+  "numerical_checks": {
+    "all_48_GDN_setup_outputs_and_states_exact": true,
+    "generation_steps": 552,
+    "steps_compared_to_first_round": 414,
+    "all_last_position_logits_and_generated_tokens_exact": true,
+    "all_final_64_layer_caches_exact": true,
+    "previous_live_request_cache_checks": 31,
+    "all_previous_live_request_caches_unchanged": true,
+    "cold_copy_audit_rows": 1248,
+    "cold_copy_audits_added_during_timing": 0,
+    "original_GDN_objects_restored": true,
+    "full_attention_objects_unchanged": true
+  },
+  "development_outputs": [
+    {
+      "id": "quantization_zh",
+      "prompt": "用一句话解释模型量化。",
+      "text": "模型量化是指将模型参数以数值形式存储，以便在训练过程中记录模型状态，用于后续恢复训练或进行模型评估。\n\n模型量化通常",
+      "generated_tokens": 32,
+      "ended_with_EOS": false
+    },
+    {
+      "id": "quantization_memory_zh",
+      "prompt": "请用一句话说明为什么量化模型可以降低显存占用。",
+      "text": "量化模型通过将模型权重和激活值量化为较低位宽（如8位），从而显著减少内存占用，同时保持模型精度，因此量化",
+      "generated_tokens": 32,
+      "ended_with_EOS": false
+    },
+    {
+      "id": "capital_zh",
+      "prompt": "中国的首都是哪里？只回答城市名。",
+      "text": "北京\n\n北京是中国的首都，即首都城市。它是中国的政治、文化、经济、教育、交通等中心的所在地，也是世界最大的城市。\n\n",
+      "generated_tokens": 32,
+      "ended_with_EOS": false
+    },
+    {
+      "id": "arithmetic_zh",
+      "prompt": "17+25等于多少？只回答数字。",
+      "text": "42",
+      "generated_tokens": 3,
+      "ended_with_EOS": true
+    },
+    {
+      "id": "exact_instruction",
+      "prompt": "只输出 OK 两个英文字母，不要解释。",
+      "text": "OK",
+      "generated_tokens": 2,
+      "ended_with_EOS": true
+    },
+    {
+      "id": "quantization_en",
+      "prompt": "In one sentence, explain model quantization.",
+      "text": "Model quantization is a technique that reduces the precision of a neural network's weights from 32-bit to 16-bit (or lower), e.g",
+      "generated_tokens": 32,
+      "ended_with_EOS": false
+    },
+    {
+      "id": "arithmetic_en",
+      "prompt": "What is 9 times 7? Reply with just the number.",
+      "text": "63",
+      "generated_tokens": 3,
+      "ended_with_EOS": true
+    },
+    {
+      "id": "translation_zh",
+      "prompt": "把‘Good morning’翻译成中文，只输出译文。",
+      "text": "早上好",
+      "generated_tokens": 2,
+      "ended_with_EOS": true
+    }
+  ],
+  "timing": {
+    "batch_size": 1,
+    "greedy": true,
+    "maximum_new_tokens": 32,
+    "includes": [
+      "forward",
+      "GDN input/state copies",
+      "graph replay",
+      "argmax",
+      "CUDA synchronization"
+    ],
+    "excludes": [
+      "loading",
+      "tokenization",
+      "JIT",
+      "graph setup",
+      "CPU logits/cache hashing",
+      "EOS handling",
+      "output"
+    ],
+    "service_throughput_measured": false,
+    "first_token_speedup_claimed": false
+  },
+  "source_evidence": {
+    "summary_SHA256": "7e7bd42a8ad48a01a8542a031dd2d87279aa5ac6685b994848d43627cea90ae2",
+    "benchmark_SHA256": "aeef7f20b7c3248cab6a77a7c93eb25fc29a2c8a6b59aa8022334fc9600f0245",
+    "GDN_core_SHA256": "d595ca10fc10d6ba8fb3ffbe9384238d5509db61790c17f8d5054541a6a4cfbb",
+    "protocol_SHA256": "8863851c90a0b87f5335536b88cc3f77601a8378d2c38f1676d1ba29ce7d54a2",
+    "raw_private_logs_published": false,
+    "record_is_allowlisted_summary_not_full_reproduction_bundle": true
+  },
+  "closeout": {
+    "successful_benchmark_exited_and_GPU_released": true,
+    "portable_v1_CPU_stage": "Final wrapper import failed before GPU admission.",
+    "portable_v2_fix": "Draft retained; not executed.",
+    "automatic_followup": "paused",
+    "further_GPU_experiments": "stopped"
+  }
+}

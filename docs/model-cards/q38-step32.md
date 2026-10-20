@@ -14,13 +14,15 @@ tags:
 ---
 # Qwen3.8-27B · 三值 QAT · 32步
 
-27B稠密文本模型的旋转三值QAT，402个矩阵，32次更新。单张RTX 5090短提示热解码已从约0.69提升到 **9.37 token/s**，四轮八题输出与逐步logits一致。教学实验，质量仍未通过，优化继续进行。
+27B稠密文本模型的旋转三值QAT，402个矩阵，32次更新。单张RTX 5090短提示热解码已从约0.69提升到 **9.37 token/s**，四轮八题输出与逐步logits一致。教学实验，质量仍未通过，本轮优化已停止。
 
 | 下载体积 | 短提示测量 |
 |---|---|
 | 约5.85GB | 9.37 token/s；首token计算中位数0.305秒；峰值allocated 8.12GiB |
 
 计时为batch=1、greedy、动态KV缓存、每题最多32个新token；不含加载、tokenization、logits回传/哈希或输出，非端到端吞吐。显存是PyTorch allocated，非整卡占用。[加速原理与完整计时](https://github.com/adenzhou1350/bonsai-qat-teaching/blob/ed7267283fe5a0e70a5c997d534bc2113f31ec7a/courses/qwen38_bonsai2/inference/README.md)。
+
+后续同权重私有GDN Graph实验测得约13.02 token/s，便携Graph入口尚未GPU验证，未发布；以下部署命令仍使用9.37路径。[优化收尾记录](https://github.com/adenzhou1350/bonsai-qat-teaching/blob/main/docs/experiments/2026-10-20-q38-inference-closeout.md)。
 
 ## 开始使用
 

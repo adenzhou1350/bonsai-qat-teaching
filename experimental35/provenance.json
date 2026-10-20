@@ -52,8 +52,8 @@
       "new_GPU_inference_or_quality_acceptance_claimed": false
     },
     "model_card_update": {
-      "model_card_commit": "23e56a3c47a4de8a55db2fd987d7d936288237bb",
-      "README_SHA256": "ea5cc6054c3a26738c89e4ea08d04bca1b95600fbe4ea4a14eefcc05cf83f2ce",
+      "model_card_commit": "4819f6733b0ca0d1193b2f139143fa0d4d2e8800",
+      "README_SHA256": "414abf6ea9107ab3b7015aead3614a804dca71c8c1c3d6c3e1c2681127024361",
       "teaching_commit": "0664e61bcf41f46d88a5d3fe5f6e07af125853e0",
       "original_weight_tag_unchanged": true,
       "anonymous_read_verified": true
