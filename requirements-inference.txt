@@ -1,0 +1,9 @@
+# Install Torch's matching CUDA wheel first; see docs/DEPLOYMENT.md.
+torch==2.11.0
+transformers==5.12.1
+triton==3.6.0
+safetensors==0.8.0
+numpy==2.2.6
+huggingface-hub==1.18.0
+# Native CUDA extension, installed separately after Torch:
+# python -m pip install causal-conv1d==1.7.0 --no-build-isolation

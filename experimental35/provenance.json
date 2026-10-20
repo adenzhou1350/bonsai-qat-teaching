@@ -1,0 +1,43 @@
+{
+  "format": "R35-portable-inference-source-v1",
+  "base_model": "Qwen/Qwen3.5-35B-A3B",
+  "original_manifest_SHA256": "2a8aba243717e5b0230cc388d65e0f2f9c446bf30dde69581fbfa731f85e0f99",
+  "release_manifest_SHA256": "48e3f2479ef174a93c043d900bc163e127969e9ee522bf8c084cd080ae26dd16",
+  "all81_tensor_files_unchanged": true,
+  "metadata_paths_sanitized": [
+    ".source_model",
+    ".gpu_training_args.root",
+    ".gpu_training_args.data",
+    ".parent_proof.parent",
+    ".parent_proof.artifact",
+    ".parent_proof.checkpoint",
+    ".parent_proof.independent_parent_proof.native_B300_numerical_root"
+  ],
+  "lineage_replaced": true,
+  "historical_selected_source_policy_SHA256": "d2b5cf20e84dd561eaf17aa21f579fdd50f3b149d74121c75b964967fd19e557",
+  "unchanged_runtime_source_SHA256": {
+    "balanced35_recovery_common_v1.py": "feecb757a50b20e7d3fbf0459be107ffef035a0877b65fdbc87ac1fc84f409b4",
+    "gemq_packed_runtime.py": "052564e679a3c3dd9d14332f083ee6a9b14423c4453ad2c97190e3a74ea5522f",
+    "gemq_packed_runtime_chunked.py": "dd11ec2082332596c01b24f6faf17c393bd8f59f645fa5b3e0e0b930a3cb9e17",
+    "gsq35_balanced_factor_runtime_v2_mm_out.py": "72594540411163397271c0d654b55daede2d83ebcb32d6956f25c90cae93af20",
+    "fixed_route_mm_out_v1.py": "c0528cd6bcaf25408b15d74e84c2fece33f820d5dc846e05a242624dc79dfda5",
+    "gsq_graph_decoder_v2.py": "a7196a3d26ccb28d23be3e94849c2b07ee068c43717a0ec163069b3bb0118a64"
+  },
+  "new_portable_entry_GPU_verified": false,
+  "historical_runtime_GPU_verified": true,
+  "quality_accepted": false,
+  "historical_record": "../docs/experiments/2026-10-09-2156.json",
+  "license_source": "https://huggingface.co/Qwen/Qwen3.5-35B-A3B/raw/main/LICENSE",
+  "portable_loader_SHA256": "891b90a7633b217d34bbc880dc6766cc4d87e6bcb6199c78f4cee8c979f38de5",
+  "portable_loader_numeric_statements_AST_equal_historical": true,
+  "portable_loader_removed_private_admission_statements": 2,
+  "portable_loader_original_read_banks_retained_AST_equal": true,
+  "model_hub_release": {
+    "label": "r35-8192",
+    "repo_id": "aden1350/Qwen3.5-35B-A3B-INT2-Rank16-8192-Experimental",
+    "expected_weight_tag": "recovery-step8192",
+    "public_and_anonymously_verified": false,
+    "quality_accepted": false,
+    "state": "publication_pending"
+  }
+}

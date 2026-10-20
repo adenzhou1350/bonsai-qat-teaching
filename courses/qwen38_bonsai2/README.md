@@ -12,7 +12,7 @@
 
 ## 独立核对已保存产物
 
-下面三个新文件就是本次完整27B实际执行并核对哈希的源码：[恢复验证](verify_saved_checkpoint.py)、[八提示诊断](diagnose_prompts.py)、[固定提示](diagnostic-prompts.json)。其余23个训练与元数据文件保持原版本，身份见[source-provenance.json](source-provenance.json)。仓库不提供权重；路径需替换为自己运行的产物。
+下面三个新文件就是本次完整27B实际执行并核对哈希的源码：[恢复验证](verify_saved_checkpoint.py)、[八提示诊断](diagnose_prompts.py)、[固定提示](diagnostic-prompts.json)。其余23个训练与元数据文件保持原版本，身份见[source-provenance.json](source-provenance.json)。旧32步权重已在[Hugging Face](https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental)公开；新增[infer_prompt.py](infer_prompt.py)支持任意短文本与CPU文件校验，GPU复验待空闲卡，运行步骤见[完整部署指南](../../docs/DEPLOYMENT.md)。
 
 ```bash
 # 先确认所选卡空闲，环境与训练一致。选择新的输出目录。

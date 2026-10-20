@@ -1,0 +1,39 @@
+{
+  "format": "deployment-entry-preparation-evidence-v1",
+  "recorded_at_UTC": "2026-10-20",
+  "R35_8192_historical_artifact_present": true,
+  "R35_original_manifest_SHA256": "2a8aba243717e5b0230cc388d65e0f2f9c446bf30dde69581fbfa731f85e0f99",
+  "R35_public_sanitized_manifest_SHA256": "48e3f2479ef174a93c043d900bc163e127969e9ee522bf8c084cd080ae26dd16",
+  "R35_81_tensor_file_bytes_changed": false,
+  "R35_unchanged6_kernel_backend_Graph_files_SHA256": {
+    "balanced35_recovery_common_v1.py": "feecb757a50b20e7d3fbf0459be107ffef035a0877b65fdbc87ac1fc84f409b4",
+    "gemq_packed_runtime.py": "052564e679a3c3dd9d14332f083ee6a9b14423c4453ad2c97190e3a74ea5522f",
+    "gemq_packed_runtime_chunked.py": "dd11ec2082332596c01b24f6faf17c393bd8f59f645fa5b3e0e0b930a3cb9e17",
+    "gsq35_balanced_factor_runtime_v2_mm_out.py": "72594540411163397271c0d654b55daede2d83ebcb32d6956f25c90cae93af20",
+    "fixed_route_mm_out_v1.py": "c0528cd6bcaf25408b15d74e84c2fece33f820d5dc846e05a242624dc79dfda5",
+    "gsq_graph_decoder_v2.py": "a7196a3d26ccb28d23be3e94849c2b07ee068c43717a0ec163069b3bb0118a64"
+  },
+  "R35_model_assembly_numeric_AST_equal": true,
+  "R35_read_banks_retained_functions_AST_equal": true,
+  "new_entry_python_AST_and_help_passed": true,
+  "Q38_new_prompt_entry_actual_step32_full_payload_CPU_verified": true,
+  "R122_public_adapter_actual471_tensor_CPU_verified": true,
+  "R35_new_portable_full_payload_CPU_check": "queued_after_transfer",
+  "new_R35_portable_entry_GPU_rerun_verified": false,
+  "new_Q38_prompt_entry_GPU_rerun_verified": false,
+  "source_files_SHA256": {
+    "experimental35/infer.py": "bf181fe633a2e37d01ab1c13f8a0b939b26ee08c1f09769771d0c3b4c3547d73",
+    "experimental35/runtime/portable_loader.py": "891b90a7633b217d34bbc880dc6766cc4d87e6bcb6199c78f4cee8c979f38de5",
+    "courses/qwen38_bonsai2/infer_prompt.py": "dc1a050c01f5941c44478eb455e94c95c9bf80aea147451029bb18a150e434c3",
+    "experimental122/infer_hf.py": "5289902b332abe603dc3e9d2a81bea4315603acf62a18c896bc657f33088094d",
+    "scripts/check_deployment_environment.py": "47ef0621fcbd299748f52b82a0cbb4caf87b8484e876bab2cc31991032eec1a3"
+  },
+  "runtime_weights_or_credentials_in_GitHub": false,
+  "training_resumed": false,
+  "quality_accepted": false,
+  "limits": [
+    "Historical R35 GPU results apply to its prior runtime; this entry preserves numerical statements but has not yet completed a new full GPU rerun.",
+    "Source/CPU checks and successful Hub publication do not establish quality, concurrency safety or theoretical maximum speed.",
+    "OEM host was not rebooted or repaired; no foreign GPU work was interrupted."
+  ]
+}

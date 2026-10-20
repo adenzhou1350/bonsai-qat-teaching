@@ -1,0 +1,37 @@
+{
+  "format": "native4095-public-metadata-release-v1",
+  "base_model": "Qwen/Qwen3.5-122B-A10B",
+  "original_experiment_manifest_SHA256": "dc3a9ba1a8bd9bcdd229b3c259cc5d676719861946a5ed2d90b39ac2e196def1",
+  "released_sanitized_manifest_SHA256": "da42f0bf48b42f2885061283d83f9da72f9429ad8ed74a9691e8cc532f15a3ef",
+  "changed_metadata_fields": [
+    "source_model",
+    "native_teacher_proof.teacher_root",
+    "lineage_file",
+    "lineage_sha256"
+  ],
+  "reason": "Replace server-local paths and the private experimental lineage with public model identity and a small release-lineage record.",
+  "packed_tensor_files": 471,
+  "packed_tensor_file_hashes_changed": false,
+  "numerical_runtime_changed": false,
+  "legacy_infer_entry_changed": false,
+  "public_entry": "infer_hf.py",
+  "public_entry_verification": "Run infer_hf.py --model <downloaded packed directory> --verify-only to verify the released manifest and every tensor file without CUDA.",
+  "new_GPU_inference_claimed_for_metadata_only_adapter": false,
+  "quality_accepted": false,
+  "publication_status": "uploading_not_yet_public",
+  "model_hub_release": {
+    "label": "r122-native4095",
+    "repo_id": "aden1350/Qwen3.5-122B-A10B-Ternary-Rank8-Experimental",
+    "expected_weight_tag": "native4095-step4096",
+    "public_and_anonymously_verified": false,
+    "quality_accepted": false,
+    "state": "publication_pending",
+    "CPU_release_entry_verification": {
+      "release_manifest_and_all_tensor_file_SHA256_verified": true,
+      "tensor_files": 471,
+      "cumulative_optimizer_updates": 4096,
+      "GPU_used": false,
+      "new_GPU_inference_or_quality_acceptance_claimed": false
+    }
+  }
+}

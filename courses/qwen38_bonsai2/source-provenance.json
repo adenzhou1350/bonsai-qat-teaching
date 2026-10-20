@@ -292,5 +292,27 @@
     "whole_pipeline_passed": false,
     "independent_generation_completed_cases": 0,
     "generation_stopped_by_private_GPU_reserve_guard": true
+  },
+  "published_model_hub_artifacts": [
+    {
+      "label": "q38-step32",
+      "repo_id": "aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental",
+      "expected_weight_tag": "qat-step32",
+      "public_and_anonymously_verified": true,
+      "quality_accepted": false,
+      "url": "https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental",
+      "revision": "12585f8e5d50c847071d8564c6f6aa7f4950a4ef",
+      "tag": "qat-step32",
+      "verified_uploaded_files": 448,
+      "verified_uploaded_bytes": 5873576117,
+      "anonymous_read_verified": true
+    }
+  ],
+  "arbitrary_prompt_entry": {
+    "file": "infer_prompt.py",
+    "SHA256": "dc1a050c01f5941c44478eb455e94c95c9bf80aea147451029bb18a150e434c3",
+    "actual_step32_complete_payload_CPU_verification_passed": true,
+    "GPU_rerun_verified": false,
+    "original_reference_runtime_unchanged": true
   }
 }

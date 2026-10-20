@@ -14,3 +14,5 @@ experimental122/serve_vllm.py text eol=lf
 experimental122/http_plugin/** text eol=lf
 experimental122/prepare_head_precision_probe.py text eol=lf
 experimental122/runtime/head_fp32_bound_candidate_v1871.py text eol=lf
+# Preserve the exact CRLF bytes of the measured R35 Graph source.
+experimental35/runtime/gsq_graph_decoder_v2.py -text whitespace=cr-at-eol

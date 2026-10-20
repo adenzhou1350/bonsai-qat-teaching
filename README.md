@@ -6,6 +6,8 @@
 
 先在[浏览器里试三值打包](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo)，无需安装；再按需进入 Linux CPU 实验，学习三值量化、蒸馏、检查点恢复和大模型压缩推理。仓库包含 PyTorch 教学代码、动手课程，以及实际实验的结果和失败记录。
 
+**想下载模型实际使用，先看[单卡5090部署指南](docs/DEPLOYMENT.md)。** 这里区分35B的8192步INT2＋rank16补偿、122B三值专家＋rank8，以及27B旋转三值QAT，给出依赖安装、固定版本下载、CPU校验、自定义提问、35B常驻聊天、4K/16K设置、测速口径和排障。各产物的公开状态、固定提交与标签见[发布目录](docs/model-releases.json)；新便携入口的GPU复验状态单独标明。
+
 [浏览器零安装实验](https://adenzhou1350.github.io/learn/bonsai-low-bit/#ternary-demo) · [核对公开结果](docs/PUBLIC_EVIDENCE.md) · [Linux CPU 检查](#cpu-start) · [动手课程](docs/LABS.md) · [结果说明](docs/RESULTS.md) · [训练指南](docs/REPRODUCING.md) · [122B 推理指南](experimental122/README.md) · [网站导读](https://adenzhou1350.github.io/learn/bonsai-low-bit/)
 
 这是 Bonsai 风格的独立教学与研究实现，尚未完整复现官方训练配方。**仓库不包含模型权重。** 35B 和 122B 都是 MoE，分别指总参数量，不是同规模稠密模型。

@@ -1,0 +1,51 @@
+{
+  "format": "experimental-model-release-catalog-v1",
+  "releases": [
+    {
+      "label": "q38-step32",
+      "repo_id": "aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental",
+      "expected_weight_tag": "qat-step32",
+      "public_and_anonymously_verified": true,
+      "quality_accepted": false,
+      "url": "https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental",
+      "revision": "12585f8e5d50c847071d8564c6f6aa7f4950a4ef",
+      "tag": "qat-step32",
+      "verified_uploaded_files": 448,
+      "verified_uploaded_bytes": 5873576117,
+      "anonymous_read_verified": true
+    },
+    {
+      "label": "r122-native4095",
+      "repo_id": "aden1350/Qwen3.5-122B-A10B-Ternary-Rank8-Experimental",
+      "expected_weight_tag": "native4095-step4096",
+      "public_and_anonymously_verified": false,
+      "quality_accepted": false,
+      "state": "publication_pending",
+      "CPU_release_entry_verification": {
+        "release_manifest_and_all_tensor_file_SHA256_verified": true,
+        "tensor_files": 471,
+        "cumulative_optimizer_updates": 4096,
+        "GPU_used": false,
+        "new_GPU_inference_or_quality_acceptance_claimed": false
+      }
+    },
+    {
+      "label": "r35-8192",
+      "repo_id": "aden1350/Qwen3.5-35B-A3B-INT2-Rank16-8192-Experimental",
+      "expected_weight_tag": "recovery-step8192",
+      "public_and_anonymously_verified": false,
+      "quality_accepted": false,
+      "state": "publication_pending"
+    }
+  ],
+  "weights_in_GitHub": false,
+  "training_checkpoints_or_teachers_distributed": false,
+  "quality_accepted": false,
+  "deployment_guide": "DEPLOYMENT.md",
+  "limits": [
+    "Only public_and_anonymously_verified entries have completed publication.",
+    "R35-8192 is INT2/rank16 compensation, not T35full-expertQAT. Q38 released32steps are distinct from the unpublished96step candidate.",
+    "New R35 portable CLI and Q38 arbitrary-prompt CLI are not yet GPU rerun verified; historical runtime results and CPU checks are separate."
+  ],
+  "recorded_at_UTC": "2026-10-20T07:15:25.249365+00:00"
+}
