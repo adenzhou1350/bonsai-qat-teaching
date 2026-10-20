@@ -14,8 +14,8 @@
       "verified_uploaded_bytes": 5873576117,
       "anonymous_read_verified": true,
       "model_card_update": {
-        "model_card_commit": "2401acec697155f1d696ab9c9066e0a91c90a9de",
-        "README_SHA256": "6df1d6b6741d32ebf0806c6e0ac2a2808efe74651b6387baaa1d26bf3f5cbba6",
+        "model_card_commit": "3b2103130af728d37376c210c1e668d0e00922da",
+        "README_SHA256": "e06ef560dc44967c459cf9c09cf038d425c4f818c1c16beba35455db7f5b0bf5",
         "teaching_commit": "0664e61bcf41f46d88a5d3fe5f6e07af125853e0",
         "original_weight_tag_unchanged": true,
         "anonymous_read_verified": true
@@ -42,7 +42,14 @@
       "expected_weight_tag": "recovery-step8192",
       "public_and_anonymously_verified": false,
       "quality_accepted": false,
-      "state": "publication_pending"
+      "state": "publication_pending",
+      "CPU_release_entry_verification": {
+        "release_manifest_and_all_tensor_file_SHA256_verified": true,
+        "tensor_files": 81,
+        "cumulative_optimizer_updates": 8192,
+        "GPU_used": false,
+        "new_GPU_inference_or_quality_acceptance_claimed": false
+      }
     }
   ],
   "weights_in_GitHub": false,
@@ -54,5 +61,5 @@
     "R35-8192 is INT2/rank16 compensation, not T35full-expertQAT. Q38 released32steps are distinct from the unpublished96step candidate.",
     "New R35 portable CLI and Q38 arbitrary-prompt CLI are not yet GPU rerun verified; historical runtime results and CPU checks are separate."
   ],
-  "recorded_at_UTC": "2026-10-20T07:40:04.935665+00:00"
+  "recorded_at_UTC": "2026-10-20T09:21:10.555425+00:00"
 }

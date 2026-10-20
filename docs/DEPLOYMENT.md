@@ -32,7 +32,7 @@ python scripts/check_deployment_environment.py --model 35b
 |---|---|---:|---|
 | R35-8192 | 终端聊天；INT2 + rank16 补偿 | 15.86 GB | 发布中，尚未公开验证 |
 | 122B | 大 MoE 压缩实验；三值 + 4bit + rank8 | 30.20 GB | 发布中，尚未公开验证 |
-| 27B旧32步 | 旋转三值 QAT 教学；参考推理较慢 | 5.85 GB | 已公开，见[固定版本](model-releases.json) |
+| 27B旧32步 | QAT教学验证；当前不适合聊天 | 5.85 GB | 已公开，见[固定版本](model-releases.json) |
 
 **35B/122B完成公开后才能下载**，当前私有阶段返回404属于预期。固定提交与发布状态见[发布目录](model-releases.json)。
 
@@ -81,7 +81,7 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/infer_hf.py \
 
 <a id="27b"></a>
 <details>
-<summary><strong>27B：短提示教学验证</strong></summary>
+<summary><strong>27B：教学验证，当前约0.69 token/s</strong></summary>
 
 ```bash
 hf download aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental \
@@ -92,7 +92,7 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/infer_prompt.py \
   --prompt '请用一句话介绍北京。' --max-new-tokens 32 --output outputs/q38-first.json
 ```
 
-含模板的输入最多128 token，输出最多64 token。参考路径逐层展开权重，历史约0.69 token/s、峰值约24.49GiB；5.85GB文件体积不等于运行显存。新自定义提问入口已通过CPU文件校验，GPU复验待完成。
+含模板的输入最多128 token，输出最多64 token。参考路径每个token重复解包完整权重矩阵，历史约0.69 token/s、峰值约24.49GiB；当前不适合日常聊天。5.85GB文件体积不等于运行显存，新自定义提问入口GPU复验待完成。
 
 </details>
 

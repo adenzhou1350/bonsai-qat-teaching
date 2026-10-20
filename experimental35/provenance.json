@@ -38,6 +38,13 @@
     "expected_weight_tag": "recovery-step8192",
     "public_and_anonymously_verified": false,
     "quality_accepted": false,
-    "state": "publication_pending"
+    "state": "publication_pending",
+    "CPU_release_entry_verification": {
+      "release_manifest_and_all_tensor_file_SHA256_verified": true,
+      "tensor_files": 81,
+      "cumulative_optimizer_updates": 8192,
+      "GPU_used": false,
+      "new_GPU_inference_or_quality_acceptance_claimed": false
+    }
   }
 }

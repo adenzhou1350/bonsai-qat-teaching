@@ -13,7 +13,7 @@
 | [32步公开版](https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental/tree/qat-step32) | 压缩导出、完整检查点恢复、独立八提示生成 | 整体质量恢复；新自定义提问入口GPU复验 |
 | 96步候选版 | 追加64步，81.34GB检查点保存与实际恢复，约5.85GB压缩重载前向一致 | 首题触发显存保护，生成完成0/8；等待空闲卡补测，尚未发布 |
 
-**两版都未通过整体质量验收。** 32步版仍有概念和指令遵循退化；96步的损失下降不能代替生成验证。32步参考推理约0.69 token/s，逐层展开权重，尚无高吞吐融合实现。
+**两版都未通过整体质量验收。** 32步版仍有概念和指令遵循退化；96步的损失下降不能代替生成验证。当前参考推理约0.69 token/s，不适合日常聊天：每个token重复解包完整权重矩阵，尚无融合低比特内核；增加训练步数不会自动加速。
 
 [32步恢复与生成记录](../../docs/experiments/2026-10-20-Q38-checkpoint-verified-eight-prompts.json) · [96步最新记录](../../docs/experiments/2026-10-20-Q38-mixed96-restored-generation-guard.json) · [历史实验与失败](HISTORY.md)
 

@@ -307,8 +307,8 @@
       "verified_uploaded_bytes": 5873576117,
       "anonymous_read_verified": true,
       "model_card_update": {
-        "model_card_commit": "2401acec697155f1d696ab9c9066e0a91c90a9de",
-        "README_SHA256": "6df1d6b6741d32ebf0806c6e0ac2a2808efe74651b6387baaa1d26bf3f5cbba6",
+        "model_card_commit": "3b2103130af728d37376c210c1e668d0e00922da",
+        "README_SHA256": "e06ef560dc44967c459cf9c09cf038d425c4f818c1c16beba35455db7f5b0bf5",
         "teaching_commit": "0664e61bcf41f46d88a5d3fe5f6e07af125853e0",
         "original_weight_tag_unchanged": true,
         "anonymous_read_verified": true
