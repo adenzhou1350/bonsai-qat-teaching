@@ -1,0 +1,1164 @@
+{
+  "format": "qwen38-mixed-continuation-midpoint-v1",
+  "recorded_at_UTC": "2026-10-20T00:20:15Z",
+  "previous_public_validation_record": "2026-10-20-Q38-first-mixed-validation.json",
+  "quality_accepted": false,
+  "continuation_completed": false,
+  "planned_additional_updates": 64,
+  "midpoint_of_additional_updates_reached": true,
+  "actual_new_updates_at_snapshot": 33,
+  "live_cumulative_updates_at_snapshot": 65,
+  "last_complete_saved_checkpoint_cumulative_updates": 32,
+  "new_checkpoint_written": false,
+  "new_packed_generation_available": false,
+  "latest_validation_after_new_updates": 32,
+  "latest_validation_cumulative_updates": 64,
+  "validation_trajectory": [
+    {
+      "after_new_updates": 0,
+      "cumulative_updates": 32,
+      "chat_mean_loss_KL_MSE": [
+        2.9230547547340393,
+        2.856496661901474,
+        0.6655806303024292
+      ],
+      "WikiText_mean_loss_KL_MSE": [
+        1.0530373007059097,
+        1.0054723247885704,
+        0.47564973309636116
+      ],
+      "all16_mean_loss_KL_MSE": [
+        1.9880460277199745,
+        1.9309844933450222,
+        0.5706151816993952
+      ]
+    },
+    {
+      "after_new_updates": 8,
+      "cumulative_updates": 40,
+      "chat_mean_loss_KL_MSE": [
+        2.5961687117815018,
+        2.5240398794412613,
+        0.7212885096669197
+      ],
+      "WikiText_mean_loss_KL_MSE": [
+        1.1195974722504616,
+        1.071017049252987,
+        0.4858044497668743
+      ],
+      "all16_mean_loss_KL_MSE": [
+        1.8578830920159817,
+        1.797528464347124,
+        0.603546479716897
+      ]
+    },
+    {
+      "after_new_updates": 16,
+      "cumulative_updates": 48,
+      "chat_mean_loss_KL_MSE": [
+        0.7289850041270256,
+        0.6654008440673351,
+        0.6358415186405182
+      ],
+      "WikiText_mean_loss_KL_MSE": [
+        1.072829745709896,
+        1.0259702429175377,
+        0.46859510615468025
+      ],
+      "all16_mean_loss_KL_MSE": [
+        0.9009073749184608,
+        0.8456855434924364,
+        0.5522183123975992
+      ]
+    },
+    {
+      "after_new_updates": 24,
+      "cumulative_updates": 56,
+      "chat_mean_loss_KL_MSE": [
+        0.6305212825536728,
+        0.5707952417433262,
+        0.5972604230046272
+      ],
+      "WikiText_mean_loss_KL_MSE": [
+        1.06062800437212,
+        1.014276996254921,
+        0.4635099396109581
+      ],
+      "all16_mean_loss_KL_MSE": [
+        0.8455746434628963,
+        0.7925361189991236,
+        0.5303851813077927
+      ]
+    },
+    {
+      "after_new_updates": 32,
+      "cumulative_updates": 64,
+      "chat_mean_loss_KL_MSE": [
+        0.7930580377578735,
+        0.7324449084699154,
+        0.6061312258243561
+      ],
+      "WikiText_mean_loss_KL_MSE": [
+        1.12076186388731,
+        1.0739053338766098,
+        0.46856526657938957
+      ],
+      "all16_mean_loss_KL_MSE": [
+        0.9569099508225918,
+        0.9031751211732626,
+        0.5373482462018728
+      ]
+    }
+  ],
+  "complete_validation_rows": [
+    {
+      "after_new_updates": 0,
+      "cumulative_updates": 32,
+      "mean_loss_KL_MSE": [
+        1.9880460277199745,
+        1.9309844933450222,
+        0.5706151816993952
+      ],
+      "by_source_mean_loss_KL_MSE": {
+        "project_authored_chat": [
+          2.9230547547340393,
+          2.856496661901474,
+          0.6655806303024292
+        ],
+        "pinned_wikitext": [
+          1.0530373007059097,
+          1.0054723247885704,
+          0.47564973309636116
+        ]
+      },
+      "rows_loss_KL_MSE": [
+        [
+          2.5959248542785645,
+          2.537667989730835,
+          0.5825690627098083
+        ],
+        [
+          1.1372467279434204,
+          1.0845577716827393,
+          0.5268896818161011
+        ],
+        [
+          4.423336982727051,
+          4.355458736419678,
+          0.6787810325622559
+        ],
+        [
+          0.9231892228126526,
+          0.8795362710952759,
+          0.4365295469760895
+        ],
+        [
+          2.749497175216675,
+          2.681262969970703,
+          0.6823412179946899
+        ],
+        [
+          1.9391857385635376,
+          1.8763747215270996,
+          0.6281101107597351
+        ],
+        [
+          2.8328123092651367,
+          2.7672078609466553,
+          0.6560434103012085
+        ],
+        [
+          0.8890381455421448,
+          0.8421478867530823,
+          0.4689024090766907
+        ],
+        [
+          2.1050729751586914,
+          2.0474445819854736,
+          0.5762828588485718
+        ],
+        [
+          0.9498893022537231,
+          0.8992271423339844,
+          0.5066216588020325
+        ],
+        [
+          2.181874990463257,
+          2.1097617149353027,
+          0.721133828163147
+        ],
+        [
+          1.0391026735305786,
+          0.9949949383735657,
+          0.44107720255851746
+        ],
+        [
+          2.7352805137634277,
+          2.6652956008911133,
+          0.699849545955658
+        ],
+        [
+          0.7191105484962463,
+          0.6810895204544067,
+          0.3802103102207184
+        ],
+        [
+          3.7606382369995117,
+          3.6878738403320312,
+          0.7276440858840942
+        ],
+        [
+          0.8275360465049744,
+          0.7858503460884094,
+          0.41685694456100464
+        ]
+      ]
+    },
+    {
+      "after_new_updates": 8,
+      "cumulative_updates": 40,
+      "mean_loss_KL_MSE": [
+        1.8578830920159817,
+        1.797528464347124,
+        0.603546479716897
+      ],
+      "by_source_mean_loss_KL_MSE": {
+        "project_authored_chat": [
+          2.5961687117815018,
+          2.5240398794412613,
+          0.7212885096669197
+        ],
+        "pinned_wikitext": [
+          1.1195974722504616,
+          1.071017049252987,
+          0.4858044497668743
+        ]
+      },
+      "rows_loss_KL_MSE": [
+        [
+          1.2244467735290527,
+          1.1615142822265625,
+          0.6293244957923889
+        ],
+        [
+          1.2778884172439575,
+          1.2241053581237793,
+          0.5378305315971375
+        ],
+        [
+          5.967175006866455,
+          5.894015312194824,
+          0.7315968871116638
+        ],
+        [
+          0.9336788654327393,
+          0.8911177515983582,
+          0.42561137676239014
+        ],
+        [
+          1.8150674104690552,
+          1.7428853511810303,
+          0.7218204736709595
+        ],
+        [
+          2.0049476623535156,
+          1.941173791885376,
+          0.6377393007278442
+        ],
+        [
+          2.9198474884033203,
+          2.843308687210083,
+          0.7653890252113342
+        ],
+        [
+          0.9596477746963501,
+          0.9117298722267151,
+          0.4791789650917053
+        ],
+        [
+          1.3469852209091187,
+          1.2791376113891602,
+          0.6784762144088745
+        ],
+        [
+          0.9440919160842896,
+          0.8932368159294128,
+          0.5085512399673462
+        ],
+        [
+          1.9094479084014893,
+          1.8324519395828247,
+          0.7699602842330933
+        ],
+        [
+          1.1153247356414795,
+          1.0709857940673828,
+          0.44338980317115784
+        ],
+        [
+          1.570104956626892,
+          1.4958250522613525,
+          0.7427994012832642
+        ],
+        [
+          0.8317524790763855,
+          0.7918380498886108,
+          0.3991445004940033
+        ],
+        [
+          4.016274929046631,
+          3.943180799484253,
+          0.7309412956237793
+        ],
+        [
+          0.8894479274749756,
+          0.8439489603042603,
+          0.45498988032341003
+        ]
+      ]
+    },
+    {
+      "after_new_updates": 16,
+      "cumulative_updates": 48,
+      "mean_loss_KL_MSE": [
+        0.9009073749184608,
+        0.8456855434924364,
+        0.5522183123975992
+      ],
+      "by_source_mean_loss_KL_MSE": {
+        "project_authored_chat": [
+          0.7289850041270256,
+          0.6654008440673351,
+          0.6358415186405182
+        ],
+        "pinned_wikitext": [
+          1.072829745709896,
+          1.0259702429175377,
+          0.46859510615468025
+        ]
+      },
+      "rows_loss_KL_MSE": [
+        [
+          0.9828678369522095,
+          0.9245376586914062,
+          0.5833017230033875
+        ],
+        [
+          1.1258350610733032,
+          1.075015902519226,
+          0.5081918835639954
+        ],
+        [
+          0.5503771901130676,
+          0.48378604650497437,
+          0.6659115552902222
+        ],
+        [
+          0.9126871824264526,
+          0.8718494176864624,
+          0.40837785601615906
+        ],
+        [
+          0.4165251851081848,
+          0.3517560362815857,
+          0.6476913690567017
+        ],
+        [
+          1.9292744398117065,
+          1.8674397468566895,
+          0.6183469295501709
+        ],
+        [
+          0.8846778273582458,
+          0.8172058463096619,
+          0.6747199892997742
+        ],
+        [
+          0.9399449825286865,
+          0.8931666612625122,
+          0.4677830636501312
+        ],
+        [
+          0.8900514841079712,
+          0.8301945328712463,
+          0.5985695719718933
+        ],
+        [
+          0.9435127377510071,
+          0.894504964351654,
+          0.49007758498191833
+        ],
+        [
+          0.5433268547058105,
+          0.4781394898891449,
+          0.6518733501434326
+        ],
+        [
+          1.0572136640548706,
+          1.013868808746338,
+          0.4334489703178406
+        ],
+        [
+          0.6442477703094482,
+          0.5805195569992065,
+          0.6372818350791931
+        ],
+        [
+          0.8205498456954956,
+          0.7808547019958496,
+          0.39695119857788086
+        ],
+        [
+          0.9198058843612671,
+          0.8570675849914551,
+          0.627382755279541
+        ],
+        [
+          0.8536200523376465,
+          0.8110617399215698,
+          0.4255833625793457
+        ]
+      ]
+    },
+    {
+      "after_new_updates": 24,
+      "cumulative_updates": 56,
+      "mean_loss_KL_MSE": [
+        0.8455746434628963,
+        0.7925361189991236,
+        0.5303851813077927
+      ],
+      "by_source_mean_loss_KL_MSE": {
+        "project_authored_chat": [
+          0.6305212825536728,
+          0.5707952417433262,
+          0.5972604230046272
+        ],
+        "pinned_wikitext": [
+          1.06062800437212,
+          1.014276996254921,
+          0.4635099396109581
+        ]
+      },
+      "rows_loss_KL_MSE": [
+        [
+          0.5645318627357483,
+          0.5085670351982117,
+          0.5596485137939453
+        ],
+        [
+          1.1362148523330688,
+          1.0859713554382324,
+          0.5024347901344299
+        ],
+        [
+          0.44410571455955505,
+          0.3858446180820465,
+          0.5826109051704407
+        ],
+        [
+          0.8687954545021057,
+          0.8292449712753296,
+          0.39550501108169556
+        ],
+        [
+          0.3968065679073334,
+          0.3336365222930908,
+          0.631700336933136
+        ],
+        [
+          1.872186541557312,
+          1.8110564947128296,
+          0.6113002300262451
+        ],
+        [
+          0.8955820798873901,
+          0.8329625129699707,
+          0.6261959075927734
+        ],
+        [
+          0.9031452536582947,
+          0.8573498129844666,
+          0.45795413851737976
+        ],
+        [
+          0.6288890838623047,
+          0.5727187991142273,
+          0.5617027878761292
+        ],
+        [
+          0.9204084873199463,
+          0.8716471195220947,
+          0.4876134991645813
+        ],
+        [
+          0.5478088855743408,
+          0.48651057481765747,
+          0.6129830479621887
+        ],
+        [
+          1.0794174671173096,
+          1.0363208055496216,
+          0.4309661388397217
+        ],
+        [
+          0.8092573881149292,
+          0.7457618117332458,
+          0.6349555850028992
+        ],
+        [
+          0.8161325454711914,
+          0.7768865823745728,
+          0.39245980978012085
+        ],
+        [
+          0.7571886777877808,
+          0.7003600597381592,
+          0.5682862997055054
+        ],
+        [
+          0.8887234330177307,
+          0.8457388281822205,
+          0.4298458993434906
+        ]
+      ]
+    },
+    {
+      "after_new_updates": 32,
+      "cumulative_updates": 64,
+      "mean_loss_KL_MSE": [
+        0.9569099508225918,
+        0.9031751211732626,
+        0.5373482462018728
+      ],
+      "by_source_mean_loss_KL_MSE": {
+        "project_authored_chat": [
+          0.7930580377578735,
+          0.7324449084699154,
+          0.6061312258243561
+        ],
+        "pinned_wikitext": [
+          1.12076186388731,
+          1.0739053338766098,
+          0.46856526657938957
+        ]
+      },
+      "rows_loss_KL_MSE": [
+        [
+          0.7960101962089539,
+          0.7397298216819763,
+          0.5628035068511963
+        ],
+        [
+          1.1531107425689697,
+          1.1035521030426025,
+          0.4955858588218689
+        ],
+        [
+          0.748298704624176,
+          0.6884676218032837,
+          0.5983108282089233
+        ],
+        [
+          0.9849923849105835,
+          0.9444993734359741,
+          0.40492990612983704
+        ],
+        [
+          0.4885469675064087,
+          0.4263075292110443,
+          0.6223944425582886
+        ],
+        [
+          1.9806227684020996,
+          1.9183299541473389,
+          0.6229286789894104
+        ],
+        [
+          1.0682846307754517,
+          1.0020869970321655,
+          0.6619759202003479
+        ],
+        [
+          0.9502303004264832,
+          0.9033104181289673,
+          0.46919897198677063
+        ],
+        [
+          0.6442580223083496,
+          0.5894467830657959,
+          0.5481125116348267
+        ],
+        [
+          1.0452353954315186,
+          0.9955100417137146,
+          0.49725374579429626
+        ],
+        [
+          0.7964024543762207,
+          0.732284665107727,
+          0.6411781907081604
+        ],
+        [
+          1.1122020483016968,
+          1.0687649250030518,
+          0.43437084555625916
+        ],
+        [
+          0.8152701258659363,
+          0.752589762210846,
+          0.6268033981323242
+        ],
+        [
+          0.8606550097465515,
+          0.8211344480514526,
+          0.3952057659626007
+        ],
+        [
+          0.9873932003974915,
+          0.9286460876464844,
+          0.5874710083007812
+        ],
+        [
+          0.8790462613105774,
+          0.8361414074897766,
+          0.4290483593940735
+        ]
+      ]
+    }
+  ],
+  "latest_changes": {
+    "project_authored_chat": {
+      "relative_percent_change_vs_initial_loss_KL_MSE": [
+        -72.8688613693098,
+        -74.35862893736585,
+        -8.931961323913562
+      ],
+      "relative_percent_change_vs_new24_loss_KL_MSE": [
+        25.778155266371193,
+        28.320079584559576,
+        1.4852487253554703
+      ]
+    },
+    "pinned_wikitext": {
+      "relative_percent_change_vs_initial_loss_KL_MSE": [
+        6.431354628748731,
+        6.806055960061297,
+        -1.4894293056475605
+      ],
+      "relative_percent_change_vs_new24_loss_KL_MSE": [
+        5.669646593085065,
+        5.878900718626001,
+        1.0906620411796464
+      ]
+    }
+  },
+  "lowest_observed_combined_validation_objective_after_new_updates_so_far": 24,
+  "checkpoint_saved_at_that_observed_point": false,
+  "predeclared_source_KL_guard_triggered": false,
+  "state_at_snapshot": "training_new_update_34",
+  "all_completed_updates_have402_finite_CPU_gradient_matrices": true,
+  "new_update_events": [
+    {
+      "new_step": 1,
+      "cumulative_step": 33,
+      "TRAIN_row": 0,
+      "source": "project_authored_chat",
+      "tokens": 56,
+      "lr": 1e-05,
+      "loss": 2.5022389888763428,
+      "KL": 2.440305471420288,
+      "state_MSE": 0.6193346977233887,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 70.7104263305664,
+      "seconds": 232.97054598503746
+    },
+    {
+      "new_step": 2,
+      "cumulative_step": 34,
+      "TRAIN_row": 1,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 1.0283077955245972,
+      "KL": 0.9786481857299805,
+      "state_MSE": 0.4965963661670685,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 20.253747940063477,
+      "seconds": 226.8791990338359
+    },
+    {
+      "new_step": 3,
+      "cumulative_step": 35,
+      "TRAIN_row": 2,
+      "source": "project_authored_chat",
+      "tokens": 38,
+      "lr": 1e-05,
+      "loss": 2.1824724674224854,
+      "KL": 2.110652446746826,
+      "state_MSE": 0.7181993126869202,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 140.81011962890625,
+      "seconds": 196.20105111110024
+    },
+    {
+      "new_step": 4,
+      "cumulative_step": 36,
+      "TRAIN_row": 3,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.9820497632026672,
+      "KL": 0.9339762926101685,
+      "state_MSE": 0.48073458671569824,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 25.128477096557617,
+      "seconds": 216.31543000694364
+    },
+    {
+      "new_step": 5,
+      "cumulative_step": 37,
+      "TRAIN_row": 4,
+      "source": "project_authored_chat",
+      "tokens": 52,
+      "lr": 1e-05,
+      "loss": 1.3002902269363403,
+      "KL": 1.2339431047439575,
+      "state_MSE": 0.6634716391563416,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 56.97203063964844,
+      "seconds": 213.20286238915287
+    },
+    {
+      "new_step": 6,
+      "cumulative_step": 38,
+      "TRAIN_row": 5,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 1.082355260848999,
+      "KL": 1.0398600101470947,
+      "state_MSE": 0.42495235800743103,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 16.992116928100586,
+      "seconds": 196.3780302379746
+    },
+    {
+      "new_step": 7,
+      "cumulative_step": 39,
+      "TRAIN_row": 6,
+      "source": "project_authored_chat",
+      "tokens": 62,
+      "lr": 1e-05,
+      "loss": 1.769345760345459,
+      "KL": 1.705636739730835,
+      "state_MSE": 0.6370896100997925,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 151.4113311767578,
+      "seconds": 209.0616523209028
+    },
+    {
+      "new_step": 8,
+      "cumulative_step": 40,
+      "TRAIN_row": 7,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 1.3214951753616333,
+      "KL": 1.2713037729263306,
+      "state_MSE": 0.5019136667251587,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 48.020626068115234,
+      "seconds": 198.49889602093026
+    },
+    {
+      "new_step": 9,
+      "cumulative_step": 41,
+      "TRAIN_row": 8,
+      "source": "project_authored_chat",
+      "tokens": 36,
+      "lr": 1e-05,
+      "loss": 3.369579315185547,
+      "KL": 3.29156494140625,
+      "state_MSE": 0.7801427841186523,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 87.38021850585938,
+      "seconds": 198.8028018870391
+    },
+    {
+      "new_step": 10,
+      "cumulative_step": 42,
+      "TRAIN_row": 9,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.8659762740135193,
+      "KL": 0.817398190498352,
+      "state_MSE": 0.48578089475631714,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 13.520990371704102,
+      "seconds": 205.71252849604934
+    },
+    {
+      "new_step": 11,
+      "cumulative_step": 43,
+      "TRAIN_row": 10,
+      "source": "project_authored_chat",
+      "tokens": 46,
+      "lr": 1e-05,
+      "loss": 1.9022969007492065,
+      "KL": 1.8339160680770874,
+      "state_MSE": 0.683808445930481,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 70.83662414550781,
+      "seconds": 218.43232973711565
+    },
+    {
+      "new_step": 12,
+      "cumulative_step": 44,
+      "TRAIN_row": 11,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.7286983728408813,
+      "KL": 0.6884994506835938,
+      "state_MSE": 0.4019891023635864,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 20.67593002319336,
+      "seconds": 192.02846184116788
+    },
+    {
+      "new_step": 13,
+      "cumulative_step": 45,
+      "TRAIN_row": 12,
+      "source": "project_authored_chat",
+      "tokens": 56,
+      "lr": 1e-05,
+      "loss": 3.6115357875823975,
+      "KL": 3.5360240936279297,
+      "state_MSE": 0.7551165223121643,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 70.71605682373047,
+      "seconds": 206.8280275699217
+    },
+    {
+      "new_step": 14,
+      "cumulative_step": 46,
+      "TRAIN_row": 13,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.5263836979866028,
+      "KL": 0.47635483741760254,
+      "state_MSE": 0.5002888441085815,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 12.997758865356445,
+      "seconds": 196.09048038814217
+    },
+    {
+      "new_step": 15,
+      "cumulative_step": 47,
+      "TRAIN_row": 14,
+      "source": "project_authored_chat",
+      "tokens": 51,
+      "lr": 1e-05,
+      "loss": 0.9943640232086182,
+      "KL": 0.9244028329849243,
+      "state_MSE": 0.6996119618415833,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 20.731943130493164,
+      "seconds": 187.24305028794333
+    },
+    {
+      "new_step": 16,
+      "cumulative_step": 48,
+      "TRAIN_row": 15,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.6294446587562561,
+      "KL": 0.5923658609390259,
+      "state_MSE": 0.3707880973815918,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 11.028281211853027,
+      "seconds": 209.32402677903883
+    },
+    {
+      "new_step": 17,
+      "cumulative_step": 49,
+      "TRAIN_row": 16,
+      "source": "project_authored_chat",
+      "tokens": 50,
+      "lr": 1e-05,
+      "loss": 0.9380577206611633,
+      "KL": 0.8789698481559753,
+      "state_MSE": 0.5908789038658142,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 31.115591049194336,
+      "seconds": 204.7800488800276
+    },
+    {
+      "new_step": 18,
+      "cumulative_step": 50,
+      "TRAIN_row": 17,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.937432587146759,
+      "KL": 0.8865593671798706,
+      "state_MSE": 0.5087323188781738,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 65.09903717041016,
+      "seconds": 223.66276885010302
+    },
+    {
+      "new_step": 19,
+      "cumulative_step": 51,
+      "TRAIN_row": 18,
+      "source": "project_authored_chat",
+      "tokens": 28,
+      "lr": 1e-05,
+      "loss": 0.8406614661216736,
+      "KL": 0.7659580111503601,
+      "state_MSE": 0.7470343112945557,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 21.764413833618164,
+      "seconds": 217.7777000120841
+    },
+    {
+      "new_step": 20,
+      "cumulative_step": 52,
+      "TRAIN_row": 19,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.8958183526992798,
+      "KL": 0.8435693979263306,
+      "state_MSE": 0.5224895477294922,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 19.957542419433594,
+      "seconds": 204.9759370458778
+    },
+    {
+      "new_step": 21,
+      "cumulative_step": 53,
+      "TRAIN_row": 20,
+      "source": "project_authored_chat",
+      "tokens": 50,
+      "lr": 1e-05,
+      "loss": 1.1546341180801392,
+      "KL": 1.0977994203567505,
+      "state_MSE": 0.5683473348617554,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 21.89084243774414,
+      "seconds": 213.25218945299275
+    },
+    {
+      "new_step": 22,
+      "cumulative_step": 54,
+      "TRAIN_row": 21,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.6753191947937012,
+      "KL": 0.6362593173980713,
+      "state_MSE": 0.39059901237487793,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 8.988748550415039,
+      "seconds": 205.0432952339761
+    },
+    {
+      "new_step": 23,
+      "cumulative_step": 55,
+      "TRAIN_row": 22,
+      "source": "project_authored_chat",
+      "tokens": 49,
+      "lr": 1e-05,
+      "loss": 0.2704079747200012,
+      "KL": 0.20788657665252686,
+      "state_MSE": 0.6252140402793884,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 13.060097694396973,
+      "seconds": 205.93368019908667
+    },
+    {
+      "new_step": 24,
+      "cumulative_step": 56,
+      "TRAIN_row": 23,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.6428244709968567,
+      "KL": 0.5981396436691284,
+      "state_MSE": 0.44684818387031555,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 8.898669242858887,
+      "seconds": 197.17466825293377
+    },
+    {
+      "new_step": 25,
+      "cumulative_step": 57,
+      "TRAIN_row": 24,
+      "source": "project_authored_chat",
+      "tokens": 54,
+      "lr": 1e-05,
+      "loss": 0.7239975929260254,
+      "KL": 0.6647711396217346,
+      "state_MSE": 0.5922647714614868,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 19.16678810119629,
+      "seconds": 192.94048856990412
+    },
+    {
+      "new_step": 26,
+      "cumulative_step": 58,
+      "TRAIN_row": 25,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.8908079862594604,
+      "KL": 0.851041316986084,
+      "state_MSE": 0.39766672253608704,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 12.527983665466309,
+      "seconds": 211.0244399199728
+    },
+    {
+      "new_step": 27,
+      "cumulative_step": 59,
+      "TRAIN_row": 26,
+      "source": "project_authored_chat",
+      "tokens": 47,
+      "lr": 1e-05,
+      "loss": 0.7624924182891846,
+      "KL": 0.7033734917640686,
+      "state_MSE": 0.5911890864372253,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 31.276121139526367,
+      "seconds": 208.47779130400158
+    },
+    {
+      "new_step": 28,
+      "cumulative_step": 60,
+      "TRAIN_row": 27,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.7649540901184082,
+      "KL": 0.7204068899154663,
+      "state_MSE": 0.4454718232154846,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 9.071135520935059,
+      "seconds": 190.2301459980663
+    },
+    {
+      "new_step": 29,
+      "cumulative_step": 61,
+      "TRAIN_row": 28,
+      "source": "project_authored_chat",
+      "tokens": 64,
+      "lr": 1e-05,
+      "loss": 0.35053110122680664,
+      "KL": 0.2937999963760376,
+      "state_MSE": 0.5673109292984009,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 12.3621826171875,
+      "seconds": 187.17620085808448
+    },
+    {
+      "new_step": 30,
+      "cumulative_step": 62,
+      "TRAIN_row": 29,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.7309092879295349,
+      "KL": 0.6890377998352051,
+      "state_MSE": 0.41871488094329834,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 12.265724182128906,
+      "seconds": 189.36443944112398
+    },
+    {
+      "new_step": 31,
+      "cumulative_step": 63,
+      "TRAIN_row": 30,
+      "source": "project_authored_chat",
+      "tokens": 43,
+      "lr": 1e-05,
+      "loss": 0.8287172317504883,
+      "KL": 0.7682890892028809,
+      "state_MSE": 0.6042813658714294,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 20.90055274963379,
+      "seconds": 178.73663650196977
+    },
+    {
+      "new_step": 32,
+      "cumulative_step": 64,
+      "TRAIN_row": 31,
+      "source": "pinned_wikitext",
+      "tokens": 128,
+      "lr": 1e-05,
+      "loss": 0.6756365895271301,
+      "KL": 0.6296114921569824,
+      "state_MSE": 0.46025118231773376,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 16.834543228149414,
+      "seconds": 215.09336334909312
+    },
+    {
+      "new_step": 33,
+      "cumulative_step": 65,
+      "TRAIN_row": 32,
+      "source": "project_authored_chat",
+      "tokens": 68,
+      "lr": 1e-05,
+      "loss": 0.8796891570091248,
+      "KL": 0.8291198015213013,
+      "state_MSE": 0.5056936144828796,
+      "finite_CPU_gradient_matrices": 402,
+      "global_gradient_norm_not_used_for_clipping": 20.75400733947754,
+      "seconds": 192.1535026608035
+    }
+  ],
+  "new_training_tokens_consumed_at_snapshot": 2898,
+  "training_order": {
+    "shuffled": false,
+    "new_updates_1_to_32": "16 Chinese-prompt authored contexts interleaved with16 WikiText train rows",
+    "new_updates_33_to_64": "16 predominantly English-prompt authored contexts interleaved with the remaining16 WikiText train rows",
+    "validation_language_or_source_order_used_for_training": false
+  },
+  "public_new_source_SHA256": {
+    "prepare_mixed_contexts.py": "91fb4dae296f6003ee090fc04ddeb54a48e3ea5862e54a121960a54d818bbcfb",
+    "prepare_mixed_teacher.py": "9d5428d2064b83505b5b15b7f07f4ad863de8ed2b1738f29e55f1cc921b002ed",
+    "mixed-contexts.json": "75f24e139a7b540dbc6fb2b2f09cf3f53208366dd72dde61d1c16194721b36d7",
+    "continue_mixed.py": "feb556d335f5925611a9d30cb174522dbf4ee6a0e194289de238d7462bd398d5",
+    "test_mixed_objective.py": "d002c9bd8384cd71b7b90d42f4c2be37345a9b4a54962cf8766de47fd34ae267"
+  },
+  "continuation_source_policy_SHA256": "4f3c5e6acceff6621cc557c110f26c3676817fd5b9cb65ef96a6e072672d2c51",
+  "all_frozen_sources_unchanged": true,
+  "data_SHA256": "3ba6dfda4e426b5fdf674ecc94f9dbdd0bb787f716c53073139f8358dc6c61fe",
+  "teacher_cache_SHA256": "c7b810d02bde6565e642d85e583dc4f077b3bec7ba27cb95bf12c4f910d02324",
+  "source_checkpoint_manifest_SHA256": "ddc4bcd84f2f245d6963ae3b099049bbbab4076f2727401e68232c46cb90becd",
+  "single_resource_sample_not_peak": {
+    "used_MiB": 28135,
+    "free_MiB": 3977,
+    "utilization": 53,
+    "CPU_anon_and_shmem_bytes": 124675874816,
+    "cgroup_limit_bytes": 242665652224,
+    "disk_free_bytes": 563837190144,
+    "seconds": 10024.45100983791
+  },
+  "post_training_answer_position_diagnostic_queued_without_GPU": true,
+  "post_training_answer_position_diagnostic_GPU_verified": false,
+  "interpretation": [
+    "Both source meanKL values rebound from new24 to new32. The chat mean remains far below its initial value; WikiText is above its initial value. Do not present the trajectory as monotonic improvement.",
+    "The fixed guard compares each source against1.5x its initial value, not the lowest value observed during training. It has not fired; the unchanged frozen experiment continues.",
+    "New32/cumulative64 is the latest completed validation point, while live progress at the snapshot is new33/cumulative65. The latest complete saved checkpoint is still32.",
+    "Only the final checkpoint is written by this entry. The lowest observed intermediate objective at new24 is not a saved checkpoint and cannot be selected as a recoverable model.",
+    "This epoch uses a fixed language/source order. The English-prompt authored half begins at new33; the midpoint alone does not isolate language, data or optimizer effects.",
+    "The mean includes user/template positions as well as assistant continuations. Assistant-content/end conditionalKL and actual free generation remain to be measured after the full pipeline.",
+    "These16 development rows and their per-source averages are not independent capability tests, retention percentages or usable-quality acceptance."
+  ]
+}

@@ -273,14 +273,15 @@
     "CPU_variable_length_objective_and_checkpoint_controls_passed": true,
     "full27B_mixed_continuation_verified": false,
     "quality_accepted": false,
-    "latest_progress_record": "../../docs/experiments/2026-10-20-Q38-first-mixed-validation.json",
+    "latest_progress_record": "../../docs/experiments/2026-10-20-Q38-mixed-continuation-midpoint.json",
     "full27B_resumed_optimizer_update_executed": true,
-    "actual_new_updates_at_snapshot": 10,
-    "live_cumulative_updates_at_snapshot": 42,
+    "actual_new_updates_at_snapshot": 33,
+    "live_cumulative_updates_at_snapshot": 65,
     "last_saved_cumulative_updates_at_snapshot": 32,
     "original_checkpoint_forward_equal_prior_independent_proof": true,
     "teacher_all80_targets_cached_and_bitwise_reread": true,
     "first_post_update_validation_verified": true,
-    "latest_validation_new_updates": 8
+    "latest_validation_new_updates": 32,
+    "additional_update_midpoint_reached": true
   }
 }
