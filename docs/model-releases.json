@@ -14,9 +14,9 @@
       "verified_uploaded_bytes": 5873576117,
       "anonymous_read_verified": true,
       "model_card_update": {
-        "model_card_commit": "3b2103130af728d37376c210c1e668d0e00922da",
-        "README_SHA256": "e06ef560dc44967c459cf9c09cf038d425c4f818c1c16beba35455db7f5b0bf5",
-        "teaching_commit": "0664e61bcf41f46d88a5d3fe5f6e07af125853e0",
+        "model_card_commit": "e65c2faaa59bcbb241deab6e18360b7723f0b0ba",
+        "README_SHA256": "3bae274da4f8d6b04b58714adfa124db1454a38013b1d796c182260c8d37abc3",
+        "teaching_commit": "ed7267283fe5a0e70a5c997d534bc2113f31ec7a",
         "original_weight_tag_unchanged": true,
         "anonymous_read_verified": true
       }
@@ -85,5 +85,5 @@
     "R35-8192 is INT2/rank16 compensation, not T35full-expertQAT. Q38 released32steps are distinct from the unpublished96step candidate.",
     "New R35 portable CLI and Q38 arbitrary-prompt CLI are not yet GPU rerun verified; historical runtime results and CPU checks are separate."
   ],
-  "recorded_at_UTC": "2026-10-20T11:47:50.677580+00:00"
+  "recorded_at_UTC": "2026-10-20T13:51:56.145931+00:00"
 }
