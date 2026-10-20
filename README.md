@@ -10,7 +10,7 @@
 
 | 模型 | 方法 | 下载体积 | 当前状态 |
 |---|---|---:|---|
-| [35B · 8192步](experimental35/README.md) | INT2 专家 + rank16 补偿 | 15.86 GB | 发布中；提供终端聊天入口，便携入口 GPU 复验待完成 |
+| [35B · 8192步](experimental35/README.md) | INT2 专家 + rank16 补偿 | 15.86 GB | 已公开；提供终端聊天入口，便携入口 GPU 复验待完成 |
 | [122B · 4096步](experimental122/README.md) | 三值专家 + 4bit 稠密层 + rank8 补偿 | 30.20 GB | 发布中；使用专用单请求入口 |
 | [27B · 32步](courses/qwen38_bonsai2/README.md) | 旋转三值 QAT | 5.85 GB | [权重已公开](https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental)；教学验证用，当前不适合聊天 |
 

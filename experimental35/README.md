@@ -4,7 +4,7 @@
 
 **完整安装、下载、单次提问、常驻聊天、4K/16K配置和排障见[部署指南](../docs/DEPLOYMENT.md)。** 源码与产物核验见[来源清单](provenance.json)。新入口完整GPU复验尚待空闲卡；历史权重的独立重载与5090结果见[历史记录](../docs/experiments/2026-10-09-2156.json)。
 
-公开仓库目标为`aden1350/Qwen3.5-35B-A3B-INT2-Rank16-8192-Experimental`，固定标签`recovery-step8192`；目前发布中，完成匿名验证后更新状态。发布完成后从仓库根目录运行：
+权重已在 [Hugging Face](https://huggingface.co/aden1350/Qwen3.5-35B-A3B-INT2-Rank16-8192-Experimental) 公开，固定标签 `recovery-step8192` 已通过匿名核验。从仓库根目录运行：
 
 ```bash
 hf download aden1350/Qwen3.5-35B-A3B-INT2-Rank16-8192-Experimental \
