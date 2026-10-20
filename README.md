@@ -16,7 +16,7 @@
 
 **训练链路通过，质量恢复尚未完成。** 八条短提示中，两道算术、短翻译和仅输出OK正确；中文量化定义仍混淆检查点，首都回答未遵守只答城市名。它们是开发诊断，不是完整能力分数。全部模型张量约5.45GiB位于CUDA，但逐层展开权重的参考实现仍约0.69 tokens/s，运行峰值远大于常驻权重；尚无融合部署加速结论。[原始BF16同题对照](docs/experiments/2026-10-20-Q38-matched-BF16-eight-prompts.json)已确认这两项退化；原模型也会在长解释题触及32 token上限，不能把所有截断归因于量化。此前35B/122B实验保持归档。
 
-[混合上下文续训](docs/experiments/2026-10-20-Q38-mixed64-updates-exported-saving.json)已完成64次追加更新、累计96步，并导出约5.85GB压缩权重。新检查点正在保存，回读一致性与实际生成尚待验证；完整已保存检查点仍为32步。最终开发验证的对话组KL为0.7775（初值2.8565），WikiText为1.0804（初值1.0055），尚不能认定质量恢复。
+[混合上下文续训](docs/experiments/2026-10-20-Q38-mixed96-restored-generation-guard.json)已完成64次追加更新、累计96步；约81.34GB检查点保存与实际回读通过，约5.85GB压缩重载的固定前向也一致。独立生成在首题触发私有显存保护，完成0/8题并释放GPU，等待空闲卡补测；不能认定新版本质量恢复。最终开发验证对话组KL为0.7775（初值2.8565），WikiText为1.0804（初值1.0055）。
 
 原[32步结果与私有调度超时](docs/experiments/2026-10-20-Q38-mapped32-restore-timeout.json)、[换机记录](docs/experiments/2026-10-19-Q38-local-gradient-retry-start.json)及[0步启动快照](docs/experiments/2026-10-19-Q38-local-pilot-entered-training.json)保留各自当时状态。独立恢复使用已保存产物，没有重新训练或合并两台机器的步数。
 

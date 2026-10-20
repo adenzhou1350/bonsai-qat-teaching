@@ -1,0 +1,176 @@
+{
+  "format": "qwen38-mixed96-checkpoint-restored-generation-guard-v1",
+  "recorded_at_UTC": "2026-10-20T04:36:31Z",
+  "previous_progress_record": "2026-10-20-Q38-mixed64-updates-exported-saving.json",
+  "actual_new_optimizer_updates": 64,
+  "cumulative_optimizer_updates": 96,
+  "last_complete_saved_checkpoint_cumulative_updates": 96,
+  "last_readback_verified_checkpoint_cumulative_updates": 96,
+  "new_checkpoint_written": true,
+  "new_checkpoint_file_bytes": 81336645366,
+  "new_checkpoint_manifest_SHA256": "28ac432bd3fc21ba4fac1697a81287b2a4f21d7b873663cc9a8021ab26092c2a",
+  "new_packed_file_bytes": 5850462420,
+  "new_packed_manifest_SHA256": "c53fa86911cd61f85321d1305fcab03c39a45c38fa5f2fc18d4cdb982988eed9",
+  "new_checkpoint_restored_forward_bitwise_equal": true,
+  "packed_last_position_logits_bitwise_equal": true,
+  "retained_tensor_hashes_unchanged": true,
+  "source_checkpoint_forward_matches_independent_proof": true,
+  "source_optimizer_all402_initial_step_counters": 32,
+  "all64_updates_have402_finite_gradient_matrices": true,
+  "bitwise_next_update_comparison_to_original_pre_save_live_process": false,
+  "training_export_checkpoint_readback_stage_passed": true,
+  "whole_pipeline_passed": false,
+  "quality_accepted": false,
+  "independent_generation": {
+    "completed": false,
+    "completed_cases": 0,
+    "state": "generating_quantization_zh",
+    "packed_manifest_SHA256": "c53fa86911cd61f85321d1305fcab03c39a45c38fa5f2fc18d4cdb982988eed9",
+    "all_model_tensors_on_CUDA": true,
+    "model_unique_CUDA_storage_bytes": 5849376000,
+    "fused_kernel": false,
+    "generated_text_or_decode_speed_available": false,
+    "stopped_by": "GPU reserve guard",
+    "private_guard_GPU_used_MiB_exclusive_ceiling": 30000,
+    "private_guard_GPU_free_MiB_exclusive_floor": 1000,
+    "trigger_sample_not_peak": {
+      "used_MiB": 30656,
+      "free_MiB": 1455,
+      "utilization": 73,
+      "CPU_anon_and_shmem_bytes": 2300985344,
+      "cgroup_limit_bytes": 242665652224,
+      "disk_free_bytes": 541912248320,
+      "seconds": 274.7095571749378
+    },
+    "GPU_lease_released": true,
+    "failure_at_UTC": "2026-10-20T04:04:12.447904+00:00"
+  },
+  "position_diagnostic": {
+    "GPU_executed": false,
+    "stopped_before_GPU_because_parent_failed": true,
+    "new_source_published": false
+  },
+  "final_development_validation": {
+    "after_new_updates": 64,
+    "cumulative_updates": 96,
+    "mean_loss_KL_MSE": [
+      0.983210850507021,
+      0.9289665166288614,
+      0.5424434263259172
+    ],
+    "by_source_mean_loss_KL_MSE": {
+      "project_authored_chat": [
+        0.8375671803951263,
+        0.7775357328355312,
+        0.6003145426511765
+      ],
+      "pinned_wikitext": [
+        1.1288545206189156,
+        1.0803973004221916,
+        0.48457231000065804
+      ]
+    },
+    "rows_loss_KL_MSE": [
+      [
+        0.8677414655685425,
+        0.813350260257721,
+        0.5439123511314392
+      ],
+      [
+        1.1029144525527954,
+        1.0533456802368164,
+        0.4956880211830139
+      ],
+      [
+        0.4137478172779083,
+        0.3570323586463928,
+        0.5671544671058655
+      ],
+      [
+        0.9552513957023621,
+        0.9122646450996399,
+        0.42986738681793213
+      ],
+      [
+        0.5349628925323486,
+        0.4728754758834839,
+        0.6208739876747131
+      ],
+      [
+        1.9710484743118286,
+        1.9058504104614258,
+        0.6519802212715149
+      ],
+      [
+        0.7499797344207764,
+        0.6871378421783447,
+        0.628419041633606
+      ],
+      [
+        0.8855446577072144,
+        0.8372758626937866,
+        0.4826882481575012
+      ],
+      [
+        0.489516943693161,
+        0.43348196148872375,
+        0.560349702835083
+      ],
+      [
+        0.9875549077987671,
+        0.9359548687934875,
+        0.516000509262085
+      ],
+      [
+        1.0330946445465088,
+        0.9667661190032959,
+        0.6632852554321289
+      ],
+      [
+        1.2546969652175903,
+        1.2093112468719482,
+        0.4538571238517761
+      ],
+      [
+        1.7501336336135864,
+        1.6848255395889282,
+        0.6530812382698059
+      ],
+      [
+        1.0095133781433105,
+        0.9676138758659363,
+        0.41899555921554565
+      ],
+      [
+        0.8613603115081787,
+        0.8048163056373596,
+        0.56544029712677
+      ],
+      [
+        0.864311933517456,
+        0.8215618133544922,
+        0.4275014102458954
+      ]
+    ]
+  },
+  "continuation_source_policy_SHA256": "4f3c5e6acceff6621cc557c110f26c3676817fd5b9cb65ef96a6e072672d2c51",
+  "all_frozen_sources_unchanged": true,
+  "public_new_source_SHA256": {
+    "prepare_mixed_contexts.py": "91fb4dae296f6003ee090fc04ddeb54a48e3ea5862e54a121960a54d818bbcfb",
+    "prepare_mixed_teacher.py": "9d5428d2064b83505b5b15b7f07f4ad863de8ed2b1738f29e55f1cc921b002ed",
+    "mixed-contexts.json": "75f24e139a7b540dbc6fb2b2f09cf3f53208366dd72dde61d1c16194721b36d7",
+    "continue_mixed.py": "feb556d335f5925611a9d30cb174522dbf4ee6a0e194289de238d7462bd398d5",
+    "test_mixed_objective.py": "d002c9bd8384cd71b7b90d42f4c2be37345a9b4a54962cf8766de47fd34ae267"
+  },
+  "interpretation": [
+    "96 cumulative updates are now saved and actually read back. The new restored model matches the trained model on the recorded fixed forward; its corresponding packed reload also matches.",
+    "These forward checks do not prove an uninterrupted original-process next optimizer update is bitwise identical, and do not establish answer quality.",
+    "The independent generation process loaded the new packed model but was terminated by the private GPU reserve guard during the first prompt, before any completed case. No candidate answer or decode speed is reported.",
+    "The trigger was30656MiB used, exceeding the private30000MiB ceiling;1455MiB free did not cross the1000MiB floor. This was a scheduler guard, not an observed CUDA out-of-memory exception.",
+    "A later read-only check found the owned wrapper and child absent, the cooperative lease released, and26214MiB still used on that GPU. NVML reported no visible compute process identities in this container. Attribution is unconfirmed; no foreign process was stopped.",
+    "All eight GPUs showed non-idle memory occupancy in three later samples. Generation retry requires a newly idle GPU and a fresh lease; it must reuse this saved packed artifact without repeating training.",
+    "The dependent answer-position diagnostic aborted before using a GPU. CPU mask tests do not establish GPU diagnostic success.",
+    "The earlier saving snapshot remains a truthful historical record. New checkpoint verification does not revise its timestamped pending flags.",
+    "The80-row mixed teaching data is development-informed, and the final validation is teacher-forced. Neither loss reduction nor publishing weights is quality acceptance."
+  ]
+}
