@@ -108,6 +108,8 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/diagnose_prompts.py \
 
 恢复器限于本课程固定模型、g128／1024旋转、Adafactor、lr与最多32步设置。它核验402个FP32主权重、优化器和随机状态，并比较恢复模型与对应packed模型的固定前向。它不会继续训练，也不适用于任意检查点。
 
+公开32步版的[加速推理](inference/README.md)已由便携benchmark完成四轮八题GPU对照，短提示解码约9.37 token/s，输出与参考一致；共享加载/生成代码已覆盖，单独交互CLI未直接GPU调用，质量仍未通过。
+
 可选原始BF16同题对照：
 
 ```bash
@@ -159,7 +161,7 @@ CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/continue_mixed.py \
 
 从准备结果与自己的运行清单取得各SHA256。续训保留Adafactor状态，以`1e-5`继续，不重新warmup；新更新数与累计步数分别记录。每8步分别检查对话和WikiText组，任一组KL超过各自初值1.5倍时停止更新。训练顺序固定，损失包含所有实际位置，没有答案掩码或硬标签。
 
-已完成的这轮新增64步、累计96步；81.34GB检查点实际回读和对应packed重载前向一致。随后独立生成首题触发显存保护，0/8题完成，新版本质量待验证。最终对话KL下降，WikiText KL高于初值；完整轨迹与失败见[历史记录](HISTORY.md#96步保存与恢复通过生成因显存保护中止)。
+已完成的这轮新增64步、累计96步；81.34GB检查点实际回读和对应packed重载前向一致。后续四轮各八题生成对照已完成，新推理路径短提示解码约9.74 token/s，质量仍未通过，候选权重尚未发布；见[生成与加速证据](../../docs/experiments/2026-10-20-Q38-inference-v1.json)。最终对话KL下降，WikiText KL高于初值；此前生成因显存保护中止等过程保留在[历史记录](HISTORY.md#96步保存与恢复通过生成因显存保护中止)。
 
 <a id="method"></a>
 

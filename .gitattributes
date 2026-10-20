@@ -16,3 +16,14 @@ experimental122/prepare_head_precision_probe.py text eol=lf
 experimental122/runtime/head_fp32_bound_candidate_v1871.py text eol=lf
 # Preserve the exact CRLF bytes of the measured R35 Graph source.
 experimental35/runtime/gsq_graph_decoder_v2.py -text whitespace=cr-at-eol
+# Q38 inference verifies the exact source and prompt bytes before loading.
+courses/qwen38_bonsai2/inference/** text eol=lf
+# Preserve this manifest's measured CRLF bytes used by the frozen source check.
+courses/qwen38_bonsai2/inference/tokenizer-files.json -text -eol whitespace=cr-at-eol
+courses/qwen38_bonsai2/control.py text eol=lf
+courses/qwen38_bonsai2/offload.py text eol=lf
+courses/qwen38_bonsai2/policy.py text eol=lf
+courses/qwen38_bonsai2/rotation.py text eol=lf
+courses/qwen38_bonsai2/ternary.py text eol=lf
+courses/qwen38_bonsai2/infer_prompt.py text eol=lf
+courses/qwen38_bonsai2/diagnostic-prompts.json text eol=lf

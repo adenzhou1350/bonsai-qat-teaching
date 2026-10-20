@@ -10,12 +10,12 @@
 
 | 版本 | 已完成 | 尚待完成 |
 |---|---|---|
-| [32步公开版](https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental/tree/qat-step32) | 压缩导出、完整检查点恢复、独立八提示生成 | 整体质量恢复；新自定义提问入口GPU复验 |
-| 96步候选版 | 追加64步，81.34GB检查点保存与实际恢复，约5.85GB压缩重载前向一致 | 首题触发显存保护，生成完成0/8；等待空闲卡补测，尚未发布 |
+| [32步公开版](https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental/tree/qat-step32) | 导出与恢复；便携benchmark四轮八题一致，加速解码约9.37 token/s | 整体质量恢复；单独交互CLI尚未直接GPU调用 |
+| 96步候选版 | 追加64步、完整恢复、压缩重载；四轮各八题生成与每步logits一致，加速解码约9.74 token/s | 整体质量恢复；候选权重尚未发布 |
 
-**两版都未通过整体质量验收。** 32步版仍有概念和指令遵循退化；96步的损失下降不能代替生成验证。当前参考推理约0.69 token/s，不适合日常聊天：每个token重复解包完整权重矩阵，尚无融合低比特内核；增加训练步数不会自动加速。
+**两版都未通过整体质量验收。** 32步仍有概念和指令遵循错误，96步也未修复中文量化定义。新路径在公开32步版短提示上从约0.69提升到9.37 token/s，峰值allocated从24.69降至8.12GiB；交互入口共用的加载与生成代码已由benchmark覆盖，性能优化仍在继续。见[原理、计时口径与命令](inference/README.md)。
 
-[32步恢复与生成记录](../../docs/experiments/2026-10-20-Q38-checkpoint-verified-eight-prompts.json) · [96步最新记录](../../docs/experiments/2026-10-20-Q38-mixed96-restored-generation-guard.json) · [历史实验与失败](HISTORY.md)
+[32步加速证据](../../docs/experiments/2026-10-20-Q38-step32-fast-portable.json) · [96步候选证据](../../docs/experiments/2026-10-20-Q38-inference-v1.json) · [历史实验与失败](HISTORY.md)
 
 ## 按这个顺序学习
 

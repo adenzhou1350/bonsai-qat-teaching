@@ -1,0 +1,17 @@
+{
+  "control.py": "3e62d0042e0725189243bfd2791a05a73e972c2565a795f30e16e82822a40249",
+  "offload.py": "e472b68378745de5e6b359d4a541d17e4f9ce146305c49eb1d4f1b07ace2b591",
+  "policy.py": "7e0a7c6b0d874806143cf4ca2471562ab3d8fa592326bd1918063d3a0f51aaf7",
+  "rotation.py": "cd561143cfbe441317b02fe1a2640a0dce06060eb39e3a7c09350343a9edaf95",
+  "ternary.py": "a5b64f4a9bb6eafae30d7e08b00b6f96d775c424d8b09024ade2482d69429048",
+  "infer_prompt.py": "dc1a050c01f5941c44478eb455e94c95c9bf80aea147451029bb18a150e434c3",
+  "diagnostic-prompts.json": "62a7f9bc8a2627013b6553d97628c9018df2f07e983a0648e6250dc421548ba3",
+  "inference/benchmark.py": "6da784b8c894ec1f294a5dc6878a65b113c026a74d5d64d53e0a28d29b146fc9",
+  "inference/common.py": "d5cc471ad14ae2268ccc4497d750e08d330d21da0bf4d9326ec16e7370c4c2a1",
+  "inference/infer.py": "c64009502d4c7e1cbfcbaf73a0d3b7b3068711041eb63dafb0042d39aa06a02d",
+  "inference/kernels.py": "792186f6122c140af007e77d878ec3522bab89e61da8f13777f2c4684df6ce0c",
+  "inference/runtime.py": "bd0d355a070d79b7ffe30a856af43eac775a1f15bce480263132a04665a1ccef",
+  "inference/test_candidate.py": "57000e10523febd4a659ad0d1fc8fbf466cf062fea7ceecfbbbb31817c1dab84",
+  "inference/test_operators.py": "3d5321f9d478595b0dcd346370092b041e9bd988db4532f1a91439f77f16a5b4",
+  "inference/tokenizer-files.json": "435014d654647142173a5c6416ae00d7edc6ecc4ed0107e08d9adc2601e21565"
+}

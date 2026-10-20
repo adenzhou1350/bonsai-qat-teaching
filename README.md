@@ -12,11 +12,11 @@
 |---|---|---:|---|
 | [35B · 8192步](experimental35/README.md) | INT2 专家 + rank16 补偿 | 15.86 GB | 已公开；提供终端聊天入口，便携入口 GPU 复验待完成 |
 | [122B · 4096步](experimental122/README.md) | 三值专家 + 4bit 稠密层 + rank8 补偿 | 30.20 GB | 已公开；使用专用单请求入口 |
-| [27B · 32步](courses/qwen38_bonsai2/README.md) | 旋转三值 QAT | 5.85 GB | [权重已公开](https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental)；教学验证用，当前不适合聊天 |
+| [27B · 32步](courses/qwen38_bonsai2/README.md) | 旋转三值 QAT | 5.85 GB | [权重已公开](https://huggingface.co/aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental)；短提示解码约9.37 token/s，教学验证用 |
 
 35B/122B 是 MoE。三条路线使用不同的自定义格式，须按[部署指南](docs/DEPLOYMENT.md)选择加载器；不能直接使用标准 vLLM 或 llama.cpp。
 
-这是独立的 Bonsai 风格教学实现。量化质量尚未全面达到原模型；27B 的96步候选已保存并通过恢复检查，生成验证仍待完成。方法区别与测量条件见[结果说明](docs/RESULTS.md)，固定下载版本见[发布目录](docs/model-releases.json)。
+这是独立的 Bonsai 风格教学实现。27B公开32步版已完成四轮八题对照，加速后短提示解码约 **9.37 token/s**、峰值allocated **8.12GiB**；质量仍未通过，进一步优化继续进行。[加速方法与复测](courses/qwen38_bonsai2/inference/README.md) · [模型区别](docs/RESULTS.md) · [固定下载版本](docs/model-releases.json)。
 
 <a id="cpu-start"></a>
 

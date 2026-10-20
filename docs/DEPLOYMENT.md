@@ -32,7 +32,7 @@ python scripts/check_deployment_environment.py --model 35b
 |---|---|---:|---|
 | R35-8192 | 终端聊天；INT2 + rank16 补偿 | 15.86 GB | 已公开，见[固定版本](model-releases.json) |
 | 122B | 大 MoE 压缩实验；三值 + 4bit + rank8 | 30.20 GB | 已公开，见[固定版本](model-releases.json) |
-| 27B旧32步 | QAT教学验证；当前不适合聊天 | 5.85 GB | 已公开，见[固定版本](model-releases.json) |
+| 27B旧32步 | QAT教学验证；短提示加速已测 | 5.85 GB | 已公开，见[固定版本](model-releases.json) |
 
 **三款产物均已公开并完成匿名验证。** 固定提交与发布状态见[发布目录](model-releases.json)。
 
@@ -81,18 +81,20 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/infer_hf.py \
 
 <a id="27b"></a>
 <details>
-<summary><strong>27B：教学验证，当前约0.69 token/s</strong></summary>
+<summary><strong>27B：教学验证，短提示解码约9.37 token/s</strong></summary>
 
 ```bash
 hf download aden1350/Qwen3.8-27B-BonsaiStyle-Ternary-QAT-Experimental \
   --revision qat-step32 --local-dir models/q38-step32
-python courses/qwen38_bonsai2/infer_prompt.py --packed models/q38-step32/packed --verify-only
-CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/infer_prompt.py \
+python courses/qwen38_bonsai2/inference/infer.py \
+  --packed models/q38-step32/packed --tokenizer models/q38-step32/tokenizer --verify-only
+CUDA_VISIBLE_DEVICES=0 python courses/qwen38_bonsai2/inference/infer.py \
   --packed models/q38-step32/packed --tokenizer models/q38-step32/tokenizer \
-  --prompt '请用一句话介绍北京。' --max-new-tokens 32 --output outputs/q38-first.json
+  --mode decode_rotate --prompt '请用一句话介绍北京。' \
+  --max-new-tokens 32 --output outputs/q38-first.json
 ```
 
-含模板的输入最多128 token，输出最多64 token。参考路径每个token重复解包完整权重矩阵，历史约0.69 token/s、峰值约24.49GiB；当前不适合日常聊天。5.85GB文件体积不等于运行显存，新自定义提问入口GPU复验待完成。
+含模板的输入最多128 token，输出最多64 token。公开32步版已完成四轮八题GPU对照：短提示热解码约9.37 token/s，峰值allocated约8.12GiB，输出与参考一致。benchmark覆盖了共用加载/生成代码；单独交互CLI未直接GPU调用，质量仍未通过。可用`--mode reference`[回退参考路径](../courses/qwen38_bonsai2/inference/README.md#reference)；[完整计时与复测](../courses/qwen38_bonsai2/inference/README.md)。
 
 </details>
 

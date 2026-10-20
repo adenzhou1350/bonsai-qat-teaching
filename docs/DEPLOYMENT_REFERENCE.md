@@ -11,7 +11,7 @@
 
 以上是历史固定64步Graph热解码，即使遇EOS也继续；不含加载、编译、预填充或Graph录制，不能当作端到端聊天速度、首token延迟或并发吞吐。显存列是PyTorch allocated，并非整卡NVML占用。35B新便携入口尚未GPU复验，不能把历史结果当成新入口已测。
 
-27B参考路径历史约0.665–0.696 token/s、峰值24.49GiB allocated，常驻模型约5.45GiB且全部在CUDA，KV缓存已开启。每个token仍逐层解包完整矩阵、转换精度、旋转并执行普通矩阵乘，存在大量临时计算和内存开销；尚未做逐算子耗时归因。当前用于教学验证，不适合日常聊天。32步续训到96步不会改变执行路径，加速需要另行实现并验证融合低比特内核。
+27B公开32步版已完成便携benchmark四轮八题对照：参考约0.69、仅直接解包3.46、加入融合旋转 **9.37 token/s**，首token计算时间中位数0.305秒，峰值allocated从24.69降至8.12GiB；输出与每步logits一致。未发布96步候选另测为9.74 token/s。两者都是短提示热计算计时，质量仍未通过，优化继续进行；[详细口径与复测](../courses/qwen38_bonsai2/inference/README.md)。
 
 原始结果：[35B五档测量](experiments/2026-10-09-2156.json) · [推理记录](experiments/INFERENCE.md) · [质量与速度口径](RESULTS.md)。
 
@@ -53,7 +53,7 @@ CUDA_VISIBLE_DEVICES=0 python experimental122/infer_hf.py \
 
 记录组合：Python3.12、Torch2.11.0+cu130、Transformers5.12.1、Triton3.6.0、causal-conv1d1.7.0（27B不要求卷积扩展）。版本固定不等于完整容器锁；驱动和编译器需自行准备。
 
-参考[PyTorch安装表](https://pytorch.org/get-started/previous-versions/)和[卷积扩展源码](https://github.com/Dao-AILab/causal-conv1d)。环境检查器仅报告版本/NVML，不初始化CUDA。35B/27B新入口的源码或CPU检查与GPU复验分别记录在各自来源清单。
+参考[PyTorch安装表](https://pytorch.org/get-started/previous-versions/)和[卷积扩展源码](https://github.com/Dao-AILab/causal-conv1d)。环境检查器仅报告版本/NVML，不初始化CUDA。27B共享加载/生成代码已由便携benchmark覆盖，单独交互CLI未直接GPU调用；35B便携入口仍待GPU复验。
 
 下载时保留完整目录，尤其 `packed/`、tokenizer及发布清单。`--verify-only`通过后再实际生成，核对文本、EOS和资源记录；用自己的中英文与格式要求检查实用性。
 

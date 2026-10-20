@@ -1,0 +1,47 @@
+{
+  "format": "q38-fast-inference-provenance-v1",
+  "file_sha256": {
+    "courses/qwen38_bonsai2/inference/benchmark.py": "6da784b8c894ec1f294a5dc6878a65b113c026a74d5d64d53e0a28d29b146fc9",
+    "courses/qwen38_bonsai2/inference/common.py": "d5cc471ad14ae2268ccc4497d750e08d330d21da0bf4d9326ec16e7370c4c2a1",
+    "courses/qwen38_bonsai2/inference/infer.py": "c64009502d4c7e1cbfcbaf73a0d3b7b3068711041eb63dafb0042d39aa06a02d",
+    "courses/qwen38_bonsai2/inference/kernels.py": "792186f6122c140af007e77d878ec3522bab89e61da8f13777f2c4684df6ce0c",
+    "courses/qwen38_bonsai2/inference/runtime.py": "bd0d355a070d79b7ffe30a856af43eac775a1f15bce480263132a04665a1ccef",
+    "courses/qwen38_bonsai2/inference/source-files.json": "548421bdec907c2b028778946fc3d7bdd93813a8ea38601467f14b68aa80a947",
+    "courses/qwen38_bonsai2/inference/test_candidate.py": "57000e10523febd4a659ad0d1fc8fbf466cf062fea7ceecfbbbb31817c1dab84",
+    "courses/qwen38_bonsai2/inference/test_operators.py": "3d5321f9d478595b0dcd346370092b041e9bd988db4532f1a91439f77f16a5b4",
+    "courses/qwen38_bonsai2/inference/tokenizer-files.json": "5298bb5f0cad0e2af6d205aaee33dac43f9027f39b9364334585d70328664819",
+    "courses/qwen38_bonsai2/inference/check_evidence.py": "d85d1f792d332f7003112457daecf5abbed369051d792e6c04a01c94353af720",
+    "courses/qwen38_bonsai2/inference/test_evidence.py": "377779d7063f6fe2b7d99f4d3f9667b7b31f2cebaf2ddf77eb0abacbed86c3d3"
+  },
+  "numerical_sources_identical_to_measured_v1": [
+    "kernels.py",
+    "runtime.py",
+    "test_candidate.py"
+  ],
+  "record": "docs/experiments/2026-10-20-Q38-inference-v1.json",
+  "validated_weights": {
+    "step96": {
+      "manifest_SHA256": "c53fa86911cd61f85321d1305fcab03c39a45c38fa5f2fc18d4cdb982988eed9",
+      "original_driver_four_rounds_passed": true,
+      "published_weights": false
+    },
+    "step32": {
+      "manifest_SHA256": "7217d5c218e4b27317e9862224113d8bf694944329d8a70c80c9ae53742a03d4",
+      "portable_four_rounds_passed": true,
+      "status": "verified_on_eight_development_prompts",
+      "record": "docs/experiments/2026-10-20-Q38-step32-fast-portable.json",
+      "pooled_decode_tokens_per_second": [
+        0.6870690357914626,
+        3.4584015803061603,
+        9.370636402824507,
+        0.6883080104236323
+      ]
+    }
+  },
+  "portable_changes": "Explicit paths, standard-library source/payload/tokenizer verification and shared generate/load functions; stable training/reference files unchanged. Actual numerical kernels and tests retain the original experiment-establishment comments; acceptance is recorded here and in the evidence.",
+  "direct_infer_CLI_GPU_verified": false,
+  "quality_accepted": false,
+  "new_training": false,
+  "weights_changed": false,
+  "shared_load_generate_GPU_verified_on_step32": true
+}
