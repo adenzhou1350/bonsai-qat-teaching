@@ -273,15 +273,18 @@
     "CPU_variable_length_objective_and_checkpoint_controls_passed": true,
     "full27B_mixed_continuation_verified": false,
     "quality_accepted": false,
-    "latest_progress_record": "../../docs/experiments/2026-10-20-Q38-mixed-continuation-midpoint.json",
+    "latest_progress_record": "../../docs/experiments/2026-10-20-Q38-mixed64-updates-exported-saving.json",
     "full27B_resumed_optimizer_update_executed": true,
-    "actual_new_updates_at_snapshot": 33,
-    "live_cumulative_updates_at_snapshot": 65,
+    "actual_new_updates_at_snapshot": 64,
+    "live_cumulative_updates_at_snapshot": 96,
     "last_saved_cumulative_updates_at_snapshot": 32,
     "original_checkpoint_forward_equal_prior_independent_proof": true,
     "teacher_all80_targets_cached_and_bitwise_reread": true,
     "first_post_update_validation_verified": true,
-    "latest_validation_new_updates": 32,
-    "additional_update_midpoint_reached": true
+    "latest_validation_new_updates": 64,
+    "additional_update_midpoint_reached": true,
+    "all_planned_additional_updates_completed": true,
+    "packed_export_completed": true,
+    "new_checkpoint_readback_verified": false
   }
 }
