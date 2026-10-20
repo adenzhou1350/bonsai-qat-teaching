@@ -32,7 +32,7 @@ python scripts/check_deployment_environment.py --model 35b
 |---|---|---:|---|
 | R35-8192 | 终端聊天；INT2 + rank16 补偿 | 15.86 GB | 发布中，尚未公开验证 |
 | 122B | 大 MoE 压缩实验；三值 + 4bit + rank8 | 30.20 GB | 发布中，尚未公开验证 |
-| 27B旧32步 | 旋转三值 QAT 教学；参考推理较慢 | 5.85 GB | 已公开 |
+| 27B旧32步 | 旋转三值 QAT 教学；参考推理较慢 | 5.85 GB | 已公开，见[固定版本](model-releases.json) |
 
 **35B/122B完成公开后才能下载**，当前私有阶段返回404属于预期。固定提交与发布状态见[发布目录](model-releases.json)。
 
