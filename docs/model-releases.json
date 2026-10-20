@@ -12,7 +12,14 @@
       "tag": "qat-step32",
       "verified_uploaded_files": 448,
       "verified_uploaded_bytes": 5873576117,
-      "anonymous_read_verified": true
+      "anonymous_read_verified": true,
+      "model_card_update": {
+        "model_card_commit": "d9e47db84fd68239917f08714b87d77971e45506",
+        "README_SHA256": "c2cbcec1d513de2e2d35fe988713a6be2d74f0b01dbb9664b7d28dfad2bb5ac8",
+        "teaching_commit": "0664e61bcf41f46d88a5d3fe5f6e07af125853e0",
+        "original_weight_tag_unchanged": true,
+        "anonymous_read_verified": true
+      }
     },
     {
       "label": "r122-native4095",
@@ -47,5 +54,5 @@
     "R35-8192 is INT2/rank16 compensation, not T35full-expertQAT. Q38 released32steps are distinct from the unpublished96step candidate.",
     "New R35 portable CLI and Q38 arbitrary-prompt CLI are not yet GPU rerun verified; historical runtime results and CPU checks are separate."
   ],
-  "recorded_at_UTC": "2026-10-20T07:15:25.249365+00:00"
+  "recorded_at_UTC": "2026-10-20T07:21:08.083132+00:00"
 }
